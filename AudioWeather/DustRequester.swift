@@ -11,6 +11,11 @@ import Foundation
 
 class DustRequester: NSObject, XMLParserDelegate {
     
+    
+    enum Grade{
+        case unknown, good, normal, bad, worst
+    }
+    
     static let instance = DustRequester()
     
     let informGradeKey = "informGrade"
@@ -28,7 +33,7 @@ class DustRequester: NSObject, XMLParserDelegate {
     
     var dataTemp:String = ""
     
-    var dustDict:Dictionary = [String: [String: String]]()
+    var dustDict:Dictionary = [String: [String: Grade]]()
     
     override init(){
         super.init()
@@ -36,19 +41,32 @@ class DustRequester: NSObject, XMLParserDelegate {
     }
     
     
+    func currentDate() -> String {
+        
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        
+        return dateFormatter.string(from:date)
+    }
+    
+    
     func createRequest() -> URLRequest{
         
-        let url:String = String("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMinuDustFrcstDspth").appending("?searchDate").appending("=2017-05-03").appending("&ServiceKey").appending(GlobalConfig.instance.getDustServiceKey())
+        let url:String = String("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMinuDustFrcstDspth").appending("?searchDate=").appending(currentDate()).appending("&ServiceKey=").appending(GlobalConfig.instance.getDustServiceKey())
         
         var request = URLRequest(url:URL(string: url)!)
         request.httpMethod = "GET"
         request.timeoutInterval = 3
         
         return request
-        
     }
     
-    public func request(completionHandler: @escaping ([String: [String: String]]?) -> Void) {
+    
+    
+    public func request(completionHandler: @escaping ([String: [String: Grade]]?) -> Void) {
         
         let request = createRequest()
         
@@ -117,9 +135,31 @@ class DustRequester: NSObject, XMLParserDelegate {
     
     
     
-    func parseGrade(grade: String) -> [String:String]{
+    func stringToEnum(grade:String) -> Grade{
+    
+        switch grade{
+
+            case "좋음":
+                return Grade.good
+
+            case "보통":
+                return Grade.normal
+
+            case "나쁨":
+                return Grade.bad
+
+            case "매우나쁨":
+                return Grade.worst
+            
+            default:
+                return Grade.unknown
+        }
         
-        var gradeDict:Dictionary = [String: String]()
+    }
+    
+    func parseGrade(grade: String) -> [String: Grade] {
+        
+        var gradeDict:Dictionary = [String: Grade]()
         
         let gradeList : [String] = grade.components(separatedBy: ",")
         
@@ -130,7 +170,7 @@ class DustRequester: NSObject, XMLParserDelegate {
             
             if localGrade.count == 2 {
                 
-                gradeDict[localGrade[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)] = localGrade[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                gradeDict[localGrade[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)] = stringToEnum(grade: localGrade[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
             }
         }
         
@@ -157,21 +197,21 @@ class DustRequester: NSObject, XMLParserDelegate {
 
         
         if elementName == self.informDataKey{
+            
             self.informDataFlag = false
         
-            if self.dataTemp == "2017-05-03" && (self.codeLast == "PM10" || self.codeLast == "PM25") {
-                
-                if (self.dustDict[codeLast]  == nil){
+            if  (self.codeLast == "PM10" || self.codeLast == "PM25") && self.dataTemp == currentDate() {
             
+                if (self.dustDict[codeLast]  == nil){
+                    
                     self.dustDict[codeLast] = parseGrade(grade:self.gradeLast)
                     
                 }
-
+                
             }
             
             self.dataTemp.removeAll()
         }
-        
         
     }
     
