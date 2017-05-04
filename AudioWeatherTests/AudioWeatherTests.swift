@@ -32,6 +32,37 @@ class AudioWeatherTests: XCTestCase {
     }
     
     
+    func testWeatherRequest(){
+        
+        let expt = expectation(description: "Waiting weather request..")
+        
+        WeatherRequester.instance.request(){ response in
+            
+            guard let responseValue = response, response?.isEmpty == false else {
+                
+                XCTAssert(false)
+                return
+            }
+            
+            print(responseValue)
+            
+            expt.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5.0){ error in
+            
+            guard error == nil else {
+                
+                XCTAssert(false)
+                return
+            }
+        }
+        
+        
+    }
+    
+    
+    /*
     func testDustRequest(){
         
         let expt = expectation(description: "Waiting dust request..")
@@ -59,8 +90,6 @@ class AudioWeatherTests: XCTestCase {
         }
         
     }
-    
-    
-
+ */
 
 }
