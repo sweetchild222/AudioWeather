@@ -80,7 +80,7 @@ class DustRequester: NSObject, XMLParserDelegate {
                 return
             }
             
-            guard let dataValue = data, data?.count != 0 else {
+            guard let dataValue = data, dataValue.count != 0 else {
     
                 completionHandler(nil)
                 return
