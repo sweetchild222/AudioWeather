@@ -38,7 +38,7 @@ class AudioWeatherTests: XCTestCase {
         
         WeatherRequester.instance.request(){ response in
             
-            guard let responseValue = response, response?.isEmpty == false else {
+            guard let responseValue = response, responseValue.isEmpty == false else {
                 
                 XCTAssert(false)
                 return
@@ -69,7 +69,7 @@ class AudioWeatherTests: XCTestCase {
         
         DustRequester.instance.request(){ response in
             
-            guard let responseValue = response, response?.isEmpty == false else {
+            guard let responseValue = response, responseValue.isEmpty == false else {
                 
                 XCTAssert(false)
                 return
@@ -90,6 +90,7 @@ class AudioWeatherTests: XCTestCase {
         }
         
     }
- */
+     */
+
 
 }

@@ -212,12 +212,48 @@ class WeatherRequester{
         
         requestCore(request: createRequestCurrentData()){ response in
             
-            let responseValue = String(data: response!, encoding: String.Encoding.utf8)
+            guard let responseValue = response, responseValue.count > 0 else{
+                print("error")
+                return
+            }
             
-            //completionHandler(responseValue)
+            if let json = try? JSONSerialization.jsonObject(with: responseValue) as? [String:Any] {
+                
+                let result = ((json?["response"] as? [String:Any])?["header"] as? [String:Any])?["resultCode"] as? String
+                
+                if Int(result!) == 0 {
+                    
+                    let items = ((((json?["response"] as? [String:Any])?["body"] as? [String:Any])?["items"]) as? [String:Any])?["ite"] as? [[String:Any]]
+                    
+                    for item in items!{
+                        
+                        print("@@@@@@@@")
+                        print(item["category"]!)
+                        
+                    }
+
+                    
+                    
+                    //print(items!)
+                    
+                }
+            }
+            else{
+                print("error")
+            }
+            
+    
+            
+            //let responseValue = String(data: response!, encoding: String.Encoding.utf8)
+            
+            completionHandler("aa")
+            
+
 
         }
         
+        
+        /*
         requestCore(request: createRequestTimeData()){ response in
             
             let responseValue = String(data: response!, encoding: String.Encoding.utf8)
@@ -231,11 +267,13 @@ class WeatherRequester{
             
             let responseValue = String(data: response!, encoding: String.Encoding.utf8)
             
-            completionHandler(responseValue)
+            //completionHandler(responseValue)
             
             
             
         }
+ 
+         */
         
     }
     
