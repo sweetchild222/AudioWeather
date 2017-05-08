@@ -9,54 +9,12 @@
 import Foundation
 
 
-class WeatherData{
-    
-    enum PtyCode{
-        case unknown, No, rain, rainAndSnow, Snow
-    }
-    
-    enum SkyCode{
-        
-        case unknown, clean, small, much, gary
-    
-    }
-    
-    var htm:Int             // hour
-    var pop:Int             // rainFall percent
-    var rn1:Int             // rainFall amount
-    var reh:Int             // humidity percent
-    var tmp:Float           // temperature
-    
-    var sky:SkyCode
-    var pty:PtyCode
-    
-    init(htm:Int, pty:PtyCode, pop:Int, rn1:Int, reh:Int, sky:SkyCode, tmp:Float){
-        
-        self.htm = htm
-        self.pty = pty
-        self.pop = pop
-        self.rn1 = rn1
-        self.reh = reh
-        self.sky = sky
-        self.tmp = tmp
-        
-        print("htm : \(self.htm)")
-        print("pty : \(self.pty)")
-        print("sky : \(self.sky)")
-        print("rn1 : \(self.rn1)")
-        print("reh : \(self.reh)")
-        print("tmp : \(self.tmp)")
-        print("pop : \(self.pop)")
-    }
-}
-
-
 class WeatherRequester{
     
     static let instance = WeatherRequester()
     
     var cuurentData:WeatherData?
-    
+    var timeData:[WeatherData] = [WeatherData]()
 
     
     func getDate(date: Date) -> String{
@@ -231,7 +189,7 @@ class WeatherRequester{
         switch value {
             
             case 0:
-                    return WeatherData.PtyCode.No
+                return WeatherData.PtyCode.No
 
             case 1:
                 return WeatherData.PtyCode.rain
@@ -269,13 +227,24 @@ class WeatherRequester{
         default:
             return WeatherData.SkyCode.unknown
         }
+    }
+    
+    
+    
+    func anyToInt(value:Any) -> Int{
         
+        guard let guardValue = value as? String else{
+            
+            return value as! Int
+            
+        }
+        
+        return Int(guardValue)!
     }
     
     
     func updateCurrentValue(items:[[String:Any]]) -> Bool{
      
-        
         var reh:Int?
         var rn1:Int?
         var pty:WeatherData.PtyCode?
@@ -285,29 +254,24 @@ class WeatherRequester{
         
         self.cuurentData = nil
         
-        let htm = (items[0]["baseTime"] as? Int)! / 100
-        
+        let baseHtm = anyToInt(value: items[0]["baseTime"]!) / 100
         
         for item in items {
             
-            let category = item["category"] as? String
+            let itemHtm = anyToInt(value: item["baseTime"]!) / 100
             
-            
-            let itemHtm = (items[0]["baseTime"] as? Int)! / 100
-            
-            
-            if itemHtm != htm{
+            if itemHtm != baseHtm{
                 return false
             }
-            
-            if category == nil{
+
+            guard let category = item["category"] as? String else{
                 return false
             }
             
             
             let value = item["obsrValue"] as Any
             
-            switch category! {
+            switch category {
                 
                 case "REH":
                     reh = value as? Int
@@ -316,10 +280,10 @@ class WeatherRequester{
                     rn1 = value as? Int
                 
                 case "PTY":
-                    pty = valueToPtyCode(value:(value as? Int)!)
+                    pty = valueToPtyCode(value:(value as! Int))
                 
                 case "SKY":
-                    sky = valueToSkyCode(value:(value as? Int)!)
+                    sky = valueToSkyCode(value:(value as! Int))
                 
                 case "T1H":
                     tmp = value as? Float
@@ -337,44 +301,175 @@ class WeatherRequester{
         }
         
     
-        self.cuurentData = WeatherData(htm:htm, pty:pty!, pop:pop!, rn1:rn1!, reh:reh!, sky:sky!, tmp:tmp!)
+        self.cuurentData = WeatherData(htm:baseHtm, pty:pty!, pop:pop!, rn1:rn1!, reh:reh!, sky:sky!, tmp:tmp!)
         
         return true
     }
     
     
-    func parseCurrentData(data:Data) -> Bool {
+    func updateTimeDataValue(items:[[String:Any]]) -> Bool{
+        
+        var rehList = [Int:Int]()
+        var ptyList = [Int:Int]()
+        var rn1List = [Int:Int]()
+        var skyList = [Int:Int]()
+        var t1hList = [Int:Float]()
+        var popList = [Int:Int]()
 
-        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String:Any] else {
-            return false
-        }
-        
-        let result = ((json?["response"] as? [String:Any])?["header"] as? [String:Any])?["resultCode"] as? String
-        
-        if Int(result!) != 0 {
-            return false
-        }
-        
-        let items = ((((json?["response"] as? [String:Any])?["body"] as? [String:Any])?["items"]) as? [String:Any])?["item"] as? [[String:Any]]
+        for item in items {
+
+            let fcstTime = anyToInt(value: item["fcstTime"]!) / 100
             
-        if items == nil || (items?.count)! <= 0 {
+            guard let category = item["category"] as? String else{
+                return false
+            }
+            
+        
+            let value = item["fcstValue"] as Any
+            
+            switch category {
+                
+                case "REH":
+                    rehList[fcstTime] = value as? Int
+                    
+                case "RN1":
+                    rn1List[fcstTime] = value as? Int
+                    
+                case "PTY":
+                    
+                    guard let guardValue = value as? Int else{
+                        return false
+                    }
+                    
+                    ptyList[fcstTime] = guardValue
+                    
+                    if guardValue == 0 {
+                        popList[fcstTime] = 0
+                    }
+                    else{
+                        popList[fcstTime] = 100
+                    }
+                    
+                case "SKY":
+                    skyList[fcstTime] = value as? Int
+                    
+                case "T1H":
+                    t1hList[fcstTime] = value as? Float
+                    
+                default:
+                    print("undefined category!")
+            }
+ 
+        }
+        
+        
+        let count = rehList.count
+        
+        if count != ptyList.count || count != rn1List.count || count != skyList.count || count != popList.count || count != t1hList.count{
             return false
         }
         
-        if self.updateCurrentValue(items:items!) == false {
-            return false
+        self.timeData.removeAll()
+        
+        for item in rehList {
+            
+            let key = item.key
+            
+            guard let reh = rehList[key] else {
+                return false
+            }
+            
+            guard let rn1 = rn1List[key] else {
+                return false
+            }
+
+            guard let pty = ptyList[key] else {
+                return false
+            }
+            
+            guard let sky = skyList[key] else {
+                return false
+            }
+
+            guard let pop = popList[key] else {
+                return false
+            }
+            
+            guard let t1h = t1hList[key] else {
+                return false
+            }
+            
+            
+            let weatherData = WeatherData(htm:key, pty:valueToPtyCode(value: pty), pop:pop, rn1:rn1, reh:reh, sky:valueToSkyCode(value: sky), tmp:t1h)
+
+            self.timeData.append(weatherData)
+            
         }
         
         return true
     }
     
+    
+    func extractItems(data:Data) -> [[String:Any]]? {
+        
+        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String:Any] else {
+            return nil
+        }
+        
+        let result = ((json?["response"] as! [String:Any])["header"] as! [String:Any])["resultCode"] as! String
+        
+        if Int(result) != 0 {
+            return nil
+        }
+        
+        let items = ((((json?["response"] as! [String:Any])["body"] as! [String:Any])["items"]) as! [String:Any])["item"] as? [[String:Any]]
+        
+        if items == nil || (items?.count)! <= 0 {
+            return nil
+        }
+        
+        return items
+    }
+    
+    
+    func parseCurrentData(data:Data?) -> Bool {
+        
+        guard let guardData = data, guardData.count > 0 else {
+            return false
+        }
+        
+        let items = extractItems(data:guardData)
+        
+        if items == nil{
+            return false
+        }
+        
+        return self.updateCurrentValue(items:items!)
+    }
+    
+    
+    func parseTimeData(data:Data?) -> Bool {
+        
+        guard let guardData = data, guardData.count > 0 else {
+            return false
+        }
+        
+        let items = extractItems(data:guardData)
+        
+        if items == nil{
+            return false
+        }
+        
+        return self.updateTimeDataValue(items:items!)
+
+    }
     
     public func request(completionHandler: @escaping (String?) -> Void) {
         
+    /*
         requestCore(request: createRequestCurrentData()){ response in
             
             guard let responseValue = response, responseValue.count > 0 else {
-
                 return
             }
             
@@ -385,29 +480,35 @@ class WeatherRequester{
             completionHandler("aa")
 
         }
-        
-        
-        /*
+ */
+ 
+
         requestCore(request: createRequestTimeData()){ response in
             
-            let responseValue = String(data: response!, encoding: String.Encoding.utf8)
+            if(self.parseTimeData(data:response) == false){
+                print("error parse time data")
+            }
             
-            //completionHandler(responseValue)
-            
+            //let value = String(data: responseValue, encoding: String.Encoding.utf8)
+            completionHandler("gg")
             
         }
+
         
+            /*
         requestCore(request: createRequestSpaceData()){ response in
             
+        
             let responseValue = String(data: response!, encoding: String.Encoding.utf8)
             
             //completionHandler(responseValue)
             
-            
+ 
             
         }
  
-         */
+ */
+        
         
     }
     

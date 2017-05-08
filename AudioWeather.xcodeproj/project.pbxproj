@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6246D91EC0A2740044F5B7 /* WeatherData.swift */; };
 		6C631E1C1EBAFB4D00AC3D78 /* WeatherRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C631E1B1EBAFB4D00AC3D78 /* WeatherRequester.swift */; };
 		6C774E061EB75E1500709895 /* DustRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C774E051EB75E1500709895 /* DustRequester.swift */; };
 		6C774E0E1EB9F76800709895 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C774E0D1EB9F76800709895 /* GlobalConfig.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C6246D91EC0A2740044F5B7 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		6C631E1B1EBAFB4D00AC3D78 /* WeatherRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherRequester.swift; sourceTree = "<group>"; };
 		6C774E051EB75E1500709895 /* DustRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DustRequester.swift; sourceTree = "<group>"; };
 		6C774E0D1EB9F76800709895 /* GlobalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				6C774E051EB75E1500709895 /* DustRequester.swift */,
 				6C774E0D1EB9F76800709895 /* GlobalConfig.swift */,
 				6C631E1B1EBAFB4D00AC3D78 /* WeatherRequester.swift */,
+				6C6246D91EC0A2740044F5B7 /* WeatherData.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				6C774E0E1EB9F76800709895 /* GlobalConfig.swift in Sources */,
 				6C8BDBB31EB6F8D2001EA059 /* ViewController.swift in Sources */,
 				6C8BDBB11EB6F8D2001EA059 /* AppDelegate.swift in Sources */,
+				6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */,
 				6C774E061EB75E1500709895 /* DustRequester.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
