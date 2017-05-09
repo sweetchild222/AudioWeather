@@ -185,7 +185,6 @@ class WeatherRequester{
     
     func valueToPtyCode(value:Int) ->WeatherData.PtyCode {
         
-        
         switch value {
             
             case 0:
@@ -201,7 +200,7 @@ class WeatherRequester{
                 return WeatherData.PtyCode.Snow
 
             default:
-                    return WeatherData.PtyCode.unknown
+                return WeatherData.PtyCode.unknown
         }
     
     }
@@ -209,23 +208,22 @@ class WeatherRequester{
     
     func valueToSkyCode(value:Int) ->WeatherData.SkyCode {
         
-        
         switch value {
             
-        case 1:
-            return WeatherData.SkyCode.clean
-            
-        case 2:
-            return WeatherData.SkyCode.small
+            case 1:
+                return WeatherData.SkyCode.clean
+                
+            case 2:
+                return WeatherData.SkyCode.small
 
-        case 3:
-            return WeatherData.SkyCode.much
-            
-        case 4:
-            return WeatherData.SkyCode.gary
-            
-        default:
-            return WeatherData.SkyCode.unknown
+            case 3:
+                return WeatherData.SkyCode.much
+                
+            case 4:
+                return WeatherData.SkyCode.gary
+                
+            default:
+                return WeatherData.SkyCode.unknown
         }
     }
     
@@ -307,6 +305,50 @@ class WeatherRequester{
     }
     
     
+    
+    func updateTimeDataValueCore(rehList:[Int:Int], ptyList:[Int:Int], rn1List:[Int:Int], skyList:[Int:Int], t1hList:[Int:Float], popList:[Int:Int]) ->Bool {
+        
+        self.timeData.removeAll()
+        
+        for item in rehList {
+            
+            let key = item.key
+            
+            guard let reh = rehList[key] else {
+                return false
+            }
+            
+            guard let rn1 = rn1List[key] else {
+                return false
+            }
+            
+            guard let pty = ptyList[key] else {
+                return false
+            }
+            
+            guard let sky = skyList[key] else {
+                return false
+            }
+            
+            guard let pop = popList[key] else {
+                return false
+            }
+            
+            guard let t1h = t1hList[key] else {
+                return false
+            }
+            
+            
+            let weatherData = WeatherData(htm:key, pty:valueToPtyCode(value: pty), pop:pop, rn1:rn1, reh:reh, sky:valueToSkyCode(value: sky), tmp:t1h)
+            
+            self.timeData.append(weatherData)
+            
+        }
+        
+        return true
+    }
+    
+    
     func updateTimeDataValue(items:[[String:Any]]) -> Bool{
         
         var rehList = [Int:Int]()
@@ -369,64 +411,29 @@ class WeatherRequester{
             return false
         }
         
-        self.timeData.removeAll()
         
-        for item in rehList {
-            
-            let key = item.key
-            
-            guard let reh = rehList[key] else {
-                return false
-            }
-            
-            guard let rn1 = rn1List[key] else {
-                return false
-            }
-
-            guard let pty = ptyList[key] else {
-                return false
-            }
-            
-            guard let sky = skyList[key] else {
-                return false
-            }
-
-            guard let pop = popList[key] else {
-                return false
-            }
-            
-            guard let t1h = t1hList[key] else {
-                return false
-            }
-            
-            
-            let weatherData = WeatherData(htm:key, pty:valueToPtyCode(value: pty), pop:pop, rn1:rn1, reh:reh, sky:valueToSkyCode(value: sky), tmp:t1h)
-
-            self.timeData.append(weatherData)
-            
-        }
-        
-        return true
+        return updateTimeDataValueCore(rehList:rehList, ptyList:ptyList, rn1List:rn1List, skyList:skyList, t1hList:t1hList, popList:popList)
     }
     
     
     func extractItems(data:Data) -> [[String:Any]]? {
         
         guard let json = try? JSONSerialization.jsonObject(with: data) as? [String:Any] else {
+            
             return nil
         }
         
-        let result = ((json?["response"] as! [String:Any])["header"] as! [String:Any])["resultCode"] as! String
+        guard let result = ((json?["response"] as! [String:Any])["header"] as! [String:Any])["resultCode"] as? String, Int(result) == 0 else  {
+            
+            return nil
+        }
+
         
-        if Int(result) != 0 {
+        guard let items = ((((json?["response"] as! [String:Any])["body"] as! [String:Any])["items"]) as! [String:Any])["item"] as? [[String:Any]], items.count > 0 else {
+            
             return nil
         }
         
-        let items = ((((json?["response"] as! [String:Any])["body"] as! [String:Any])["items"]) as! [String:Any])["item"] as? [[String:Any]]
-        
-        if items == nil || (items?.count)! <= 0 {
-            return nil
-        }
         
         return items
     }
@@ -438,13 +445,11 @@ class WeatherRequester{
             return false
         }
         
-        let items = extractItems(data:guardData)
-        
-        if items == nil{
+        guard let items = extractItems(data:guardData) else{
             return false
         }
         
-        return self.updateCurrentValue(items:items!)
+        return self.updateCurrentValue(items:items)
     }
     
     
@@ -454,13 +459,11 @@ class WeatherRequester{
             return false
         }
         
-        let items = extractItems(data:guardData)
-        
-        if items == nil{
+        guard let items = extractItems(data:guardData) else{
             return false
         }
         
-        return self.updateTimeDataValue(items:items!)
+        return self.updateTimeDataValue(items:items)
 
     }
     
