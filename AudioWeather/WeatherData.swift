@@ -20,29 +20,32 @@ class WeatherData{
         
     }
     
-    var htm:Int             // hour
-    var pop:Int             // rainFall percent
-    var rn1:Int             // rainFall amount
-    var reh:Int             // humidity percent
-    var tmp:Float           // temperature
+    let htm:Int             // hour
+    let pop:Int             // rainFall percent
+    let rna:Int             // rainFall amount
+    let reh:Int             // humidity percent
+    let tmp:Float           // temperature
+    var hrs:Int             // hour space
     
-    var sky:SkyCode
-    var pty:PtyCode
+    let sky:SkyCode
+    let pty:PtyCode
     
-    init(htm:Int, pty:PtyCode, pop:Int, rn1:Int, reh:Int, sky:SkyCode, tmp:Float){
+    init(htm:Int, hrs:Int, pty:PtyCode, pop:Int, rna:Int, reh:Int, sky:SkyCode, tmp:Float){
         
         self.htm = htm
+        self.hrs = hrs
         self.pty = pty
         self.pop = pop
-        self.rn1 = rn1
+        self.rna = rna
         self.reh = reh
         self.sky = sky
         self.tmp = tmp
         
         print("htm : \(self.htm)")
+        print("hrs : \(self.hrs)")
         print("pty : \(self.pty)")
         print("sky : \(self.sky)")
-        print("rn1 : \(self.rn1)")
+        print("rna : \(self.rna)")
         print("reh : \(self.reh)")
         print("tmp : \(self.tmp)")
         print("pop : \(self.pop)")

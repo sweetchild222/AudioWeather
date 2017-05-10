@@ -31,6 +31,18 @@ class WeatherRequester{
         return dateFormatter.string(from:date)
     }
     
+    
+    func getFcstToday() -> Int{
+        
+        return Int(getDate(date: Date()))!
+    }
+    
+    
+    func getFcstCurHour() -> Int{
+        
+        return Int(getTime(date: spaceDataBaseDate(), addHalfMin:false))!
+    }
+    
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -236,10 +248,10 @@ class WeatherRequester{
     }
     
     
-    func updateCurrentValue(items:[[String:Any]]) -> WeatherData? {
+    func parseCurrentWeatherData(items:[[String:Any]]) -> WeatherData? {
      
         var reh:Int?
-        var rn1:Int?
+        var rna:Int?
         var pty:WeatherData.PtyCode?
         var sky:WeatherData.SkyCode?
         var pop:Int?
@@ -268,7 +280,7 @@ class WeatherRequester{
                     reh = value as? Int
                 
                 case "RN1":
-                    rn1 = value as? Int
+                    rna = value as? Int
                 
                 case "PTY":
                     pty = valueToPtyCode(value:(value as! Int))
@@ -280,7 +292,7 @@ class WeatherRequester{
                     tmp = value as? Float
 
                 default:
-                    print("undefined category!")
+                    continue
             }
         }
         
@@ -291,12 +303,12 @@ class WeatherRequester{
             pop = 100
         }
         
-        return WeatherData(htm:baseHtm, pty:pty!, pop:pop!, rn1:rn1!, reh:reh!, sky:sky!, tmp:tmp!)
+        return WeatherData(htm:baseHtm, hrs:1, pty:pty!, pop:pop!, rna:rna!, reh:reh!, sky:sky!, tmp:tmp!)
     }
     
     
     
-    func updateTimeDataValueCore(rehList:[Int:Int], ptyList:[Int:Int], rn1List:[Int:Int], skyList:[Int:Int], t1hList:[Int:Float], popList:[Int:Int]) ->[WeatherData]? {
+    func listToWeatherDataList(hrs:Int, rehList:[Int:Int], ptyList:[Int:Int], rnaList:[Int:Int], skyList:[Int:Int], tmpList:[Int:Float], popList:[Int:Int]) ->[WeatherData]? {
         
         var weatherDataList:[WeatherData] = [WeatherData]()
         
@@ -308,7 +320,7 @@ class WeatherRequester{
                 return nil
             }
             
-            guard let rn1 = rn1List[key] else {
+            guard let rna = rnaList[key] else {
                 return nil
             }
             
@@ -324,28 +336,27 @@ class WeatherRequester{
                 return nil
             }
             
-            guard let t1h = t1hList[key] else {
+            guard let tmp = tmpList[key] else {
                 return nil
             }
             
 
-            let weatherData = WeatherData(htm:key, pty:valueToPtyCode(value: pty), pop:pop, rn1:rn1, reh:reh, sky:valueToSkyCode(value: sky), tmp:t1h)
+            let weatherData = WeatherData(htm:key, hrs:hrs, pty:valueToPtyCode(value: pty), pop:pop, rna:rna, reh:reh, sky:valueToSkyCode(value: sky), tmp:tmp)
             
             weatherDataList.append(weatherData)
-            
         }
         
         return weatherDataList
     }
     
     
-    func updateTimeDataValue(items:[[String:Any]]) -> [WeatherData]? {
+    func parseTimeWeatherData(items:[[String:Any]]) -> [WeatherData]? {
         
         var rehList = [Int:Int]()
         var ptyList = [Int:Int]()
-        var rn1List = [Int:Int]()
+        var rnaList = [Int:Int]()
         var skyList = [Int:Int]()
-        var t1hList = [Int:Float]()
+        var tmpList = [Int:Float]()
         var popList = [Int:Int]()
 
         for item in items {
@@ -365,7 +376,7 @@ class WeatherRequester{
                     rehList[fcstTime] = value as? Int
                     
                 case "RN1":
-                    rn1List[fcstTime] = value as? Int
+                    rnaList[fcstTime] = value as? Int
                     
                 case "PTY":
                     
@@ -386,10 +397,10 @@ class WeatherRequester{
                     skyList[fcstTime] = value as? Int
                     
                 case "T1H":
-                    t1hList[fcstTime] = value as? Float
+                    tmpList[fcstTime] = value as? Float
                     
                 default:
-                    print("undefined category!")
+                    continue
             }
  
         }
@@ -397,12 +408,100 @@ class WeatherRequester{
         
         let count = rehList.count
         
-        if count != ptyList.count || count != rn1List.count || count != skyList.count || count != popList.count || count != t1hList.count{
+        if count != ptyList.count || count != rnaList.count || count != skyList.count || count != popList.count || count != tmpList.count{
+            print("different time data list count")
             return nil
         }
         
         
-        return updateTimeDataValueCore(rehList:rehList, ptyList:ptyList, rn1List:rn1List, skyList:skyList, t1hList:t1hList, popList:popList)
+        return listToWeatherDataList(hrs:1, rehList:rehList, ptyList:ptyList, rnaList:rnaList, skyList:skyList, tmpList:tmpList, popList:popList)
+    }
+    
+    
+    
+    
+    func parseSpaceWeatherData(items:[[String:Any]]) -> WeatherDataSpaceList? {
+        
+        var rehList = [Int:Int]()
+        var ptyList = [Int:Int]()
+        var rnaList = [Int:Int]()
+        var skyList = [Int:Int]()
+        var tmpList = [Int:Float]()
+        var popList = [Int:Int]()
+        var tmx:Float?
+        
+        for item in items {
+            
+            let fcstTime = anyToInt(value: item["fcstTime"]!) / 100
+            
+            guard let category = item["category"] as? String else{
+                return nil
+            }
+            
+
+            if getFcstToday() != anyToInt(value: item["fcstDate"] as Any){
+                continue
+            }
+            
+            
+            if (getFcstCurHour() / 100) > fcstTime {
+                continue
+            }
+            
+            
+            let value = item["fcstValue"] as Any
+            
+            switch category {
+                
+                case "REH":
+                    rehList[fcstTime] = value as? Int
+                    
+                case "R06":
+                    rnaList[fcstTime] = (value as? Int)! / 2
+                    rnaList[fcstTime + 3] = (value as? Int)! / 2
+                    
+                case "PTY":
+                    ptyList[fcstTime] = value as? Int
+                    
+                case "POP":
+                    popList[fcstTime] = value as? Int
+                    
+                case "SKY":
+                    skyList[fcstTime] = value as? Int
+                    
+                case "T3H":
+                    tmpList[fcstTime] = value as? Float
+                    
+                case "TMX":
+                    
+                    guard let tmxValue = value as? Float else{
+                        
+                        return nil
+                    }
+                    
+                    if tmx == nil || (tmx != nil && (tmx! < tmxValue)) {
+                        tmx = tmxValue
+                    }
+                    
+                default:
+                    continue
+            }
+        }
+    
+        let count = rehList.count
+        
+        if(count == 0){
+            return nil
+        }
+        
+        if count != ptyList.count || count != rnaList.count || count != skyList.count || count != popList.count || count != tmpList.count{
+            print("different space data list count")
+            return nil
+        }
+        
+        let weatherDataList = listToWeatherDataList(hrs:3, rehList:rehList, ptyList:ptyList, rnaList:rnaList, skyList:skyList, tmpList:tmpList, popList:popList)
+        
+        return WeatherDataSpaceList(dataList:weatherDataList!, tmx:tmx!)
     }
     
     
@@ -428,60 +527,57 @@ class WeatherRequester{
         return items
     }
     
-    
-    func parseCurrentData(data:Data) -> WeatherData? {
-        
-        guard let items = extractItems(data:data) else{
-            return nil
-        }
-        
-        return self.updateCurrentValue(items:items)
-    }
-    
-    
-    func parseTimeData(data:Data) -> [WeatherData]? {
-    
-        guard let items = extractItems(data:data) else{
-            return nil
-        }
-        
-        
-        return self.updateTimeDataValue(items:items)
 
-    }
     
     public func request(completionHandler: @escaping (String?) -> Void) {
         
-        
+        /*
         requestCore(request: createRequestCurrentData()){ response in
          
             guard let responseValue = response, responseValue.count > 0 else {
+         
                 return
             }
             
-            guard let weatherData = self.parseCurrentData(data:responseValue) else {
-                print("error parse current data")
+            
+            guard let items = self.extractItems(data:responseValue) else{
+         
                 return
             }
             
-            print(weatherData.htm)
+            
+            guard let weatherData = self.parseCurrentWeatherData(items: items) else {
+         
+                print("error parse current weather data")
+                return
+            }
+            
+            
+            print(weatherData)
 
             completionHandler("aa")
 
         }
+ */
         
  
 
-        /*
+  /*
         requestCore(request: createRequestTimeData()){ response in
             
             guard let responseValue = response, responseValue.count > 0 else {
+         
                 return
             }
             
-            guard let weatherDataList = self.parseTimeData(data: responseValue) else {
+            guard let items = self.extractItems(data:responseValue) else{
+         
+                return
+            }
+            
+            guard let weatherDataList = self.parseTimeWeatherData(items:items) else {
                 
-                print("error parse time data")
+                print("error parse time weather data")
                 return
             }
             
@@ -495,26 +591,35 @@ class WeatherRequester{
  
 
         
-            /*
+        
+        
         requestCore(request: createRequestSpaceData()){ response in
             
-        
-            let responseValue = String(data: response!, encoding: String.Encoding.utf8)
+            guard let responseValue = response, responseValue.count > 0 else {
+
+                return
+            }
             
-            //completionHandler(responseValue)
             
- 
+            guard let items = self.extractItems(data:responseValue) else{
             
+                return
+            }
+            
+            
+            guard let weatherDataSpaceList = self.parseSpaceWeatherData(items:items) else {
+                
+                print("error parse space weather data")
+                return
+            }
+            
+            
+            print(weatherDataSpaceList.tmx)
+            
+            completionHandler("gg")
+
         }
- 
- */
-        
-        
+
     }
-    
-    
-    
-    
-    
     
 }
