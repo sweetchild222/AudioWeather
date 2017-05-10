@@ -41,6 +41,7 @@ class WeatherData{
         self.sky = sky
         self.tmp = tmp
         
+        /*
         print("htm : \(self.htm)")
         print("hrs : \(self.hrs)")
         print("pty : \(self.pty)")
@@ -49,5 +50,6 @@ class WeatherData{
         print("reh : \(self.reh)")
         print("tmp : \(self.tmp)")
         print("pop : \(self.pop)")
+ */
     }
 }

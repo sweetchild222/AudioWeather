@@ -36,15 +36,18 @@ class AudioWeatherTests: XCTestCase {
         
         let expt = expectation(description: "Waiting weather request..")
         
-        WeatherRequester.instance.request(){ response in
+        WeatherRequester.instance.request(){ currentData, timeData, spaceData in
             
-            guard let responseValue = response, responseValue.isEmpty == false else {
-                
-                XCTAssert(false)
-                return
+            
+            
+            print(currentData!)
+            print(timeData!)
+            
+            if spaceData != nil{
+            
+                print(spaceData!)
             }
             
-            print(responseValue)
             
             expt.fulfill()
         }

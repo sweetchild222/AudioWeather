@@ -13,6 +13,16 @@ class WeatherRequester{
     
     static let instance = WeatherRequester()
     
+
+    var exitCount:Int = 0
+    
+    var currentData:WeatherData?
+    var timeData:[WeatherData]?
+    var spaceData:WeatherDataSpaceList?
+
+    
+    
+    
     func getDate(date: Date) -> String{
         
         let dateFormatter = DateFormatter()
@@ -527,75 +537,103 @@ class WeatherRequester{
         return items
     }
     
+    
+    
+    func throughCompletionHander(completionHandler: @escaping (WeatherData?, [WeatherData]?, WeatherDataSpaceList?) -> Void) {
+        
+        if self.exitCount == 0{
+            
+            completionHandler(self.currentData, self.timeData, self.spaceData)
+        }
+    }
 
     
-    public func request(completionHandler: @escaping (String?) -> Void) {
+    public func request(completionHandler: @escaping (WeatherData?, [WeatherData]?, WeatherDataSpaceList?) -> Void) {
         
-        /*
+        self.exitCount = 3
+        self.currentData = nil
+        self.timeData = nil
+        self.spaceData = nil
+        
+        
         requestCore(request: createRequestCurrentData()){ response in
          
+            self.exitCount -= 1
+         
             guard let responseValue = response, responseValue.count > 0 else {
          
+                self.throughCompletionHander(completionHandler: completionHandler)
+                
                 return
             }
             
             
             guard let items = self.extractItems(data:responseValue) else{
          
+                self.throughCompletionHander(completionHandler: completionHandler)
+                
                 return
             }
             
             
-            guard let weatherData = self.parseCurrentWeatherData(items: items) else {
+            guard let currentData = self.parseCurrentWeatherData(items: items) else {
          
-                print("error parse current weather data")
+                print("error parse current data")
+                
+                self.throughCompletionHander(completionHandler: completionHandler)
+                
                 return
             }
             
+            self.currentData = currentData
             
-            print(weatherData)
-
-            completionHandler("aa")
-
+            self.throughCompletionHander(completionHandler: completionHandler)
+            
         }
- */
-        
- 
 
-  /*
+        
         requestCore(request: createRequestTimeData()){ response in
             
+            self.exitCount -= 1
+            
             guard let responseValue = response, responseValue.count > 0 else {
          
+                self.throughCompletionHander(completionHandler: completionHandler)
+                
                 return
             }
             
             guard let items = self.extractItems(data:responseValue) else{
          
+                self.throughCompletionHander(completionHandler: completionHandler)
+
                 return
             }
             
-            guard let weatherDataList = self.parseTimeWeatherData(items:items) else {
+            guard let timeData = self.parseTimeWeatherData(items:items) else {
                 
-                print("error parse time weather data")
+                self.throughCompletionHander(completionHandler: completionHandler)
+                
+                print("error parse time data")
+                
                 return
             }
             
             
-            print(weatherDataList[0].pop)
+            self.timeData = timeData
             
-            completionHandler("gg")
-            
+            self.throughCompletionHander(completionHandler: completionHandler)
+
         }
- */
  
 
-        
-        
-        
         requestCore(request: createRequestSpaceData()){ response in
             
+            self.exitCount -= 1
+            
             guard let responseValue = response, responseValue.count > 0 else {
+
+                self.throughCompletionHander(completionHandler: completionHandler)
 
                 return
             }
@@ -603,23 +641,27 @@ class WeatherRequester{
             
             guard let items = self.extractItems(data:responseValue) else{
             
-                return
-            }
-            
-            
-            guard let weatherDataSpaceList = self.parseSpaceWeatherData(items:items) else {
+                self.throughCompletionHander(completionHandler: completionHandler)
                 
-                print("error parse space weather data")
                 return
             }
             
             
-            print(weatherDataSpaceList.tmx)
+            guard let spaceData = self.parseSpaceWeatherData(items:items) else {
+                
+                self.throughCompletionHander(completionHandler: completionHandler)
+                
+                print("error parse space data")
+                
+                return
+            }
             
-            completionHandler("gg")
-
+            self.spaceData = spaceData
+            
+            self.throughCompletionHander(completionHandler: completionHandler)
+            
         }
-
+ 
     }
     
 }
