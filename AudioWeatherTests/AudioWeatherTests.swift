@@ -38,16 +38,9 @@ class AudioWeatherTests: XCTestCase {
         
         WeatherRequester.instance.request(){ currentData, timeData, spaceData in
             
-            
-            
+            print(spaceData!.count())
             print(currentData!)
             print(timeData!)
-            
-            if spaceData != nil{
-            
-                print(spaceData!)
-            }
-            
             
             expt.fulfill()
         }

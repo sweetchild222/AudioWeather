@@ -11,12 +11,18 @@ import Foundation
 class WeatherDataSpaceList{
     
     let dataList:[WeatherData]
-    let tmx:Float
+    let tmx:Float?
     
-    init(dataList:[WeatherData], tmx:Float){
+    init(dataList:[WeatherData], tmx:Float?){
         
         self.dataList = dataList
         self.tmx = tmx
+    }
+    
+    
+    func count() ->Int{
+        
+        return dataList.count
     }
 
 }

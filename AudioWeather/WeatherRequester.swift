@@ -500,10 +500,6 @@ class WeatherRequester{
     
         let count = rehList.count
         
-        if(count == 0){
-            return nil
-        }
-        
         if count != ptyList.count || count != rnaList.count || count != skyList.count || count != popList.count || count != tmpList.count{
             print("different space data list count")
             return nil
@@ -511,7 +507,9 @@ class WeatherRequester{
         
         let weatherDataList = listToWeatherDataList(hrs:3, rehList:rehList, ptyList:ptyList, rnaList:rnaList, skyList:skyList, tmpList:tmpList, popList:popList)
         
-        return WeatherDataSpaceList(dataList:weatherDataList!, tmx:tmx!)
+        
+        return WeatherDataSpaceList(dataList:weatherDataList!, tmx:tmx)
+
     }
     
     
