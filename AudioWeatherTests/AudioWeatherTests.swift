@@ -24,7 +24,7 @@ class AudioWeatherTests: XCTestCase {
     
     func testGlobalConfig() {
         
-        let serviceKey = GlobalConfig.instance.getDustServiceKey()
+        let serviceKey = GlobalConfig.instance.getWeatherServiceKey()
         
         if serviceKey.isEmpty == true {
             XCTAssert(false)

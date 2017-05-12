@@ -93,22 +93,29 @@
 			name = Sound;
 			sourceTree = "<group>";
 		};
-		6C36F4451EC4840600B09B74 /* DFSConv */ = {
+		6C36F4451EC4840600B09B74 /* Locale */ = {
 			isa = PBXGroup;
 			children = (
 				6C36F4461EC4845700B09B74 /* DFSConv.swift */,
 			);
-			name = DFSConv;
+			name = Locale;
+			sourceTree = "<group>";
+		};
+		6C36F4481EC5CBCF00B09B74 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				6C774E051EB75E1500709895 /* DustRequester.swift */,
+				6C631E1B1EBAFB4D00AC3D78 /* WeatherRequester.swift */,
+				6C6246D91EC0A2740044F5B7 /* WeatherData.swift */,
+				6C36F4411EC320EB00B09B74 /* WeatherDataSpaceList.swift */,
+			);
+			name = Weather;
 			sourceTree = "<group>";
 		};
 		6C774E041EB75C1500709895 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				6C774E051EB75E1500709895 /* DustRequester.swift */,
 				6C774E0D1EB9F76800709895 /* GlobalConfig.swift */,
-				6C631E1B1EBAFB4D00AC3D78 /* WeatherRequester.swift */,
-				6C6246D91EC0A2740044F5B7 /* WeatherData.swift */,
-				6C36F4411EC320EB00B09B74 /* WeatherDataSpaceList.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -136,7 +143,8 @@
 		6C8BDBAF1EB6F8D2001EA059 /* AudioWeather */ = {
 			isa = PBXGroup;
 			children = (
-				6C36F4451EC4840600B09B74 /* DFSConv */,
+				6C36F4481EC5CBCF00B09B74 /* Weather */,
+				6C36F4451EC4840600B09B74 /* Locale */,
 				6C36F4441EC482E100B09B74 /* Sound */,
 				6C774E041EB75C1500709895 /* Util */,
 				6C8BDBB01EB6F8D2001EA059 /* AppDelegate.swift */,

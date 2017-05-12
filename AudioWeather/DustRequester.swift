@@ -55,7 +55,7 @@ class DustRequester: NSObject, XMLParserDelegate {
     
     func createRequest() -> URLRequest{
         
-        let url:String = String("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMinuDustFrcstDspth").appending("?searchDate=").appending(currentDate()).appending("&ServiceKey=").appending(GlobalConfig.instance.getDustServiceKey())
+        let url:String = String("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMinuDustFrcstDspth").appending("?searchDate=").appending(currentDate()).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey())
         
         var request = URLRequest(url:URL(string: url)!)
         request.httpMethod = "GET"
