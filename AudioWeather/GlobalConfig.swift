@@ -17,5 +17,12 @@ class GlobalConfig{
         
         return "TW7UjemO7vyDMu4mz6Rmj27Ix9NW0gh7EX2GT5UB%2Bh%2Bd%2BhAtQnSDlJRXMVm%2FoNG7vXMCn884ouC1oYZEDR9TIw%3D%3D"
     }
+    
+    
+    public func getAddrServiceKey() -> String {
+        
+        
+        return "1247d4d946e4e893b92336d83bebe792"
+    }
 
 }

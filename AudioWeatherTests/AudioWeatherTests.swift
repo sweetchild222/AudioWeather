@@ -22,6 +22,40 @@ class AudioWeatherTests: XCTestCase {
     }
     
     
+    func testAddrRequest(){
+        
+        
+        let expt = expectation(description: "Waiting addr request..")
+        
+        AddrRequester.instance.request(lgt: 127.10863694633468, lat: 37.40209529907863){ response in
+
+            guard let responseValue = response, responseValue.isEmpty == false else {
+                
+                XCTAssert(false)
+    
+                return
+            }
+            
+            
+            if responseValue != "경기도" {
+                XCTAssert(false)
+            }
+            
+            expt.fulfill()
+        }
+
+        
+        waitForExpectations(timeout: 5.0){ error in
+            
+            guard error == nil else {
+                
+                XCTAssert(false)
+                return
+            }
+        }
+    }
+    
+    
     func testGlobalConfig() {
         
         let serviceKey = GlobalConfig.instance.getWeatherServiceKey()
