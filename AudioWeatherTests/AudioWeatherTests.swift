@@ -140,7 +140,7 @@ class AudioWeatherTests: XCTestCase {
     
     
     
-    /*
+    
     func testDustRequest(){
         
         let expt = expectation(description: "Waiting dust request..")
@@ -169,7 +169,7 @@ class AudioWeatherTests: XCTestCase {
         
     }
 
- */
+ 
 
 
 }
