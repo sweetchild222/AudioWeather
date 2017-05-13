@@ -22,12 +22,34 @@ class AudioWeatherTests: XCTestCase {
     }
     
     
+    func testAddressMap(){
+        
+        
+        let map = AddressMap()
+        
+        
+        
+        
+        print(map)
+    }
+    
+    
     func testAddrRequest(){
         
         
+        //37.8977925,127.4104595
+        
         let expt = expectation(description: "Waiting addr request..")
         
-        AddrRequester.instance.request(lgt: 127.10863694633468, lat: 37.40209529907863){ response in
+        //33.3655319,126.5881372
+        
+        //37.8102898,127.4576087
+        
+        
+        //37.70314,127.2540612
+        
+        
+        AddrRequester.instance.request(36.5134561,127.2507089){ response in
 
             guard let responseValue = response, responseValue.isEmpty == false else {
                 
@@ -36,10 +58,8 @@ class AudioWeatherTests: XCTestCase {
                 return
             }
             
+            print(responseValue)
             
-            if responseValue != "경기도" {
-                XCTAssert(false)
-            }
             
             expt.fulfill()
         }
@@ -119,6 +139,7 @@ class AudioWeatherTests: XCTestCase {
  */
     
     
+    
     /*
     func testDustRequest(){
         
@@ -147,7 +168,8 @@ class AudioWeatherTests: XCTestCase {
         }
         
     }
-     */
+
+ */
 
 
 }
