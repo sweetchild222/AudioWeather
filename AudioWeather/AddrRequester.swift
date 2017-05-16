@@ -49,7 +49,7 @@ class AddrRequester{
             return nil
         }
         
-        print(json)
+        print(json!)
         
         guard let name = json?["name1"] as? String else  {
             
