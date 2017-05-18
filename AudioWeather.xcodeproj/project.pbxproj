@@ -31,6 +31,7 @@
 		6C8BDBD11EB6F8D3001EA059 /* AudioWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8BDBD01EB6F8D3001EA059 /* AudioWeatherUITests.swift */; };
 		6CA20DE71ECDC38600D13528 /* AudioItemGenerateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA20DE61ECDC38600D13528 /* AudioItemGenerateTest.swift */; };
 		6CA20DE91ECDC3EA00D13528 /* UtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA20DE81ECDC3EA00D13528 /* UtilTest.swift */; };
+		6CA20DEB1ECDD92700D13528 /* ItemSetDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA20DEA1ECDD92700D13528 /* ItemSetDust.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		6C8BDBD21EB6F8D3001EA059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CA20DE61ECDC38600D13528 /* AudioItemGenerateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioItemGenerateTest.swift; sourceTree = "<group>"; };
 		6CA20DE81ECDC3EA00D13528 /* UtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilTest.swift; sourceTree = "<group>"; };
+		6CA20DEA1ECDD92700D13528 /* ItemSetDust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetDust.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				6C7A21511ECB318900B71F7A /* ItemSetSky.swift */,
 				6C7A21531ECB319B00B71F7A /* Item.swift */,
 				6C7A21551ECB34A300B71F7A /* ItemListGenerator.swift */,
+				6CA20DEA1ECDD92700D13528 /* ItemSetDust.swift */,
 			);
 			name = AudioItem;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				6C7A21521ECB318900B71F7A /* ItemSetSky.swift in Sources */,
 				6C7A21501ECB2FBD00B71F7A /* ItemSetLocation.swift in Sources */,
 				6C7A21461ECB2ED100B71F7A /* ItemSet.swift in Sources */,
+				6CA20DEB1ECDD92700D13528 /* ItemSetDust.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

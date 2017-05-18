@@ -26,8 +26,6 @@ class ItemSetLocation : ItemSet{
             
             return []
         }
-
-        print(value)
         
         var set:[Item] = []
         
