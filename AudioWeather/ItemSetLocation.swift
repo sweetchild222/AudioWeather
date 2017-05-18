@@ -29,14 +29,11 @@ class ItemSetLocation : ItemSet{
 
         print(value)
         
-        let set:[Item] = []
+        var set:[Item] = []
         
-        
+        set.append(Item(text:name1 + " " + name2 + "의", audio:value.getAudio()))
+        set.append(Item(text:"날씨 예보를 알려 드리겠습니다", audio:"forecast"))
+
         return set
     }
-    
-    
-    
-    
-    
 }

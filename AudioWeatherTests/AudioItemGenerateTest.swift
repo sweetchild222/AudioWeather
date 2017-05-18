@@ -41,7 +41,6 @@ class AudioItemGenerateTest: XCTestCase {
     
     func testItemSetHead(){
         
-        
         let list = ItemListGenerator.instance.generateHead()
         
         if list.count != 6 {
@@ -49,16 +48,46 @@ class AudioItemGenerateTest: XCTestCase {
             XCTAssert(false)
         }
         
-        for item in list{
-            
-            print(item.getText())
-        }
-        
         
         for item in list{
             
-            print(item.getAudio())
+            print(item.getText(), terminator:"")
         }
+        
+        print("")
+        
+        for item in list{
+            
+            print(item.getAudio() + " ", terminator:"")
+        }
+        
+        print("")
     }
     
+
+    func testItemSetLocation(){
+        
+        let list = ItemListGenerator.instance.generateLocation(name1: "경기도", name2: "성남시 분당구")
+        
+        if list.count != 2 {
+            
+            XCTAssert(false)
+        }
+        
+        
+        for item in list{
+            
+            print(item.getText(), terminator:"")
+        }
+        
+        print("")
+        
+        for item in list{
+            
+            print(item.getAudio() + " ", terminator:"")
+        }
+        
+        print("")
+    }
+
 }
