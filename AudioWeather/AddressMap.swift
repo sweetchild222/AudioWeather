@@ -12,16 +12,34 @@ import Foundation
 class MapInfo{
     
 
+    let area:String
+    let audio:String
     
     init(area:String, audio:String){
         
+        self.area = area
+        self.audio = audio
     }
     
+    
+    func getArea() -> String{
+        
+        return self.area
+    }
+
+    
+    func getAudio() -> String{
+        
+        return self.audio
+    }
+
 }
 
 
 class AddressMap{
     
+    
+    static let instance = AddressMap()
 
     let mapList:[String:[String:MapInfo]]
     
@@ -341,5 +359,13 @@ class AddressMap{
                  "서귀포시": MapInfo(area:"제주", audio:"city_je1")
                 ]
             ]
+    }
+    
+    
+    func getMapInfo(name1:String, name2:String) -> MapInfo? {
+        
+        let value = self.mapList[name1]?[name2]
+        
+        return value
     }
 }
