@@ -64,6 +64,33 @@ class AudioItemGenerateTest: XCTestCase {
         print("")
     }
     
+    
+    func testItemSetTail(){
+        
+        let list = ItemListGenerator.instance.generateTail()
+        
+        if list.count != 4 {
+            
+            XCTAssert(false)
+        }
+        
+        
+        for item in list{
+            
+            print(item.getText(), terminator:"")
+        }
+        
+        print("")
+        
+        for item in list{
+            
+            print(item.getAudio() + " ", terminator:"")
+        }
+        
+        print("")
+    }
+    
+    
 
     func testItemSetLocation(){
         

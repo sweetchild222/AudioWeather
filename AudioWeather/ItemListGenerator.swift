@@ -30,5 +30,13 @@ class ItemListGenerator{
         return location.getItemSet()
     }
     
+    func generateTail() -> [Item] {
+        
+        
+        let location = ItemSetTail()
+        
+        return location.getItemSet()
+    }
+    
     
 }
