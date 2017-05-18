@@ -30,12 +30,12 @@ class ItemSetDust : ItemSet{
         
         let area:String = value.getArea()
         
-        guard let pm25Garde = dustList["PM25"]?[area] else {
+        guard let pm25Grade = dustList["PM25"]?[area] else {
             
             return []
         }
         
-        guard let pm10Garde = dustList["PM10"]?[area] else {
+        guard let pm10Grade = dustList["PM10"]?[area] else {
             
             return []
         }
@@ -43,11 +43,58 @@ class ItemSetDust : ItemSet{
         
         var set:[Item] = []
         
-        set.append(Item(text:pm25GradeToText(grade: pm25Garde), audio:pm25GradeToAudio(grade: pm25Garde)))
-        set.append(Item(text:pm10GradeToText(grade: pm10Garde), audio:pm10GradeToAudio(grade: pm10Garde)))
+        
+        if pm25Grade == pm10Grade {
+            
+            set.append(Item(text:allGradeToText(grade: pm25Grade), audio:allGradeToAudio(grade: pm25Grade)))
+        }
+        else{
+
+            set.append(Item(text:pm25GradeToText(grade: pm25Grade), audio:pm25GradeToAudio(grade: pm25Grade)))
+            set.append(Item(text:pm10GradeToText(grade: pm10Grade), audio:pm10GradeToAudio(grade: pm10Grade)))
+        }
+        
         
         return set
     }
+    
+    
+    func allGradeToText(grade:DustRequester.Grade) -> String{
+        
+        switch grade {
+            
+        case DustRequester.Grade.unknown:
+            return "미세먼지 초미세먼지 모두 모름입니다"
+        case DustRequester.Grade.good:
+            return "미세먼지 초미세먼지 모두 좋음입니다"
+        case DustRequester.Grade.normal:
+            return "미세먼지 초미세먼지 모두 보통입니다"
+        case DustRequester.Grade.bad:
+            return "미세먼지 초미세먼지 모두 나쁨입니다"
+        case DustRequester.Grade.worst:
+            return "미세먼지 초미세먼지 모두 매우 나쁨입니다"
+        }
+        
+    }
+    
+    
+    func allGradeToAudio(grade:DustRequester.Grade) -> String{
+        
+        switch grade {
+            
+        case DustRequester.Grade.unknown:
+            return "all_dust_unknown"
+        case DustRequester.Grade.good:
+            return "all_dust_good"
+        case DustRequester.Grade.normal:
+            return "all_dust_normal"
+        case DustRequester.Grade.bad:
+            return "all_dust_bad"
+        case DustRequester.Grade.worst:
+            return "all_dust_worst"
+        }
+    }
+    
     
     
     func pm25GradeToText(grade:DustRequester.Grade) -> String{

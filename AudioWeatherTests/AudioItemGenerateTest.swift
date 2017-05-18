@@ -113,6 +113,16 @@ class AudioItemGenerateTest: XCTestCase {
         }
         
         printItemList(list:list)
+        
+        let listsecond = ItemListGenerator.instance.generateDust(name1: "서울특별시", name2: "중구", dustList:dustList)
+        
+        if listsecond.count != 1 {
+            
+            XCTAssert(false)
+        }
+        
+        printItemList(list:listsecond)
+
 
     }
 
