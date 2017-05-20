@@ -428,6 +428,39 @@ class WeatherRequester{
     }
     
     
+    func fillMissedRnaKey(ptyList:[Int:Int], rnaList:[Int:Int]) -> [Int:Int] {
+        
+        var tempList = rnaList
+        
+        for item in ptyList {
+            
+            let key = item.key
+            let value = item.value
+            
+            if rnaList[key] == nil {
+                
+                if value == 0 || value == 3 {
+                
+                    let rnaValue = rnaList[key + 3]
+                    
+                    if rnaValue == nil{
+                        
+                        tempList[key] = 0
+                    }
+                    else {
+                        
+                        tempList[key] = rnaValue
+                    }
+                }
+                else {
+                    
+                    tempList[key] = 0
+                }
+            }
+        }
+        
+        return tempList
+    }
     
     
     func parseSpaceWeatherData(items:[[String:Any]]) -> WeatherDataSpaceList? {
@@ -458,7 +491,7 @@ class WeatherRequester{
                 continue
             }
             
-            
+    
             let value = item["fcstValue"] as Any
             
             switch category {
@@ -500,6 +533,13 @@ class WeatherRequester{
     
         let count = rehList.count
         
+        
+        if rnaList.count != ptyList.count {
+            
+            rnaList = fillMissedRnaKey(ptyList: ptyList, rnaList: rnaList)
+        }
+        
+        
         if count != ptyList.count || count != rnaList.count || count != skyList.count || count != popList.count || count != tmpList.count{
             print("different space data list count")
             return nil
@@ -539,6 +579,8 @@ class WeatherRequester{
     
     func throughCompletionHander(completionHandler: @escaping (WeatherData?, [WeatherData]?, WeatherDataSpaceList?) -> Void) {
         
+        self.exitCount -= 1
+        
         if self.exitCount == 0{
             
             completionHandler(self.currentData, self.timeData, self.spaceData)
@@ -555,8 +597,6 @@ class WeatherRequester{
         
         
         requestCore(request: createRequestCurrentData()){ response in
-         
-            self.exitCount -= 1
          
             guard let responseValue = response, responseValue.count > 0 else {
          
@@ -591,8 +631,7 @@ class WeatherRequester{
 
         
         requestCore(request: createRequestTimeData()){ response in
-            
-            self.exitCount -= 1
+        
             
             guard let responseValue = response, responseValue.count > 0 else {
          
@@ -610,9 +649,9 @@ class WeatherRequester{
             
             guard let timeData = self.parseTimeWeatherData(items:items) else {
                 
-                self.throughCompletionHander(completionHandler: completionHandler)
-                
                 print("error parse time data")
+                
+                self.throughCompletionHander(completionHandler: completionHandler)
                 
                 return
             }
@@ -627,8 +666,6 @@ class WeatherRequester{
 
         requestCore(request: createRequestSpaceData()){ response in
             
-            self.exitCount -= 1
-            
             guard let responseValue = response, responseValue.count > 0 else {
 
                 self.throughCompletionHander(completionHandler: completionHandler)
@@ -636,7 +673,7 @@ class WeatherRequester{
                 return
             }
             
-            
+
             guard let items = self.extractItems(data:responseValue) else{
             
                 self.throughCompletionHander(completionHandler: completionHandler)
@@ -644,12 +681,12 @@ class WeatherRequester{
                 return
             }
             
-            
+
             guard let spaceData = self.parseSpaceWeatherData(items:items) else {
                 
-                self.throughCompletionHander(completionHandler: completionHandler)
-                
                 print("error parse space data")
+                
+                self.throughCompletionHander(completionHandler: completionHandler)
                 
                 return
             }

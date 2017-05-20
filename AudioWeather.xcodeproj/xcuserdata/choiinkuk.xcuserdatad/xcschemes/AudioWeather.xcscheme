@@ -39,7 +39,7 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "AudioWeatherTests">
+                  Identifier = "UtilTest">
                </Test>
             </SkippedTests>
          </TestableReference>
