@@ -46,5 +46,19 @@ class ItemListGenerator{
         return itemList.getItemSet()
     }
     
+
+
+    func generateMaxTemp(tmx:Float) -> [Item] {
+        
+        let itemList = ItemSetMaxTemp(tmx:tmx)
+        
+        return itemList.getItemSet()
+    }
     
+    func generateCurrentTemp(tmp:Float) -> [Item] {
+        
+        let itemList = ItemSetCurrentTemp(tmp:tmp)
+        
+        return itemList.getItemSet()
+    }
 }

@@ -14,7 +14,7 @@ class WeatherDataSpaceList{
     let tmx:Float?
     
     init(dataList:[WeatherData], tmx:Float?){
-        
+     
         self.dataList = dataList
         self.tmx = tmx
     }

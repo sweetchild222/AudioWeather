@@ -237,7 +237,7 @@ class WeatherRequester{
                 return WeatherData.SkyCode.much
                 
             case 4:
-                return WeatherData.SkyCode.gary
+                return WeatherData.SkyCode.gray
                 
             default:
                 return WeatherData.SkyCode.unknown

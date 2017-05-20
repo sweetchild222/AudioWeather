@@ -16,7 +16,7 @@ class WeatherData{
     
     enum SkyCode:Int{
         
-        case unknown, clean, small, much, gary
+        case unknown, clean, small, much, gray
         
     }
     
@@ -45,11 +45,11 @@ class WeatherData{
         print("htm : \(self.htm)")
         print("hrs : \(self.hrs)")
         print("pty : \(self.pty)")
-        print("sky : \(self.sky)")
+        print("pop : \(self.pop)")
         print("rna : \(self.rna)")
         print("reh : \(self.reh)")
+        print("sky : \(self.sky)")
         print("tmp : \(self.tmp)")
-        print("pop : \(self.pop)")
- */
+        */
     }
 }

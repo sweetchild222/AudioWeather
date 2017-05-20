@@ -100,6 +100,93 @@ class AudioItemGenerateTest: XCTestCase {
     }
     
     
+    func testItemSetCurrentTemp(){
+        
+        /*
+         let dataList:[WeatherData] = [WeatherData(htm:15, hrs:1, pty:WeatherData.PtyCode.No, pop:0, rna:0, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+         WeatherData(htm:18, hrs:1, pty:WeatherData.PtyCode.No, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+         WeatherData(htm:21, hrs:1, pty:WeatherData.PtyCode.No, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3),
+         ]
+         
+         
+         let weatherDataSpaceList:WeatherDataSpaceList = WeatherDataSpaceList(dataList:dataList, tmx:39.42)
+         */
+        
+        if ItemListGenerator.instance.generateCurrentTemp(tmp:51.23).count != 0 {
+            
+            XCTAssert(false)
+        }
+        
+        if ItemListGenerator.instance.generateCurrentTemp(tmp:-31.23).count != 0 {
+            
+            XCTAssert(false)
+        }
+        
+        if ItemListGenerator.instance.generateCurrentTemp(tmp:50.23).count != 1 {
+            
+            XCTAssert(false)
+        }
+
+        if ItemListGenerator.instance.generateCurrentTemp(tmp:-30.23).count != 1 {
+            
+            XCTAssert(false)
+        }
+        
+        let list = ItemListGenerator.instance.generateCurrentTemp(tmp:-18.23)
+        
+        if list.count != 1 {
+            
+            XCTAssert(false)
+        }
+        
+        printItemList(list:list)
+        
+    }
+    
+    
+    func testItemSetMaxTemp(){
+        
+        /*
+        let dataList:[WeatherData] = [WeatherData(htm:15, hrs:1, pty:WeatherData.PtyCode.No, pop:0, rna:0, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+        WeatherData(htm:18, hrs:1, pty:WeatherData.PtyCode.No, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+        WeatherData(htm:21, hrs:1, pty:WeatherData.PtyCode.No, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3),
+        ]
+        
+        
+        let weatherDataSpaceList:WeatherDataSpaceList = WeatherDataSpaceList(dataList:dataList, tmx:39.42)
+ */
+        
+        if ItemListGenerator.instance.generateMaxTemp(tmx:51.23).count != 0 {
+            
+            XCTAssert(false)
+        }
+        
+        if ItemListGenerator.instance.generateMaxTemp(tmx:-31.23).count != 0 {
+            
+            XCTAssert(false)
+        }
+        
+        if ItemListGenerator.instance.generateMaxTemp(tmx:50.23).count != 1 {
+            
+            XCTAssert(false)
+        }
+        
+        if ItemListGenerator.instance.generateMaxTemp(tmx:-30.23).count != 1 {
+            
+            XCTAssert(false)
+        }
+        
+        let list = ItemListGenerator.instance.generateMaxTemp(tmx:-18.23)
+        
+        if list.count != 1 {
+            
+            XCTAssert(false)
+        }
+        
+        printItemList(list:list)
+        
+    }
+    
     func testItemSetDust(){
         
         let dustList:[String: [String: DustRequester.Grade]] = ["PM25": ["울산": AudioWeather.DustRequester.Grade.normal, "전북": AudioWeather.DustRequester.Grade.normal, "경남": AudioWeather.DustRequester.Grade.normal, "세종": AudioWeather.DustRequester.Grade.normal, "인천": AudioWeather.DustRequester.Grade.normal, "영동": AudioWeather.DustRequester.Grade.normal, "제주": AudioWeather.DustRequester.Grade.normal, "경기북부": AudioWeather.DustRequester.Grade.normal, "충남": AudioWeather.DustRequester.Grade.normal, "광주": AudioWeather.DustRequester.Grade.normal, "대구": AudioWeather.DustRequester.Grade.normal, "대전": AudioWeather.DustRequester.Grade.normal, "부산": AudioWeather.DustRequester.Grade.normal, "전남": AudioWeather.DustRequester.Grade.normal, "영서": AudioWeather.DustRequester.Grade.normal, "충북": AudioWeather.DustRequester.Grade.normal, "경기남부": AudioWeather.DustRequester.Grade.worst, "경북": AudioWeather.DustRequester.Grade.normal, "서울": AudioWeather.DustRequester.Grade.normal], "PM10": ["울산": AudioWeather.DustRequester.Grade.normal, "전북": AudioWeather.DustRequester.Grade.normal, "경남": AudioWeather.DustRequester.Grade.normal, "세종": AudioWeather.DustRequester.Grade.normal, "인천": AudioWeather.DustRequester.Grade.normal, "영동": AudioWeather.DustRequester.Grade.normal, "제주": AudioWeather.DustRequester.Grade.normal, "경기북부": AudioWeather.DustRequester.Grade.normal, "충남": AudioWeather.DustRequester.Grade.normal, "광주": AudioWeather.DustRequester.Grade.normal, "대구": AudioWeather.DustRequester.Grade.normal, "대전": AudioWeather.DustRequester.Grade.normal, "부산": AudioWeather.DustRequester.Grade.normal, "전남": AudioWeather.DustRequester.Grade.normal, "영서": AudioWeather.DustRequester.Grade.normal, "충북": AudioWeather.DustRequester.Grade.normal, "경기남부": AudioWeather.DustRequester.Grade.bad, "경북": AudioWeather.DustRequester.Grade.normal, "서울": AudioWeather.DustRequester.Grade.normal]]
