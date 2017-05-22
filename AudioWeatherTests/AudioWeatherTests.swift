@@ -73,20 +73,9 @@ class AudioWeatherTests: XCTestCase {
         
         WeatherRequester.instance.request(){ currentData, timeData, spaceData in
             
-            //print(spaceData!.count())
-            //print(currentData!)
-            //print(timeData!)
-            
-            
-            let list = ItemListGenerator.instance.generateSky(weatherData:currentData!, weatherDataTimeList:timeData!, weatherDataSpaceList: spaceData!)
-            
-            if list.count != 3 {
-                
-                //XCTAssert(false)
-            }
-            
-            self.printItemList(list:list)
-
+            print(spaceData!.count())
+            print(currentData!)
+            print(timeData!)
             
             expt.fulfill()
         }
@@ -103,23 +92,6 @@ class AudioWeatherTests: XCTestCase {
     }
  
     
-    func printItemList(list:[Item]){
-        
-        for item in list{
-            
-            print(item.getText(), terminator:"")
-        }
-        
-        print("")
-        
-        for item in list{
-            
-            print(item.getAudio() + " ", terminator:"")
-        }
-        
-        print("")
-        
-    }
     
     
     
