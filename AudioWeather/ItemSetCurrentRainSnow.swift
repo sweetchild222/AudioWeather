@@ -1,16 +1,15 @@
 //
-//  ItemSetSky.swift
+//  ItemSetCurrentRainSnow.swift
 //  AudioWeather
 //
-//  Created by 최인국 on 2017. 5. 16..
+//  Created by 최인국 on 2017. 5. 22..
 //  Copyright © 2017년 최인국. All rights reserved.
 //
 
 import Foundation
 
 
-
-class ItemSetSky : ItemSet{
+class ItemSetCurrentRainSnow : ItemSet{
     
     let weatherData:WeatherData
     let weatherDataTimeList:[WeatherData]
@@ -24,174 +23,19 @@ class ItemSetSky : ItemSet{
     
     
     func getItemSet() -> [Item]{
-        
-        if weatherData.pty != WeatherData.PtyCode.clean {
-            
-            return getCurrentRainSnow() + getEndRainSnow() + getRnaRainSnow()
-        }
-        
-        
-        let code = getPtyCode()
-        
-        if code == WeatherData.PtyCode.clean {
-            
-            return getStartWillRainSnow() + getWillRainSnow(code: code)
-        }
-        
-
-        let set:[Item] = []
-        
-        return set
+    
+        return getCurrentRainSnow() + getEndRainSnow() + getRnaRainSnow()
     }
-    
-    
-    func getPtyCode() -> WeatherData.PtyCode{
-        
-        for data in weatherDataTimeList {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.pty
-            }
-        }
-        
-
-        for spaceData in weatherDataSpaceList.dataList.reversed(){
-            
-            if spaceData.pty != WeatherData.PtyCode.clean {
-                
-                return spaceData.pty
-            }
-        }
-
-        return WeatherData.PtyCode.clean
-    }
-    
-    
-    
-    func ptyCodeToAudio(code:WeatherData.PtyCode) -> String{
-        
-        switch code{
-            
-        case WeatherData.PtyCode.rain:
-            return "will_rain"
-        case WeatherData.PtyCode.rainsnow:
-            return "will_rain_snow"
-        case WeatherData.PtyCode.snow:
-            return "will_snow"
-        default:
-            return ""
-        }
-    }
-    
-    
-    func ptyCodeToText(code:WeatherData.PtyCode) -> String{
-        
-        switch code{
-            
-        case WeatherData.PtyCode.rain:
-            return "비가 오겠습니다"
-        case WeatherData.PtyCode.rainsnow:
-            return "눈과 비가 오겠습니다"
-        case WeatherData.PtyCode.snow:
-            return "눈이 오겠습니다"
-        default:
-            return ""
-        }
-    }
-    
-    
-    func getWillRainSnow(code:WeatherData.PtyCode) ->[Item]{
-        
-        var set:[Item] = []
-        
-        set.append(Item(text:ptyCodeToText(code:code), audio:ptyCodeToAudio(code:code)))
-        
-        return set;
-    }
-    
-    
-    func getStartWillRainSnow() -> [Item] {
-        
-        var set:[Item] = []
-        
-        let hour = findStartTimeRainSnow()
-        
-        if hour == -1 {
-            
-            set.append(Item(text:"하루 종일 맑겠습니다", audio:"allday_clean")) // error
-        }
-        else{
-
-            set.append(Item(text:"하루 종일 맑겠습니다", audio:"allday_clean")) // error
-
-        }
-        
-        return set;
-    }
-
-    
-    func findStartTimeRainSnowOnSpace() -> Int{
-        
-        let spaceDataList = weatherDataSpaceList.getDataList()
-        
-        for data in spaceDataList {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.htm
-            }
-        }
-        
-        return -1
-    }
-    
-    
-    
-    func findStartTimeRainSnowOnTime() -> Int{
-        
-        for data in weatherDataTimeList {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.htm
-            }
-        }
-        
-        return -1
-    }
-    
-    
-    
-    func findStartTimeRainSnow() -> Int{
-        
-        let startTimeSpace = findStartTimeRainSnowOnSpace()
-        
-        let startTimeTime = findStartTimeRainSnowOnTime()
-        
-        if startTimeSpace == -1 && startTimeTime == -1{
-            return -1
-        }
-        
-        if startTimeSpace < startTimeTime{
-            return startTimeSpace
-        }
-        else{
-            return startTimeTime
-        }
-    }
-    
-    
     
     
     func findEndTimeRainSnowOnSpace() -> Int{
         
         let spaceDataList = weatherDataSpaceList.getDataList()
-    
+        
         for data in spaceDataList.reversed() {
             
             if data.pty != WeatherData.PtyCode.clean {
-            
+                
                 return data.htm + data.hrs
             }
         }
@@ -213,7 +57,7 @@ class ItemSetSky : ItemSet{
         
         return -1
     }
-
+    
     
     
     func findEndTimeRainSnow() -> Int{
@@ -359,5 +203,6 @@ class ItemSetSky : ItemSet{
         
     }
     
+    
+    
 }
-

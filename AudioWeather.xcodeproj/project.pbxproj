@@ -11,6 +11,8 @@
 		6C36F4471EC4845700B09B74 /* DFSConv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F4461EC4845700B09B74 /* DFSConv.swift */; };
 		6C36F44A1EC5CCC500B09B74 /* AddrRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F4491EC5CCC500B09B74 /* AddrRequester.swift */; };
 		6C36F44C1EC5E3BC00B09B74 /* AddressMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F44B1EC5E3BC00B09B74 /* AddressMap.swift */; };
+		6C4E60D91ED31CC1002F0B27 /* ItemSetWillRainSnow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E60D81ED31CC1002F0B27 /* ItemSetWillRainSnow.swift */; };
+		6C4E60DB1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E60DA1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift */; };
 		6C58940D1ECFF00700E052F6 /* ItemSetCurrentTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58940C1ECFF00700E052F6 /* ItemSetCurrentTemp.swift */; };
 		6C58940F1ECFF01700E052F6 /* ItemSetMaxTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58940E1ECFF01700E052F6 /* ItemSetMaxTemp.swift */; };
 		6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6246D91EC0A2740044F5B7 /* WeatherData.swift */; };
@@ -58,6 +60,8 @@
 		6C36F4461EC4845700B09B74 /* DFSConv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFSConv.swift; sourceTree = "<group>"; };
 		6C36F4491EC5CCC500B09B74 /* AddrRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddrRequester.swift; sourceTree = "<group>"; };
 		6C36F44B1EC5E3BC00B09B74 /* AddressMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressMap.swift; sourceTree = "<group>"; };
+		6C4E60D81ED31CC1002F0B27 /* ItemSetWillRainSnow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetWillRainSnow.swift; sourceTree = "<group>"; };
+		6C4E60DA1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetCurrentRainSnow.swift; sourceTree = "<group>"; };
 		6C58940C1ECFF00700E052F6 /* ItemSetCurrentTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetCurrentTemp.swift; sourceTree = "<group>"; };
 		6C58940E1ECFF01700E052F6 /* ItemSetMaxTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetMaxTemp.swift; sourceTree = "<group>"; };
 		6C6246D91EC0A2740044F5B7 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				6CA20DEA1ECDD92700D13528 /* ItemSetDust.swift */,
 				6C58940C1ECFF00700E052F6 /* ItemSetCurrentTemp.swift */,
 				6C58940E1ECFF01700E052F6 /* ItemSetMaxTemp.swift */,
+				6C4E60D81ED31CC1002F0B27 /* ItemSetWillRainSnow.swift */,
+				6C4E60DA1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift */,
 			);
 			name = AudioItem;
 			sourceTree = "<group>";
@@ -359,7 +365,9 @@
 				6C36F44A1EC5CCC500B09B74 /* AddrRequester.swift in Sources */,
 				6C774E0E1EB9F76800709895 /* GlobalConfig.swift in Sources */,
 				6C8BDBB31EB6F8D2001EA059 /* ViewController.swift in Sources */,
+				6C4E60D91ED31CC1002F0B27 /* ItemSetWillRainSnow.swift in Sources */,
 				6C36F4471EC4845700B09B74 /* DFSConv.swift in Sources */,
+				6C4E60DB1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift in Sources */,
 				6C8BDBB11EB6F8D2001EA059 /* AppDelegate.swift in Sources */,
 				6C58940F1ECFF01700E052F6 /* ItemSetMaxTemp.swift in Sources */,
 				6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */,
