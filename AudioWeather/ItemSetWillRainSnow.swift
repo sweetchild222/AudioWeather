@@ -151,6 +151,14 @@ class ItemSetWillRainSnow : ItemSet{
             return -1
         }
         
+        if startTimeSpace == -1{
+            return startTimeTime
+        }
+        
+        if startTimeTime == -1{
+            return startTimeSpace
+        }
+        
         if startTimeSpace < startTimeTime{
             return startTimeSpace
         }
@@ -202,7 +210,7 @@ class ItemSetWillRainSnow : ItemSet{
         if endTimeSpace == -1 && endTimeTime == -1{
             return -1
         }
-        
+                
         if endTimeSpace > endTimeTime{
             return endTimeSpace
         }
