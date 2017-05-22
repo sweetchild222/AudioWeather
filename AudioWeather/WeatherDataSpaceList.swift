@@ -24,5 +24,11 @@ class WeatherDataSpaceList{
         
         return dataList.count
     }
+    
+    
+    func getDataList() -> [WeatherData]{
+        
+        return self.dataList
+    }
 
 }

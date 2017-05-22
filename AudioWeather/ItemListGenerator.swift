@@ -47,7 +47,6 @@ class ItemListGenerator{
     }
     
 
-
     func generateMaxTemp(tmx:Float) -> [Item] {
         
         let itemList = ItemSetMaxTemp(tmx:tmx)
@@ -55,10 +54,21 @@ class ItemListGenerator{
         return itemList.getItemSet()
     }
     
+    
     func generateCurrentTemp(tmp:Float) -> [Item] {
         
         let itemList = ItemSetCurrentTemp(tmp:tmp)
         
         return itemList.getItemSet()
+    }
+    
+    
+    
+    func generateSky(weatherData:WeatherData, weatherDataTimeList:[WeatherData], weatherDataSpaceList:WeatherDataSpaceList) -> [Item] {
+        
+        let itemList = ItemSetSky(weatherData: weatherData, weatherDataTimeList: weatherDataTimeList, weatherDataSpaceList: weatherDataSpaceList)
+        
+        return itemList.getItemSet()
+        
     }
 }

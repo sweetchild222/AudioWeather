@@ -11,12 +11,12 @@ import Foundation
 class WeatherData{
     
     enum PtyCode:Int{
-        case unknown, No, rain, rainAndSnow, Snow
+        case clean, rain, rainsnow, snow
     }
     
     enum SkyCode:Int{
         
-        case unknown, clean, small, much, gray
+        case clean, small, much, gray
         
     }
     

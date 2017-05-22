@@ -205,19 +205,19 @@ class WeatherRequester{
         switch value {
             
             case 0:
-                return WeatherData.PtyCode.No
+                return WeatherData.PtyCode.clean
 
             case 1:
                 return WeatherData.PtyCode.rain
                 
             case 2:
-                return WeatherData.PtyCode.rainAndSnow
+                return WeatherData.PtyCode.rainsnow
 
             case 3:
-                return WeatherData.PtyCode.Snow
+                return WeatherData.PtyCode.snow
 
             default:
-                return WeatherData.PtyCode.unknown
+                return WeatherData.PtyCode.clean
         }
     
     }
@@ -240,7 +240,7 @@ class WeatherRequester{
                 return WeatherData.SkyCode.gray
                 
             default:
-                return WeatherData.SkyCode.unknown
+                return WeatherData.SkyCode.clean
         }
     }
     
@@ -306,7 +306,7 @@ class WeatherRequester{
             }
         }
         
-        if pty == WeatherData.PtyCode.No || pty == WeatherData.PtyCode.unknown{
+        if pty == WeatherData.PtyCode.clean {
             pop = 0
         }
         else{
