@@ -15,6 +15,7 @@ class AudioItemGenerateTest: XCTestCase {
         super.setUp()
     }
     
+    
     override func tearDown() {
 
         super.tearDown()
@@ -169,6 +170,7 @@ class AudioItemGenerateTest: XCTestCase {
         
     }
     
+    
     func testItemSetDust(){
         
         let dustList:[String: [String: DustRequester.Grade]] = ["PM25": ["울산": AudioWeather.DustRequester.Grade.normal, "전북": AudioWeather.DustRequester.Grade.normal, "경남": AudioWeather.DustRequester.Grade.normal, "세종": AudioWeather.DustRequester.Grade.normal, "인천": AudioWeather.DustRequester.Grade.normal, "영동": AudioWeather.DustRequester.Grade.normal, "제주": AudioWeather.DustRequester.Grade.normal, "경기북부": AudioWeather.DustRequester.Grade.normal, "충남": AudioWeather.DustRequester.Grade.normal, "광주": AudioWeather.DustRequester.Grade.normal, "대구": AudioWeather.DustRequester.Grade.normal, "대전": AudioWeather.DustRequester.Grade.normal, "부산": AudioWeather.DustRequester.Grade.normal, "전남": AudioWeather.DustRequester.Grade.normal, "영서": AudioWeather.DustRequester.Grade.normal, "충북": AudioWeather.DustRequester.Grade.normal, "경기남부": AudioWeather.DustRequester.Grade.worst, "경북": AudioWeather.DustRequester.Grade.normal, "서울": AudioWeather.DustRequester.Grade.normal], "PM10": ["울산": AudioWeather.DustRequester.Grade.normal, "전북": AudioWeather.DustRequester.Grade.normal, "경남": AudioWeather.DustRequester.Grade.normal, "세종": AudioWeather.DustRequester.Grade.normal, "인천": AudioWeather.DustRequester.Grade.normal, "영동": AudioWeather.DustRequester.Grade.normal, "제주": AudioWeather.DustRequester.Grade.normal, "경기북부": AudioWeather.DustRequester.Grade.normal, "충남": AudioWeather.DustRequester.Grade.normal, "광주": AudioWeather.DustRequester.Grade.normal, "대구": AudioWeather.DustRequester.Grade.normal, "대전": AudioWeather.DustRequester.Grade.normal, "부산": AudioWeather.DustRequester.Grade.normal, "전남": AudioWeather.DustRequester.Grade.normal, "영서": AudioWeather.DustRequester.Grade.normal, "충북": AudioWeather.DustRequester.Grade.normal, "경기남부": AudioWeather.DustRequester.Grade.bad, "경북": AudioWeather.DustRequester.Grade.normal, "서울": AudioWeather.DustRequester.Grade.normal]]
@@ -212,10 +214,8 @@ class AudioItemGenerateTest: XCTestCase {
         
         let dataSpace = WeatherDataSpace(dataList:dataSpaceList, tmx:39.42)
         
-        
         let dataManager = WeatherDataManager(dataCurrent:dataCurrent, dataClosed:dataClosed, dataSpace:dataSpace)
         
-    
         let list = ItemListGenerator.instance.generateSky(dataManager:dataManager)
         
         if list.count != 3 {
@@ -227,25 +227,28 @@ class AudioItemGenerateTest: XCTestCase {
 
     }
     
+    
     func testItemSetSky2(){
         
-        /*
-        let weatherData = WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3)
+        let dataCurrent = WeatherDataCurrent(data:WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3))
         
-        let timeList:[WeatherData] = [
+        let dataClosedList:[WeatherData] = [
             WeatherData(htm:9, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
             WeatherData(htm:10, hrs:1, pty:WeatherData.PtyCode.rain, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
-            WeatherData(htm:11, hrs:1, pty:WeatherData.PtyCode.rain, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
+            WeatherData(htm:11, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
         
-        let spaceDataList:[WeatherData] = [
-            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.snow, pop:0, rna:30, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
-            WeatherData(htm:18, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
-            WeatherData(htm:21, hrs:3, pty:WeatherData.PtyCode.rain, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
+        let dataClosed = WeatherDataClosed(dataList:dataClosedList)
         
-        let weatherDataSpaceList:WeatherDataSpaceList = WeatherDataSpaceList(dataList:spaceDataList, tmx:39.42)
+        let dataSpaceList:[WeatherData] = [
+            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:30, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+            WeatherData(htm:18, hrs:3, pty:WeatherData.PtyCode.rain, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+            WeatherData(htm:21, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
         
+        let dataSpace = WeatherDataSpace(dataList:dataSpaceList, tmx:39.42)
         
-        let list = ItemListGenerator.instance.generateSky(weatherData:weatherData, weatherDataTimeList:timeList, weatherDataSpaceList: weatherDataSpaceList)
+        let dataManager = WeatherDataManager(dataCurrent:dataCurrent, dataClosed:dataClosed, dataSpace:dataSpace)
+        
+        let list = ItemListGenerator.instance.generateSky(dataManager:dataManager)
         
         if list.count != 3 {
             
@@ -253,7 +256,6 @@ class AudioItemGenerateTest: XCTestCase {
         }
         
         printItemList(list:list)
-        */
     }
 
 }

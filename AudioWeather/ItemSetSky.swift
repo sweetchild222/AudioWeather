@@ -326,12 +326,8 @@ class ItemSetSky : ItemSet{
     func getRnaRainSnow() -> [Item] {
         
         let rna = calcRnaRainSnow()
-        
-        var set:[Item] = []
-        
-        set.append(Item(text:"강수량은 시간당 " + String(rna) + "밀리미터 입니다", audio:rnaToAudio(rna:rna)))
-        
-        return set
+    
+        return [Item(text:"강수량은 시간당 " + String(rna) + "밀리미터 입니다", audio:rnaToAudio(rna:rna))]
     }
     
     
@@ -343,19 +339,17 @@ class ItemSetSky : ItemSet{
     
     func getCurrentRainSnow() -> [Item]{
         
-        var set:[Item] = []
-        
         if weatherData.pty == WeatherData.PtyCode.rain{
-            set.append(Item(text:"현재는 비가 오고 있고", audio:"current_rain"))
+            return [Item(text:"현재는 비가 오고 있고", audio:"current_rain")]
         }
         else if weatherData.pty == WeatherData.PtyCode.rainsnow {
-            set.append(Item(text:"현재는 눈과 비가 오고 있고", audio:"current_rain_snow"))
+            return [Item(text:"현재는 눈과 비가 오고 있고", audio:"current_rain_snow")]
         }
         else if weatherData.pty == WeatherData.PtyCode.snow {
-            set.append(Item(text:"현재는 눈이 오고 있고", audio:"current_snow"))
+            return [Item(text:"현재는 눈이 오고 있고", audio:"current_snow")]
         }
         
-        return set;
+        return [];
         
     }
     

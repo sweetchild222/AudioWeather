@@ -11,54 +11,25 @@ import Foundation
 
 class ItemSetWillRainSnow : ItemSet{
     
-    let weatherData:WeatherData
-    let weatherDataTimeList:[WeatherData]
-    let weatherDataSpaceList:WeatherDataSpaceList
+    let dataManager:WeatherDataManager
     
-    init(weatherData:WeatherData, weatherDataTimeList:[WeatherData], weatherDataSpaceList:WeatherDataSpaceList){
-        self.weatherData = weatherData
-        self.weatherDataTimeList = weatherDataTimeList
-        self.weatherDataSpaceList = weatherDataSpaceList
+    init(dataManager:WeatherDataManager){
+        self.dataManager = dataManager
     }
     
-    
+
     func getItemSet() -> [Item]{
         
-        return getStartTime() + getEndTime() + getWillRainSnow()
+        return getStartHour() + getEndHour() + getWillRainSnow()
     }
     
-    
-    func getPtyCode() -> WeatherData.PtyCode{
         
-        for data in weatherDataTimeList {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.pty
-            }
-        }
-        
-        for spaceData in weatherDataSpaceList.dataList{
-            
-            if spaceData.pty != WeatherData.PtyCode.clean {
-                
-                return spaceData.pty
-            }
-        }
-        
-        return WeatherData.PtyCode.clean // error
-    }
-    
-    
     func getWillRainSnow() ->[Item]{
         
-        let code = getPtyCode()
-        
-        var set:[Item] = []
-        
-        set.append(Item(text:ptyCodeToText(code:code), audio:ptyCodeToAudio(code:code)))
-        
-        return set;
+        let code = dataManager.getWillPtyCodeRainSnow()
+    
+        return [Item(text:ptyCodeToText(code:code), audio:ptyCodeToAudio(code:code))]
+
     }
     
     
@@ -95,143 +66,29 @@ class ItemSetWillRainSnow : ItemSet{
     }
     
     
-    func getStartTime() -> [Item] {
+    func getStartHour() -> [Item] {
         
-        var set:[Item] = []
+        let hour = self.dataManager.startHourRainSnow()
         
-        let hour = findStartTime()
-        
-        if hour != -1 {
-            set.append(Item(text:startHourToText(hour: hour), audio:startHourToAudio(hour: hour)))
+        if hour == -1 {
+            return []
         }
         
-        return set;
-    }
-    
-    
-    func findStartTimeOnSpace() -> Int{
-        
-        let spaceDataList = weatherDataSpaceList.getDataList()
-        
-        for data in spaceDataList {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.htm
-            }
-        }
-        
-        return -1
-    }
-    
-    
-    
-    func findStartTimeOnTime() -> Int{
-        
-        for data in weatherDataTimeList {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.htm
-            }
-        }
-        
-        return -1
-    }
-    
-    
-    
-    func findStartTime() -> Int{
-        
-        let startTimeSpace = findStartTimeOnSpace()
-        
-        let startTimeTime = findStartTimeOnTime()
-        
-        if startTimeSpace == -1 && startTimeTime == -1{  //error
-            return -1
-        }
-        
-        if startTimeSpace == -1{
-            return startTimeTime
-        }
-        
-        if startTimeTime == -1{
-            return startTimeSpace
-        }
-        
-        if startTimeSpace < startTimeTime{
-            return startTimeSpace
-        }
-        else{
-            return startTimeTime
-        }
+        return [Item(text:startHourToText(hour: hour), audio:startHourToAudio(hour: hour))]
     }
     
 
     
-    func findEndTimeOnSpace() -> Int{
+    
+    func getEndHour() -> [Item] {
         
-        let spaceDataList = weatherDataSpaceList.getDataList()
+        let hour = self.dataManager.endHourRainSnow()
         
-        for data in spaceDataList.reversed() {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.htm + data.hrs
-            }
+        if hour == -1 {
+            return []
         }
         
-        return -1
-    }
-    
-    
-    
-    func findEndTimeOnTime() -> Int{
-        
-        for data in weatherDataTimeList.reversed() {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.htm + data.hrs
-            }
-        }
-        
-        return -1
-    }
-    
-    
-    
-    func findEndTime() -> Int{
-        
-        let endTimeSpace = findEndTimeOnSpace()
-        
-        let endTimeTime = findEndTimeOnTime()
-        
-        if endTimeSpace == -1 && endTimeTime == -1{
-            return -1
-        }
-                
-        if endTimeSpace > endTimeTime{
-            return endTimeSpace
-        }
-        else{
-            return endTimeTime
-        }
-    }
-    
-    
-    func getEndTime() -> [Item] {
-        
-        var set:[Item] = []
-        
-        let hour = findEndTime()
-        
-        if hour != -1 {
-            
-            set.append(Item(text:endHourToText(hour:hour), audio:endHourToAudio(hour:hour)))
-        }
-        
-        return set;
+        return [Item(text:endHourToText(hour:hour), audio:endHourToAudio(hour:hour))]
     }
     
     

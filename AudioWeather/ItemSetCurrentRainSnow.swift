@@ -31,10 +31,8 @@ class ItemSetCurrentRainSnow : ItemSet{
             
             return [Item(text:"하루 종일 이어지겠습니다", audio:"current_allday")]
         }
-        else{
-            
-            return [Item(text:hourToText(hour:hour), audio:hourToAudio(hour:hour))]
-        }
+    
+        return [Item(text:hourToText(hour:hour), audio:hourToAudio(hour:hour))]
     }
     
     

@@ -47,4 +47,63 @@ class WeatherDataSpace{
         
         return -1
     }
+    
+    
+    func getPtyCodeRainSnow() -> WeatherData.PtyCode{
+        
+        for data in dataList {
+            
+            if data.pty != WeatherData.PtyCode.clean {
+                
+                return data.pty
+            }
+        }
+        
+        return WeatherData.PtyCode.clean
+    }
+    
+    
+    func startHourRainSnow() -> Int{
+        
+        for data in dataList {
+            
+            if data.pty != WeatherData.PtyCode.clean {
+                
+                return data.htm
+            }
+        }
+        
+        return -1
+    }
+    
+    
+    func endHourRainSnow() -> Int{
+        
+        let startHour = startHourRainSnow()
+        
+        if startHour == -1{
+            return -1
+        }
+        
+        var endHour = -1
+        
+        for data in dataList {
+            
+            if data.htm >= startHour{
+                
+                if data.pty != WeatherData.PtyCode.clean {
+                    
+                    endHour = data.htm + data.hrs
+                }
+                else{
+                    
+                    if endHour != -1{
+                        return endHour
+                    }
+                }
+            }
+        }
+        
+        return endHour
+    }
 }

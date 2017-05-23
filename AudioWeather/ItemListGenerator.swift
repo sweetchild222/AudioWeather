@@ -75,6 +75,14 @@ class ItemListGenerator{
         }
         
         
+        if dataManager.getWillPtyCodeRainSnow() != WeatherData.PtyCode.clean{
+            
+            let itemList = ItemSetWillRainSnow(dataManager:dataManager)
+            
+            return itemList.getItemSet()
+
+        }
+        
         
         
         /*
@@ -94,27 +102,5 @@ class ItemListGenerator{
         return []
         
     }
-    
-    
-    func isWillRainSnow(weatherDataTimeList:[WeatherData], weatherDataSpaceList:WeatherDataSpaceList) -> Bool{
-        
-        for data in weatherDataTimeList {
-                
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return true
-            }
-        }
-        
-        for spaceData in weatherDataSpaceList.dataList{
-                
-            if spaceData.pty != WeatherData.PtyCode.clean {
-                    
-                return true
-            }
-        }
-        
-        return false
 
-    }
 }
