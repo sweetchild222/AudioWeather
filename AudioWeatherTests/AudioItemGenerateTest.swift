@@ -211,6 +211,10 @@ class AudioItemGenerateTest: XCTestCase {
         let weatherDataSpaceList:WeatherDataSpaceList = WeatherDataSpaceList(dataList:spaceDataList, tmx:39.42)
         
         
+        //let dataManager:WeatherDataManager = WeatherDataManager()
+        
+        
+        
         let list = ItemListGenerator.instance.generateSky(weatherData:weatherData, weatherDataTimeList:timeList, weatherDataSpaceList: weatherDataSpaceList)
         
         if list.count != 3 {

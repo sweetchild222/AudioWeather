@@ -15,12 +15,9 @@ class WeatherRequester{
     
     var exitCount:Int = 0
     
-    //var dataCurrent:WeatherDataCurrent?
-    //var dataClosed:WeatherDataClosed?
-    //var dataSpace:WeatherDataSpace?
-    
-    var dataManager:WeatherDataManager?
-
+    var dataCurrent:WeatherDataCurrent?
+    var dataClosed:WeatherDataClosed?
+    var dataSpace:WeatherDataSpace?
     
     func getDate(date: Date) -> String{
         
@@ -376,6 +373,9 @@ class WeatherRequester{
                 return nil
             }
             
+            if getFcstToday() != anyToInt(value: item["fcstDate"] as Any){
+                continue
+            }
         
             let value = item["fcstValue"] as Any
             
@@ -589,7 +589,15 @@ class WeatherRequester{
         
         if self.exitCount == 0{
             
-            completionHandler(self.dataManager)
+            
+            if self.dataCurrent == nil || self.dataClosed == nil || self.dataSpace == nil{
+                completionHandler(nil)
+            }
+            
+            let dataManager = WeatherDataManager(dataCurrent:dataCurrent!, dataClosed:dataClosed!, dataSpace:dataSpace!)
+            
+            
+            completionHandler(dataManager)
         }
     }
 
@@ -598,7 +606,9 @@ class WeatherRequester{
         
         self.exitCount = 3
         
-        self.dataManager = WeatherDataManager()
+        self.dataCurrent = nil
+        self.dataClosed = nil
+        self.dataSpace = nil
         
         requestCore(request: createRequestDataCurrent()){ response in
          
@@ -627,7 +637,7 @@ class WeatherRequester{
                 return
             }
             
-            self.dataManager?.setDataCurrent(dataCurrent:dataCurrent)
+            self.dataCurrent = dataCurrent
             
             self.throughCompletionHander(completionHandler: completionHandler)
             
@@ -661,7 +671,7 @@ class WeatherRequester{
             }
             
             
-            self.dataManager?.setDataClosed(dataClosed:dataClosed)
+            self.dataClosed = dataClosed
 
             self.throughCompletionHander(completionHandler: completionHandler)
 
@@ -695,8 +705,7 @@ class WeatherRequester{
                 return
             }
             
-            self.dataManager?.setDataSpace(dataSpace:dataSpace)
-
+            self.dataSpace = dataSpace
             
             self.throughCompletionHander(completionHandler: completionHandler)
             

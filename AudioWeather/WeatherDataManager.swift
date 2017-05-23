@@ -12,46 +12,29 @@ import Foundation
 
 class WeatherDataManager{
     
-    var dataCurrent:WeatherDataCurrent?
-    var dataClosed:WeatherDataClosed?
-    var dataSpace:WeatherDataSpace?
+    let dataCurrent:WeatherDataCurrent
+    let dataClosed:WeatherDataClosed
+    let dataSpace:WeatherDataSpace
 
     
-    public func setDataCurrent(dataCurrent:WeatherDataCurrent?){
-        
+    init(dataCurrent:WeatherDataCurrent, dataClosed:WeatherDataClosed, dataSpace:WeatherDataSpace){
         self.dataCurrent = dataCurrent
-    }
-
-    
-    func setDataClosed(dataClosed:WeatherDataClosed?){
-        
         self.dataClosed = dataClosed
+        self.dataSpace = dataSpace
+    
     }
     
 
-    func setDataSpace(dataSpace:WeatherDataSpace?){
-        
-        self.dataSpace = dataSpace
-    }
-    
-    
     func printData(){
         
-        if dataCurrent != nil{
-            print("---- data current----")
-            dataCurrent?.printData()
-        }
+        print("---- data current----")
+        dataCurrent.printData()
         
-        if dataClosed != nil{
-            print("---- data closed----")
-            dataClosed?.printData()
-        }
-
+        print("---- data closed----")
+        dataClosed.printData()
         
-        if dataSpace != nil{
-            print("---- data space----")
-            dataSpace?.printData()
-        }
+        print("---- data space----")
+        dataSpace.printData()
 
     }
 }

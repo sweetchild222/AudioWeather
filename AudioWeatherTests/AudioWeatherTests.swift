@@ -93,7 +93,7 @@ class AudioWeatherTests: XCTestCase {
                 return
             }
             
-            //print(responseValue)
+            print(responseValue)
             
             expt.fulfill()
         }
