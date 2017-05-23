@@ -234,14 +234,14 @@ class AudioItemGenerateTest: XCTestCase {
         
         let dataClosedList:[WeatherData] = [
             WeatherData(htm:9, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
-            WeatherData(htm:10, hrs:1, pty:WeatherData.PtyCode.rain, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+            WeatherData(htm:10, hrs:1, pty:WeatherData.PtyCode.rain, pop:50, rna:10, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
             WeatherData(htm:11, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
         
         let dataClosed = WeatherDataClosed(dataList:dataClosedList)
         
         let dataSpaceList:[WeatherData] = [
-            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:30, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
-            WeatherData(htm:18, hrs:3, pty:WeatherData.PtyCode.rain, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.rain, pop:50, rna:32, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+            WeatherData(htm:18, hrs:3, pty:WeatherData.PtyCode.rain, pop:30, rna:103, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
             WeatherData(htm:21, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
         
         let dataSpace = WeatherDataSpace(dataList:dataSpaceList, tmx:39.42)
@@ -250,7 +250,7 @@ class AudioItemGenerateTest: XCTestCase {
         
         let list = ItemListGenerator.instance.generateSky(dataManager:dataManager)
         
-        if list.count != 3 {
+        if list.count != 5 {
             
             XCTAssert(false)
         }

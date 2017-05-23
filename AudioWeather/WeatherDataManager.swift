@@ -124,6 +124,28 @@ class WeatherDataManager{
     
     
     
+    func getPop() -> Int{
+        
+        //let popDataClosed = self.dataClosed.getPop()
+        
+        let popDataSpace = self.dataSpace.getPop()
+        
+        //return (popDataClosed + popDataSpace) / 2
+        
+        return popDataSpace
+    }
+    
+    
+    
+    func getRna() -> Int{
+        
+        let rnaDataSpace  = self.dataSpace.getRna()
+        
+        return rnaDataSpace
+    }
+    
+    
+    
     func getWillPtyCodeRainSnow() -> WeatherData.PtyCode{
         
         let codeDataClosed = self.dataClosed.getPtyCodeRainSnow()

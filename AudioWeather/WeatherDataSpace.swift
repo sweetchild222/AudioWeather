@@ -63,6 +63,46 @@ class WeatherDataSpace{
     }
     
     
+    
+    func getRna() -> Int{
+        
+        var rnaSum = 0
+        
+        for data in dataList {
+            
+            if data.pty != WeatherData.PtyCode.clean {
+                
+                rnaSum += data.rna
+                
+            }
+        }
+        
+        return rnaSum
+    }
+    
+    
+    func getPop() -> Int{
+        
+        var popSum = 0
+        var popCount = 0
+        
+        for data in dataList {
+            
+            if data.pty != WeatherData.PtyCode.clean {
+                
+                popSum += data.pop
+                popCount += 1
+            }
+        }
+        
+        
+        if popCount == 0{
+            return 0
+        }
+        
+        return popSum / popCount
+    }
+    
     func startHourRainSnow() -> Int{
         
         for data in dataList {

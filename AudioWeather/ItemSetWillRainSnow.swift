@@ -20,7 +20,15 @@ class ItemSetWillRainSnow : ItemSet{
 
     func getItemSet() -> [Item]{
         
-        return getStartHour() + getEndHour() + getWillRainSnow()
+        if isRna() == false {
+        
+            return getStartHour() + getEndHour() + getWillRainSnow() + getPop()
+        }
+        else{
+            
+            return getStartHour() + getEndHour() + getWillRainSnow() + getPopAnd() + getRna()
+        }
+        
     }
     
         
@@ -53,7 +61,7 @@ class ItemSetWillRainSnow : ItemSet{
     func ptyCodeToText(code:WeatherData.PtyCode) -> String{
         
         switch code{
-            
+
         case WeatherData.PtyCode.rain:
             return "비가 오겠습니다"
         case WeatherData.PtyCode.rainsnow:
@@ -63,6 +71,98 @@ class ItemSetWillRainSnow : ItemSet{
         default:
             return "비가 오겠습니다"
         }
+    }
+    
+    
+    func getPop() -> [Item]{
+    
+        let pop = self.dataManager.getPop()
+        
+        if pop <= 0 || pop > 100{
+            return []
+        }
+    
+        return [Item(text:popToText(pop: pop), audio:popToAudio(pop:pop))]
+    }
+    
+    func isRna() -> Bool{
+        
+        let rna = self.dataManager.getRna()
+        
+        let rnaTrimed = rna - (rna % 5)
+        
+        
+        if rnaTrimed <= 0 || rnaTrimed > 150{
+            return false
+        }
+        
+        return true
+
+    }
+    
+    
+    func getRna() -> [Item]{
+        
+        
+        let rna = self.dataManager.getRna()
+        
+        let rnaTrimed = rna - (rna % 5)
+
+        
+        if rnaTrimed <= 0 || rnaTrimed > 150{
+            return []
+        }
+
+        return [Item(text:rnaToText(rna: rnaTrimed), audio:rnaToAudio(rna:rnaTrimed))]
+    }
+    
+    
+    
+    func getPopAnd() -> [Item]{
+        
+        let pop = self.dataManager.getPop()
+        
+        if pop <= 0 || pop > 100{
+            return []
+        }
+        
+        return [Item(text:popAndToText(pop: pop), audio:popAndToAudio(pop:pop))]
+    }
+    
+    
+    func popAndToText(pop:Int) -> String{
+        
+        return String("강수 확률은 \(pop)% 이고")
+    }
+    
+    
+    func popAndToAudio(pop:Int) -> String{
+        
+        return String("and_pop\(pop)")
+    }
+    
+
+    func popToText(pop:Int) -> String{
+        
+        return String("강수 확률은 \(pop)% 입니다")
+    }
+    
+    
+    func popToAudio(pop:Int) -> String{
+        
+        return String("pop\(pop)")
+    }
+    
+    
+    func rnaToText(rna:Int) -> String{
+        
+        return String("예상 강수량은 \(rna)밀리미터 입니다")
+    }
+    
+    
+    func rnaToAudio(rna:Int) -> String{
+        
+        return String("will_rna\(rna)")
     }
     
     
@@ -76,8 +176,6 @@ class ItemSetWillRainSnow : ItemSet{
         
         return [Item(text:startHourToText(hour: hour), audio:startHourToAudio(hour: hour))]
     }
-    
-
     
     
     func getEndHour() -> [Item] {
