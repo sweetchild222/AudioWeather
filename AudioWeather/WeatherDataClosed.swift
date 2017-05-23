@@ -1,5 +1,5 @@
 //
-//  WeatherDataSpace.swift
+//  WeatherDataClosed.swift
 //  AudioWeather
 //
 //  Created by 최인국 on 2017. 5. 23..
@@ -8,28 +8,19 @@
 
 import Foundation
 
-class WeatherDataSpace{
+class WeatherDataClosed{
     
     let dataList:[WeatherData]
-    let tmx:Float?
     
-    init(dataList:[WeatherData], tmx:Float?){
-        
+    init(dataList:[WeatherData]) {
         self.dataList = dataList
-        self.tmx = tmx
-    }
-    
-    
-    func count() ->Int{
-        
-        return dataList.count
     }
     
     
     func printData(){
-     
+        
         for data in dataList{
-            
+        
             data.printData()
         }
     }
