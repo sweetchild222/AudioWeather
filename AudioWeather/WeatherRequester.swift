@@ -16,9 +16,9 @@ class WeatherRequester{
 
     var exitCount:Int = 0
     
-    var currentData:WeatherData?
-    var timeData:[WeatherData]?
-    var spaceData:WeatherDataSpaceList?
+    var dataCurrent:WeatherDataCurrent?
+    var dataClosed:WeatherDataClosed?
+    var dataSpace:WeatherDataSpace?
 
     
     
@@ -50,13 +50,13 @@ class WeatherRequester{
     
     func getFcstCurHour() -> Int{
         
-        return Int(getTime(date: spaceDataBaseDate(), addHalfMin:false))!
+        return Int(getTime(date: baseDateDataSpace(), addHalfMin:false))!
     }
     
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-    func currentDateBaseDate() -> Date {
+    func baseDateDataCurrent() -> Date {
         
         let minutes = Calendar.current.component(.minute, from: Date())
         
@@ -68,14 +68,14 @@ class WeatherRequester{
     }
     
     
-    func createRequestCurrentData() -> URLRequest{
+    func createRequestDataCurrent() -> URLRequest{
         
         let nx = 55
         let ny = 127
         let pageNo = 1
         let numOfRows = 10
         
-        let date = currentDateBaseDate()
+        let date = baseDateDataCurrent()
         
         let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastGrib").appending("?base_date=").appending(getDate(date: date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: false)).appending("&nx=").appending(String(nx)).appending("&ny=").appending(String(ny)).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
     
@@ -91,7 +91,7 @@ class WeatherRequester{
 
 /////////////////////////////////////////////////////////////////////////////////////
     
-    func timeDataBaseDate() -> Date {
+    func baseDateDataClosed() -> Date {
         
         let minutes = Calendar.current.component(.minute, from: Date())
         
@@ -103,14 +103,14 @@ class WeatherRequester{
     }
     
 
-    func createRequestTimeData() -> URLRequest{
+    func createRequestDataClosed() -> URLRequest{
         
         let nx = 55
         let ny = 127
         let pageNo = 1
         let numOfRows = 40
         
-        let date = timeDataBaseDate()
+        let date = baseDateDataClosed()
     
         let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastTimeData").appending("?base_date=").appending(getDate(date: date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: true)).appending("&nx=").appending(String(nx)).appending("&ny=").appending(String(ny)).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
         
@@ -126,7 +126,7 @@ class WeatherRequester{
     
 /////////////////////////////////////////////////////////////////////////////////////
     
-    func spaceDataBaseDate() -> Date {
+    func baseDateDataSpace() -> Date {
         
         let minute = Calendar.current.component(.minute, from: Date())
         
@@ -145,14 +145,14 @@ class WeatherRequester{
     }
 
     
-    func createRequestSpaceData() -> URLRequest{
+    func createRequestDataSpace() -> URLRequest{
         
         let nx = 55
         let ny = 127
         let pageNo = 1
         let numOfRows = 225
         
-        let date = spaceDataBaseDate()
+        let date = baseDateDataSpace()
         
         let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastSpaceData").appending("?base_date=").appending(getDate(date:date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: false)).appending("&nx=").appending(String(nx)).appending("&ny=").appending(String(ny)).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
         
@@ -258,7 +258,7 @@ class WeatherRequester{
     }
     
     
-    func parseCurrentWeatherData(items:[[String:Any]]) -> WeatherData? {
+    func parseDataCurrent(items:[[String:Any]]) -> WeatherDataCurrent? {
      
         var reh:Int?
         var rna:Int?
@@ -313,12 +313,12 @@ class WeatherRequester{
             pop = 100
         }
         
-        return WeatherData(htm:baseHtm, hrs:1, pty:pty!, pop:pop!, rna:rna!, reh:reh!, sky:sky!, tmp:tmp!)
+        return WeatherDataCurrent(data:WeatherData(htm:baseHtm, hrs:1, pty:pty!, pop:pop!, rna:rna!, reh:reh!, sky:sky!, tmp:tmp!))
     }
     
     
     
-    func listToWeatherDataList(hrs:Int, rehList:[Int:Int], ptyList:[Int:Int], rnaList:[Int:Int], skyList:[Int:Int], tmpList:[Int:Float], popList:[Int:Int]) ->[WeatherData]? {
+    func toDataList(hrs:Int, rehList:[Int:Int], ptyList:[Int:Int], rnaList:[Int:Int], skyList:[Int:Int], tmpList:[Int:Float], popList:[Int:Int]) ->[WeatherData]? {
         
         var weatherDataList:[WeatherData] = [WeatherData]()
         
@@ -360,7 +360,7 @@ class WeatherRequester{
     }
     
     
-    func parseTimeWeatherData(items:[[String:Any]]) -> [WeatherData]? {
+    func parseDataClosed(items:[[String:Any]]) -> WeatherDataClosed? {
         
         var rehList = [Int:Int]()
         var ptyList = [Int:Int]()
@@ -423,8 +423,13 @@ class WeatherRequester{
             return nil
         }
         
+        guard let dataList = toDataList(hrs:1, rehList:rehList, ptyList:ptyList, rnaList:rnaList, skyList:skyList, tmpList:tmpList, popList:popList) else {
+            print("toDataList failed")
+            return nil
+        }
         
-        return listToWeatherDataList(hrs:1, rehList:rehList, ptyList:ptyList, rnaList:rnaList, skyList:skyList, tmpList:tmpList, popList:popList)
+        
+        return WeatherDataClosed(dataList:dataList)
     }
     
     
@@ -463,7 +468,7 @@ class WeatherRequester{
     }
     
     
-    func parseSpaceWeatherData(items:[[String:Any]]) -> WeatherDataSpaceList? {
+    func parseDataSpace(items:[[String:Any]]) -> WeatherDataSpace? {
         
         var rehList = [Int:Int]()
         var ptyList = [Int:Int]()
@@ -545,10 +550,12 @@ class WeatherRequester{
             return nil
         }
         
-        let weatherDataList = listToWeatherDataList(hrs:3, rehList:rehList, ptyList:ptyList, rnaList:rnaList, skyList:skyList, tmpList:tmpList, popList:popList)
-        
-        
-        return WeatherDataSpaceList(dataList:weatherDataList!, tmx:tmx)
+        guard let dataList = toDataList(hrs:3, rehList:rehList, ptyList:ptyList, rnaList:rnaList, skyList:skyList, tmpList:tmpList, popList:popList) else{
+            print("toDataList failed")
+            return nil
+        }
+
+        return WeatherDataSpace(dataList:dataList, tmx:tmx)
 
     }
     
@@ -577,26 +584,26 @@ class WeatherRequester{
     
     
     
-    func throughCompletionHander(completionHandler: @escaping (WeatherData?, [WeatherData]?, WeatherDataSpaceList?) -> Void) {
+    func throughCompletionHander(completionHandler: @escaping (WeatherDataCurrent?, WeatherDataClosed?, WeatherDataSpace?) -> Void) {
         
         self.exitCount -= 1
         
         if self.exitCount == 0{
             
-            completionHandler(self.currentData, self.timeData, self.spaceData)
+            completionHandler(self.dataCurrent, self.dataClosed, self.dataSpace)
         }
     }
 
     
-    public func request(completionHandler: @escaping (WeatherData?, [WeatherData]?, WeatherDataSpaceList?) -> Void) {
+    public func request(completionHandler: @escaping (WeatherDataCurrent?, WeatherDataClosed?, WeatherDataSpace?) -> Void) {
         
         self.exitCount = 3
-        self.currentData = nil
-        self.timeData = nil
-        self.spaceData = nil
+        self.dataCurrent = nil
+        self.dataClosed = nil
+        self.dataSpace = nil
         
         
-        requestCore(request: createRequestCurrentData()){ response in
+        requestCore(request: createRequestDataCurrent()){ response in
          
             guard let responseValue = response, responseValue.count > 0 else {
          
@@ -614,23 +621,23 @@ class WeatherRequester{
             }
             
             
-            guard let currentData = self.parseCurrentWeatherData(items: items) else {
+            guard let dataCurrent = self.parseDataCurrent(items: items) else {
          
-                print("error parse current data")
+                print("error parse data current")
                 
                 self.throughCompletionHander(completionHandler: completionHandler)
                 
                 return
             }
             
-            self.currentData = currentData
+            self.dataCurrent = dataCurrent
             
             self.throughCompletionHander(completionHandler: completionHandler)
             
         }
 
         
-        requestCore(request: createRequestTimeData()){ response in
+        requestCore(request: createRequestDataClosed()){ response in
         
             
             guard let responseValue = response, responseValue.count > 0 else {
@@ -647,9 +654,9 @@ class WeatherRequester{
                 return
             }
             
-            guard let timeData = self.parseTimeWeatherData(items:items) else {
+            guard let dataClosed = self.parseDataClosed(items:items) else {
                 
-                print("error parse time data")
+                print("error parse data closed")
                 
                 self.throughCompletionHander(completionHandler: completionHandler)
                 
@@ -657,14 +664,14 @@ class WeatherRequester{
             }
             
             
-            self.timeData = timeData
+            self.dataClosed = dataClosed
             
             self.throughCompletionHander(completionHandler: completionHandler)
 
         }
  
 
-        requestCore(request: createRequestSpaceData()){ response in
+        requestCore(request: createRequestDataSpace()){ response in
             
             guard let responseValue = response, responseValue.count > 0 else {
 
@@ -682,16 +689,16 @@ class WeatherRequester{
             }
             
 
-            guard let spaceData = self.parseSpaceWeatherData(items:items) else {
+            guard let dataSpace = self.parseDataSpace(items:items) else {
                 
-                print("error parse space data")
+                print("error parse data space")
                 
                 self.throughCompletionHander(completionHandler: completionHandler)
                 
                 return
             }
             
-            self.spaceData = spaceData
+            self.dataSpace = dataSpace
             
             self.throughCompletionHander(completionHandler: completionHandler)
             

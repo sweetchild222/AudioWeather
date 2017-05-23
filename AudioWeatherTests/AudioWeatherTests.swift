@@ -71,11 +71,11 @@ class AudioWeatherTests: XCTestCase {
         
         let expt = expectation(description: "Waiting weather request..")
         
-        WeatherRequester.instance.request(){ currentData, timeData, spaceData in
+        WeatherRequester.instance.request(){ dataCurrent, dataClosed, dataSpace in
             
-            print(spaceData!.count())
-            print(currentData!)
-            print(timeData!)
+            dataCurrent!.printData()
+            dataClosed!.printData()
+            dataSpace!.printData()
             
             expt.fulfill()
         }

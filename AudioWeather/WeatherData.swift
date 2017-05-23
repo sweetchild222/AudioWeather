@@ -40,16 +40,12 @@ class WeatherData{
         self.reh = reh
         self.sky = sky
         self.tmp = tmp
+    }
+    
+    
+    func printData(){
         
-        /*
-        print("htm : \(self.htm)")
-        print("hrs : \(self.hrs)")
-        print("pty : \(self.pty)")
-        print("pop : \(self.pop)")
-        print("rna : \(self.rna)")
-        print("reh : \(self.reh)")
-        print("sky : \(self.sky)")
-        print("tmp : \(self.tmp)")
-        */
+        print("[htm : \(self.htm), " + "hrs : \(self.hrs), " + "pty : \(self.pty), " + "pop : \(self.pop), " + "rna : \(self.rna), " + "reh : \(self.reh), " + "sky : \(self.sky), " + "tmp : \(self.tmp)]")
+
     }
 }
