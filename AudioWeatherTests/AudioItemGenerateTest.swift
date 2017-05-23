@@ -196,26 +196,27 @@ class AudioItemGenerateTest: XCTestCase {
     
     func testItemSetSky1(){
         
-        let weatherData = WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.rainsnow, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3)
-    
-        let timeList:[WeatherData] = [
-            WeatherData(htm:9, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
-            WeatherData(htm:10, hrs:1, pty:WeatherData.PtyCode.rain, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+        let dataCurrent = WeatherDataCurrent(data:WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.rainsnow, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3))
+        
+        let dataClosedList:[WeatherData] = [
+            WeatherData(htm:9, hrs:1, pty:WeatherData.PtyCode.rain, pop:0, rna:10, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+            WeatherData(htm:10, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
             WeatherData(htm:11, hrs:1, pty:WeatherData.PtyCode.rain, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
         
-        let spaceDataList:[WeatherData] = [
-            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.snow, pop:0, rna:30, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+        let dataClosed = WeatherDataClosed(dataList:dataClosedList)
+        
+        let dataSpaceList:[WeatherData] = [
+            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:30, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
             WeatherData(htm:18, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
             WeatherData(htm:21, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
         
-        let weatherDataSpaceList:WeatherDataSpaceList = WeatherDataSpaceList(dataList:spaceDataList, tmx:39.42)
+        let dataSpace = WeatherDataSpace(dataList:dataSpaceList, tmx:39.42)
         
         
-        //let dataManager:WeatherDataManager = WeatherDataManager()
+        let dataManager = WeatherDataManager(dataCurrent:dataCurrent, dataClosed:dataClosed, dataSpace:dataSpace)
         
-        
-        
-        let list = ItemListGenerator.instance.generateSky(weatherData:weatherData, weatherDataTimeList:timeList, weatherDataSpaceList: weatherDataSpaceList)
+    
+        let list = ItemListGenerator.instance.generateSky(dataManager:dataManager)
         
         if list.count != 3 {
             
@@ -223,10 +224,12 @@ class AudioItemGenerateTest: XCTestCase {
         }
         
         printItemList(list:list)
+
     }
     
     func testItemSetSky2(){
         
+        /*
         let weatherData = WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3)
         
         let timeList:[WeatherData] = [
@@ -250,6 +253,7 @@ class AudioItemGenerateTest: XCTestCase {
         }
         
         printItemList(list:list)
+        */
     }
 
 }

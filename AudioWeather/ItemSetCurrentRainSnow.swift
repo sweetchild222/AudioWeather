@@ -11,91 +11,30 @@ import Foundation
 
 class ItemSetCurrentRainSnow : ItemSet{
     
-    let weatherData:WeatherData
-    let weatherDataTimeList:[WeatherData]
-    let weatherDataSpaceList:WeatherDataSpaceList
+    let dataManager:WeatherDataManager
     
-    init(weatherData:WeatherData, weatherDataTimeList:[WeatherData], weatherDataSpaceList:WeatherDataSpaceList){
-        self.weatherData = weatherData
-        self.weatherDataTimeList = weatherDataTimeList
-        self.weatherDataSpaceList = weatherDataSpaceList
+    init(dataManager:WeatherDataManager){
+        self.dataManager = dataManager
     }
-    
     
     func getItemSet() -> [Item]{
     
-        return getCurrentRainSnow() + getEndRainSnow() + getRnaRainSnow()
+        return getRainSnow() + getEndHour() + getRna()
     }
     
-    
-    func findEndTimeRainSnowOnSpace() -> Int{
+
+    func getEndHour() -> [Item] {
         
-        let spaceDataList = weatherDataSpaceList.getDataList()
-        
-        for data in spaceDataList.reversed() {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.htm + data.hrs
-            }
-        }
-        
-        return -1
-    }
-    
-    
-    
-    func findEndTimeRainSnowOnTime() -> Int{
-        
-        for data in weatherDataTimeList.reversed() {
-            
-            if data.pty != WeatherData.PtyCode.clean {
-                
-                return data.htm + data.hrs
-            }
-        }
-        
-        return -1
-    }
-    
-    
-    
-    func findEndTimeRainSnow() -> Int{
-        
-        let endTimeSpace = findEndTimeRainSnowOnSpace()
-        
-        let endTimeTime = findEndTimeRainSnowOnTime()
-        
-        if endTimeSpace == -1 && endTimeTime == -1{
-            return -1
-        }
-        
-        if endTimeSpace > endTimeTime{
-            return endTimeSpace
-        }
-        else{
-            return endTimeTime
-        }
-    }
-    
-    
-    
-    func getEndRainSnow() -> [Item] {
-        
-        var set:[Item] = []
-        
-        let hour = findEndTimeRainSnow()
+        let hour = dataManager.endHourCurrentRainSnow()
         
         if hour == -1 {
             
-            set.append(Item(text:"하루 종일 이어지겠습니다", audio:"current_allday"))
+            return [Item(text:"하루 종일 이어지겠습니다", audio:"current_allday")]
         }
         else{
             
-            set.append(Item(text:hourToText(hour:hour), audio:hourToAudio(hour:hour)))
+            return [Item(text:hourToText(hour:hour), audio:hourToAudio(hour:hour))]
         }
-        
-        return set;
     }
     
     
@@ -125,57 +64,11 @@ class ItemSetCurrentRainSnow : ItemSet{
     }
     
     
-    func calcRnaRainSnow() -> Int{
+    func getRna() -> [Item] {
         
-        var rnaSum:Int = 0
-        var timeSpanSum:Int = 0
+        let rna = dataManager.currentRna()
         
-        for data in weatherDataTimeList {
-            
-            if data.rna > 0 {
-                
-                rnaSum += data.rna
-                timeSpanSum += data.hrs
-            }
-        }
-        
-        
-        let spaceDataList = weatherDataSpaceList.getDataList()
-        
-        for data in spaceDataList {
-            
-            if data.rna > 0 {
-                
-                rnaSum += data.rna
-                timeSpanSum += data.hrs
-            }
-        }
-        
-        
-        if weatherData.rna > 0 {
-            
-            rnaSum += weatherData.rna
-            timeSpanSum += weatherData.hrs
-        }
-        
-        if timeSpanSum == 0 {
-            return 0
-        }
-        
-        return rnaSum / timeSpanSum
-        
-    }
-    
-    
-    func getRnaRainSnow() -> [Item] {
-        
-        let rna = calcRnaRainSnow()
-        
-        var set:[Item] = []
-        
-        set.append(Item(text:"강수량은 시간당 " + String(rna) + "밀리미터 입니다", audio:rnaToAudio(rna:rna)))
-        
-        return set
+        return [Item(text:"강수량은 시간당 " + String(rna) + "밀리미터 입니다", audio:rnaToAudio(rna:rna))]
     }
     
     
@@ -185,21 +78,19 @@ class ItemSetCurrentRainSnow : ItemSet{
     }
     
     
-    func getCurrentRainSnow() -> [Item]{
+    func getRainSnow() -> [Item]{
         
-        var set:[Item] = []
-        
-        if weatherData.pty == WeatherData.PtyCode.rain{
-            set.append(Item(text:"현재는 비가 오고 있고", audio:"current_rain"))
+        if dataManager.currentPty() == WeatherData.PtyCode.rain{
+            return [Item(text:"현재는 비가 오고 있고", audio:"current_rain")]
         }
-        else if weatherData.pty == WeatherData.PtyCode.rainsnow {
-            set.append(Item(text:"현재는 눈과 비가 오고 있고", audio:"current_rain_snow"))
+        else if dataManager.currentPty() == WeatherData.PtyCode.rainsnow {
+            return [Item(text:"현재는 눈과 비가 오고 있고", audio:"current_rain_snow")]
         }
-        else if weatherData.pty == WeatherData.PtyCode.snow {
-            set.append(Item(text:"현재는 눈이 오고 있고", audio:"current_snow"))
+        else if dataManager.currentPty() == WeatherData.PtyCode.snow {
+            return [Item(text:"현재는 눈이 오고 있고", audio:"current_snow")]
         }
         
-        return set;
+        return [];
         
     }
     

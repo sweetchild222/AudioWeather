@@ -64,16 +64,20 @@ class ItemListGenerator{
     
     
     
-    func generateSky(weatherData:WeatherData, weatherDataTimeList:[WeatherData], weatherDataSpaceList:WeatherDataSpaceList) -> [Item] {
+    func generateSky(dataManager:WeatherDataManager) -> [Item] {
         
-        if weatherData.pty != WeatherData.PtyCode.clean {
+        if dataManager.currentPty() != WeatherData.PtyCode.clean {
 
-            let itemList = ItemSetCurrentRainSnow(weatherData: weatherData, weatherDataTimeList: weatherDataTimeList, weatherDataSpaceList: weatherDataSpaceList)
+            let itemList = ItemSetCurrentRainSnow(dataManager:dataManager)
             
             return itemList.getItemSet()
             
         }
         
+        
+        
+        
+        /*
         if isWillRainSnow(weatherDataTimeList: weatherDataTimeList, weatherDataSpaceList: weatherDataSpaceList) == true {
             
             let itemList = ItemSetWillRainSnow(weatherData: weatherData, weatherDataTimeList: weatherDataTimeList, weatherDataSpaceList: weatherDataSpaceList)
@@ -85,6 +89,9 @@ class ItemListGenerator{
         let itemList = ItemSetSky(weatherData: weatherData, weatherDataTimeList: weatherDataTimeList, weatherDataSpaceList: weatherDataSpaceList)
         
         return itemList.getItemSet()
+        */
+        
+        return []
         
     }
     

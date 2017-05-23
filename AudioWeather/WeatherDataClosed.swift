@@ -24,4 +24,19 @@ class WeatherDataClosed{
             data.printData()
         }
     }
+    
+    
+    func endHourCurrentRainSnow() -> Int{
+        
+        for data in dataList {
+            
+            if data.pty == WeatherData.PtyCode.clean {
+                
+                return data.htm
+            }
+        }
+        
+        return -1
+    }
+
 }
