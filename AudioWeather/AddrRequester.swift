@@ -14,7 +14,7 @@ class AddrRequester{
     static let instance = AddrRequester()
     
     
-    func request(_ lat:Double, _ lgt:Double, completionHandler: @escaping (String?) -> Void) {
+    func request(lat:Double, lgt:Double, completionHandler: @escaping (String?) -> Void) {
         
         
         requestCore(request: createRequest(lgt:lgt, lat:lat)){ response in

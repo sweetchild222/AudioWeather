@@ -22,23 +22,11 @@ class AudioWeatherTests: XCTestCase {
     }
     
 
-    
     func testAddrRequest(){
-        
-        
-        //37.8977925,127.4104595
         
         let expt = expectation(description: "Waiting addr request..")
         
-        //33.3655319,126.5881372
-        
-        //37.8102898,127.4576087
-        
-        
-        //37.70314,127.2540612
-        
-        
-        AddrRequester.instance.request(37.388917,127.1358561){ response in
+        AddrRequester.instance.request(lat:37.388917, lgt:127.1358561){ response in
 
             guard let responseValue = response, responseValue.isEmpty == false else {
                 
@@ -105,7 +93,7 @@ class AudioWeatherTests: XCTestCase {
                 return
             }
             
-            print(responseValue)
+            //print(responseValue)
             
             expt.fulfill()
         }
