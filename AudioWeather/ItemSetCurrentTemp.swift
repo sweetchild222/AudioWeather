@@ -21,14 +21,12 @@ class ItemSetCurrentTemp : ItemSet{
         
         let tempPrefix = self.tmp > 0 ? "영상 " : "영하 "
         
-        var set:[Item] = []
-        
         if Int(tmp) >= -30 && Int(tmp) <= 50{
             
-            set.append(Item(text:"현재 기온은 " + tempPrefix + String(abs(tmp)) + "도 입니다"  , audio:tmxToAudio(tmp:Int(tmp))))
+            return [Item(text:"현재 기온은 " + tempPrefix + String(abs(tmp)) + "도 입니다"  , audio:tmxToAudio(tmp:Int(tmp)))]
         }
 
-        return set
+        return []
     }
     
     func tmxToAudio(tmp:Int) -> String{

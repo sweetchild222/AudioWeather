@@ -93,7 +93,5 @@ class ItemSetCurrentRainSnow : ItemSet{
         return [];
         
     }
-    
-    
-    
+
 }

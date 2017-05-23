@@ -22,14 +22,12 @@ class ItemSetMaxTemp : ItemSet{
         
         let tempPrefix = self.tmx > 0 ? "영상 " : "영하 "
     
-        var set:[Item] = []
-    
         if Int(tmx) >= -30 && Int(tmx) <= 50{
                     
-            set.append(Item(text:"낮 최고 기온은 " + tempPrefix + String(abs(tmx)) + "도 입니다"  , audio:tmxToAudio(tmx:Int(tmx))))
+            return [Item(text:"낮 최고 기온은 " + tempPrefix + String(abs(tmx)) + "도 입니다"  , audio:tmxToAudio(tmx:Int(tmx)))]
         }
         
-        return set
+        return []
     }
     
     func tmxToAudio(tmx:Int) -> String{
