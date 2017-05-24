@@ -447,14 +447,8 @@ class WeatherRequester{
                 
                     let rnaValue = rnaList[key + 3]
                     
-                    if rnaValue == nil{
-                        
-                        tempList[key] = 0
-                    }
-                    else {
-                        
-                        tempList[key] = rnaValue
-                    }
+                    tempList[key] = rnaValue ?? 0
+
                 }
                 else {
                     

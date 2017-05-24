@@ -25,7 +25,7 @@ class WeatherData{
     let rna:Int             // rainFall amount
     let reh:Int             // humidity percent
     let tmp:Float           // temperature
-    var hrs:Int             // hour space
+    let hrs:Int             // hour space
     
     let sky:SkyCode
     let pty:PtyCode
