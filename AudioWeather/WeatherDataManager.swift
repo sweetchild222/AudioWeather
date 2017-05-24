@@ -145,6 +145,28 @@ class WeatherDataManager{
     }
     
     
+    func isAMSkyCode() -> Bool{
+    
+        return self.dataSpace.isAMSkyCode()
+    }
+    
+    func isPMSkyCode() -> Bool{
+        
+        return self.dataSpace.isPMSkyCode()
+    }
+
+    
+    
+    func getAMSkyCode() -> WeatherData.SkyCode{
+        return self.dataSpace.getAMSkyCode()
+    }
+    
+    
+    func getPMSkyCode() -> WeatherData.SkyCode{
+        return self.dataSpace.getPMSkyCode()
+    }
+
+    
     
     func getWillPtyCodeRainSnow() -> WeatherData.PtyCode{
         

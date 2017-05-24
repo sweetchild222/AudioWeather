@@ -257,5 +257,76 @@ class AudioItemGenerateTest: XCTestCase {
         
         printItemList(list:list)
     }
+    
+    
+    
+    func testItemSetSky3(){
+        
+        let dataCurrent = WeatherDataCurrent(data:WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3))
+        
+        let dataClosedList:[WeatherData] = [
+            WeatherData(htm:9, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+            WeatherData(htm:10, hrs:1, pty:WeatherData.PtyCode.clean, pop:50, rna:10, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+            WeatherData(htm:11, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
+        
+        let dataClosed = WeatherDataClosed(dataList:dataClosedList)
+        
+        let dataSpaceList:[WeatherData] = [
+            WeatherData(htm:0, hrs:3, pty:WeatherData.PtyCode.clean, pop:50, rna:32, reh:31, sky:WeatherData.SkyCode.much, tmp:24.3),
+            WeatherData(htm:3, hrs:3, pty:WeatherData.PtyCode.clean, pop:50, rna:32, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+            WeatherData(htm:6, hrs:3, pty:WeatherData.PtyCode.clean, pop:50, rna:32, reh:31, sky:WeatherData.SkyCode.much, tmp:24.3),
+            WeatherData(htm:9, hrs:3, pty:WeatherData.PtyCode.clean, pop:50, rna:32, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+            
+            WeatherData(htm:12, hrs:3, pty:WeatherData.PtyCode.clean, pop:50, rna:32, reh:31, sky:WeatherData.SkyCode.clean, tmp:24.3),
+            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.clean, pop:50, rna:32, reh:31, sky:WeatherData.SkyCode.gray, tmp:24.3),
+            WeatherData(htm:18, hrs:3, pty:WeatherData.PtyCode.clean, pop:30, rna:103, reh:30, sky:WeatherData.SkyCode.clean, tmp:24.0),
+            WeatherData(htm:21, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
+        
+        let dataSpace = WeatherDataSpace(dataList:dataSpaceList, tmx:39.42)
+        
+        let dataManager = WeatherDataManager(dataCurrent:dataCurrent, dataClosed:dataClosed, dataSpace:dataSpace)
+        
+        let list = ItemListGenerator.instance.generateSky(dataManager:dataManager)
+        
+        if list.count != 2 {
+            
+            XCTAssert(false)
+        }
+        
+        printItemList(list:list)
+    }
+    
+    
+    func testItemSetSky4(){
+        
+        let dataCurrent = WeatherDataCurrent(data:WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3))
+        
+        let dataClosedList:[WeatherData] = [
+            WeatherData(htm:9, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+            WeatherData(htm:10, hrs:1, pty:WeatherData.PtyCode.clean, pop:50, rna:10, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+            WeatherData(htm:11, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
+        
+        let dataClosed = WeatherDataClosed(dataList:dataClosedList)
+        
+        let dataSpaceList:[WeatherData] = [
+            WeatherData(htm:12, hrs:3, pty:WeatherData.PtyCode.clean, pop:50, rna:32, reh:31, sky:WeatherData.SkyCode.clean, tmp:24.3),
+            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.clean, pop:50, rna:32, reh:31, sky:WeatherData.SkyCode.gray, tmp:24.3),
+            WeatherData(htm:18, hrs:3, pty:WeatherData.PtyCode.clean, pop:30, rna:103, reh:30, sky:WeatherData.SkyCode.clean, tmp:24.0),
+            WeatherData(htm:21, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
+        
+        let dataSpace = WeatherDataSpace(dataList:dataSpaceList, tmx:39.42)
+        
+        let dataManager = WeatherDataManager(dataCurrent:dataCurrent, dataClosed:dataClosed, dataSpace:dataSpace)
+        
+        let list = ItemListGenerator.instance.generateSky(dataManager:dataManager)
+        
+        if list.count != 1 {
+            
+            XCTAssert(false)
+        }
+        
+        printItemList(list:list)
+    }
+    
 
 }

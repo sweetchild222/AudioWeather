@@ -68,6 +68,7 @@ class ItemListGenerator{
         
         if dataManager.currentPty() != WeatherData.PtyCode.clean {
 
+            
             let itemList = ItemSetCurrentRainSnow(dataManager:dataManager)
             
             return itemList.getItemSet()
@@ -83,23 +84,10 @@ class ItemListGenerator{
 
         }
         
-        
-        
-        /*
-        if isWillRainSnow(weatherDataTimeList: weatherDataTimeList, weatherDataSpaceList: weatherDataSpaceList) == true {
-            
-            let itemList = ItemSetWillRainSnow(weatherData: weatherData, weatherDataTimeList: weatherDataTimeList, weatherDataSpaceList: weatherDataSpaceList)
-            
-            return itemList.getItemSet()
-            
-        }
-        
-        let itemList = ItemSetSky(weatherData: weatherData, weatherDataTimeList: weatherDataTimeList, weatherDataSpaceList: weatherDataSpaceList)
+
+        let itemList = ItemSetSky(dataManager: dataManager)
         
         return itemList.getItemSet()
-        */
-        
-        return []
         
     }
 

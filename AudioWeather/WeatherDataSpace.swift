@@ -146,4 +146,90 @@ class WeatherDataSpace{
         
         return endHour
     }
+
+    
+    func isAMSkyCode() -> Bool{
+        
+        for data in dataList {
+            
+            if data.htm < 12 {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    
+    func isPMSkyCode() -> Bool{
+        
+        for data in dataList {
+            
+            if data.htm >= 12 {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    
+    func getAMSkyCode() -> WeatherData.SkyCode{
+        
+        return getSkyCode(ampm:true)
+    }
+    
+    
+    func getPMSkyCode() -> WeatherData.SkyCode{
+        
+        return getSkyCode(ampm:false)
+    }
+    
+    
+    func getSkyCode(ampm:Bool) -> WeatherData.SkyCode {
+        
+        var cleanCount = 0
+        var smallCount = 0
+        var muchCount = 0
+        var grayCount = 0
+        
+        for data in dataList {
+            
+            if (ampm == true && data.htm < 12) || (ampm == false && data.htm >= 12) {
+                
+                switch data.sky{
+                    
+                case WeatherData.SkyCode.clean:
+                    cleanCount += 1
+                case WeatherData.SkyCode.small:
+                    smallCount += 1
+                case WeatherData.SkyCode.much:
+                    muchCount += 1
+                case WeatherData.SkyCode.gray:
+                    grayCount += 1
+
+                }
+            }
+        }
+        
+        if grayCount >= muchCount && grayCount >= smallCount && grayCount >= cleanCount {
+            return WeatherData.SkyCode.gray
+        }
+        else{
+            
+            if muchCount >= smallCount && muchCount >= cleanCount{
+                
+                return WeatherData.SkyCode.much
+            }
+            else{
+                
+                if smallCount >= cleanCount {
+                    return WeatherData.SkyCode.small
+                }
+                else{
+                    return WeatherData.SkyCode.clean
+                }
+            }
+        }
+    }
 }
