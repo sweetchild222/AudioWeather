@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import AVFoundation
 @testable import AudioWeather
 
 class AudioItemGenerateTest: XCTestCase {
@@ -327,6 +328,4 @@ class AudioItemGenerateTest: XCTestCase {
         
         printItemList(list:list)
     }
-    
-
 }
