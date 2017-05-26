@@ -10,20 +10,19 @@ import Foundation
 
 class ItemSetDust : ItemSet{
     
-    let name1:String
-    let name2:String
+    let addr:Address
     let dustList:[String: [String: DustRequester.Grade]]
     
-    init(name1:String, name2:String, dustList:[String: [String: DustRequester.Grade]]){
-        self.name1 = name1
-        self.name2 = name2
+    init(addr:Address, dustList:[String: [String: DustRequester.Grade]]){
+        
+        self.addr = addr
         self.dustList = dustList
     }
     
     
     func getItemSet() -> [Item]{
         
-        guard let value = AddressMap.instance.getMapInfo(name1: name1, name2: name2) else {
+        guard let value = AddressMap.instance.getMapInfo(addr:addr) else {
             
             return []
         }

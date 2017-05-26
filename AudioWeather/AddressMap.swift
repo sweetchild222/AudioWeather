@@ -362,9 +362,9 @@ class AddressMap{
     }
     
     
-    func getMapInfo(name1:String, name2:String) -> MapInfo? {
+    func getMapInfo(addr:Address) -> MapInfo? {
         
-        let value = self.mapList[name1]?[name2]
+        let value = self.mapList[addr.getUpper()]?[addr.getLower()]
         
         return value
     }

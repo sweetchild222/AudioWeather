@@ -10,26 +10,25 @@ import Foundation
 
 class ItemSetLocation : ItemSet{
     
-    let name1:String
-    let name2:String
+    let addr:Address
     
-    init(name1:String, name2:String){
-        self.name1 = name1
-        self.name2 = name2
+    init(addr:Address){
+        self.addr = addr
+        
     }
     
     
     func getItemSet() -> [Item]{
         
         
-        guard let value = AddressMap.instance.getMapInfo(name1: name1, name2: name2) else{
+        guard let value = AddressMap.instance.getMapInfo(addr:addr) else{
             
             return []
         }
         
         var set:[Item] = []
         
-        set.append(Item(text:name1 + " " + name2 + "의", audio:value.getAudio()))
+        set.append(Item(text:addr.getUpper() + " " + addr.getLower() + "의", audio:value.getAudio()))
         set.append(Item(text:"날씨 예보를 알려 드리겠습니다", audio:"forecast"))
 
         return set

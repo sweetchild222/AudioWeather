@@ -31,7 +31,7 @@ class AudioWeatherTests: XCTestCase {
         
         AddrRequester.instance.request(lat:36.4990227, lgt:127.3023216){ response in
 
-            guard let responseValue = response, responseValue.isEmpty == false else {
+            guard let responseValue = response else {
                 
                 XCTAssert(false)
     

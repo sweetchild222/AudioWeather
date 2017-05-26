@@ -13,7 +13,6 @@ class ItemListGenerator{
     
     static let instance = ItemListGenerator()
     
-    
     func generateHead() -> [Item]{
         
         let itemList = ItemSetHead()
@@ -23,9 +22,9 @@ class ItemListGenerator{
     
     
     
-    func generateLocation(name1:String, name2:String) -> [Item] {
+    func generateLocation(addr:Address) -> [Item] {
         
-        let itemList = ItemSetLocation(name1:name1, name2:name2)
+        let itemList = ItemSetLocation(addr:addr)
         
         return itemList.getItemSet()
     }
@@ -39,9 +38,9 @@ class ItemListGenerator{
     }
     
     
-    func generateDust(name1:String, name2:String, dustList:[String: [String: DustRequester.Grade]]) -> [Item] {
+    func generateDust(addr:Address, dustList:[String: [String: DustRequester.Grade]]) -> [Item] {
         
-        let itemList = ItemSetDust(name1:name1, name2:name2, dustList:dustList)
+        let itemList = ItemSetDust(addr:addr, dustList:dustList)
         
         return itemList.getItemSet()
     }
