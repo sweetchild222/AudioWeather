@@ -14,7 +14,7 @@ class AddrRequester{
     static let instance = AddrRequester()
     
     
-    func request(lat:Double, lgt:Double, completionHandler: @escaping (String?) -> Void) {
+    func request(lat:Double, lgt:Double, completionHandler: @escaping ([String]?) -> Void) {
         
         
         requestCore(request: createRequest(lgt:lgt, lat:lat)){ response in
@@ -42,19 +42,26 @@ class AddrRequester{
     
     
     
-    func extract(data:Data) -> String? {
+    func extract(data:Data) -> [String]? {
         
         guard let json = try? JSONSerialization.jsonObject(with: data) as? [String:Any] else {
             
             return nil
         }
         
-        guard let name = json?["name1"] as? String else  {
+        guard let name1 = json?["name1"] as? String else  {
             
             return nil
         }
         
-        return name
+        
+        guard let name2 = json?["name2"] as? String else  {
+            
+            return [name1, name1]
+        }
+
+        
+        return [name1, name2]
     }
     
     

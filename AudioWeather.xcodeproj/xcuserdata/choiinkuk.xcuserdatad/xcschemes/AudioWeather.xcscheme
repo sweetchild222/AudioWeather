@@ -39,6 +39,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "AudioItemGenerateTest">
+               </Test>
+               <Test
                   Identifier = "UtilTest">
                </Test>
             </SkippedTests>
