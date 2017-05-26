@@ -91,7 +91,7 @@ class ItemSetSky : ItemSet{
     
     func getAMPMDifferent(amSkyCode:WeatherData.SkyCode, pmSkyCode:WeatherData.SkyCode) -> [Item]{
         
-        return [Item(text:amOnlyToText(skyCode: amSkyCode), audio:amOnlyToAudio(skyCode: amSkyCode)), Item(text:pmOnlyToText(skyCode: pmSkyCode), audio:pmOnlyToAudio(skyCode: pmSkyCode))]
+        return [Item(text:amOnlyToText(skyCode: amSkyCode), audio:amOnlyToAudio(skyCode: amSkyCode)), getEmpty(empty: 2), Item(text:pmOnlyToText(skyCode: pmSkyCode), audio:pmOnlyToAudio(skyCode: pmSkyCode))]
         
     }
     

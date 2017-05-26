@@ -13,6 +13,37 @@ class ItemListGenerator{
     
     static let instance = ItemListGenerator()
     
+    
+    func generate(addr:Address, dustList:[String: [String: DustRequester.Grade]], dataManager:WeatherDataManager) -> [Item] {
+        
+        let tmx = dataManager.getMaxTemp()
+        
+        let tempClosure:(Float) -> [Item] = tmx != nil ? generateMaxTemp : generateCurrentTemp
+        
+        let temp = tmx ?? dataManager.getCurrentTemp()
+        
+        var items:[Item] = generateHead() + generateEmpty(empty:4)
+        items += generateLocation(addr:addr) + generateEmpty(empty:4)
+        items += generateSky(dataManager: dataManager) + generateEmpty(empty:4)
+        items += tempClosure(temp!) + generateEmpty(empty:4)
+        //items += generateDust(addr: addr, dustList: dustList)
+        items += generateTail()
+
+        return items
+    }
+    
+    
+    func generateEmpty(empty:Int) -> [Item] {
+        
+        
+        let itemList = ItemSetEmpty(empty:empty)
+        
+        return itemList.getItemSet()
+        
+        
+        
+    }
+    
     func generateHead() -> [Item]{
         
         let itemList = ItemSetHead()

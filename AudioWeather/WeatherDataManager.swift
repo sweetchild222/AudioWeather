@@ -25,6 +25,19 @@ class WeatherDataManager{
     }
     
     
+    
+    func getCurrentTemp() -> Float?{
+        
+        return dataCurrent.data.tmp
+    }
+    
+    
+    func getMaxTemp() -> Float? {
+        
+        return dataSpace.getTmx()
+        
+    }
+    
     func currentPty() -> WeatherData.PtyCode{
         
         return self.dataCurrent.data.pty

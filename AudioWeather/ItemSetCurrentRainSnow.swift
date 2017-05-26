@@ -19,7 +19,7 @@ class ItemSetCurrentRainSnow : ItemSet{
     
     func getItemSet() -> [Item]{
     
-        return getRainSnow() + getEndHour() + getRna()
+        return getRainSnow() + [getEmpty(empty: 2)] + getEndHour() + [getEmpty(empty: 2)] + getRna()
     }
     
 

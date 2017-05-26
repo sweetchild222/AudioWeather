@@ -45,10 +45,10 @@
 		6C4E6A3E1ED70BA4002F0B27 /* allday_gary.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E67371ED70BA3002F0B27 /* allday_gary.mp3 */; };
 		6C4E6A3F1ED70BA4002F0B27 /* allday_much.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E67381ED70BA3002F0B27 /* allday_much.mp3 */; };
 		6C4E6A401ED70BA4002F0B27 /* allday_small.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E67391ED70BA3002F0B27 /* allday_small.mp3 */; };
-		6C4E6A411ED70BA4002F0B27 /* moning_clean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E673A1ED70BA3002F0B27 /* moning_clean.mp3 */; };
-		6C4E6A421ED70BA4002F0B27 /* moning_gray.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E673B1ED70BA3002F0B27 /* moning_gray.mp3 */; };
-		6C4E6A431ED70BA4002F0B27 /* moning_much.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E673C1ED70BA3002F0B27 /* moning_much.mp3 */; };
-		6C4E6A441ED70BA4002F0B27 /* moning_small.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E673D1ED70BA3002F0B27 /* moning_small.mp3 */; };
+		6C4E6A411ED70BA4002F0B27 /* morning_clean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E673A1ED70BA3002F0B27 /* morning_clean.mp3 */; };
+		6C4E6A421ED70BA4002F0B27 /* morning_gray.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E673B1ED70BA3002F0B27 /* morning_gray.mp3 */; };
+		6C4E6A431ED70BA4002F0B27 /* morning_much.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E673C1ED70BA3002F0B27 /* morning_much.mp3 */; };
+		6C4E6A441ED70BA4002F0B27 /* morning_small.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E673D1ED70BA3002F0B27 /* morning_small.mp3 */; };
 		6C4E6A451ED70BA4002F0B27 /* current_hour_0am.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E673F1ED70BA3002F0B27 /* current_hour_0am.mp3 */; };
 		6C4E6A461ED70BA4002F0B27 /* current_hour_0pm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E67401ED70BA3002F0B27 /* current_hour_0pm.mp3 */; };
 		6C4E6A471ED70BA4002F0B27 /* current_hour_10am.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E67411ED70BA3002F0B27 /* current_hour_10am.mp3 */; };
@@ -769,6 +769,7 @@
 		6C4E6D121ED70BA5002F0B27 /* min8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E6A221ED70BA4002F0B27 /* min8.mp3 */; };
 		6C4E6D131ED70BA5002F0B27 /* min9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E6A231ED70BA4002F0B27 /* min9.mp3 */; };
 		6C4E6D171ED851AC002F0B27 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E6D161ED851AC002F0B27 /* Address.swift */; };
+		6C4E6D191ED85EFE002F0B27 /* ItemSetEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E6D181ED85EFE002F0B27 /* ItemSetEmpty.swift */; };
 		6C58940D1ECFF00700E052F6 /* ItemSetCurrentTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58940C1ECFF00700E052F6 /* ItemSetCurrentTemp.swift */; };
 		6C58940F1ECFF01700E052F6 /* ItemSetMaxTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58940E1ECFF01700E052F6 /* ItemSetMaxTemp.swift */; };
 		6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6246D91EC0A2740044F5B7 /* WeatherData.swift */; };
@@ -850,10 +851,10 @@
 		6C4E67371ED70BA3002F0B27 /* allday_gary.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = allday_gary.mp3; sourceTree = "<group>"; };
 		6C4E67381ED70BA3002F0B27 /* allday_much.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = allday_much.mp3; sourceTree = "<group>"; };
 		6C4E67391ED70BA3002F0B27 /* allday_small.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = allday_small.mp3; sourceTree = "<group>"; };
-		6C4E673A1ED70BA3002F0B27 /* moning_clean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moning_clean.mp3; sourceTree = "<group>"; };
-		6C4E673B1ED70BA3002F0B27 /* moning_gray.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moning_gray.mp3; sourceTree = "<group>"; };
-		6C4E673C1ED70BA3002F0B27 /* moning_much.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moning_much.mp3; sourceTree = "<group>"; };
-		6C4E673D1ED70BA3002F0B27 /* moning_small.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moning_small.mp3; sourceTree = "<group>"; };
+		6C4E673A1ED70BA3002F0B27 /* morning_clean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = morning_clean.mp3; sourceTree = "<group>"; };
+		6C4E673B1ED70BA3002F0B27 /* morning_gray.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = morning_gray.mp3; sourceTree = "<group>"; };
+		6C4E673C1ED70BA3002F0B27 /* morning_much.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = morning_much.mp3; sourceTree = "<group>"; };
+		6C4E673D1ED70BA3002F0B27 /* morning_small.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = morning_small.mp3; sourceTree = "<group>"; };
 		6C4E673F1ED70BA3002F0B27 /* current_hour_0am.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = current_hour_0am.mp3; sourceTree = "<group>"; };
 		6C4E67401ED70BA3002F0B27 /* current_hour_0pm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = current_hour_0pm.mp3; sourceTree = "<group>"; };
 		6C4E67411ED70BA3002F0B27 /* current_hour_10am.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = current_hour_10am.mp3; sourceTree = "<group>"; };
@@ -1574,6 +1575,7 @@
 		6C4E6A221ED70BA4002F0B27 /* min8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = min8.mp3; sourceTree = "<group>"; };
 		6C4E6A231ED70BA4002F0B27 /* min9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = min9.mp3; sourceTree = "<group>"; };
 		6C4E6D161ED851AC002F0B27 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		6C4E6D181ED85EFE002F0B27 /* ItemSetEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetEmpty.swift; sourceTree = "<group>"; };
 		6C58940C1ECFF00700E052F6 /* ItemSetCurrentTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetCurrentTemp.swift; sourceTree = "<group>"; };
 		6C58940E1ECFF01700E052F6 /* ItemSetMaxTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetMaxTemp.swift; sourceTree = "<group>"; };
 		6C6246D91EC0A2740044F5B7 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
@@ -1645,6 +1647,7 @@
 				6C58940E1ECFF01700E052F6 /* ItemSetMaxTemp.swift */,
 				6C4E60D81ED31CC1002F0B27 /* ItemSetWillRainSnow.swift */,
 				6C4E60DA1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift */,
+				6C4E6D181ED85EFE002F0B27 /* ItemSetEmpty.swift */,
 			);
 			name = AudioItem;
 			sourceTree = "<group>";
@@ -1747,10 +1750,10 @@
 				6C4E67371ED70BA3002F0B27 /* allday_gary.mp3 */,
 				6C4E67381ED70BA3002F0B27 /* allday_much.mp3 */,
 				6C4E67391ED70BA3002F0B27 /* allday_small.mp3 */,
-				6C4E673A1ED70BA3002F0B27 /* moning_clean.mp3 */,
-				6C4E673B1ED70BA3002F0B27 /* moning_gray.mp3 */,
-				6C4E673C1ED70BA3002F0B27 /* moning_much.mp3 */,
-				6C4E673D1ED70BA3002F0B27 /* moning_small.mp3 */,
+				6C4E673A1ED70BA3002F0B27 /* morning_clean.mp3 */,
+				6C4E673B1ED70BA3002F0B27 /* morning_gray.mp3 */,
+				6C4E673C1ED70BA3002F0B27 /* morning_much.mp3 */,
+				6C4E673D1ED70BA3002F0B27 /* morning_small.mp3 */,
 			);
 			path = cloud;
 			sourceTree = "<group>";
@@ -3113,7 +3116,7 @@
 				6C4E6C9F1ED70BA5002F0B27 /* 11m.mp3 in Resources */,
 				6C4E6CEE1ED70BA5002F0B27 /* min3.mp3 in Resources */,
 				6C4E6C7F1ED70BA5002F0B27 /* 14d.mp3 in Resources */,
-				6C4E6A421ED70BA4002F0B27 /* moning_gray.mp3 in Resources */,
+				6C4E6A421ED70BA4002F0B27 /* morning_gray.mp3 in Resources */,
 				6C4E6A6F1ED70BA4002F0B27 /* from_hour_5am.mp3 in Resources */,
 				6C4E6A691ED70BA4002F0B27 /* from_hour_2am.mp3 in Resources */,
 				6C4E6B2D1ED70BA4002F0B27 /* max_temp_min8.mp3 in Resources */,
@@ -3381,7 +3384,7 @@
 				6C4E6C281ED70BA5002F0B27 /* city_ky28.mp3 in Resources */,
 				6C4E6CE41ED70BA5002F0B27 /* min20.mp3 in Resources */,
 				6C4E6B3E1ED70BA4002F0B27 /* max_temp_pls22.mp3 in Resources */,
-				6C4E6A441ED70BA4002F0B27 /* moning_small.mp3 in Resources */,
+				6C4E6A441ED70BA4002F0B27 /* morning_small.mp3 in Resources */,
 				6C4E6B1A1ED70BA4002F0B27 /* max_temp_min18.mp3 in Resources */,
 				6C4E6CA71ED70BA5002F0B27 /* 7m.mp3 in Resources */,
 				6C4E6B571ED70BA4002F0B27 /* max_temp_pls45.mp3 in Resources */,
@@ -3399,7 +3402,7 @@
 				6C4E6B211ED70BA4002F0B27 /* max_temp_min24.mp3 in Resources */,
 				6C4E6B641ED70BA4002F0B27 /* empty03.mp3 in Resources */,
 				6C4E6ACE1ED70BA4002F0B27 /* current_temp_min22.mp3 in Resources */,
-				6C4E6A431ED70BA4002F0B27 /* moning_much.mp3 in Resources */,
+				6C4E6A431ED70BA4002F0B27 /* morning_much.mp3 in Resources */,
 				6C4E6C0A1ED70BA5002F0B27 /* city_kw17.mp3 in Resources */,
 				6C4E6D101ED70BA5002F0B27 /* min60.mp3 in Resources */,
 				6C4E6AB71ED70BA4002F0B27 /* to_hour_5pm.mp3 in Resources */,
@@ -3424,7 +3427,7 @@
 				6C4E6CA51ED70BA5002F0B27 /* 5m.mp3 in Resources */,
 				6C4E6A751ED70BA4002F0B27 /* from_hour_8am.mp3 in Resources */,
 				6C4E6A871ED70BA4002F0B27 /* rna0.mp3 in Resources */,
-				6C4E6A411ED70BA4002F0B27 /* moning_clean.mp3 in Resources */,
+				6C4E6A411ED70BA4002F0B27 /* morning_clean.mp3 in Resources */,
 				6C4E6D011ED70BA5002F0B27 /* min47.mp3 in Resources */,
 				6C4E6B781ED70BA5002F0B27 /* city_cb11.mp3 in Resources */,
 				6C4E6AF51ED70BA4002F0B27 /* current_temp_pls3.mp3 in Resources */,
@@ -3625,6 +3628,7 @@
 				6C7A214C1ECB2FA900B71F7A /* ItemSetHead.swift in Sources */,
 				6C4E60DD1ED4443E002F0B27 /* WeatherDataCurrent.swift in Sources */,
 				6C36F44A1EC5CCC500B09B74 /* AddrRequester.swift in Sources */,
+				6C4E6D191ED85EFE002F0B27 /* ItemSetEmpty.swift in Sources */,
 				6C774E0E1EB9F76800709895 /* GlobalConfig.swift in Sources */,
 				6C8BDBB31EB6F8D2001EA059 /* ViewController.swift in Sources */,
 				6C4E60D91ED31CC1002F0B27 /* ItemSetWillRainSnow.swift in Sources */,

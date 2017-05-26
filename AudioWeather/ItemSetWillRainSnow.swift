@@ -21,12 +21,28 @@ class ItemSetWillRainSnow : ItemSet{
     func getItemSet() -> [Item]{
         
         if isRna() == false {
+            
+            var items = getStartHour()
+            items += getEndHour()
+            items += [getEmpty(empty:2)]
+            items += getWillRainSnow()
+            items += [getEmpty(empty:2)]
+            items += getPop()
         
-            return getStartHour() + getEndHour() + getWillRainSnow() + getPop()
+            return items
         }
         else{
             
-            return getStartHour() + getEndHour() + getWillRainSnow() + getPopAnd() + getRna()
+            var items = getStartHour()
+            items += getEndHour()
+            items += [getEmpty(empty: 2)]
+            items += getWillRainSnow()
+            items += [getEmpty(empty: 2)]
+            items += getPopAnd()
+            items += [getEmpty(empty:1)]
+            items += getRna()
+            
+            return items
         }
         
     }

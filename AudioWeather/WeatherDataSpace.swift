@@ -20,6 +20,12 @@ class WeatherDataSpace{
     }
     
     
+    
+    func getTmx() -> Float?{
+        
+        return self.tmx
+    }
+    
     func count() ->Int{
         
         return dataList.count

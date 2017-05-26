@@ -25,6 +25,7 @@ class ItemSetTail : ItemSet{
         set.append(Item(text:"현재시간은", audio:"current_time"))
         set.append(Item(text:hourToText(hour:hour), audio:hourToAudio(hour:hour)))
         set.append(Item(text:String(min) + String("분 입니다"), audio:minToAudio(min:min)))
+        set.append(getEmpty(empty: 4))
         set.append(Item(text:"오늘도 행복한 하루 되세요", audio:"goodbye"))
         
         return set
@@ -33,7 +34,7 @@ class ItemSetTail : ItemSet{
 
     func minToAudio(min:Int) -> String{
         
-        return String("min_") + String(min)
+        return String("min") + String(min)
     }
     
     
