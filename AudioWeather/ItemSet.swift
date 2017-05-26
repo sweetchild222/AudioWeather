@@ -11,4 +11,15 @@ import Foundation
 protocol ItemSet{
     
     func getItemSet() -> [Item]
+    
+    func getEmpty(empty:Int) -> Item
+}
+
+
+extension ItemSet{
+    func getEmpty(empty:Int) -> Item{
+        
+        return Item(text:" ", audio: String(format:"empty%02d", empty))
+    }
+    
 }

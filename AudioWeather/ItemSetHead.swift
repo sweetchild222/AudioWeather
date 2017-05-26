@@ -23,8 +23,9 @@ class ItemSetHead : ItemSet{
         let week = calendar.component(.weekday, from: date)
         
         var set:[Item] = []
-
+        
         set.append(Item(text:"안녕하세요", audio:"hi"))
+        set.append(getEmpty(empty: 2))
         set.append(Item(text:"오늘은", audio:"today"))
         set.append(Item(text:String(year) + "년", audio:yearToAudio(year:year)))
         set.append(Item(text:String(month) + "월", audio:monthToAudio(month:month)))
