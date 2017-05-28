@@ -94,11 +94,14 @@ class ItemSetWillRainSnow : ItemSet{
     
         let pop = self.dataManager.getPop()
         
-        if pop <= 0 || pop > 100{
+        let popTrimed = pop - (pop % 10)
+        
+        if popTrimed <= 0 || popTrimed > 100{
             return []
         }
+        
     
-        return [Item(text:popToText(pop: pop), audio:popToAudio(pop:pop))]
+        return [Item(text:popToText(pop: popTrimed), audio:popToAudio(pop:popTrimed))]
     }
     
     func isRna() -> Bool{
@@ -106,7 +109,6 @@ class ItemSetWillRainSnow : ItemSet{
         let rna = self.dataManager.getRna()
         
         let rnaTrimed = rna - (rna % 5)
-        
         
         if rnaTrimed <= 0 || rnaTrimed > 150{
             return false
@@ -119,15 +121,14 @@ class ItemSetWillRainSnow : ItemSet{
     
     func getRna() -> [Item]{
         
-        
         let rna = self.dataManager.getRna()
         
         let rnaTrimed = rna - (rna % 5)
-
         
         if rnaTrimed <= 0 || rnaTrimed > 150{
             return []
         }
+    
 
         return [Item(text:rnaToText(rna: rnaTrimed), audio:rnaToAudio(rna:rnaTrimed))]
     }
@@ -138,11 +139,13 @@ class ItemSetWillRainSnow : ItemSet{
         
         let pop = self.dataManager.getPop()
         
-        if pop <= 0 || pop > 100{
+        let popTrimed = pop - (pop % 10)
+        
+        if popTrimed <= 0 || popTrimed > 100{
             return []
         }
         
-        return [Item(text:popAndToText(pop: pop), audio:popAndToAudio(pop:pop))]
+        return [Item(text:popAndToText(pop: popTrimed), audio:popAndToAudio(pop:popTrimed))]
     }
     
     

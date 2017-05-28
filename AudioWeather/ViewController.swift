@@ -32,8 +32,8 @@ class ViewController: UIViewController {
         let addr = Address(upper:"경기도", lower:"성남시 분당구")
         let dustList:[String: [String: DustRequester.Grade]] = ["PM25": ["울산": AudioWeather.DustRequester.Grade.normal, "전북": AudioWeather.DustRequester.Grade.normal, "경남": AudioWeather.DustRequester.Grade.normal, "세종": AudioWeather.DustRequester.Grade.normal, "인천": AudioWeather.DustRequester.Grade.normal, "영동": AudioWeather.DustRequester.Grade.normal, "제주": AudioWeather.DustRequester.Grade.normal, "경기북부": AudioWeather.DustRequester.Grade.normal, "충남": AudioWeather.DustRequester.Grade.normal, "광주": AudioWeather.DustRequester.Grade.normal, "대구": AudioWeather.DustRequester.Grade.normal, "대전": AudioWeather.DustRequester.Grade.normal, "부산": AudioWeather.DustRequester.Grade.normal, "전남": AudioWeather.DustRequester.Grade.normal, "영서": AudioWeather.DustRequester.Grade.normal, "충북": AudioWeather.DustRequester.Grade.normal, "경기남부": AudioWeather.DustRequester.Grade.good, "경북": AudioWeather.DustRequester.Grade.normal, "서울": AudioWeather.DustRequester.Grade.normal], "PM10": ["울산": AudioWeather.DustRequester.Grade.normal, "전북": AudioWeather.DustRequester.Grade.normal, "경남": AudioWeather.DustRequester.Grade.normal, "세종": AudioWeather.DustRequester.Grade.normal, "인천": AudioWeather.DustRequester.Grade.normal, "영동": AudioWeather.DustRequester.Grade.normal, "제주": AudioWeather.DustRequester.Grade.normal, "경기북부": AudioWeather.DustRequester.Grade.normal, "충남": AudioWeather.DustRequester.Grade.normal, "광주": AudioWeather.DustRequester.Grade.normal, "대구": AudioWeather.DustRequester.Grade.normal, "대전": AudioWeather.DustRequester.Grade.normal, "부산": AudioWeather.DustRequester.Grade.normal, "전남": AudioWeather.DustRequester.Grade.normal, "영서": AudioWeather.DustRequester.Grade.normal, "충북": AudioWeather.DustRequester.Grade.normal, "경기남부": AudioWeather.DustRequester.Grade.bad, "경북": AudioWeather.DustRequester.Grade.normal, "서울": AudioWeather.DustRequester.Grade.normal]]
         
-        
-        let dataCurrent = WeatherDataCurrent(data:WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.rainsnow, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3))
+        /*
+        let dataCurrent = WeatherDataCurrent(data:WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.rainsnow, pop:0, rna:23, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3))
         
         let dataClosedList:[WeatherData] = [
             WeatherData(htm:9, hrs:1, pty:WeatherData.PtyCode.rain, pop:0, rna:10, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
@@ -48,6 +48,8 @@ class ViewController: UIViewController {
             WeatherData(htm:21, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
         
         let dataSpace = WeatherDataSpace(dataList:dataSpaceList, tmx:39.42)
+ */
+ 
 
         /*
         let dataCurrent = WeatherDataCurrent(data:WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3))
@@ -75,23 +77,22 @@ class ViewController: UIViewController {
          */
  
         
-        /*
         let dataCurrent = WeatherDataCurrent(data:WeatherData(htm:8, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:20, reh:31, sky:WeatherData.SkyCode.small, tmp:-24.3))
         
         let dataClosedList:[WeatherData] = [
             WeatherData(htm:9, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
-            WeatherData(htm:10, hrs:1, pty:WeatherData.PtyCode.snow, pop:50, rna:0, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+            WeatherData(htm:10, hrs:1, pty:WeatherData.PtyCode.snow, pop:13, rna:34, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
             WeatherData(htm:11, hrs:1, pty:WeatherData.PtyCode.clean, pop:0, rna:10, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
         
         let dataClosed = WeatherDataClosed(dataList:dataClosedList)
         
         let dataSpaceList:[WeatherData] = [
-            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.snow, pop:50, rna:0, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
-            WeatherData(htm:18, hrs:3, pty:WeatherData.PtyCode.snow, pop:30, rna:0, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
+            WeatherData(htm:15, hrs:3, pty:WeatherData.PtyCode.snow, pop:923, rna:552, reh:31, sky:WeatherData.SkyCode.small, tmp:24.3),
+            WeatherData(htm:18, hrs:3, pty:WeatherData.PtyCode.snow, pop:38, rna:5, reh:30, sky:WeatherData.SkyCode.gray, tmp:24.0),
             WeatherData(htm:21, hrs:3, pty:WeatherData.PtyCode.clean, pop:0, rna:0, reh:30, sky:WeatherData.SkyCode.small, tmp:24.3)]
         
         let dataSpace = WeatherDataSpace(dataList:dataSpaceList, tmx:-12)
-         */
+
         
         
         let dataManager = WeatherDataManager(dataCurrent:dataCurrent, dataClosed:dataClosed, dataSpace:dataSpace)

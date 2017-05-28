@@ -66,7 +66,14 @@ class ItemSetCurrentRainSnow : ItemSet{
         
         let rna = dataManager.currentRna()
         
-        return [Item(text:"강수량은 시간당 " + String(rna) + "밀리미터 입니다", audio:rnaToAudio(rna:rna))]
+        let rnaTrimed = rna - (rna % 5)
+        
+        if rnaTrimed <= 0 || rnaTrimed > 150{
+            return []
+        }
+
+        
+        return [Item(text:"강수량은 시간당 " + String(rnaTrimed) + "밀리미터 입니다", audio:rnaToAudio(rna:rnaTrimed))]
     }
     
     
