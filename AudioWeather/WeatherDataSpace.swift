@@ -205,13 +205,13 @@ class WeatherDataSpace{
                 
                 switch data.sky{
                     
-                case WeatherData.SkyCode.clean:
+                case .clean:
                     cleanCount += 1
-                case WeatherData.SkyCode.small:
+                case .small:
                     smallCount += 1
-                case WeatherData.SkyCode.much:
+                case .much:
                     muchCount += 1
-                case WeatherData.SkyCode.gray:
+                case .gray:
                     grayCount += 1
 
                 }

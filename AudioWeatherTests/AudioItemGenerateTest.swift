@@ -78,7 +78,7 @@ class AudioItemGenerateTest: XCTestCase {
         
         let list = ItemListGenerator.instance.generateTail()
         
-        if list.count != 4 {
+        if list.count != 5 {
             
             XCTAssert(false)
         }
@@ -179,7 +179,7 @@ class AudioItemGenerateTest: XCTestCase {
         
         let list = ItemListGenerator.instance.generateDust(addr:Address(upper:"경기도", lower:"성남시 분당구"), dustList:dustList)
         
-        if list.count != 2 {
+        if list.count != 3 {
             
             XCTAssert(false)
         }
@@ -219,7 +219,7 @@ class AudioItemGenerateTest: XCTestCase {
         
         let list = ItemListGenerator.instance.generateSky(dataManager:dataManager)
         
-        if list.count != 3 {
+        if list.count != 5 {
             
             XCTAssert(false)
         }
@@ -251,7 +251,9 @@ class AudioItemGenerateTest: XCTestCase {
         
         let list = ItemListGenerator.instance.generateSky(dataManager:dataManager)
         
-        if list.count != 5 {
+        print(list.count)
+        
+        if list.count != 8 {
             
             XCTAssert(false)
         }
@@ -289,7 +291,8 @@ class AudioItemGenerateTest: XCTestCase {
         
         let list = ItemListGenerator.instance.generateSky(dataManager:dataManager)
         
-        if list.count != 2 {
+        print(list.count)
+        if list.count != 3 {
             
             XCTAssert(false)
         }

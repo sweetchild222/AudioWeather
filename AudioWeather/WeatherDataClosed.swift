@@ -30,7 +30,7 @@ class WeatherDataClosed{
         
         for data in dataList {
             
-            if data.pty == WeatherData.PtyCode.clean {
+            if data.pty == .clean {
                 
                 return data.htm
             }
@@ -44,7 +44,7 @@ class WeatherDataClosed{
         
         for data in dataList {
             
-            if data.pty != WeatherData.PtyCode.clean {
+            if data.pty != .clean {
                 
                 return data.pty
             }
@@ -61,7 +61,7 @@ class WeatherDataClosed{
         
         for data in dataList {
             
-            if data.pty != WeatherData.PtyCode.clean {
+            if data.pty != .clean {
                 
                 popSum += data.pop
                 popCount += 1
@@ -83,7 +83,7 @@ class WeatherDataClosed{
         
         for data in dataList {
             
-            if data.pty != WeatherData.PtyCode.clean {
+            if data.pty != .clean {
                 
                 rnaSum += data.rna
                 
@@ -98,7 +98,7 @@ class WeatherDataClosed{
         
         for data in dataList {
             
-            if data.pty != WeatherData.PtyCode.clean {
+            if data.pty != .clean {
                 
                 return data.htm
             }
@@ -122,7 +122,7 @@ class WeatherDataClosed{
             
             if data.htm >= startHour{
                 
-                if data.pty != WeatherData.PtyCode.clean {
+                if data.pty != .clean {
                     
                     endHour = data.htm + data.hrs
                 }
