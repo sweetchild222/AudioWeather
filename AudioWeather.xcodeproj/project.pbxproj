@@ -10,6 +10,59 @@
 		6C36F4471EC4845700B09B74 /* DFSConv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F4461EC4845700B09B74 /* DFSConv.swift */; };
 		6C36F44A1EC5CCC500B09B74 /* AddrRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F4491EC5CCC500B09B74 /* AddrRequester.swift */; };
 		6C36F44C1EC5E3BC00B09B74 /* AddressMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F44B1EC5E3BC00B09B74 /* AddressMap.swift */; };
+		6C4D83031EDABA3200227579 /* all_dust_bad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D82F71EDABA3200227579 /* all_dust_bad.mp3 */; };
+		6C4D83041EDABA3200227579 /* all_dust_good.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D82F81EDABA3200227579 /* all_dust_good.mp3 */; };
+		6C4D83051EDABA3200227579 /* all_dust_normal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D82F91EDABA3200227579 /* all_dust_normal.mp3 */; };
+		6C4D83061EDABA3200227579 /* all_dust_worst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D82FA1EDABA3200227579 /* all_dust_worst.mp3 */; };
+		6C4D83071EDABA3200227579 /* dust_bad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D82FB1EDABA3200227579 /* dust_bad.mp3 */; };
+		6C4D83081EDABA3200227579 /* dust_good.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D82FC1EDABA3200227579 /* dust_good.mp3 */; };
+		6C4D83091EDABA3200227579 /* dust_normal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D82FD1EDABA3200227579 /* dust_normal.mp3 */; };
+		6C4D830A1EDABA3200227579 /* dust_worst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D82FE1EDABA3200227579 /* dust_worst.mp3 */; };
+		6C4D830B1EDABA3200227579 /* tiny_dust_bad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D82FF1EDABA3200227579 /* tiny_dust_bad.mp3 */; };
+		6C4D830C1EDABA3200227579 /* tiny_dust_good.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83001EDABA3200227579 /* tiny_dust_good.mp3 */; };
+		6C4D830D1EDABA3200227579 /* tiny_dust_normal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83011EDABA3200227579 /* tiny_dust_normal.mp3 */; };
+		6C4D830E1EDABA3200227579 /* tiny_dust_worst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83021EDABA3200227579 /* tiny_dust_worst.mp3 */; };
+		6C4D831B1EDABAC900227579 /* and_pop0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83101EDABAC900227579 /* and_pop0.mp3 */; };
+		6C4D831C1EDABAC900227579 /* and_pop10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83111EDABAC900227579 /* and_pop10.mp3 */; };
+		6C4D831D1EDABAC900227579 /* and_pop100.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83121EDABAC900227579 /* and_pop100.mp3 */; };
+		6C4D831E1EDABAC900227579 /* and_pop20.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83131EDABAC900227579 /* and_pop20.mp3 */; };
+		6C4D831F1EDABAC900227579 /* and_pop30.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83141EDABAC900227579 /* and_pop30.mp3 */; };
+		6C4D83201EDABAC900227579 /* and_pop40.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83151EDABAC900227579 /* and_pop40.mp3 */; };
+		6C4D83211EDABAC900227579 /* and_pop50.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83161EDABAC900227579 /* and_pop50.mp3 */; };
+		6C4D83221EDABAC900227579 /* and_pop60.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83171EDABAC900227579 /* and_pop60.mp3 */; };
+		6C4D83231EDABAC900227579 /* and_pop70.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83181EDABAC900227579 /* and_pop70.mp3 */; };
+		6C4D83241EDABAC900227579 /* and_pop80.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83191EDABAC900227579 /* and_pop80.mp3 */; };
+		6C4D83251EDABAC900227579 /* and_pop90.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D831A1EDABAC900227579 /* and_pop90.mp3 */; };
+		6C4D83451EDABAD400227579 /* will_rna0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83271EDABAD400227579 /* will_rna0.mp3 */; };
+		6C4D83461EDABAD400227579 /* will_rna10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83281EDABAD400227579 /* will_rna10.mp3 */; };
+		6C4D83471EDABAD400227579 /* will_rna100.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83291EDABAD400227579 /* will_rna100.mp3 */; };
+		6C4D83481EDABAD400227579 /* will_rna105.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D832A1EDABAD400227579 /* will_rna105.mp3 */; };
+		6C4D83491EDABAD400227579 /* will_rna110.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D832B1EDABAD400227579 /* will_rna110.mp3 */; };
+		6C4D834A1EDABAD400227579 /* will_rna115.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D832C1EDABAD400227579 /* will_rna115.mp3 */; };
+		6C4D834B1EDABAD400227579 /* will_rna120.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D832D1EDABAD400227579 /* will_rna120.mp3 */; };
+		6C4D834C1EDABAD400227579 /* will_rna130.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D832E1EDABAD400227579 /* will_rna130.mp3 */; };
+		6C4D834D1EDABAD400227579 /* will_rna135.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D832F1EDABAD400227579 /* will_rna135.mp3 */; };
+		6C4D834E1EDABAD400227579 /* will_rna140.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83301EDABAD400227579 /* will_rna140.mp3 */; };
+		6C4D834F1EDABAD400227579 /* will_rna145.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83311EDABAD400227579 /* will_rna145.mp3 */; };
+		6C4D83501EDABAD400227579 /* will_rna15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83321EDABAD400227579 /* will_rna15.mp3 */; };
+		6C4D83511EDABAD400227579 /* will_rna150.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83331EDABAD400227579 /* will_rna150.mp3 */; };
+		6C4D83521EDABAD400227579 /* will_rna20.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83341EDABAD400227579 /* will_rna20.mp3 */; };
+		6C4D83531EDABAD400227579 /* will_rna25.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83351EDABAD400227579 /* will_rna25.mp3 */; };
+		6C4D83541EDABAD400227579 /* will_rna30.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83361EDABAD400227579 /* will_rna30.mp3 */; };
+		6C4D83551EDABAD400227579 /* will_rna35.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83371EDABAD400227579 /* will_rna35.mp3 */; };
+		6C4D83561EDABAD400227579 /* will_rna40.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83381EDABAD400227579 /* will_rna40.mp3 */; };
+		6C4D83571EDABAD400227579 /* will_rna45.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83391EDABAD400227579 /* will_rna45.mp3 */; };
+		6C4D83581EDABAD400227579 /* will_rna5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D833A1EDABAD400227579 /* will_rna5.mp3 */; };
+		6C4D83591EDABAD400227579 /* will_rna50.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D833B1EDABAD400227579 /* will_rna50.mp3 */; };
+		6C4D835A1EDABAD400227579 /* will_rna55.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D833C1EDABAD400227579 /* will_rna55.mp3 */; };
+		6C4D835B1EDABAD400227579 /* will_rna60.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D833D1EDABAD400227579 /* will_rna60.mp3 */; };
+		6C4D835C1EDABAD400227579 /* will_rna65.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D833E1EDABAD400227579 /* will_rna65.mp3 */; };
+		6C4D835D1EDABAD400227579 /* will_rna70.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D833F1EDABAD400227579 /* will_rna70.mp3 */; };
+		6C4D835E1EDABAD400227579 /* will_rna75.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83401EDABAD400227579 /* will_rna75.mp3 */; };
+		6C4D835F1EDABAD400227579 /* will_rna80.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83411EDABAD400227579 /* will_rna80.mp3 */; };
+		6C4D83601EDABAD400227579 /* will_rna85.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83421EDABAD400227579 /* will_rna85.mp3 */; };
+		6C4D83611EDABAD500227579 /* will_rna90.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83431EDABAD400227579 /* will_rna90.mp3 */; };
+		6C4D83621EDABAD500227579 /* will_rna95.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83441EDABAD400227579 /* will_rna95.mp3 */; };
 		6C4E60D91ED31CC1002F0B27 /* ItemSetWillRainSnow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E60D81ED31CC1002F0B27 /* ItemSetWillRainSnow.swift */; };
 		6C4E60DB1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E60DA1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift */; };
 		6C4E60DD1ED4443E002F0B27 /* WeatherDataCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E60DC1ED4443E002F0B27 /* WeatherDataCurrent.swift */; };
@@ -816,6 +869,59 @@
 		6C36F4461EC4845700B09B74 /* DFSConv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFSConv.swift; sourceTree = "<group>"; };
 		6C36F4491EC5CCC500B09B74 /* AddrRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddrRequester.swift; sourceTree = "<group>"; };
 		6C36F44B1EC5E3BC00B09B74 /* AddressMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressMap.swift; sourceTree = "<group>"; };
+		6C4D82F71EDABA3200227579 /* all_dust_bad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = all_dust_bad.mp3; sourceTree = "<group>"; };
+		6C4D82F81EDABA3200227579 /* all_dust_good.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = all_dust_good.mp3; sourceTree = "<group>"; };
+		6C4D82F91EDABA3200227579 /* all_dust_normal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = all_dust_normal.mp3; sourceTree = "<group>"; };
+		6C4D82FA1EDABA3200227579 /* all_dust_worst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = all_dust_worst.mp3; sourceTree = "<group>"; };
+		6C4D82FB1EDABA3200227579 /* dust_bad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dust_bad.mp3; sourceTree = "<group>"; };
+		6C4D82FC1EDABA3200227579 /* dust_good.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dust_good.mp3; sourceTree = "<group>"; };
+		6C4D82FD1EDABA3200227579 /* dust_normal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dust_normal.mp3; sourceTree = "<group>"; };
+		6C4D82FE1EDABA3200227579 /* dust_worst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dust_worst.mp3; sourceTree = "<group>"; };
+		6C4D82FF1EDABA3200227579 /* tiny_dust_bad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tiny_dust_bad.mp3; sourceTree = "<group>"; };
+		6C4D83001EDABA3200227579 /* tiny_dust_good.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tiny_dust_good.mp3; sourceTree = "<group>"; };
+		6C4D83011EDABA3200227579 /* tiny_dust_normal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tiny_dust_normal.mp3; sourceTree = "<group>"; };
+		6C4D83021EDABA3200227579 /* tiny_dust_worst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tiny_dust_worst.mp3; sourceTree = "<group>"; };
+		6C4D83101EDABAC900227579 /* and_pop0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop0.mp3; sourceTree = "<group>"; };
+		6C4D83111EDABAC900227579 /* and_pop10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop10.mp3; sourceTree = "<group>"; };
+		6C4D83121EDABAC900227579 /* and_pop100.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop100.mp3; sourceTree = "<group>"; };
+		6C4D83131EDABAC900227579 /* and_pop20.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop20.mp3; sourceTree = "<group>"; };
+		6C4D83141EDABAC900227579 /* and_pop30.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop30.mp3; sourceTree = "<group>"; };
+		6C4D83151EDABAC900227579 /* and_pop40.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop40.mp3; sourceTree = "<group>"; };
+		6C4D83161EDABAC900227579 /* and_pop50.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop50.mp3; sourceTree = "<group>"; };
+		6C4D83171EDABAC900227579 /* and_pop60.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop60.mp3; sourceTree = "<group>"; };
+		6C4D83181EDABAC900227579 /* and_pop70.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop70.mp3; sourceTree = "<group>"; };
+		6C4D83191EDABAC900227579 /* and_pop80.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop80.mp3; sourceTree = "<group>"; };
+		6C4D831A1EDABAC900227579 /* and_pop90.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = and_pop90.mp3; sourceTree = "<group>"; };
+		6C4D83271EDABAD400227579 /* will_rna0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna0.mp3; sourceTree = "<group>"; };
+		6C4D83281EDABAD400227579 /* will_rna10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna10.mp3; sourceTree = "<group>"; };
+		6C4D83291EDABAD400227579 /* will_rna100.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna100.mp3; sourceTree = "<group>"; };
+		6C4D832A1EDABAD400227579 /* will_rna105.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna105.mp3; sourceTree = "<group>"; };
+		6C4D832B1EDABAD400227579 /* will_rna110.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna110.mp3; sourceTree = "<group>"; };
+		6C4D832C1EDABAD400227579 /* will_rna115.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna115.mp3; sourceTree = "<group>"; };
+		6C4D832D1EDABAD400227579 /* will_rna120.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna120.mp3; sourceTree = "<group>"; };
+		6C4D832E1EDABAD400227579 /* will_rna130.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna130.mp3; sourceTree = "<group>"; };
+		6C4D832F1EDABAD400227579 /* will_rna135.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna135.mp3; sourceTree = "<group>"; };
+		6C4D83301EDABAD400227579 /* will_rna140.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna140.mp3; sourceTree = "<group>"; };
+		6C4D83311EDABAD400227579 /* will_rna145.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna145.mp3; sourceTree = "<group>"; };
+		6C4D83321EDABAD400227579 /* will_rna15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna15.mp3; sourceTree = "<group>"; };
+		6C4D83331EDABAD400227579 /* will_rna150.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna150.mp3; sourceTree = "<group>"; };
+		6C4D83341EDABAD400227579 /* will_rna20.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna20.mp3; sourceTree = "<group>"; };
+		6C4D83351EDABAD400227579 /* will_rna25.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna25.mp3; sourceTree = "<group>"; };
+		6C4D83361EDABAD400227579 /* will_rna30.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna30.mp3; sourceTree = "<group>"; };
+		6C4D83371EDABAD400227579 /* will_rna35.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna35.mp3; sourceTree = "<group>"; };
+		6C4D83381EDABAD400227579 /* will_rna40.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna40.mp3; sourceTree = "<group>"; };
+		6C4D83391EDABAD400227579 /* will_rna45.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna45.mp3; sourceTree = "<group>"; };
+		6C4D833A1EDABAD400227579 /* will_rna5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna5.mp3; sourceTree = "<group>"; };
+		6C4D833B1EDABAD400227579 /* will_rna50.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna50.mp3; sourceTree = "<group>"; };
+		6C4D833C1EDABAD400227579 /* will_rna55.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna55.mp3; sourceTree = "<group>"; };
+		6C4D833D1EDABAD400227579 /* will_rna60.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna60.mp3; sourceTree = "<group>"; };
+		6C4D833E1EDABAD400227579 /* will_rna65.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna65.mp3; sourceTree = "<group>"; };
+		6C4D833F1EDABAD400227579 /* will_rna70.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna70.mp3; sourceTree = "<group>"; };
+		6C4D83401EDABAD400227579 /* will_rna75.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna75.mp3; sourceTree = "<group>"; };
+		6C4D83411EDABAD400227579 /* will_rna80.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna80.mp3; sourceTree = "<group>"; };
+		6C4D83421EDABAD400227579 /* will_rna85.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna85.mp3; sourceTree = "<group>"; };
+		6C4D83431EDABAD400227579 /* will_rna90.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna90.mp3; sourceTree = "<group>"; };
+		6C4D83441EDABAD400227579 /* will_rna95.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = will_rna95.mp3; sourceTree = "<group>"; };
 		6C4E60D81ED31CC1002F0B27 /* ItemSetWillRainSnow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetWillRainSnow.swift; sourceTree = "<group>"; };
 		6C4E60DA1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetCurrentRainSnow.swift; sourceTree = "<group>"; };
 		6C4E60DC1ED4443E002F0B27 /* WeatherDataCurrent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataCurrent.swift; sourceTree = "<group>"; };
@@ -1676,6 +1782,80 @@
 			name = Weather;
 			sourceTree = "<group>";
 		};
+		6C4D82F61EDABA3200227579 /* dust */ = {
+			isa = PBXGroup;
+			children = (
+				6C4D82F71EDABA3200227579 /* all_dust_bad.mp3 */,
+				6C4D82F81EDABA3200227579 /* all_dust_good.mp3 */,
+				6C4D82F91EDABA3200227579 /* all_dust_normal.mp3 */,
+				6C4D82FA1EDABA3200227579 /* all_dust_worst.mp3 */,
+				6C4D82FB1EDABA3200227579 /* dust_bad.mp3 */,
+				6C4D82FC1EDABA3200227579 /* dust_good.mp3 */,
+				6C4D82FD1EDABA3200227579 /* dust_normal.mp3 */,
+				6C4D82FE1EDABA3200227579 /* dust_worst.mp3 */,
+				6C4D82FF1EDABA3200227579 /* tiny_dust_bad.mp3 */,
+				6C4D83001EDABA3200227579 /* tiny_dust_good.mp3 */,
+				6C4D83011EDABA3200227579 /* tiny_dust_normal.mp3 */,
+				6C4D83021EDABA3200227579 /* tiny_dust_worst.mp3 */,
+			);
+			path = dust;
+			sourceTree = "<group>";
+		};
+		6C4D830F1EDABAC900227579 /* and_pop */ = {
+			isa = PBXGroup;
+			children = (
+				6C4D83101EDABAC900227579 /* and_pop0.mp3 */,
+				6C4D83111EDABAC900227579 /* and_pop10.mp3 */,
+				6C4D83121EDABAC900227579 /* and_pop100.mp3 */,
+				6C4D83131EDABAC900227579 /* and_pop20.mp3 */,
+				6C4D83141EDABAC900227579 /* and_pop30.mp3 */,
+				6C4D83151EDABAC900227579 /* and_pop40.mp3 */,
+				6C4D83161EDABAC900227579 /* and_pop50.mp3 */,
+				6C4D83171EDABAC900227579 /* and_pop60.mp3 */,
+				6C4D83181EDABAC900227579 /* and_pop70.mp3 */,
+				6C4D83191EDABAC900227579 /* and_pop80.mp3 */,
+				6C4D831A1EDABAC900227579 /* and_pop90.mp3 */,
+			);
+			path = and_pop;
+			sourceTree = "<group>";
+		};
+		6C4D83261EDABAD400227579 /* will_rna */ = {
+			isa = PBXGroup;
+			children = (
+				6C4D83271EDABAD400227579 /* will_rna0.mp3 */,
+				6C4D83281EDABAD400227579 /* will_rna10.mp3 */,
+				6C4D83291EDABAD400227579 /* will_rna100.mp3 */,
+				6C4D832A1EDABAD400227579 /* will_rna105.mp3 */,
+				6C4D832B1EDABAD400227579 /* will_rna110.mp3 */,
+				6C4D832C1EDABAD400227579 /* will_rna115.mp3 */,
+				6C4D832D1EDABAD400227579 /* will_rna120.mp3 */,
+				6C4D832E1EDABAD400227579 /* will_rna130.mp3 */,
+				6C4D832F1EDABAD400227579 /* will_rna135.mp3 */,
+				6C4D83301EDABAD400227579 /* will_rna140.mp3 */,
+				6C4D83311EDABAD400227579 /* will_rna145.mp3 */,
+				6C4D83321EDABAD400227579 /* will_rna15.mp3 */,
+				6C4D83331EDABAD400227579 /* will_rna150.mp3 */,
+				6C4D83341EDABAD400227579 /* will_rna20.mp3 */,
+				6C4D83351EDABAD400227579 /* will_rna25.mp3 */,
+				6C4D83361EDABAD400227579 /* will_rna30.mp3 */,
+				6C4D83371EDABAD400227579 /* will_rna35.mp3 */,
+				6C4D83381EDABAD400227579 /* will_rna40.mp3 */,
+				6C4D83391EDABAD400227579 /* will_rna45.mp3 */,
+				6C4D833A1EDABAD400227579 /* will_rna5.mp3 */,
+				6C4D833B1EDABAD400227579 /* will_rna50.mp3 */,
+				6C4D833C1EDABAD400227579 /* will_rna55.mp3 */,
+				6C4D833D1EDABAD400227579 /* will_rna60.mp3 */,
+				6C4D833E1EDABAD400227579 /* will_rna65.mp3 */,
+				6C4D833F1EDABAD400227579 /* will_rna70.mp3 */,
+				6C4D83401EDABAD400227579 /* will_rna75.mp3 */,
+				6C4D83411EDABAD400227579 /* will_rna80.mp3 */,
+				6C4D83421EDABAD400227579 /* will_rna85.mp3 */,
+				6C4D83431EDABAD400227579 /* will_rna90.mp3 */,
+				6C4D83441EDABAD400227579 /* will_rna95.mp3 */,
+			);
+			path = will_rna;
+			sourceTree = "<group>";
+		};
 		6C4E67181ED70BA3002F0B27 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1690,6 +1870,7 @@
 		6C4E67191ED70BA3002F0B27 /* body */ = {
 			isa = PBXGroup;
 			children = (
+				6C4D82F61EDABA3200227579 /* dust */,
 				6C4E671A1ED70BA3002F0B27 /* humidity */,
 				6C4E67301ED70BA3002F0B27 /* sky */,
 				6C4E67BF1ED70BA3002F0B27 /* temp */,
@@ -1728,6 +1909,8 @@
 		6C4E67301ED70BA3002F0B27 /* sky */ = {
 			isa = PBXGroup;
 			children = (
+				6C4D83261EDABAD400227579 /* will_rna */,
+				6C4D830F1EDABAC900227579 /* and_pop */,
 				6C4E67311ED70BA3002F0B27 /* cloud */,
 				6C4E673E1ED70BA3002F0B27 /* current_hour */,
 				6C4E67591ED70BA3002F0B27 /* from_hour */,
@@ -2900,12 +3083,16 @@
 				6C4E6A891ED70BA4002F0B27 /* rna100.mp3 in Resources */,
 				6C4E6AF01ED70BA4002F0B27 /* current_temp_pls25.mp3 in Resources */,
 				6C4E6B801ED70BA5002F0B27 /* city_cb5.mp3 in Resources */,
+				6C4D834C1EDABAD400227579 /* will_rna130.mp3 in Resources */,
 				6C4E6CE11ED70BA5002F0B27 /* min18.mp3 in Resources */,
 				6C4E6CEC1ED70BA5002F0B27 /* min28.mp3 in Resources */,
 				6C4E6D0A1ED70BA5002F0B27 /* min55.mp3 in Resources */,
 				6C4E6B791ED70BA5002F0B27 /* city_cb12.mp3 in Resources */,
+				6C4D835E1EDABAD400227579 /* will_rna75.mp3 in Resources */,
 				6C4E6B931ED70BA5002F0B27 /* city_cn7.mp3 in Resources */,
+				6C4D835C1EDABAD400227579 /* will_rna65.mp3 in Resources */,
 				6C4E6ACF1ED70BA4002F0B27 /* current_temp_min23.mp3 in Resources */,
+				6C4D83551EDABAD400227579 /* will_rna35.mp3 in Resources */,
 				6C4E6CCF1ED70BA5002F0B27 /* hour_pm2.mp3 in Resources */,
 				6C4E6A771ED70BA4002F0B27 /* from_hour_9am.mp3 in Resources */,
 				6C4E6C791ED70BA5002F0B27 /* city_ul4.mp3 in Resources */,
@@ -2976,12 +3163,14 @@
 				6C4E6B911ED70BA5002F0B27 /* city_cn5.mp3 in Resources */,
 				6C4E6BC61ED70BA5002F0B27 /* city_jn3.mp3 in Resources */,
 				6C4E6CDB1ED70BA5002F0B27 /* min12.mp3 in Resources */,
+				6C4D830D1EDABA3200227579 /* tiny_dust_normal.mp3 in Resources */,
 				6C4E6BB81ED70BA5002F0B27 /* city_jn10.mp3 in Resources */,
 				6C4E6AF91ED70BA4002F0B27 /* current_temp_pls33.mp3 in Resources */,
 				6C4E6A561ED70BA4002F0B27 /* current_hour_5pm.mp3 in Resources */,
 				6C4E6B2B1ED70BA4002F0B27 /* max_temp_min6.mp3 in Resources */,
 				6C4E6C081ED70BA5002F0B27 /* city_kw15.mp3 in Resources */,
 				6C4E6A3E1ED70BA4002F0B27 /* allday_gary.mp3 in Resources */,
+				6C4D834F1EDABAD400227579 /* will_rna145.mp3 in Resources */,
 				6C4E6A531ED70BA4002F0B27 /* current_hour_4am.mp3 in Resources */,
 				6C4E6BD31ED70BA5002F0B27 /* city_kb15.mp3 in Resources */,
 				6C4E6B9B1ED70BA5002F0B27 /* city_ic1.mp3 in Resources */,
@@ -2995,6 +3184,7 @@
 				6C4E6A5E1ED70BA4002F0B27 /* current_hour_9pm.mp3 in Resources */,
 				6C4E6AD91ED70BA4002F0B27 /* current_temp_min5.mp3 in Resources */,
 				6C4E6C321ED70BA5002F0B27 /* city_ky37.mp3 in Resources */,
+				6C4D834B1EDABAD400227579 /* will_rna120.mp3 in Resources */,
 				6C4E6C571ED70BA5002F0B27 /* city_se12.mp3 in Resources */,
 				6C4E6AAE1ED70BA4002F0B27 /* to_hour_1am.mp3 in Resources */,
 				6C4E6C061ED70BA5002F0B27 /* city_kw13.mp3 in Resources */,
@@ -3041,14 +3231,19 @@
 				6C4E6C331ED70BA5002F0B27 /* city_ky38.mp3 in Resources */,
 				6C4E6BFC1ED70BA5002F0B27 /* city_kn4.mp3 in Resources */,
 				6C4E6C8B1ED70BA5002F0B27 /* 25d.mp3 in Resources */,
+				6C4D83031EDABA3200227579 /* all_dust_bad.mp3 in Resources */,
+				6C4D83571EDABAD400227579 /* will_rna45.mp3 in Resources */,
 				6C4E6AF21ED70BA4002F0B27 /* current_temp_pls27.mp3 in Resources */,
 				6C4E6CED1ED70BA5002F0B27 /* min29.mp3 in Resources */,
 				6C4E6CF21ED70BA5002F0B27 /* min33.mp3 in Resources */,
 				6C4E6CC01ED70BA5002F0B27 /* hour_am11.mp3 in Resources */,
+				6C4D83541EDABAD400227579 /* will_rna30.mp3 in Resources */,
 				6C4E6C401ED70BA5002F0B27 /* city_ky6.mp3 in Resources */,
 				6C4E6A5A1ED70BA4002F0B27 /* current_hour_7pm.mp3 in Resources */,
 				6C4E6BA91ED70BA5002F0B27 /* city_jb13.mp3 in Resources */,
 				6C4E6C961ED70BA5002F0B27 /* 6d.mp3 in Resources */,
+				6C4D835D1EDABAD400227579 /* will_rna70.mp3 in Resources */,
+				6C4D83061EDABA3200227579 /* all_dust_worst.mp3 in Resources */,
 				6C4E6B231ED70BA4002F0B27 /* max_temp_min26.mp3 in Resources */,
 				6C4E6BE31ED70BA5002F0B27 /* city_kb7.mp3 in Resources */,
 				6C4E6B871ED70BA5002F0B27 /* city_cn11.mp3 in Resources */,
@@ -3061,6 +3256,7 @@
 				6C4E6CD01ED70BA5002F0B27 /* hour_pm3.mp3 in Resources */,
 				6C4E6BB41ED70BA5002F0B27 /* city_jb9.mp3 in Resources */,
 				6C4E6C461ED70BA5002F0B27 /* city_pu11.mp3 in Resources */,
+				6C4D83211EDABAC900227579 /* and_pop50.mp3 in Resources */,
 				6C4E6B421ED70BA4002F0B27 /* max_temp_pls26.mp3 in Resources */,
 				6C4E6C941ED70BA5002F0B27 /* 4d.mp3 in Resources */,
 				6C4E6ADE1ED70BA4002F0B27 /* current_temp_pls0.mp3 in Resources */,
@@ -3072,6 +3268,7 @@
 				6C4E6A381ED70BA4002F0B27 /* humidity95.mp3 in Resources */,
 				6C4E6AA61ED70BA4002F0B27 /* to_hour_0am.mp3 in Resources */,
 				6C4E6B0A1ED70BA4002F0B27 /* current_temp_pls49.mp3 in Resources */,
+				6C4D83081EDABA3200227579 /* dust_good.mp3 in Resources */,
 				6C4E6C821ED70BA5002F0B27 /* 17d.mp3 in Resources */,
 				6C4E6B131ED70BA4002F0B27 /* max_temp_min11.mp3 in Resources */,
 				6C4E6C201ED70BA5002F0B27 /* city_ky20.mp3 in Resources */,
@@ -3155,6 +3352,7 @@
 				6C4E6C721ED70BA5002F0B27 /* city_tk5.mp3 in Resources */,
 				6C4E6C581ED70BA5002F0B27 /* city_se13.mp3 in Resources */,
 				6C4E6C171ED70BA5002F0B27 /* city_ky12.mp3 in Resources */,
+				6C4D83221EDABAC900227579 /* and_pop60.mp3 in Resources */,
 				6C4E6B5C1ED70BA4002F0B27 /* max_temp_pls5.mp3 in Resources */,
 				6C4E6B9F1ED70BA5002F0B27 /* city_ic4.mp3 in Resources */,
 				6C4E6AAD1ED70BA4002F0B27 /* to_hour_12pm.mp3 in Resources */,
@@ -3167,6 +3365,7 @@
 				6C4E6B4C1ED70BA4002F0B27 /* max_temp_pls35.mp3 in Resources */,
 				6C4E6C2F1ED70BA5002F0B27 /* city_ky34.mp3 in Resources */,
 				6C4E6B341ED70BA4002F0B27 /* max_temp_pls13.mp3 in Resources */,
+				6C4D834A1EDABAD400227579 /* will_rna115.mp3 in Resources */,
 				6C4E6AC91ED70BA4002F0B27 /* current_temp_min18.mp3 in Resources */,
 				6C4E6A9D1ED70BA4002F0B27 /* rna55.mp3 in Resources */,
 				6C4E6C611ED70BA5002F0B27 /* city_se21.mp3 in Resources */,
@@ -3176,6 +3375,7 @@
 				6C4E6C0B1ED70BA5002F0B27 /* city_kw18.mp3 in Resources */,
 				6C4E6BC11ED70BA5002F0B27 /* city_jn19.mp3 in Resources */,
 				6C4E6B7F1ED70BA5002F0B27 /* city_cb4.mp3 in Resources */,
+				6C4D83251EDABAC900227579 /* and_pop90.mp3 in Resources */,
 				6C4E6C8D1ED70BA5002F0B27 /* 27d.mp3 in Resources */,
 				6C4E6A781ED70BA4002F0B27 /* from_hour_9pm.mp3 in Resources */,
 				6C4E6CA61ED70BA5002F0B27 /* 6m.mp3 in Resources */,
@@ -3192,6 +3392,7 @@
 				6C4E6CF01ED70BA5002F0B27 /* min31.mp3 in Resources */,
 				6C4E6BFF1ED70BA5002F0B27 /* city_kn7.mp3 in Resources */,
 				6C4E6A251ED70BA4002F0B27 /* humidity10.mp3 in Resources */,
+				6C4D83041EDABA3200227579 /* all_dust_good.mp3 in Resources */,
 				6C4E6ABE1ED70BA4002F0B27 /* to_hour_9am.mp3 in Resources */,
 				6C4E6A951ED70BA4002F0B27 /* rna20.mp3 in Resources */,
 				6C4E6C9C1ED70BA5002F0B27 /* current_rain_snow.mp3 in Resources */,
@@ -3236,6 +3437,7 @@
 				6C4E6C441ED70BA5002F0B27 /* city_pu1.mp3 in Resources */,
 				6C4E6B3A1ED70BA4002F0B27 /* max_temp_pls19.mp3 in Resources */,
 				6C4E6C881ED70BA5002F0B27 /* 22d.mp3 in Resources */,
+				6C4D83611EDABAD500227579 /* will_rna90.mp3 in Resources */,
 				6C4E6C491ED70BA5002F0B27 /* city_pu14.mp3 in Resources */,
 				6C4E6C351ED70BA5002F0B27 /* city_ky4.mp3 in Resources */,
 				6C4E6BC01ED70BA5002F0B27 /* city_jn18.mp3 in Resources */,
@@ -3244,6 +3446,7 @@
 				6C4E6A2F1ED70BA4002F0B27 /* humidity50.mp3 in Resources */,
 				6C4E6B2C1ED70BA4002F0B27 /* max_temp_min7.mp3 in Resources */,
 				6C4E6C041ED70BA5002F0B27 /* city_kw11.mp3 in Resources */,
+				6C4D834E1EDABAD400227579 /* will_rna140.mp3 in Resources */,
 				6C4E6B141ED70BA4002F0B27 /* max_temp_min12.mp3 in Resources */,
 				6C4E6C121ED70BA5002F0B27 /* city_kw8.mp3 in Resources */,
 				6C4E6C051ED70BA5002F0B27 /* city_kw12.mp3 in Resources */,
@@ -3255,6 +3458,7 @@
 				6C4E6B261ED70BA4002F0B27 /* max_temp_min29.mp3 in Resources */,
 				6C4E6A5D1ED70BA4002F0B27 /* current_hour_9am.mp3 in Resources */,
 				6C4E6CC71ED70BA5002F0B27 /* hour_am7.mp3 in Resources */,
+				6C4D834D1EDABAD400227579 /* will_rna135.mp3 in Resources */,
 				6C4E6C9B1ED70BA5002F0B27 /* current_rain.mp3 in Resources */,
 				6C4E6A491ED70BA4002F0B27 /* current_hour_11am.mp3 in Resources */,
 				6C4E6B981ED70BA5002F0B27 /* city_dj3.mp3 in Resources */,
@@ -3265,6 +3469,7 @@
 				6C4E6C4B1ED70BA5002F0B27 /* city_pu16.mp3 in Resources */,
 				6C4E6A241ED70BA4002F0B27 /* humidity0.mp3 in Resources */,
 				6C4E6CDA1ED70BA5002F0B27 /* min11.mp3 in Resources */,
+				6C4D830A1EDABA3200227579 /* dust_worst.mp3 in Resources */,
 				6C4E6BA61ED70BA5002F0B27 /* city_jb10.mp3 in Resources */,
 				6C4E6CB11ED70BA5002F0B27 /* 2017y.mp3 in Resources */,
 				6C4E6BA01ED70BA5002F0B27 /* city_ic5.mp3 in Resources */,
@@ -3276,6 +3481,7 @@
 				6C4E6B441ED70BA4002F0B27 /* max_temp_pls28.mp3 in Resources */,
 				6C4E6B4D1ED70BA4002F0B27 /* max_temp_pls36.mp3 in Resources */,
 				6C4E6B7D1ED70BA5002F0B27 /* city_cb2.mp3 in Resources */,
+				6C4D83231EDABAC900227579 /* and_pop70.mp3 in Resources */,
 				6C4E6A641ED70BA4002F0B27 /* from_hour_11pm.mp3 in Resources */,
 				6C4E6C291ED70BA5002F0B27 /* city_ky29.mp3 in Resources */,
 				6C4E6CF71ED70BA5002F0B27 /* min38.mp3 in Resources */,
@@ -3306,6 +3512,7 @@
 				6C4E6B001ED70BA4002F0B27 /* current_temp_pls4.mp3 in Resources */,
 				6C4E6B721ED70BA4002F0B27 /* empty17.mp3 in Resources */,
 				6C4E6C311ED70BA5002F0B27 /* city_ky36.mp3 in Resources */,
+				6C4D83481EDABAD400227579 /* will_rna105.mp3 in Resources */,
 				6C4E6BE51ED70BA5002F0B27 /* city_kb9.mp3 in Resources */,
 				6C4E6A331ED70BA4002F0B27 /* humidity70.mp3 in Resources */,
 				6C4E6AFD1ED70BA4002F0B27 /* current_temp_pls37.mp3 in Resources */,
@@ -3364,15 +3571,18 @@
 				6C4E6A8A1ED70BA4002F0B27 /* rna105.mp3 in Resources */,
 				6C4E6AC21ED70BA4002F0B27 /* current_temp_min11.mp3 in Resources */,
 				6C4E6CE51ED70BA5002F0B27 /* min21.mp3 in Resources */,
+				6C4D831E1EDABAC900227579 /* and_pop20.mp3 in Resources */,
 				6C4E6AD71ED70BA4002F0B27 /* current_temp_min30.mp3 in Resources */,
 				6C4E6B311ED70BA4002F0B27 /* max_temp_pls10.mp3 in Resources */,
 				6C4E6B4A1ED70BA4002F0B27 /* max_temp_pls33.mp3 in Resources */,
 				6C4E6C561ED70BA5002F0B27 /* city_se11.mp3 in Resources */,
 				6C4E6B0E1ED70BA4002F0B27 /* current_temp_pls7.mp3 in Resources */,
 				6C4E6CC21ED70BA5002F0B27 /* hour_am2.mp3 in Resources */,
+				6C4D83531EDABAD400227579 /* will_rna25.mp3 in Resources */,
 				6C4E6C4D1ED70BA5002F0B27 /* city_pu3.mp3 in Resources */,
 				6C4E6B3B1ED70BA4002F0B27 /* max_temp_pls2.mp3 in Resources */,
 				6C4E6C701ED70BA5002F0B27 /* city_tk3.mp3 in Resources */,
+				6C4D83521EDABAD400227579 /* will_rna20.mp3 in Resources */,
 				6C4E6CDF1ED70BA5002F0B27 /* min16.mp3 in Resources */,
 				6C8BDBB81EB6F8D2001EA059 /* Assets.xcassets in Resources */,
 				6C4E6BD91ED70BA5002F0B27 /* city_kb20.mp3 in Resources */,
@@ -3381,6 +3591,7 @@
 				6C4E6CAB1ED70BA5002F0B27 /* 2w.mp3 in Resources */,
 				6C4E6B631ED70BA4002F0B27 /* empty02.mp3 in Resources */,
 				6C4E6C151ED70BA5002F0B27 /* city_ky10.mp3 in Resources */,
+				6C4D831D1EDABAC900227579 /* and_pop100.mp3 in Resources */,
 				6C4E6C281ED70BA5002F0B27 /* city_ky28.mp3 in Resources */,
 				6C4E6CE41ED70BA5002F0B27 /* min20.mp3 in Resources */,
 				6C4E6B3E1ED70BA4002F0B27 /* max_temp_pls22.mp3 in Resources */,
@@ -3405,6 +3616,7 @@
 				6C4E6A431ED70BA4002F0B27 /* morning_much.mp3 in Resources */,
 				6C4E6C0A1ED70BA5002F0B27 /* city_kw17.mp3 in Resources */,
 				6C4E6D101ED70BA5002F0B27 /* min60.mp3 in Resources */,
+				6C4D83581EDABAD400227579 /* will_rna5.mp3 in Resources */,
 				6C4E6AB71ED70BA4002F0B27 /* to_hour_5pm.mp3 in Resources */,
 				6C4E6AC41ED70BA4002F0B27 /* current_temp_min13.mp3 in Resources */,
 				6C4E6CB41ED70BA5002F0B27 /* 2020y.mp3 in Resources */,
@@ -3418,6 +3630,7 @@
 				6C4E6A981ED70BA4002F0B27 /* rna35.mp3 in Resources */,
 				6C4E6A581ED70BA4002F0B27 /* current_hour_6pm.mp3 in Resources */,
 				6C4E6C751ED70BA5002F0B27 /* city_tk8.mp3 in Resources */,
+				6C4D83491EDABAD400227579 /* will_rna110.mp3 in Resources */,
 				6C4E6C001ED70BA5002F0B27 /* city_kn8.mp3 in Resources */,
 				6C4E6C6B1ED70BA5002F0B27 /* city_se8.mp3 in Resources */,
 				6C4E6C131ED70BA5002F0B27 /* city_kw9.mp3 in Resources */,
@@ -3428,6 +3641,7 @@
 				6C4E6A751ED70BA4002F0B27 /* from_hour_8am.mp3 in Resources */,
 				6C4E6A871ED70BA4002F0B27 /* rna0.mp3 in Resources */,
 				6C4E6A411ED70BA4002F0B27 /* morning_clean.mp3 in Resources */,
+				6C4D831F1EDABAC900227579 /* and_pop30.mp3 in Resources */,
 				6C4E6D011ED70BA5002F0B27 /* min47.mp3 in Resources */,
 				6C4E6B781ED70BA5002F0B27 /* city_cb11.mp3 in Resources */,
 				6C4E6AF51ED70BA4002F0B27 /* current_temp_pls3.mp3 in Resources */,
@@ -3438,6 +3652,7 @@
 				6C4E6BBE1ED70BA5002F0B27 /* city_jn16.mp3 in Resources */,
 				6C4E6AC51ED70BA4002F0B27 /* current_temp_min14.mp3 in Resources */,
 				6C4E6AE21ED70BA4002F0B27 /* current_temp_pls12.mp3 in Resources */,
+				6C4D831B1EDABAC900227579 /* and_pop0.mp3 in Resources */,
 				6C4E6B831ED70BA5002F0B27 /* city_cb8.mp3 in Resources */,
 				6C4E6C361ED70BA5002F0B27 /* city_ky40.mp3 in Resources */,
 				6C4E6BA31ED70BA5002F0B27 /* city_ic8.mp3 in Resources */,
@@ -3448,14 +3663,20 @@
 				6C4E6A3C1ED70BA4002F0B27 /* after_small.mp3 in Resources */,
 				6C4E6D061ED70BA5002F0B27 /* min51.mp3 in Resources */,
 				6C4E6C7B1ED70BA5002F0B27 /* 10d.mp3 in Resources */,
+				6C4D835B1EDABAD400227579 /* will_rna60.mp3 in Resources */,
+				6C4D83461EDABAD400227579 /* will_rna10.mp3 in Resources */,
 				6C4E6C021ED70BA5002F0B27 /* city_kw1.mp3 in Resources */,
+				6C4D83601EDABAD400227579 /* will_rna85.mp3 in Resources */,
 				6C4E6C9A1ED70BA5002F0B27 /* current_allday.mp3 in Resources */,
 				6C4E6B3C1ED70BA4002F0B27 /* max_temp_pls20.mp3 in Resources */,
 				6C4E6AC11ED70BA4002F0B27 /* current_temp_min10.mp3 in Resources */,
 				6C4E6A971ED70BA4002F0B27 /* rna30.mp3 in Resources */,
+				6C4D830C1EDABA3200227579 /* tiny_dust_good.mp3 in Resources */,
 				6C4E6AFA1ED70BA4002F0B27 /* current_temp_pls34.mp3 in Resources */,
 				6C4E6C4A1ED70BA5002F0B27 /* city_pu15.mp3 in Resources */,
+				6C4D83621EDABAD500227579 /* will_rna95.mp3 in Resources */,
 				6C4E6CA11ED70BA5002F0B27 /* 1m.mp3 in Resources */,
+				6C4D83091EDABA3200227579 /* dust_normal.mp3 in Resources */,
 				6C4E6B7A1ED70BA5002F0B27 /* city_cb13.mp3 in Resources */,
 				6C4E6BF01ED70BA5002F0B27 /* city_kn14.mp3 in Resources */,
 				6C4E6CF51ED70BA5002F0B27 /* min36.mp3 in Resources */,
@@ -3481,6 +3702,7 @@
 				6C4E6BB21ED70BA5002F0B27 /* city_jb7.mp3 in Resources */,
 				6C4E6CFD1ED70BA5002F0B27 /* min43.mp3 in Resources */,
 				6C4E6A451ED70BA4002F0B27 /* current_hour_0am.mp3 in Resources */,
+				6C4D83511EDABAD400227579 /* will_rna150.mp3 in Resources */,
 				6C4E6C511ED70BA5002F0B27 /* city_pu7.mp3 in Resources */,
 				6C4E6C341ED70BA5002F0B27 /* city_ky39.mp3 in Resources */,
 				6C4E6C1E1ED70BA5002F0B27 /* city_ky19.mp3 in Resources */,
@@ -3495,6 +3717,8 @@
 				6C4E6BBD1ED70BA5002F0B27 /* city_jn15.mp3 in Resources */,
 				6C4E6B991ED70BA5002F0B27 /* city_dj4.mp3 in Resources */,
 				6C4E6CD21ED70BA5002F0B27 /* hour_pm5.mp3 in Resources */,
+				6C4D835A1EDABAD400227579 /* will_rna55.mp3 in Resources */,
+				6C4D83561EDABAD400227579 /* will_rna40.mp3 in Resources */,
 				6C4E6C381ED70BA5002F0B27 /* city_ky42.mp3 in Resources */,
 				6C4E6D0B1ED70BA5002F0B27 /* min56.mp3 in Resources */,
 				6C4E6D031ED70BA5002F0B27 /* min49.mp3 in Resources */,
@@ -3502,6 +3726,7 @@
 				6C4E6C5E1ED70BA5002F0B27 /* city_se19.mp3 in Resources */,
 				6C4E6B891ED70BA5002F0B27 /* city_cn13.mp3 in Resources */,
 				6C4E6C9E1ED70BA5002F0B27 /* 10m.mp3 in Resources */,
+				6C4D83501EDABAD400227579 /* will_rna15.mp3 in Resources */,
 				6C4E6AE51ED70BA4002F0B27 /* current_temp_pls15.mp3 in Resources */,
 				6C4E6B951ED70BA5002F0B27 /* city_cn9.mp3 in Resources */,
 				6C4E6C071ED70BA5002F0B27 /* city_kw14.mp3 in Resources */,
@@ -3518,9 +3743,11 @@
 				6C4E6BA81ED70BA5002F0B27 /* city_jb12.mp3 in Resources */,
 				6C4E6A931ED70BA4002F0B27 /* rna15.mp3 in Resources */,
 				6C4E6CEF1ED70BA5002F0B27 /* min30.mp3 in Resources */,
+				6C4D835F1EDABAD400227579 /* will_rna80.mp3 in Resources */,
 				6C4E6BF51ED70BA5002F0B27 /* city_kn19.mp3 in Resources */,
 				6C4E6B9D1ED70BA5002F0B27 /* city_ic2.mp3 in Resources */,
 				6C4E6A6C1ED70BA4002F0B27 /* from_hour_3pm.mp3 in Resources */,
+				6C4D83451EDABAD400227579 /* will_rna0.mp3 in Resources */,
 				6C4E6BA21ED70BA5002F0B27 /* city_ic7.mp3 in Resources */,
 				6C4E6C951ED70BA5002F0B27 /* 5d.mp3 in Resources */,
 				6C4E6A471ED70BA4002F0B27 /* current_hour_10am.mp3 in Resources */,
@@ -3535,13 +3762,16 @@
 				6C4E6CA81ED70BA5002F0B27 /* 8m.mp3 in Resources */,
 				6C4E6B331ED70BA4002F0B27 /* max_temp_pls12.mp3 in Resources */,
 				6C4E6B551ED70BA4002F0B27 /* max_temp_pls43.mp3 in Resources */,
+				6C4D831C1EDABAC900227579 /* and_pop10.mp3 in Resources */,
 				6C4E6BD51ED70BA5002F0B27 /* city_kb17.mp3 in Resources */,
 				6C4E6B191ED70BA4002F0B27 /* max_temp_min17.mp3 in Resources */,
 				6C4E6D131ED70BA5002F0B27 /* min9.mp3 in Resources */,
 				6C4E6C5C1ED70BA5002F0B27 /* city_se17.mp3 in Resources */,
 				6C4E6A6B1ED70BA4002F0B27 /* from_hour_3am.mp3 in Resources */,
 				6C4E6C6E1ED70BA5002F0B27 /* city_tk1.mp3 in Resources */,
+				6C4D83201EDABAC900227579 /* and_pop40.mp3 in Resources */,
 				6C4E6A371ED70BA4002F0B27 /* humidity90.mp3 in Resources */,
+				6C4D830E1EDABA3200227579 /* tiny_dust_worst.mp3 in Resources */,
 				6C4E6A401ED70BA4002F0B27 /* allday_small.mp3 in Resources */,
 				6C4E6BAA1ED70BA5002F0B27 /* city_jb14.mp3 in Resources */,
 				6C4E6AA11ED70BA4002F0B27 /* rna75.mp3 in Resources */,
@@ -3574,16 +3804,22 @@
 				6C4E6A461ED70BA4002F0B27 /* current_hour_0pm.mp3 in Resources */,
 				6C4E6C2B1ED70BA5002F0B27 /* city_ky30.mp3 in Resources */,
 				6C4E6AFB1ED70BA4002F0B27 /* current_temp_pls35.mp3 in Resources */,
+				6C4D83071EDABA3200227579 /* dust_bad.mp3 in Resources */,
 				6C4E6CC11ED70BA5002F0B27 /* hour_am12.mp3 in Resources */,
 				6C4E6CF41ED70BA5002F0B27 /* min35.mp3 in Resources */,
 				6C4E6CD31ED70BA5002F0B27 /* hour_pm6.mp3 in Resources */,
 				6C4E6C591ED70BA5002F0B27 /* city_se14.mp3 in Resources */,
+				6C4D830B1EDABA3200227579 /* tiny_dust_bad.mp3 in Resources */,
 				6C4E6B2E1ED70BA4002F0B27 /* max_temp_min9.mp3 in Resources */,
 				6C4E6AD81ED70BA4002F0B27 /* current_temp_min4.mp3 in Resources */,
+				6C4D83051EDABA3200227579 /* all_dust_normal.mp3 in Resources */,
 				6C4E6ACB1ED70BA4002F0B27 /* current_temp_min2.mp3 in Resources */,
 				6C4E6CE31ED70BA5002F0B27 /* min2.mp3 in Resources */,
 				6C4E6AAB1ED70BA4002F0B27 /* to_hour_11pm.mp3 in Resources */,
+				6C4D83241EDABAC900227579 /* and_pop80.mp3 in Resources */,
+				6C4D83591EDABAD400227579 /* will_rna50.mp3 in Resources */,
 				6C4E6A9C1ED70BA4002F0B27 /* rna50.mp3 in Resources */,
+				6C4D83471EDABAD400227579 /* will_rna100.mp3 in Resources */,
 				6C4E6BE61ED70BA5002F0B27 /* city_kj1.mp3 in Resources */,
 				6C4E6B181ED70BA4002F0B27 /* max_temp_min16.mp3 in Resources */,
 				6C4E6C971ED70BA5002F0B27 /* 7d.mp3 in Resources */,

@@ -50,6 +50,7 @@ class ItemSetDust : ItemSet{
         else{
 
             set.append(Item(text:pm25GradeToText(grade: pm25Grade), audio:pm25GradeToAudio(grade: pm25Grade)))
+            set.append(getEmpty(empty: 2))
             set.append(Item(text:pm10GradeToText(grade: pm10Grade), audio:pm10GradeToAudio(grade: pm10Grade)))
         }
         
