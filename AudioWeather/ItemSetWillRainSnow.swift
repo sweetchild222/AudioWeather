@@ -62,11 +62,11 @@ class ItemSetWillRainSnow : ItemSet{
         
         switch code{
             
-        case WeatherData.PtyCode.rain:
+        case .rain:
             return "will_rain"
-        case WeatherData.PtyCode.rainsnow:
+        case .rainsnow:
             return "will_rain_snow"
-        case WeatherData.PtyCode.snow:
+        case .snow:
             return "will_snow"
         default:
             return "will_rain"
@@ -78,11 +78,11 @@ class ItemSetWillRainSnow : ItemSet{
         
         switch code{
 
-        case WeatherData.PtyCode.rain:
+        case .rain:
             return "비가 오겠습니다"
-        case WeatherData.PtyCode.rainsnow:
+        case .rainsnow:
             return "눈과 비가 오겠습니다"
-        case WeatherData.PtyCode.snow:
+        case .snow:
             return "눈이 오겠습니다"
         default:
             return "비가 오겠습니다"

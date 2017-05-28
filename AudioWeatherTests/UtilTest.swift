@@ -42,14 +42,14 @@ class UtilTest: XCTestCase {
         for value in values{
             
             let gps = DFSConv.instance.toGPS(v1: value[0], v2: value[1])
-            let xy = DFSConv.instance.toXY(v1: gps[0], v2: gps[1])
+            let xy = DFSConv.instance.toXY(v1: gps.lat, v2: gps.lng)
             
-            if gps[0] != value[2] || gps[1] != value[3]{
+            if gps.lat != value[2] || gps.lng != value[3]{
                 XCTAssert(false)
             }
             
             
-            if xy[0] != value[0] || xy[1] != value[1]{
+            if xy.nx != value[0] || xy.ny != value[1]{
                 XCTAssert(false)
             }
             

@@ -63,15 +63,15 @@ class ItemSetDust : ItemSet{
         
         switch grade {
             
-        case DustRequester.Grade.unknown:
+        case .unknown:
             return "미세먼지 초미세먼지 모두 모름입니다"
-        case DustRequester.Grade.good:
+        case .good:
             return "미세먼지 초미세먼지 모두 좋음입니다"
-        case DustRequester.Grade.normal:
+        case .normal:
             return "미세먼지 초미세먼지 모두 보통입니다"
-        case DustRequester.Grade.bad:
+        case .bad:
             return "미세먼지 초미세먼지 모두 나쁨입니다"
-        case DustRequester.Grade.worst:
+        case .worst:
             return "미세먼지 초미세먼지 모두 매우 나쁨입니다"
         }
         
@@ -82,15 +82,15 @@ class ItemSetDust : ItemSet{
         
         switch grade {
             
-        case DustRequester.Grade.unknown:
+        case .unknown:
             return "all_dust_unknown"
-        case DustRequester.Grade.good:
+        case .good:
             return "all_dust_good"
-        case DustRequester.Grade.normal:
+        case .normal:
             return "all_dust_normal"
-        case DustRequester.Grade.bad:
+        case .bad:
             return "all_dust_bad"
-        case DustRequester.Grade.worst:
+        case .worst:
             return "all_dust_worst"
         }
     }
@@ -101,15 +101,15 @@ class ItemSetDust : ItemSet{
         
         switch grade {
             
-        case DustRequester.Grade.unknown:
+        case .unknown:
             return "미세먼지는 모름"
-        case DustRequester.Grade.good:
+        case .good:
             return "미세먼지는 좋음"
-        case DustRequester.Grade.normal:
+        case .normal:
             return "미세먼지는 보통"
-        case DustRequester.Grade.bad:
+        case .bad:
             return "미세먼지는 나쁨"
-        case DustRequester.Grade.worst:
+        case .worst:
             return "미세먼지는 매우나쁨"
         }
     }
@@ -119,15 +119,15 @@ class ItemSetDust : ItemSet{
         
         switch grade {
             
-        case DustRequester.Grade.unknown:
+        case .unknown:
             return "초미세먼지는 모름입니다"
-        case DustRequester.Grade.good:
+        case .good:
             return "초미세먼지는 좋음입니다"
-        case DustRequester.Grade.normal:
+        case .normal:
             return "초미세먼지는 보통입니다"
-        case DustRequester.Grade.bad:
+        case .bad:
             return "초미세먼지는 나쁨입니다"
-        case DustRequester.Grade.worst:
+        case .worst:
             return "초미세먼지는 매우나쁨입니다"
         }
     }
@@ -137,15 +137,15 @@ class ItemSetDust : ItemSet{
         
         switch grade {
             
-        case DustRequester.Grade.unknown:
+        case .unknown:
             return "dust_unknown"
-        case DustRequester.Grade.good:
+        case .good:
             return "dust_good"
-        case DustRequester.Grade.normal:
+        case .normal:
             return "dust_normal"
-        case DustRequester.Grade.bad:
+        case .bad:
             return "dust_bad"
-        case DustRequester.Grade.worst:
+        case .worst:
             return "dust_worst"
         }
     }
@@ -155,15 +155,15 @@ class ItemSetDust : ItemSet{
         
         switch grade {
             
-        case DustRequester.Grade.unknown:
+        case .unknown:
             return "tiny_dust_unknown"
-        case DustRequester.Grade.good:
+        case .good:
             return "tiny_dust_good"
-        case DustRequester.Grade.normal:
+        case .normal:
             return "tiny_dust_normal"
-        case DustRequester.Grade.bad:
+        case .bad:
             return "tiny_dust_bad"
-        case DustRequester.Grade.worst:
+        case .worst:
             return "tiny_dust_worst"
         }
     }

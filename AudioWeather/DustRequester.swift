@@ -140,19 +140,19 @@ class DustRequester: NSObject, XMLParserDelegate {
         switch grade{
 
             case "좋음":
-                return Grade.good
+                return .good
 
             case "보통":
-                return Grade.normal
+                return .normal
 
             case "나쁨":
-                return Grade.bad
+                return .bad
 
             case "매우나쁨":
-                return Grade.worst
+                return .worst
             
             default:
-                return Grade.unknown
+                return .unknown
         }
         
     }

@@ -24,7 +24,7 @@ class DFSConv{
     let YO:Double = 136 // 기1준점 Y좌표(GRID)
     
     
-    public func toGPS(v1:Double, v2:Double) -> [Double] {
+    public func toGPS(v1:Double, v2:Double) -> (lat:Double, lng:Double) {
         
         let DEGRAD = Double.pi / 180.0
         let RADDEG = 180.0 / Double.pi
@@ -64,11 +64,11 @@ class DFSConv{
         let lat = alat * RADDEG;
         let lng = alon * RADDEG;
         
-        return [lat, lng]
+        return (lat, lng)
     }
     
     
-    public func toXY(v1:Double, v2:Double) -> [Double]{
+    public func toXY(v1:Double, v2:Double) -> (nx:Double, ny:Double){
         
         let DEGRAD = Double.pi / 180.0
         
@@ -97,7 +97,7 @@ class DFSConv{
         let nx = floor(ra * sin(theta) + XO + 0.5)
         let ny = floor(ro - ra * cos(theta) + YO + 0.5)
         
-        return [nx, ny]
+        return (nx, ny)
 
     }
     

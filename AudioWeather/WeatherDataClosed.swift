@@ -50,7 +50,7 @@ class WeatherDataClosed{
             }
         }
         
-        return WeatherData.PtyCode.clean
+        return .clean
     }
     
     

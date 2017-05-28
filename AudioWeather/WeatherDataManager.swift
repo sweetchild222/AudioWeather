@@ -186,17 +186,17 @@ class WeatherDataManager{
         let codeDataClosed = self.dataClosed.getPtyCodeRainSnow()
         let codeDataSpace = self.dataSpace.getPtyCodeRainSnow()
         
-        if codeDataClosed != WeatherData.PtyCode.clean {
+        if codeDataClosed != .clean {
             
             return codeDataClosed
         }
         
-        if codeDataSpace != WeatherData.PtyCode.clean {
+        if codeDataSpace != .clean {
             
             return codeDataSpace
         }
         
-        return WeatherData.PtyCode.clean
+        return .clean
 
     }
     

@@ -85,13 +85,13 @@ class ItemSetCurrentRainSnow : ItemSet{
     
     func getRainSnow() -> [Item]{
         
-        if dataManager.currentPty() == WeatherData.PtyCode.rain{
+        if dataManager.currentPty() == .rain{
             return [Item(text:"현재는 비가 오고 있고", audio:"current_rain")]
         }
-        else if dataManager.currentPty() == WeatherData.PtyCode.rainsnow {
+        else if dataManager.currentPty() == .rainsnow {
             return [Item(text:"현재는 눈과 비가 오고 있고", audio:"current_rain_snow")]
         }
-        else if dataManager.currentPty() == WeatherData.PtyCode.snow {
+        else if dataManager.currentPty() == .snow {
             return [Item(text:"현재는 눈이 오고 있고", audio:"current_snow")]
         }
         

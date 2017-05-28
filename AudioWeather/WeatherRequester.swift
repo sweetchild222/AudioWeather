@@ -201,19 +201,19 @@ class WeatherRequester{
         switch value {
             
             case 0:
-                return WeatherData.PtyCode.clean
+                return .clean
 
             case 1:
-                return WeatherData.PtyCode.rain
+                return .rain
                 
             case 2:
-                return WeatherData.PtyCode.rainsnow
+                return .rainsnow
 
             case 3:
-                return WeatherData.PtyCode.snow
+                return .snow
 
             default:
-                return WeatherData.PtyCode.clean
+                return .clean
         }
     
     }
@@ -224,19 +224,19 @@ class WeatherRequester{
         switch value {
             
             case 1:
-                return WeatherData.SkyCode.clean
+                return .clean
                 
             case 2:
-                return WeatherData.SkyCode.small
+                return .small
 
             case 3:
-                return WeatherData.SkyCode.much
+                return .much
                 
             case 4:
-                return WeatherData.SkyCode.gray
+                return .gray
                 
             default:
-                return WeatherData.SkyCode.clean
+                return .clean
         }
     }
     

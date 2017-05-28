@@ -45,7 +45,7 @@ class WeatherDataSpace{
         
         for data in dataList {
             
-            if data.pty == WeatherData.PtyCode.clean {
+            if data.pty == .clean {
                 
                 return data.htm
             }
@@ -59,13 +59,13 @@ class WeatherDataSpace{
         
         for data in dataList {
             
-            if data.pty != WeatherData.PtyCode.clean {
+            if data.pty != .clean {
                 
                 return data.pty
             }
         }
         
-        return WeatherData.PtyCode.clean
+        return .clean
     }
     
     
@@ -76,7 +76,7 @@ class WeatherDataSpace{
         
         for data in dataList {
             
-            if data.pty != WeatherData.PtyCode.clean {
+            if data.pty != .clean {
                 
                 rnaSum += data.rna
                 
@@ -94,7 +94,7 @@ class WeatherDataSpace{
         
         for data in dataList {
             
-            if data.pty != WeatherData.PtyCode.clean {
+            if data.pty != .clean {
                 
                 popSum += data.pop
                 popCount += 1
@@ -113,7 +113,7 @@ class WeatherDataSpace{
         
         for data in dataList {
             
-            if data.pty != WeatherData.PtyCode.clean {
+            if data.pty != .clean {
                 
                 return data.htm
             }
@@ -137,7 +137,7 @@ class WeatherDataSpace{
             
             if data.htm >= startHour{
                 
-                if data.pty != WeatherData.PtyCode.clean {
+                if data.pty != .clean {
                     
                     endHour = data.htm + data.hrs
                 }
@@ -219,21 +219,21 @@ class WeatherDataSpace{
         }
         
         if grayCount >= muchCount && grayCount >= smallCount && grayCount >= cleanCount {
-            return WeatherData.SkyCode.gray
+            return .gray
         }
         else{
             
             if muchCount >= smallCount && muchCount >= cleanCount{
                 
-                return WeatherData.SkyCode.much
+                return .much
             }
             else{
                 
                 if smallCount >= cleanCount {
-                    return WeatherData.SkyCode.small
+                    return .small
                 }
                 else{
-                    return WeatherData.SkyCode.clean
+                    return .clean
                 }
             }
         }

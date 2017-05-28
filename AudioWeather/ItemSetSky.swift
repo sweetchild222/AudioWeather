@@ -61,13 +61,13 @@ class ItemSetSky : ItemSet{
         
         switch skyCode{
             
-        case WeatherData.SkyCode.clean:
+        case .clean:
             return "하루 종일 맑겠습니다"
-        case WeatherData.SkyCode.small:
+        case .small:
             return "하루 종일 구름이 조금 끼겠습니다"
-        case WeatherData.SkyCode.much:
+        case .much:
             return "하루 종일 구름이 많이 끼겠습니다"
-        case WeatherData.SkyCode.gray:
+        case .gray:
             return "하루 종일 흐리겠습니다"
         }
     }
@@ -77,13 +77,13 @@ class ItemSetSky : ItemSet{
         
         switch skyCode{
             
-        case WeatherData.SkyCode.clean:
+        case .clean:
             return "allday_clean"
-        case WeatherData.SkyCode.small:
+        case .small:
             return "allday_small"
-        case WeatherData.SkyCode.much:
+        case .much:
             return "allday_much"
-        case WeatherData.SkyCode.gray:
+        case .gray:
             return "allday_gray"
         }
     }
@@ -101,13 +101,13 @@ class ItemSetSky : ItemSet{
         
         switch skyCode{
             
-        case WeatherData.SkyCode.clean:
+        case .clean:
             return "오전에 맑다가"
-        case WeatherData.SkyCode.small:
+        case .small:
             return "오전에 구름이 조금 끼다가"
-        case WeatherData.SkyCode.much:
+        case .much:
             return "오전에 구름이 많이 끼다가"
-        case WeatherData.SkyCode.gray:
+        case .gray:
             return "오전에 흐리다가"
         }
     }
@@ -117,13 +117,13 @@ class ItemSetSky : ItemSet{
         
         switch skyCode{
             
-        case WeatherData.SkyCode.clean:
+        case .clean:
             return "morning_clean"
-        case WeatherData.SkyCode.small:
+        case .small:
             return "morning_small"
-        case WeatherData.SkyCode.much:
+        case .much:
             return "morning_much"
-        case WeatherData.SkyCode.gray:
+        case .gray:
             return "morning_gray"
         }
     }
@@ -140,13 +140,13 @@ class ItemSetSky : ItemSet{
         
         switch skyCode{
             
-        case WeatherData.SkyCode.clean:
+        case .clean:
             return "오후에 맑겠습니다"
-        case WeatherData.SkyCode.small:
+        case .small:
             return "오후에 구름이 조금 끼겠습니다"
-        case WeatherData.SkyCode.much:
+        case .much:
             return "오후에 구름이 많이 끼겠습니다"
-        case WeatherData.SkyCode.gray:
+        case .gray:
             return "오후에 흐리겠습니다"
         }
     }
@@ -156,13 +156,13 @@ class ItemSetSky : ItemSet{
         
         switch skyCode{
             
-        case WeatherData.SkyCode.clean:
+        case .clean:
             return "after_clean"
-        case WeatherData.SkyCode.small:
+        case .small:
             return "after_small"
-        case WeatherData.SkyCode.much:
+        case .much:
             return "after_much"
-        case WeatherData.SkyCode.gray:
+        case .gray:
             return "after_gray"
         }
     }
