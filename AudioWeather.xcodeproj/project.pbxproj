@@ -66,6 +66,7 @@
 		6C4D83661EDAC2D400227579 /* all_dust_unknown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83631EDAC2D400227579 /* all_dust_unknown.mp3 */; };
 		6C4D83671EDAC2D400227579 /* dust_unknown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83641EDAC2D400227579 /* dust_unknown.mp3 */; };
 		6C4D83681EDAC2D400227579 /* tiny_dust_unknown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D83651EDAC2D400227579 /* tiny_dust_unknown.mp3 */; };
+		6C4D836A1EDADE9600227579 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D83691EDADE9600227579 /* Position.swift */; };
 		6C4E60D91ED31CC1002F0B27 /* ItemSetWillRainSnow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E60D81ED31CC1002F0B27 /* ItemSetWillRainSnow.swift */; };
 		6C4E60DB1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E60DA1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift */; };
 		6C4E60DD1ED4443E002F0B27 /* WeatherDataCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E60DC1ED4443E002F0B27 /* WeatherDataCurrent.swift */; };
@@ -928,6 +929,7 @@
 		6C4D83631EDAC2D400227579 /* all_dust_unknown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = all_dust_unknown.mp3; sourceTree = "<group>"; };
 		6C4D83641EDAC2D400227579 /* dust_unknown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dust_unknown.mp3; sourceTree = "<group>"; };
 		6C4D83651EDAC2D400227579 /* tiny_dust_unknown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tiny_dust_unknown.mp3; sourceTree = "<group>"; };
+		6C4D83691EDADE9600227579 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		6C4E60D81ED31CC1002F0B27 /* ItemSetWillRainSnow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetWillRainSnow.swift; sourceTree = "<group>"; };
 		6C4E60DA1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetCurrentRainSnow.swift; sourceTree = "<group>"; };
 		6C4E60DC1ED4443E002F0B27 /* WeatherDataCurrent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataCurrent.swift; sourceTree = "<group>"; };
@@ -2868,6 +2870,7 @@
 			children = (
 				6C36F4461EC4845700B09B74 /* DFSConv.swift */,
 				6C774E0D1EB9F76800709895 /* GlobalConfig.swift */,
+				6C4D83691EDADE9600227579 /* Position.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -3882,6 +3885,7 @@
 				6C4E60D91ED31CC1002F0B27 /* ItemSetWillRainSnow.swift in Sources */,
 				6C36F4471EC4845700B09B74 /* DFSConv.swift in Sources */,
 				6C4E60DB1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift in Sources */,
+				6C4D836A1EDADE9600227579 /* Position.swift in Sources */,
 				6C8BDBB11EB6F8D2001EA059 /* AppDelegate.swift in Sources */,
 				6C58940F1ECFF01700E052F6 /* ItemSetMaxTemp.swift in Sources */,
 				6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */,
