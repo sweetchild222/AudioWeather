@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xjn-4t-WVr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Alarm-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AudioWeather" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,11 +20,165 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AuA-8A-Fnd">
+                                <rect key="frame" x="174" y="239" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="z3B-Vv-DAg" kind="show" id="4WW-Tr-eSr"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Alarm" id="gI8-cK-wX2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="3YD-de-kAh"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="z3B-Vv-DAg" kind="show" id="Odh-tG-2R3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1465" y="107"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="5a2-AY-dmX">
+            <objects>
+                <viewController title="Edit" id="z3B-Vv-DAg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lMA-rr-RSJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="eA8-0A-fAR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sRo-6p-zMn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmU-PV-0HJ">
+                                <rect key="frame" x="157" y="148" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Repeat"/>
+                                <connections>
+                                    <segue destination="tgp-iT-v1i" kind="show" id="sjl-nw-kZP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKK-lU-N07">
+                                <rect key="frame" x="157" y="373" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sound"/>
+                                <connections>
+                                    <segue destination="fx5-3T-P7R" kind="show" id="1DM-mu-tgU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="tgp-iT-v1i" kind="show" id="Vbl-CW-LlA"/>
+                        <segue destination="fx5-3T-P7R" kind="show" id="vgA-SH-bZA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-Uo-4rQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2232.8000000000002" y="106.59670164917542"/>
+        </scene>
+        <!--Repeat Weekly-->
+        <scene sceneID="IWy-Rs-DDk">
+            <objects>
+                <viewController title="Repeat Weekly" id="tgp-iT-v1i" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p14-9L-95A"/>
+                        <viewControllerLayoutGuide type="bottom" id="kzc-Zg-lsV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ILh-0s-4gs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="flD-2h-LWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3018" y="-997"/>
+        </scene>
+        <!--Sound-->
+        <scene sceneID="sGg-Sn-6PY">
+            <objects>
+                <viewController title="Sound" id="fx5-3T-P7R" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wkY-qJ-LJG"/>
+                        <viewControllerLayoutGuide type="bottom" id="c83-jE-fWn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jfr-Kq-POZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJ3-Cn-XBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3017" y="-275"/>
+        </scene>
+        <!--Alarm-->
+        <scene sceneID="OWn-4y-rA7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vke-JV-8l4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Alarm" id="k2W-G8-U4j"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x0H-km-cLf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3l8-UZ-jAn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v10-Ja-2sw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679.20000000000005" y="106.59670164917542"/>
+        </scene>
+        <!--Wather-->
+        <scene sceneID="VRT-cI-j9L">
+            <objects>
+                <viewController title="Wather" id="PEA-gP-kgt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MRb-EL-MjU"/>
+                        <viewControllerLayoutGuide type="bottom" id="xaS-Ie-Eq8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hGL-3p-w3F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Weather" id="aJP-Kk-KAW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5b-9S-7Go" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679" y="865"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Peo-pO-uqL">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xjn-4t-WVr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Bzt-I3-Qxk">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vke-JV-8l4" kind="relationship" relationship="viewControllers" id="Ty6-tu-kNU"/>
+                        <segue destination="PEA-gP-kgt" kind="relationship" relationship="viewControllers" id="b82-uc-Cau"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MYJ-BN-jOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-260" y="106.59670164917542"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Odh-tG-2R3"/>
+        <segue reference="vgA-SH-bZA"/>
+        <segue reference="sjl-nw-kZP"/>
+    </inferredMetricsTieBreakers>
 </document>
