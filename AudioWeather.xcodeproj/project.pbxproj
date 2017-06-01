@@ -854,6 +854,7 @@
 		6CAFA9231EE030C700C836C8 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9221EE030C700C836C8 /* EditViewController.swift */; };
 		6CAFA9251EE03E3000C836C8 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9241EE03E3000C836C8 /* AlarmTableViewController.swift */; };
 		6CAFA9271EE0429C00C836C8 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9261EE0429C00C836C8 /* Identifier.swift */; };
+		6CAFA9291EE04D7F00C836C8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9281EE04D7F00C836C8 /* Alarm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1727,6 +1728,7 @@
 		6CAFA9221EE030C700C836C8 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6CAFA9241EE03E3000C836C8 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
 		6CAFA9261EE0429C00C836C8 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		6CAFA9281EE04D7F00C836C8 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2873,6 +2875,7 @@
 				6CAFA9221EE030C700C836C8 /* EditViewController.swift */,
 				6CAFA9241EE03E3000C836C8 /* AlarmTableViewController.swift */,
 				6CAFA9261EE0429C00C836C8 /* Identifier.swift */,
+				6CAFA9281EE04D7F00C836C8 /* Alarm.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -3903,6 +3906,7 @@
 				6C8BDBB11EB6F8D2001EA059 /* AppDelegate.swift in Sources */,
 				6C58940F1ECFF01700E052F6 /* ItemSetMaxTemp.swift in Sources */,
 				6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */,
+				6CAFA9291EE04D7F00C836C8 /* Alarm.swift in Sources */,
 				6C7A21561ECB34A300B71F7A /* ItemListGenerator.swift in Sources */,
 				6CAFA9231EE030C700C836C8 /* EditViewController.swift in Sources */,
 				6C774E061EB75E1500709895 /* DustRequester.swift in Sources */,
