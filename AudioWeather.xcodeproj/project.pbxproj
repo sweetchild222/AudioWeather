@@ -851,8 +851,9 @@
 		6CA20DE71ECDC38600D13528 /* AudioItemGenerateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA20DE61ECDC38600D13528 /* AudioItemGenerateTest.swift */; };
 		6CA20DE91ECDC3EA00D13528 /* UtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA20DE81ECDC3EA00D13528 /* UtilTest.swift */; };
 		6CA20DEB1ECDD92700D13528 /* ItemSetDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA20DEA1ECDD92700D13528 /* ItemSetDust.swift */; };
-		6CAFA9211EE0307600C836C8 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9201EE0307600C836C8 /* AlarmViewController.swift */; };
 		6CAFA9231EE030C700C836C8 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9221EE030C700C836C8 /* EditViewController.swift */; };
+		6CAFA9251EE03E3000C836C8 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9241EE03E3000C836C8 /* AlarmTableViewController.swift */; };
+		6CAFA9271EE0429C00C836C8 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9261EE0429C00C836C8 /* Identifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1723,8 +1724,9 @@
 		6CA20DE61ECDC38600D13528 /* AudioItemGenerateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioItemGenerateTest.swift; sourceTree = "<group>"; };
 		6CA20DE81ECDC3EA00D13528 /* UtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilTest.swift; sourceTree = "<group>"; };
 		6CA20DEA1ECDD92700D13528 /* ItemSetDust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetDust.swift; sourceTree = "<group>"; };
-		6CAFA9201EE0307600C836C8 /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		6CAFA9221EE030C700C836C8 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		6CAFA9241EE03E3000C836C8 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
+		6CAFA9261EE0429C00C836C8 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2863,15 +2865,16 @@
 			name = System;
 			sourceTree = "<group>";
 		};
-		6C4E6D151ED70F25002F0B27 /* Main */ = {
+		6C4E6D151ED70F25002F0B27 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				6C8BDBB21EB6F8D2001EA059 /* ViewController.swift */,
 				6C8BDBB01EB6F8D2001EA059 /* AppDelegate.swift */,
-				6CAFA9201EE0307600C836C8 /* AlarmViewController.swift */,
 				6CAFA9221EE030C700C836C8 /* EditViewController.swift */,
+				6CAFA9241EE03E3000C836C8 /* AlarmTableViewController.swift */,
+				6CAFA9261EE0429C00C836C8 /* Identifier.swift */,
 			);
-			name = Main;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		6C774E041EB75C1500709895 /* Util */ = {
@@ -2907,7 +2910,7 @@
 		6C8BDBAF1EB6F8D2001EA059 /* AudioWeather */ = {
 			isa = PBXGroup;
 			children = (
-				6C4E6D151ED70F25002F0B27 /* Main */,
+				6C4E6D151ED70F25002F0B27 /* Controller */,
 				6C4E6D141ED70F08002F0B27 /* System */,
 				6C4E67181ED70BA3002F0B27 /* Resource */,
 				6C36F4481EC5CBCF00B09B74 /* Weather */,
@@ -3882,6 +3885,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C631E1C1EBAFB4D00AC3D78 /* WeatherRequester.swift in Sources */,
+				6CAFA9251EE03E3000C836C8 /* AlarmTableViewController.swift in Sources */,
 				6C7A214E1ECB2FB300B71F7A /* ItemSetTail.swift in Sources */,
 				6C4E6D171ED851AC002F0B27 /* Address.swift in Sources */,
 				6C58940D1ECFF00700E052F6 /* ItemSetCurrentTemp.swift in Sources */,
@@ -3892,7 +3896,6 @@
 				6C4E6D191ED85EFE002F0B27 /* ItemSetEmpty.swift in Sources */,
 				6C774E0E1EB9F76800709895 /* GlobalConfig.swift in Sources */,
 				6C8BDBB31EB6F8D2001EA059 /* ViewController.swift in Sources */,
-				6CAFA9211EE0307600C836C8 /* AlarmViewController.swift in Sources */,
 				6C4E60D91ED31CC1002F0B27 /* ItemSetWillRainSnow.swift in Sources */,
 				6C36F4471EC4845700B09B74 /* DFSConv.swift in Sources */,
 				6C4E60DB1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift in Sources */,
@@ -3903,6 +3906,7 @@
 				6C7A21561ECB34A300B71F7A /* ItemListGenerator.swift in Sources */,
 				6CAFA9231EE030C700C836C8 /* EditViewController.swift in Sources */,
 				6C774E061EB75E1500709895 /* DustRequester.swift in Sources */,
+				6CAFA9271EE0429C00C836C8 /* Identifier.swift in Sources */,
 				6C4E60E11ED44524002F0B27 /* WeatherDataSpace.swift in Sources */,
 				6C36F44C1EC5E3BC00B09B74 /* AddressMap.swift in Sources */,
 				6C7A21521ECB318900B71F7A /* ItemSetSky.swift in Sources */,
