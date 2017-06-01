@@ -35,9 +35,6 @@
                     <navigationItem key="navigationItem" title="Alarm" id="gI8-cK-wX2">
                         <barButtonItem key="backBarButtonItem" title="Back" id="3YD-de-kAh"/>
                     </navigationItem>
-                    <connections>
-                        <segue destination="z3B-Vv-DAg" kind="show" id="Odh-tG-2R3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,10 +71,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="tgp-iT-v1i" kind="show" id="Vbl-CW-LlA"/>
-                        <segue destination="fx5-3T-P7R" kind="show" id="vgA-SH-bZA"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-Uo-4rQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,12 +87,40 @@
                     <view key="view" contentMode="scaleToFill" id="ILh-0s-4gs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrA-Hb-qTF">
+                                <rect key="frame" x="164" y="253" width="46" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Yap-PW-14p" kind="show" id="FvU-8T-DPq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flD-2h-LWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3018" y="-997"/>
+            <point key="canvasLocation" x="3158" y="-254"/>
+        </scene>
+        <!--Last-->
+        <scene sceneID="Ajc-lm-7m7">
+            <objects>
+                <viewController title="Last" id="Yap-PW-14p" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RdZ-9g-8jy"/>
+                        <viewControllerLayoutGuide type="bottom" id="zgu-AD-d1S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kfy-sw-bH5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nQl-qG-LAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3982" y="-254"/>
         </scene>
         <!--Sound-->
         <scene sceneID="sGg-Sn-6PY">
@@ -117,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJ3-Cn-XBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3017" y="-275"/>
+            <point key="canvasLocation" x="3158" y="630"/>
         </scene>
         <!--Alarm-->
         <scene sceneID="OWn-4y-rA7">
@@ -163,6 +184,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xjn-4t-WVr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Bzt-I3-Qxk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -176,9 +198,4 @@
             <point key="canvasLocation" x="-260" y="106.59670164917542"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Odh-tG-2R3"/>
-        <segue reference="vgA-SH-bZA"/>
-        <segue reference="sjl-nw-kZP"/>
-    </inferredMetricsTieBreakers>
 </document>
