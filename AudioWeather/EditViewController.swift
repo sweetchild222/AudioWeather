@@ -21,6 +21,8 @@ class EditViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func pickDate(_ sender: Any) {
+    }
 
     /*
     // MARK: - Navigation

@@ -12,5 +12,5 @@ class Alarm{
     
     var date: Date = Date()
     var enabled: Bool = false
-    var repeatWeekdays: [Int] = []    
+    var repeatWeek: [Int] = []
 }

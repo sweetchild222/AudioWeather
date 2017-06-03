@@ -847,7 +847,6 @@
 		6C8BDBB81EB6F8D2001EA059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C8BDBB71EB6F8D2001EA059 /* Assets.xcassets */; };
 		6C8BDBBB1EB6F8D2001EA059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8BDBB91EB6F8D2001EA059 /* LaunchScreen.storyboard */; };
 		6C8BDBC61EB6F8D3001EA059 /* AudioWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8BDBC51EB6F8D3001EA059 /* AudioWeatherTests.swift */; };
-		6C8BDBD11EB6F8D3001EA059 /* AudioWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8BDBD01EB6F8D3001EA059 /* AudioWeatherUITests.swift */; };
 		6CA20DE71ECDC38600D13528 /* AudioItemGenerateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA20DE61ECDC38600D13528 /* AudioItemGenerateTest.swift */; };
 		6CA20DE91ECDC3EA00D13528 /* UtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA20DE81ECDC3EA00D13528 /* UtilTest.swift */; };
 		6CA20DEB1ECDD92700D13528 /* ItemSetDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA20DEA1ECDD92700D13528 /* ItemSetDust.swift */; };
@@ -859,13 +858,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		6C8BDBC21EB6F8D3001EA059 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C8BDBA51EB6F8D2001EA059 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6C8BDBAC1EB6F8D2001EA059;
-			remoteInfo = AudioWeather;
-		};
-		6C8BDBCD1EB6F8D3001EA059 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C8BDBA51EB6F8D2001EA059 /* Project object */;
 			proxyType = 1;
@@ -1719,9 +1711,6 @@
 		6C8BDBC11EB6F8D3001EA059 /* AudioWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8BDBC51EB6F8D3001EA059 /* AudioWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioWeatherTests.swift; sourceTree = "<group>"; };
 		6C8BDBC71EB6F8D3001EA059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C8BDBCC1EB6F8D3001EA059 /* AudioWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C8BDBD01EB6F8D3001EA059 /* AudioWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioWeatherUITests.swift; sourceTree = "<group>"; };
-		6C8BDBD21EB6F8D3001EA059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CA20DE61ECDC38600D13528 /* AudioItemGenerateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioItemGenerateTest.swift; sourceTree = "<group>"; };
 		6CA20DE81ECDC3EA00D13528 /* UtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilTest.swift; sourceTree = "<group>"; };
 		6CA20DEA1ECDD92700D13528 /* ItemSetDust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetDust.swift; sourceTree = "<group>"; };
@@ -1740,13 +1729,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6C8BDBBE1EB6F8D3001EA059 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C8BDBC91EB6F8D3001EA059 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2859,6 +2841,7 @@
 		6C4E6D141ED70F08002F0B27 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				6C4E67181ED70BA3002F0B27 /* Resource */,
 				6C8BDBB71EB6F8D2001EA059 /* Assets.xcassets */,
 				6C8BDBBC1EB6F8D2001EA059 /* Info.plist */,
 				6C8BDBB91EB6F8D2001EA059 /* LaunchScreen.storyboard */,
@@ -2895,7 +2878,6 @@
 			children = (
 				6C8BDBAF1EB6F8D2001EA059 /* AudioWeather */,
 				6C8BDBC41EB6F8D3001EA059 /* AudioWeatherTests */,
-				6C8BDBCF1EB6F8D3001EA059 /* AudioWeatherUITests */,
 				6C8BDBAE1EB6F8D2001EA059 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -2905,7 +2887,6 @@
 			children = (
 				6C8BDBAD1EB6F8D2001EA059 /* AudioWeather.app */,
 				6C8BDBC11EB6F8D3001EA059 /* AudioWeatherTests.xctest */,
-				6C8BDBCC1EB6F8D3001EA059 /* AudioWeatherUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2915,7 +2896,6 @@
 			children = (
 				6C4E6D151ED70F25002F0B27 /* Controller */,
 				6C4E6D141ED70F08002F0B27 /* System */,
-				6C4E67181ED70BA3002F0B27 /* Resource */,
 				6C36F4481EC5CBCF00B09B74 /* Weather */,
 				6C36F4451EC4840600B09B74 /* Locale */,
 				6C36F4441EC482E100B09B74 /* AudioItem */,
@@ -2933,15 +2913,6 @@
 				6CA20DE81ECDC3EA00D13528 /* UtilTest.swift */,
 			);
 			path = AudioWeatherTests;
-			sourceTree = "<group>";
-		};
-		6C8BDBCF1EB6F8D3001EA059 /* AudioWeatherUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6C8BDBD01EB6F8D3001EA059 /* AudioWeatherUITests.swift */,
-				6C8BDBD21EB6F8D3001EA059 /* Info.plist */,
-			);
-			path = AudioWeatherUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2982,24 +2953,6 @@
 			productReference = 6C8BDBC11EB6F8D3001EA059 /* AudioWeatherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6C8BDBCB1EB6F8D3001EA059 /* AudioWeatherUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6C8BDBDB1EB6F8D3001EA059 /* Build configuration list for PBXNativeTarget "AudioWeatherUITests" */;
-			buildPhases = (
-				6C8BDBC81EB6F8D3001EA059 /* Sources */,
-				6C8BDBC91EB6F8D3001EA059 /* Frameworks */,
-				6C8BDBCA1EB6F8D3001EA059 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6C8BDBCE1EB6F8D3001EA059 /* PBXTargetDependency */,
-			);
-			name = AudioWeatherUITests;
-			productName = AudioWeatherUITests;
-			productReference = 6C8BDBCC1EB6F8D3001EA059 /* AudioWeatherUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -3015,11 +2968,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					6C8BDBC01EB6F8D3001EA059 = {
-						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 6C8BDBAC1EB6F8D2001EA059;
-					};
-					6C8BDBCB1EB6F8D3001EA059 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6C8BDBAC1EB6F8D2001EA059;
@@ -3041,7 +2989,6 @@
 			targets = (
 				6C8BDBAC1EB6F8D2001EA059 /* AudioWeather */,
 				6C8BDBC01EB6F8D3001EA059 /* AudioWeatherTests */,
-				6C8BDBCB1EB6F8D3001EA059 /* AudioWeatherUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -3873,13 +3820,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C8BDBCA1EB6F8D3001EA059 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -3932,14 +3872,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C8BDBC81EB6F8D3001EA059 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C8BDBD11EB6F8D3001EA059 /* AudioWeatherUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -3947,11 +3879,6 @@
 			isa = PBXTargetDependency;
 			target = 6C8BDBAC1EB6F8D2001EA059 /* AudioWeather */;
 			targetProxy = 6C8BDBC21EB6F8D3001EA059 /* PBXContainerItemProxy */;
-		};
-		6C8BDBCE1EB6F8D3001EA059 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6C8BDBAC1EB6F8D2001EA059 /* AudioWeather */;
-			targetProxy = 6C8BDBCD1EB6F8D3001EA059 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -4125,32 +4052,6 @@
 			};
 			name = Release;
 		};
-		6C8BDBDC1EB6F8D3001EA059 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = AudioWeatherUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ikchoi.AudioWeatherUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = AudioWeather;
-			};
-			name = Debug;
-		};
-		6C8BDBDD1EB6F8D3001EA059 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = AudioWeatherUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ikchoi.AudioWeatherUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = AudioWeather;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4177,15 +4078,6 @@
 			buildConfigurations = (
 				6C8BDBD91EB6F8D3001EA059 /* Debug */,
 				6C8BDBDA1EB6F8D3001EA059 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6C8BDBDB1EB6F8D3001EA059 /* Build configuration list for PBXNativeTarget "AudioWeatherUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6C8BDBDC1EB6F8D3001EA059 /* Debug */,
-				6C8BDBDD1EB6F8D3001EA059 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
