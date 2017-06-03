@@ -14,19 +14,15 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        
-        
-        
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     
     @IBAction func pickDate(_ sender: Any) {
     
@@ -37,33 +33,42 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 1
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        return 1000
+        return 4
     }
     
     
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.alarmCell, for: indexPath)
         
-        let defaultIdentifer = "weekTableCell"
-        var cell = tableView.dequeueReusableCell(withIdentifier: defaultIdentifer)
+        let identifer = indexPath.row == 0 ? "weekTableCell" : "default"
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: identifer)
+        
         if(cell == nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: defaultIdentifer)
-            print("-----")
-        }
-        else{
             
-            print("okok")
-            
+            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifer)
         }
-        print(indexPath)
 
+        if indexPath.row != 0 {
+            
+            cell?.textLabel?.text = "gge"
+            cell?.detailTextLabel?.text = "232234"
+            cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        }
         
-        //cell?.textLabel?.text = "gge"
-        //cell?.detailTextLabel?.text = "232234"
-        //cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        
+        
+        cell?.preservesSuperviewLayoutMargins = false
+        cell?.separatorInset = UIEdgeInsets.zero
+        cell?.layoutMargins = UIEdgeInsets.zero
+
         
         return cell!
     }
