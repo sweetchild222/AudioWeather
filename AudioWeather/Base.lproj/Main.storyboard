@@ -105,18 +105,73 @@
                                 <rect key="frame" x="16" y="344" width="343" height="274"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weekTableCell" id="uqq-0b-2NN" customClass="TableViewCellWeek" customModule="AudioWeather" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="repeatTableCell" id="dek-qy-1q9">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dek-qy-1q9" id="rOH-6l-Mx4">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="rf4-wT-cte">
+                                                    <rect key="frame" x="0.0" y="3" width="100" height="37.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MV-L8-vCf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="4.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-l6-wEU">
+                                                            <rect key="frame" x="0.0" y="7.5" width="100" height="30"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2I-sR-ILF" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="pbM-a4-hdq"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="1"/>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhf-HS-AJQ" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
+                                                                    <rect key="frame" x="35" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="mbj-tM-qgF"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="3"/>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8E-ib-EjR" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
+                                                                    <rect key="frame" x="70" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="JtV-wj-36s"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="5"/>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="5LO-Db-pAf"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rf4-wT-cte" firstAttribute="leading" secondItem="rOH-6l-Mx4" secondAttribute="leading" id="ZZF-es-19W"/>
+                                                <constraint firstAttribute="bottom" secondItem="rf4-wT-cte" secondAttribute="bottom" constant="3" id="eEs-RA-XL6"/>
+                                                <constraint firstItem="rf4-wT-cte" firstAttribute="top" secondItem="rOH-6l-Mx4" secondAttribute="top" constant="3" id="xsQ-hz-eyW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weekTableCell" id="uqq-0b-2NN" customClass="TableViewCellWeek" customModule="AudioWeather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uqq-0b-2NN" id="GlT-dj-ch8">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="deN-TY-xy3">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="deN-TY-xy3">
                                                     <rect key="frame" x="0.0" y="3" width="310" height="37.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="요일 반복" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3e-ej-8E9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="310" height="7.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="310" height="4.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -212,6 +267,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="RepeatFive" destination="B8E-ib-EjR" id="zzN-mZ-oBJ"/>
+                        <outlet property="RepeatOne" destination="E2I-sR-ILF" id="2ZS-kx-bQD"/>
+                        <outlet property="RepeatThree" destination="qhf-HS-AJQ" id="4l1-oQ-Xwf"/>
                         <outlet property="tableView" destination="lOa-o4-BMm" id="Fld-8O-v2H"/>
                     </connections>
                 </viewController>

@@ -856,6 +856,9 @@
 		6CAFA9291EE04D7F00C836C8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9281EE04D7F00C836C8 /* Alarm.swift */; };
 		6CAFA92F1EE2AAAF00C836C8 /* TableViewCellWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA92E1EE2AAAF00C836C8 /* TableViewCellWeek.swift */; };
 		6CAFA9311EE2B18200C836C8 /* ButtonWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9301EE2B18200C836C8 /* ButtonWeek.swift */; };
+		6CAFA9331EE3FDD400C836C8 /* TableViewCellRepeatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9321EE3FDD400C836C8 /* TableViewCellRepeatTableViewCell.swift */; };
+		6CAFA9351EE4004C00C836C8 /* ButtonRepeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9341EE4004C00C836C8 /* ButtonRepeat.swift */; };
+		6CAFA9391EE409D600C836C8 /* ButtonRepeatGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9381EE409D600C836C8 /* ButtonRepeatGroup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1722,6 +1725,9 @@
 		6CAFA9281EE04D7F00C836C8 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		6CAFA92E1EE2AAAF00C836C8 /* TableViewCellWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellWeek.swift; sourceTree = "<group>"; };
 		6CAFA9301EE2B18200C836C8 /* ButtonWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWeek.swift; sourceTree = "<group>"; };
+		6CAFA9321EE3FDD400C836C8 /* TableViewCellRepeatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellRepeatTableViewCell.swift; sourceTree = "<group>"; };
+		6CAFA9341EE4004C00C836C8 /* ButtonRepeat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonRepeat.swift; sourceTree = "<group>"; };
+		6CAFA9381EE409D600C836C8 /* ButtonRepeatGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonRepeatGroup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2865,6 +2871,9 @@
 				6CAFA9281EE04D7F00C836C8 /* Alarm.swift */,
 				6CAFA92E1EE2AAAF00C836C8 /* TableViewCellWeek.swift */,
 				6CAFA9301EE2B18200C836C8 /* ButtonWeek.swift */,
+				6CAFA9321EE3FDD400C836C8 /* TableViewCellRepeatTableViewCell.swift */,
+				6CAFA9341EE4004C00C836C8 /* ButtonRepeat.swift */,
+				6CAFA9381EE409D600C836C8 /* ButtonRepeatGroup.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -3839,6 +3848,7 @@
 				6CAFA92F1EE2AAAF00C836C8 /* TableViewCellWeek.swift in Sources */,
 				6C4E6D171ED851AC002F0B27 /* Address.swift in Sources */,
 				6C58940D1ECFF00700E052F6 /* ItemSetCurrentTemp.swift in Sources */,
+				6CAFA9351EE4004C00C836C8 /* ButtonRepeat.swift in Sources */,
 				6C7A21541ECB319B00B71F7A /* Item.swift in Sources */,
 				6C7A214C1ECB2FA900B71F7A /* ItemSetHead.swift in Sources */,
 				6C4E60DD1ED4443E002F0B27 /* WeatherDataCurrent.swift in Sources */,
@@ -3855,12 +3865,14 @@
 				6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */,
 				6CAFA9291EE04D7F00C836C8 /* Alarm.swift in Sources */,
 				6C7A21561ECB34A300B71F7A /* ItemListGenerator.swift in Sources */,
+				6CAFA9391EE409D600C836C8 /* ButtonRepeatGroup.swift in Sources */,
 				6CAFA9231EE030C700C836C8 /* EditViewController.swift in Sources */,
 				6C774E061EB75E1500709895 /* DustRequester.swift in Sources */,
 				6CAFA9271EE0429C00C836C8 /* Identifier.swift in Sources */,
 				6C4E60E11ED44524002F0B27 /* WeatherDataSpace.swift in Sources */,
 				6C36F44C1EC5E3BC00B09B74 /* AddressMap.swift in Sources */,
 				6C7A21521ECB318900B71F7A /* ItemSetSky.swift in Sources */,
+				6CAFA9331EE3FDD400C836C8 /* TableViewCellRepeatTableViewCell.swift in Sources */,
 				6C7A21501ECB2FBD00B71F7A /* ItemSetLocation.swift in Sources */,
 				6CAFA9311EE2B18200C836C8 /* ButtonWeek.swift in Sources */,
 				6C4E60E31ED4459B002F0B27 /* WeatherDataManager.swift in Sources */,
@@ -3934,8 +3946,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_ACTIVITY_MODE = "";
-				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
