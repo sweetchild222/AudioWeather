@@ -105,7 +105,7 @@
                                 <rect key="frame" x="16" y="344" width="343" height="274"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="repeatTableCell" id="dek-qy-1q9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="repeatTableCell" id="dek-qy-1q9" customClass="TableViewCellRepeat" customModule="AudioWeather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dek-qy-1q9" id="rOH-6l-Mx4">
@@ -130,6 +130,12 @@
                                                                         <constraint firstAttribute="width" constant="30" id="pbM-a4-hdq"/>
                                                                     </constraints>
                                                                     <state key="normal" title="1"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="touchedOne:" destination="dek-qy-1q9" eventType="touchUpInside" id="f6c-Qc-LUH"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhf-HS-AJQ" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
                                                                     <rect key="frame" x="35" y="0.0" width="30" height="30"/>
@@ -137,6 +143,9 @@
                                                                         <constraint firstAttribute="width" constant="30" id="mbj-tM-qgF"/>
                                                                     </constraints>
                                                                     <state key="normal" title="3"/>
+                                                                    <connections>
+                                                                        <action selector="touchedTwo:" destination="dek-qy-1q9" eventType="touchUpInside" id="zcp-DN-jOu"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8E-ib-EjR" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
                                                                     <rect key="frame" x="70" y="0.0" width="30" height="30"/>
@@ -144,6 +153,9 @@
                                                                         <constraint firstAttribute="width" constant="30" id="JtV-wj-36s"/>
                                                                     </constraints>
                                                                     <state key="normal" title="5"/>
+                                                                    <connections>
+                                                                        <action selector="touchedFive:" destination="dek-qy-1q9" eventType="touchUpInside" id="KLG-70-SJi"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
@@ -159,6 +171,11 @@
                                                 <constraint firstItem="rf4-wT-cte" firstAttribute="top" secondItem="rOH-6l-Mx4" secondAttribute="top" constant="3" id="xsQ-hz-eyW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outletCollection property="buttons" destination="E2I-sR-ILF" collectionClass="NSMutableArray" id="sSO-Qp-pmh"/>
+                                            <outletCollection property="buttons" destination="qhf-HS-AJQ" collectionClass="NSMutableArray" id="JaS-bE-nPN"/>
+                                            <outletCollection property="buttons" destination="B8E-ib-EjR" collectionClass="NSMutableArray" id="V9w-fy-QyB"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weekTableCell" id="uqq-0b-2NN" customClass="TableViewCellWeek" customModule="AudioWeather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="343" height="44"/>
@@ -267,9 +284,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="RepeatFive" destination="B8E-ib-EjR" id="zzN-mZ-oBJ"/>
-                        <outlet property="RepeatOne" destination="E2I-sR-ILF" id="2ZS-kx-bQD"/>
-                        <outlet property="RepeatThree" destination="qhf-HS-AJQ" id="4l1-oQ-Xwf"/>
                         <outlet property="tableView" destination="lOa-o4-BMm" id="Fld-8O-v2H"/>
                     </connections>
                 </viewController>

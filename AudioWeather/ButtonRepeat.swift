@@ -16,8 +16,6 @@ class ButtonRepeat: UIButton {
         
         super.init(coder: aDecoder)
         
-        self.addTarget(self, action: #selector(ButtonRepeat.clicked(sender:)), for: UIControlEvents.touchUpInside)
-        
         layer.cornerRadius = 0.5 * bounds.size.width
         layer.borderWidth = 1
         layer.borderColor = mainColor.cgColor
@@ -25,14 +23,7 @@ class ButtonRepeat: UIButton {
         setTitleColor(mainColor, for: .normal)
     }
     
-    
-    func clicked(sender: UIButton) {
         
-        print("aasdfaf")
-        isChecked = !isChecked
-    }
-    
-    
     var isChecked: Bool = false {
         
         
