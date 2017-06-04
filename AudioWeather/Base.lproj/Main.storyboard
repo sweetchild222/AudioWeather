@@ -211,6 +211,9 @@
                             <constraint firstItem="qVT-Mf-kxe" firstAttribute="top" secondItem="lMA-rr-RSJ" secondAttribute="bottom" constant="8" symbolic="YES" id="vqz-IO-pYo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="lOa-o4-BMm" id="Fld-8O-v2H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-Uo-4rQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

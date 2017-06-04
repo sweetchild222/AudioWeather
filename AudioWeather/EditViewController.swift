@@ -9,15 +9,33 @@
 import UIKit
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    
 
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+
+        addSeperatorOnTop()
     }
 
+    
+    func addSeperatorOnTop(){
+        
+        guard let guardTableView = tableView else{
+            
+            return
+        }
+        
+        let px = 1 / UIScreen.main.scale
+        let frame = CGRect(x: 0, y: 0, width: guardTableView.frame.size.width, height: px)
+        let line: UIView = UIView(frame: frame)
+        guardTableView.tableHeaderView = line
+        line.backgroundColor = guardTableView.separatorColor
+
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,6 +62,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
