@@ -86,13 +86,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let identifer = tableCellIdentifier(row: indexPath.row)
+        let identifier = tableCellIdentifier(row: indexPath.row)
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: identifer)
+        var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         
         if(cell == nil) {
             
-            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifer)
+            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifier)
         }
 
         cell?.preservesSuperviewLayoutMargins = false
