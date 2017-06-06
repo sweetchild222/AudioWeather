@@ -9,9 +9,13 @@
 import UIKit
 
 class LocationTableViewController: UITableViewController {
+    
+    
+    var indexPath:IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +55,15 @@ class LocationTableViewController: UITableViewController {
         
         
         return mapList[section].getUpper()
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.indexPath = indexPath
+        
+        self.performSegue(withIdentifier: "unwindToEdit", sender: self)
+
     }
 
 

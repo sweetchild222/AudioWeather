@@ -102,6 +102,18 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell!
     }
     
+    @IBAction func unwindToEdit(segue: UIStoryboardSegue){
+        
+        guard let locationController = segue.source as? LocationTableViewController else {
+            return
+        }
+        
+        
+        print(locationController.indexPath!)
+        
+    
+    }
+    
 
 
 }
