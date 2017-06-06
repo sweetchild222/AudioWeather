@@ -91,7 +91,7 @@ class UpperMapInfo{
     }
     
     
-    func getLowList() ->[LowerMapInfo]{
+    func getLowerList() ->[LowerMapInfo]{
         
         return self.lowerList
     }
@@ -429,7 +429,7 @@ class AddressMap{
             
             if upperMapInfo.getUpper() == addr.getUpper(){
                 
-                let lowerList = upperMapInfo.getLowList()
+                let lowerList = upperMapInfo.getLowerList()
                 
                 for lowerMapInfo in lowerList{
                     

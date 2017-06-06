@@ -68,7 +68,7 @@ class LocationTableViewController: UITableViewController {
         
         let mapList = AddressMap.instance.mapList;
         
-        cell?.textLabel?.text = mapList[indexPath.section].getLowList()[indexPath.row].getLower()
+        cell?.textLabel?.text = mapList[indexPath.section].getLowerList()[indexPath.row].getLower()
         
         return cell!
     }
