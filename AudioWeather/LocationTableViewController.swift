@@ -10,7 +10,6 @@ import UIKit
 
 class LocationTableViewController: UITableViewController {
     
-    
     var indexPath:IndexPath?
 
     override func viewDidLoad() {
@@ -28,22 +27,28 @@ class LocationTableViewController: UITableViewController {
         
         let mapList = AddressMap.instance.mapList;
         
-        return mapList.count
+        return mapList.count + 1
         
     }
 
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+        if section == 0{
+            
+            return 1
+        }
         
         let mapList = AddressMap.instance.mapList;
     
-        return mapList[section].lowerList.count
+        return mapList[section - 1].lowerList.count
     }
     
     
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
         return 40.0
     }
 
@@ -51,10 +56,14 @@ class LocationTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
+        if section == 0 {
+            
+            return "현재 위치"
+        }
+        
         let mapList = AddressMap.instance.mapList;
-        
-        
-        return mapList[section].getUpper()
+    
+        return mapList[section - 1].getUpper()
     }
     
     
@@ -63,12 +72,10 @@ class LocationTableViewController: UITableViewController {
         self.indexPath = indexPath
         
         self.performSegue(withIdentifier: "unwindToEdit", sender: self)
-
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         
         let identifier = "locationListID"
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
@@ -78,12 +85,22 @@ class LocationTableViewController: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifier)
         }
         
-        
-        let mapList = AddressMap.instance.mapList;
-        
-        cell?.textLabel?.text = mapList[indexPath.section].getLowerList()[indexPath.row].getLower()
+
+        if indexPath.section == 0 {
+            
+            cell?.textLabel?.text = "현재 위치"
+            
+        }
+        else{
+            
+            let mapList = AddressMap.instance.mapList;
+            
+            cell?.textLabel?.text = mapList[indexPath.section - 1].getLowerList()[indexPath.row].getLower()
+            
+        }
         
         return cell!
+
     }
 
 }
