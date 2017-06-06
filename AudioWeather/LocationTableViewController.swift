@@ -10,7 +10,9 @@ import UIKit
 
 class LocationTableViewController: UITableViewController {
     
-    var indexPath:IndexPath?
+    var selectedSection:Int = 0
+    var selectedRow:Int = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +71,8 @@ class LocationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.indexPath = indexPath
+        self.selectedSection = indexPath.section
+        self.selectedRow = indexPath.row
         
         self.performSegue(withIdentifier: "unwindToEdit", sender: self)
     }

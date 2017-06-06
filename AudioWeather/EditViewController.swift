@@ -10,10 +10,8 @@ import UIKit
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    @IBOutlet weak var RepeatFive: ButtonRepeat!
-    @IBOutlet weak var RepeatThree: ButtonRepeat!
-    @IBOutlet weak var RepeatOne: ButtonRepeat!
-
+    var locationSection:Int = 0
+    var locationRow:Int = 0
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,6 +20,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         initTableSeperator()
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     
@@ -68,7 +72,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableCellIdentifier(row:Int) -> String{
         
-        
         switch(row){
             
         case 0:
@@ -81,8 +84,30 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return "defaultCell"
 
         }
-
     }
+    
+    
+    func updateLocationCell(cell:UITableViewCell) {
+        
+        guard let locationCell = (cell as? TableViewCellLocation) else{
+            return
+        }
+        
+        if self.locationSection == 0{
+            
+            locationCell.updateLocation(location:"현재 위치")
+        }
+        else{
+            
+            let mapList = AddressMap.instance.mapList
+            
+            let locationUpper = mapList[self.locationSection - 1].getUpper()
+            let locationLower = mapList[self.locationSection - 1].getLowerList()[locationRow].getLower()
+            
+            locationCell.updateLocation(location:locationUpper + " " + locationLower)
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -94,11 +119,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifier)
         }
-
+        
         cell?.preservesSuperviewLayoutMargins = false
         cell?.separatorInset = UIEdgeInsets.zero
         cell?.layoutMargins = UIEdgeInsets.zero
         
+        if indexPath.row == 2{
+            
+            updateLocationCell(cell:cell!)
+        }
+
+    
         return cell!
     }
     
@@ -108,12 +139,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         
-        
-        print(locationController.indexPath!)
-        
-    
+        self.locationSection = locationController.selectedSection
+        self.locationRow = locationController.selectedRow
     }
-    
-
-
 }

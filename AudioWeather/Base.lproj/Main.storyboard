@@ -105,7 +105,7 @@
                                 <rect key="frame" x="16" y="356" width="343" height="262"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="locationTableCell" id="YWQ-7t-9Zf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="locationTableCell" id="YWQ-7t-9Zf" customClass="TableViewCellLocation" customModule="AudioWeather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWQ-7t-9Zf" id="opu-yn-4Hs">
@@ -153,6 +153,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="location" destination="Qfc-vW-Vrn" id="Gno-9T-cKB"/>
                                             <segue destination="j4B-ZH-nY8" kind="show" id="pxP-rh-7eJ"/>
                                         </connections>
                                     </tableViewCell>
