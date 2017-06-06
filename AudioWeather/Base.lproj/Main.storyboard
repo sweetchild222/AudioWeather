@@ -113,25 +113,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0wa-Nc-YTt">
-                                                    <rect key="frame" x="0.0" y="8" width="343" height="27.5"/>
+                                                    <rect key="frame" x="0.0" y="8" width="343" height="53.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdq-zB-a6c">
-                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="2"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylo-Wo-qhP">
-                                                            <rect key="frame" x="0.0" y="7" width="343" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="23.5" width="343" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfc-vW-Vrn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="313" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg8-cG-bB9">
-                                                                    <rect key="frame" x="313" y="0.0" width="30" height="20.5"/>
+                                                                    <rect key="frame" x="313" y="0.0" width="30" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="DyK-Om-F5G"/>
                                                                     </constraints>
@@ -139,6 +139,7 @@
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="OLE-IB-kwc"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Bg8-cG-bB9" secondAttribute="trailing" id="qdo-jc-c7u"/>
                                                             </constraints>
                                                         </stackView>
