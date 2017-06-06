@@ -160,7 +160,7 @@ class AddressMap{
                 LowerMapInfo(lower:"가평군", mapInfo:MapInfo(area:"경기북부", audio:"city_ky47")),
                 LowerMapInfo(lower:"양평군", mapInfo:MapInfo(area:"경기남부", audio:"city_ky48"))]),
             
-             UpperMapInfo(upper:"서울특별시",lowerList:
+             UpperMapInfo(upper:"서울특별시", lowerList:
                 [LowerMapInfo(lower:"종로구", mapInfo:MapInfo(area:"서울", audio:"city_se1")),
                  LowerMapInfo(lower:"중구", mapInfo:MapInfo(area:"서울", audio:"city_se2")),
                  LowerMapInfo(lower:"용산구", mapInfo:MapInfo(area:"서울", audio:"city_se3")),
@@ -187,7 +187,7 @@ class AddressMap{
                  LowerMapInfo(lower:"송파구", mapInfo:MapInfo(area:"서울", audio:"city_se24")),
                  LowerMapInfo(lower:"강동구", mapInfo:MapInfo(area:"서울", audio:"city_se25"))]),
              
-             UpperMapInfo(upper:"강원도",lowerList:
+             UpperMapInfo(upper:"강원도", lowerList:
                 [LowerMapInfo(lower:"춘천시", mapInfo:MapInfo(area:"영서", audio:"city_kw1")),
                  LowerMapInfo(lower:"원주시", mapInfo:MapInfo(area:"영서", audio:"city_kw2")),
                  LowerMapInfo(lower:"홍천군", mapInfo:MapInfo(area:"영서", audio:"city_kw3")),
@@ -209,7 +209,7 @@ class AddressMap{
              
              
              
-             UpperMapInfo(upper:"충청남도",lowerList:
+             UpperMapInfo(upper:"충청남도", lowerList:
                 [LowerMapInfo(lower:"천안시", mapInfo:MapInfo(area:"충남", audio:"city_cn1")),
                  LowerMapInfo(lower:"천안시 동남구", mapInfo:MapInfo(area:"충남", audio:"city_cn2")),
                  LowerMapInfo(lower:"천안시 서북구", mapInfo:MapInfo(area:"충남", audio:"city_cn3")),
@@ -229,7 +229,7 @@ class AddressMap{
                  LowerMapInfo(lower:"태안군", mapInfo:MapInfo(area:"충남", audio:"city_cn17"))]),
              
              
-             UpperMapInfo(upper:"충청북도",lowerList:
+             UpperMapInfo(upper:"충청북도", lowerList:
                 [LowerMapInfo(lower:"청주시", mapInfo:MapInfo(area:"충북", audio:"city_cb1")),
                  LowerMapInfo(lower:"청주시 상당구", mapInfo:MapInfo(area:"충북", audio:"city_cb2")),
                  LowerMapInfo(lower:"청주시 서원구", mapInfo:MapInfo(area:"충북", audio:"city_cb3")),
@@ -247,7 +247,7 @@ class AddressMap{
                 LowerMapInfo(lower:"단양군", mapInfo:MapInfo(area:"충북", audio:"city_cb15"))]),
              
              
-             UpperMapInfo(upper:"전라북도",lowerList:
+             UpperMapInfo(upper:"전라북도", lowerList:
                 [LowerMapInfo(lower:"전주시", mapInfo:MapInfo(area:"전북", audio:"city_jb1")),
                  LowerMapInfo(lower:"전주시 완산구", mapInfo:MapInfo(area:"전북", audio:"city_jb2")),
                  LowerMapInfo(lower:"전주시 덕진구", mapInfo:MapInfo(area:"전북", audio:"city_jb3")),
@@ -266,7 +266,7 @@ class AddressMap{
                  LowerMapInfo(lower:"부안군", mapInfo:MapInfo(area:"전북", audio:"city_jb16"))]),
              
              
-             UpperMapInfo(upper:"전라남도",lowerList:
+             UpperMapInfo(upper:"전라남도", lowerList:
                 [LowerMapInfo(lower:"목포시", mapInfo:MapInfo(area:"전남", audio:"city_jn1")),
                  LowerMapInfo(lower:"여수시", mapInfo:MapInfo(area:"전남", audio:"city_jn2")),
                  LowerMapInfo(lower:"순천시", mapInfo:MapInfo(area:"전남", audio:"city_jn3")),
@@ -292,7 +292,7 @@ class AddressMap{
              
              
              
-             UpperMapInfo(upper:"경상남도",lowerList:
+             UpperMapInfo(upper:"경상남도", lowerList:
                 [LowerMapInfo(lower:"창원시", mapInfo:MapInfo(area:"경남", audio:"city_kn1")),
                  LowerMapInfo(lower:"창원시 의창구", mapInfo:MapInfo(area:"경남", audio:"city_kn2")),
                  LowerMapInfo(lower:"창원시 성산구", mapInfo:MapInfo(area:"경남", audio:"city_kn3")),
@@ -319,7 +319,7 @@ class AddressMap{
              
              
              
-             UpperMapInfo(upper:"경상북도",lowerList:
+             UpperMapInfo(upper:"경상북도", lowerList:
                 [LowerMapInfo(lower:"포항시", mapInfo:MapInfo(area:"경북", audio:"city_kb1")),
                  LowerMapInfo(lower:"포항시 남구", mapInfo:MapInfo(area:"경북", audio:"city_kb2")),
                  LowerMapInfo(lower:"포항시 북구", mapInfo:MapInfo(area:"경북", audio:"city_kb3")),
@@ -348,7 +348,7 @@ class AddressMap{
              
              
              
-             UpperMapInfo(upper:"부산광역시",lowerList:
+             UpperMapInfo(upper:"부산광역시", lowerList:
                 [LowerMapInfo(lower:"중구", mapInfo:MapInfo(area:"부산", audio:"city_pu1")),
                  LowerMapInfo(lower:"서구", mapInfo:MapInfo(area:"부산", audio:"city_pu2")),
                  LowerMapInfo(lower:"동구", mapInfo:MapInfo(area:"부산", audio:"city_pu3")),
@@ -366,7 +366,7 @@ class AddressMap{
                  LowerMapInfo(lower:"사상구", mapInfo:MapInfo(area:"부산", audio:"city_pu15")),
                  LowerMapInfo(lower:"기장군", mapInfo:MapInfo(area:"부산", audio:"city_pu16"))]),
              
-             UpperMapInfo(upper:"울산광역시",lowerList:
+             UpperMapInfo(upper:"울산광역시", lowerList:
                 [LowerMapInfo(lower:"중구", mapInfo:MapInfo(area:"울산", audio:"city_ul1")),
                  LowerMapInfo(lower:"남구", mapInfo:MapInfo(area:"울산", audio:"city_ul2")),
                  LowerMapInfo(lower:"동구", mapInfo:MapInfo(area:"울산", audio:"city_ul3")),
@@ -374,7 +374,7 @@ class AddressMap{
                  LowerMapInfo(lower:"울주군", mapInfo:MapInfo(area:"울산", audio:"city_ul5"))]),
                 
 
-             UpperMapInfo(upper:"대구광역시",lowerList:
+             UpperMapInfo(upper:"대구광역시", lowerList:
                 [LowerMapInfo(lower:"중구", mapInfo:MapInfo(area:"대구", audio:"city_tk1")),
                  LowerMapInfo(lower:"동구", mapInfo:MapInfo(area:"대구", audio:"city_tk2")),
                  LowerMapInfo(lower:"서구", mapInfo:MapInfo(area:"대구", audio:"city_tk3")),
@@ -385,7 +385,7 @@ class AddressMap{
                  LowerMapInfo(lower:"달성군", mapInfo:MapInfo(area:"대구", audio:"city_tk8"))]),
     
              
-             UpperMapInfo(upper:"대전광역시",lowerList:
+             UpperMapInfo(upper:"대전광역시", lowerList:
                 [LowerMapInfo(lower:"동구", mapInfo:MapInfo(area:"대전", audio:"city_dj1")),
                  LowerMapInfo(lower:"중구", mapInfo:MapInfo(area:"대전", audio:"city_dj2")),
                  LowerMapInfo(lower:"서구", mapInfo:MapInfo(area:"대전", audio:"city_dj3")),
@@ -393,17 +393,17 @@ class AddressMap{
                  LowerMapInfo(lower:"대덕구", mapInfo:MapInfo(area:"대전", audio:"city_dj5"))]),
              
         
-             UpperMapInfo(upper:"광주광역시",lowerList:
+             UpperMapInfo(upper:"광주광역시", lowerList:
                 [LowerMapInfo(lower:"동구", mapInfo:MapInfo(area:"광주", audio:"city_kj1")),
                  LowerMapInfo(lower:"서구", mapInfo:MapInfo(area:"광주", audio:"city_kj2")),
                  LowerMapInfo(lower:"남구", mapInfo:MapInfo(area:"광주", audio:"city_kj3")),
                  LowerMapInfo(lower:"북구", mapInfo:MapInfo(area:"광주", audio:"city_kj4")),
                  LowerMapInfo(lower:"광산구", mapInfo:MapInfo(area:"광주", audio:"city_kj5"))]),
              
-             UpperMapInfo(upper:"세종특별자치시",lowerList:
+             UpperMapInfo(upper:"세종특별자치시", lowerList:
                 [LowerMapInfo(lower:"세종특별자치시", mapInfo:MapInfo(area:"세종", audio:"city_sj1"))]),
              
-             UpperMapInfo(upper:"인천광역시",lowerList:
+             UpperMapInfo(upper:"인천광역시", lowerList:
                 [LowerMapInfo(lower:"중구", mapInfo:MapInfo(area:"인천", audio:"city_ic1")),
                  LowerMapInfo(lower:"동구", mapInfo:MapInfo(area:"인천", audio:"city_ic2")),
                  LowerMapInfo(lower:"남구", mapInfo:MapInfo(area:"인천", audio:"city_ic3")),
@@ -415,7 +415,7 @@ class AddressMap{
                  LowerMapInfo(lower:"강화군", mapInfo:MapInfo(area:"인천", audio:"city_ic9")),
                  LowerMapInfo(lower:"옹진군", mapInfo:MapInfo(area:"인천", audio:"city_ic10"))]),
              
-             UpperMapInfo(upper:"제주특별자치도",lowerList:
+             UpperMapInfo(upper:"제주특별자치도", lowerList:
                 [LowerMapInfo(lower:"제주시", mapInfo:MapInfo(area:"제주", audio:"city_je1")),
                  LowerMapInfo(lower:"서귀포시", mapInfo:MapInfo(area:"제주", audio:"city_je2"))])
              
