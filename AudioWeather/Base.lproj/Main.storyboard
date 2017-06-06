@@ -105,133 +105,8 @@
                                 <rect key="frame" x="16" y="356" width="343" height="262"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="locationTableCell" id="YWQ-7t-9Zf" customClass="TableViewCellLocation" customModule="AudioWeather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWQ-7t-9Zf" id="opu-yn-4Hs">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0wa-Nc-YTt">
-                                                    <rect key="frame" x="0.0" y="8" width="343" height="53.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdq-zB-a6c">
-                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="18.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylo-Wo-qhP">
-                                                            <rect key="frame" x="0.0" y="23.5" width="343" height="30"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfc-vW-Vrn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg8-cG-bB9">
-                                                                    <rect key="frame" x="313" y="0.0" width="30" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="30" id="DyK-Om-F5G"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="&gt;"/>
-                                                                </button>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="OLE-IB-kwc"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Bg8-cG-bB9" secondAttribute="trailing" id="qdo-jc-c7u"/>
-                                                            </constraints>
-                                                        </stackView>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="0wa-Nc-YTt" secondAttribute="trailing" id="ACw-Re-eB8"/>
-                                                <constraint firstItem="0wa-Nc-YTt" firstAttribute="leading" secondItem="opu-yn-4Hs" secondAttribute="leading" id="U4S-8U-ZGM"/>
-                                                <constraint firstAttribute="bottom" secondItem="0wa-Nc-YTt" secondAttribute="bottom" constant="8" id="pmL-MR-QMl"/>
-                                                <constraint firstItem="0wa-Nc-YTt" firstAttribute="top" secondItem="opu-yn-4Hs" secondAttribute="top" constant="8" id="puF-mD-iSG"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="location" destination="Qfc-vW-Vrn" id="Gno-9T-cKB"/>
-                                            <segue destination="j4B-ZH-nY8" kind="show" id="pxP-rh-7eJ"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="repeatTableCell" id="dek-qy-1q9" customClass="TableViewCellRepeat" customModule="AudioWeather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dek-qy-1q9" id="rOH-6l-Mx4">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rf4-wT-cte">
-                                                    <rect key="frame" x="0.0" y="8" width="100" height="53.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반복 알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MV-L8-vCf">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="18.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-l6-wEU">
-                                                            <rect key="frame" x="0.0" y="23.5" width="100" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2I-sR-ILF" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="30" id="pbM-a4-hdq"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="1"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                    <connections>
-                                                                        <action selector="touchedOne:" destination="dek-qy-1q9" eventType="touchUpInside" id="f6c-Qc-LUH"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhf-HS-AJQ" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
-                                                                    <rect key="frame" x="35" y="0.0" width="30" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="30" id="mbj-tM-qgF"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="3"/>
-                                                                    <connections>
-                                                                        <action selector="touchedTwo:" destination="dek-qy-1q9" eventType="touchUpInside" id="zcp-DN-jOu"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8E-ib-EjR" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
-                                                                    <rect key="frame" x="70" y="0.0" width="30" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="30" id="JtV-wj-36s"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="5"/>
-                                                                    <connections>
-                                                                        <action selector="touchedFive:" destination="dek-qy-1q9" eventType="touchUpInside" id="KLG-70-SJi"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="5LO-Db-pAf"/>
-                                                            </constraints>
-                                                        </stackView>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="rf4-wT-cte" firstAttribute="leading" secondItem="rOH-6l-Mx4" secondAttribute="leading" id="ZZF-es-19W"/>
-                                                <constraint firstAttribute="bottom" secondItem="rf4-wT-cte" secondAttribute="bottom" constant="8" id="eEs-RA-XL6"/>
-                                                <constraint firstItem="rf4-wT-cte" firstAttribute="top" secondItem="rOH-6l-Mx4" secondAttribute="top" constant="8" id="xsQ-hz-eyW"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outletCollection property="buttons" destination="E2I-sR-ILF" collectionClass="NSMutableArray" id="sSO-Qp-pmh"/>
-                                            <outletCollection property="buttons" destination="qhf-HS-AJQ" collectionClass="NSMutableArray" id="JaS-bE-nPN"/>
-                                            <outletCollection property="buttons" destination="B8E-ib-EjR" collectionClass="NSMutableArray" id="V9w-fy-QyB"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weekTableCell" id="uqq-0b-2NN" customClass="TableViewCellWeek" customModule="AudioWeather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="116" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uqq-0b-2NN" id="GlT-dj-ch8">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
@@ -312,6 +187,131 @@
                                                 <constraint firstItem="deN-TY-xy3" firstAttribute="top" secondItem="GlT-dj-ch8" secondAttribute="top" constant="8" id="gND-r9-DFf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="repeatTableCell" rowHeight="64" id="dek-qy-1q9" customClass="TableViewCellRepeat" customModule="AudioWeather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="343" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dek-qy-1q9" id="rOH-6l-Mx4">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="63.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rf4-wT-cte">
+                                                    <rect key="frame" x="0.0" y="8" width="100" height="47.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반복 알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MV-L8-vCf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="12.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-l6-wEU">
+                                                            <rect key="frame" x="0.0" y="17.5" width="100" height="30"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2I-sR-ILF" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="pbM-a4-hdq"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="1"/>
+                                                                    <connections>
+                                                                        <action selector="touchedOne:" destination="dek-qy-1q9" eventType="touchUpInside" id="f6c-Qc-LUH"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhf-HS-AJQ" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
+                                                                    <rect key="frame" x="35" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="mbj-tM-qgF"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="3"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="touchedTwo:" destination="dek-qy-1q9" eventType="touchUpInside" id="zcp-DN-jOu"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8E-ib-EjR" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
+                                                                    <rect key="frame" x="70" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="JtV-wj-36s"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="5"/>
+                                                                    <connections>
+                                                                        <action selector="touchedFive:" destination="dek-qy-1q9" eventType="touchUpInside" id="KLG-70-SJi"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="5LO-Db-pAf"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rf4-wT-cte" firstAttribute="leading" secondItem="rOH-6l-Mx4" secondAttribute="leading" id="ZZF-es-19W"/>
+                                                <constraint firstAttribute="bottom" secondItem="rf4-wT-cte" secondAttribute="bottom" constant="8" id="eEs-RA-XL6"/>
+                                                <constraint firstItem="rf4-wT-cte" firstAttribute="top" secondItem="rOH-6l-Mx4" secondAttribute="top" constant="8" id="xsQ-hz-eyW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outletCollection property="buttons" destination="E2I-sR-ILF" collectionClass="NSMutableArray" id="sSO-Qp-pmh"/>
+                                            <outletCollection property="buttons" destination="qhf-HS-AJQ" collectionClass="NSMutableArray" id="JaS-bE-nPN"/>
+                                            <outletCollection property="buttons" destination="B8E-ib-EjR" collectionClass="NSMutableArray" id="V9w-fy-QyB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="locationTableCell" id="YWQ-7t-9Zf" customClass="TableViewCellLocation" customModule="AudioWeather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="136" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWQ-7t-9Zf" id="opu-yn-4Hs">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0wa-Nc-YTt">
+                                                    <rect key="frame" x="0.0" y="8" width="343" height="53.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdq-zB-a6c">
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="18.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylo-Wo-qhP">
+                                                            <rect key="frame" x="0.0" y="23.5" width="343" height="30"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfc-vW-Vrn">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg8-cG-bB9">
+                                                                    <rect key="frame" x="313" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="DyK-Om-F5G"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="&gt;"/>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="OLE-IB-kwc"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Bg8-cG-bB9" secondAttribute="trailing" id="qdo-jc-c7u"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0wa-Nc-YTt" secondAttribute="trailing" id="ACw-Re-eB8"/>
+                                                <constraint firstItem="0wa-Nc-YTt" firstAttribute="leading" secondItem="opu-yn-4Hs" secondAttribute="leading" id="U4S-8U-ZGM"/>
+                                                <constraint firstAttribute="bottom" secondItem="0wa-Nc-YTt" secondAttribute="bottom" constant="8" id="pmL-MR-QMl"/>
+                                                <constraint firstItem="0wa-Nc-YTt" firstAttribute="top" secondItem="opu-yn-4Hs" secondAttribute="top" constant="8" id="puF-mD-iSG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="location" destination="Qfc-vW-Vrn" id="Gno-9T-cKB"/>
+                                            <segue destination="j4B-ZH-nY8" kind="show" id="pxP-rh-7eJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
