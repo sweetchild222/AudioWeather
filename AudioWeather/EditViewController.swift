@@ -21,24 +21,22 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         super.viewDidLoad()
 
-        addSeperatorOnTop()
+        initTableSeperator()
     }
 
     
-    func addSeperatorOnTop(){
+    func initTableSeperator(){
         
         guard let guardTableView = tableView else{
             
             return
         }
         
-        let px = 1 / UIScreen.main.scale
-        let frame = CGRect(x: 0, y: 0, width: guardTableView.frame.size.width, height: px)
-        let line: UIView = UIView(frame: frame)
-        guardTableView.tableHeaderView = line
+        let line: UIView = UIView(frame: CGRect(x: 0, y: 0, width: guardTableView.frame.size.width, height: 1 / UIScreen.main.scale))
         line.backgroundColor = guardTableView.separatorColor
-
+        guardTableView.tableHeaderView = line
         
+        guardTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,7 +56,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return 3
     }
     
     
@@ -77,6 +75,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return "weekTableCell"
         case 1:
             return "repeatTableCell"
+        case 2:
+            return "locationTableCell"
         default:
             return "defaultCell"
 
@@ -95,18 +95,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifer)
         }
 
-        if identifer == "defaultCell" {
-            
-            cell?.textLabel?.text = "gge"
-            cell?.detailTextLabel?.text = "232234"
-            cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        }
-
-        
         cell?.preservesSuperviewLayoutMargins = false
         cell?.separatorInset = UIEdgeInsets.zero
         cell?.layoutMargins = UIEdgeInsets.zero
-
         
         return cell!
     }
