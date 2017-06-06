@@ -105,7 +105,7 @@
                                 <rect key="frame" x="16" y="356" width="343" height="262"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationTableCell" id="YWQ-7t-9Zf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="locationTableCell" id="YWQ-7t-9Zf">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWQ-7t-9Zf" id="opu-yn-4Hs">
@@ -152,6 +152,9 @@
                                                 <constraint firstItem="0wa-Nc-YTt" firstAttribute="top" secondItem="opu-yn-4Hs" secondAttribute="top" constant="8" id="puF-mD-iSG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="j4B-ZH-nY8" kind="show" id="pxP-rh-7eJ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="repeatTableCell" id="dek-qy-1q9" customClass="TableViewCellRepeat" customModule="AudioWeather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="343" height="44"/>
@@ -338,6 +341,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-Uo-4rQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2335.1999999999998" y="105.69715142428787"/>
+        </scene>
+        <!--Location-->
+        <scene sceneID="iSk-WZ-Ccg">
+            <objects>
+                <tableViewController title="Location" id="j4B-ZH-nY8" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8hJ-OE-bkE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationDetailID" id="mZy-Ad-YGG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mZy-Ad-YGG" id="4od-hB-ERv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="j4B-ZH-nY8" id="9Yx-Gi-k8r"/>
+                            <outlet property="delegate" destination="j4B-ZH-nY8" id="tqx-0E-HgH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6vG-Wd-QCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3174" y="99"/>
         </scene>
         <!--Alarm-->
         <scene sceneID="OWn-4y-rA7">
