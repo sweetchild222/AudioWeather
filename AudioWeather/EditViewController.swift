@@ -132,6 +132,67 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
         return cell!
     }
+
+    
+    func correctAlarm(date:Date) -> Date{
+        
+        let calendar = Calendar.current
+        let second = calendar.component(.second, from: date)
+        
+        let pickDate = calendar.date(byAdding: .second, value: -second, to: date)
+        
+        let pickHour = calendar.component(.hour, from: pickDate!)
+        let pickMinutes = calendar.component(.minute, from: pickDate!)
+        
+        let currentHour = calendar.component(.hour, from: Date())
+        let currentMinutes = calendar.component(.minute, from: Date())
+        
+        if pickHour == currentHour {
+            
+            if pickMinutes < currentMinutes{
+                
+                return calendar.date(byAdding: .day, value: 1, to: pickDate!)!
+            }
+            else{
+
+                return pickDate!
+            }
+        }
+        else if pickHour < currentHour {
+            
+            return calendar.date(byAdding: .day, value: 1, to: pickDate!)!
+        }
+        else{
+            
+            return pickDate!
+        }
+    }
+    
+    
+    
+    
+    @IBAction func timeChanged(_ sender: Any) {
+        
+        guard let picker = sender as? UIDatePicker else{
+            return
+        }
+        
+
+        let alarmDate = correctAlarm(date:picker.date)
+        
+        /*
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let aa:String = dateFormatter.string(from: alarmDate)
+        
+        print(aa)
+        */
+        
+        
+
+
+    }
+
     
     @IBAction func unwindToEdit(segue: UIStoryboardSegue){
         
