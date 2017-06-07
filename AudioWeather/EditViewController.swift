@@ -9,6 +9,7 @@
 import UIKit
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var alarmDateLabel: UILabel!
     
@@ -24,18 +25,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         initTableSeperator()
         initDatePickerSeperator()
         
-        //initAlarmDateLableStyle()
-        
         updateDateLabel(date:Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
-    }
-    
-    
-    func initAlarmDateLableStyle(){
-        
-        self.alarmDateLabel.layer.borderWidth = 2.0
-        self.alarmDateLabel.layer.cornerRadius = 8
-        self.alarmDateLabel.backgroundColor = UIColor.yellow
-        self.alarmDateLabel.layer.masksToBounds = true        
     }
     
     
@@ -61,6 +51,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         guardDatePickerView.layer.addSublayer(border)
     }
     
+    
+    
     func initTableSeperator(){
         
         guard let guardTableView = tableView else{
@@ -75,14 +67,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         guardTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
-    @IBAction func pickDate(_ sender: Any) {
-    
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -201,14 +191,43 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    
+    func weekToString(week:Int) -> String{
+        
+        switch week{
+            
+        case 1:
+            return "일"
+        case 2:
+            return "월"
+        case 3:
+            return "화"
+        case 4:
+            return "수"
+        case 5:
+            return "목"
+        case 6:
+            return "금"
+        case 7:
+            return "토"
+        default:
+            return "일"
+        }
+    }
+    
+    
     func updateDateLabel(date:Date){
         
+        let week = Calendar.current.component(.weekday, from: date)
         let today = Calendar.current.isDateInToday(date)
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = (today == true ? "오늘 - " : "내일 - ") + "M월 d일"
+        dateFormatter.dateFormat = (today == true ? "오늘 - " : "내일 - ") + "M월 d일 (" + weekToString(week:week) + ")"
         self.alarmDateLabel.text = dateFormatter.string(from: date)
-
+        
+        
+        
+        
         
     }
     
@@ -235,4 +254,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.locationSection = locationController.selectedSection
         self.locationRow = locationController.selectedRow
     }
+    
+    
+    @IBAction func selectDate(_ sender: Any) {
+        
+        print("sesfe")
+        
+    }
+
 }

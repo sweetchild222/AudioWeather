@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ButtonWeek: UIButton {
+class ButtonCheck: UIButton {
     
     let mainColor = UIColor(red: 52/255.0, green: 120.0/255.0, blue: 246/255.0, alpha: 1.0)
     
@@ -16,7 +16,7 @@ class ButtonWeek: UIButton {
         
         super.init(coder: aDecoder)
         
-        self.addTarget(self, action: #selector(ButtonWeek.clicked(sender:)), for: UIControlEvents.touchUpInside)
+        self.addTarget(self, action: #selector(ButtonCheck.clicked(sender:)), for: UIControlEvents.touchUpInside)
         
         layer.cornerRadius = 3
         layer.borderWidth = 1
