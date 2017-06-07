@@ -9,6 +9,8 @@
 import UIKit
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var alarmDateLabel: UILabel!
     
     var locationSection:Int = 0
     var locationRow:Int = 0
@@ -20,14 +22,44 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         initTableSeperator()
+        initDatePickerSeperator()
+        
+        //initAlarmDateLableStyle()
+        
+        updateDateLabel(date:Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
     }
     
+    
+    func initAlarmDateLableStyle(){
+        
+        self.alarmDateLabel.layer.borderWidth = 2.0
+        self.alarmDateLabel.layer.cornerRadius = 8
+        self.alarmDateLabel.backgroundColor = UIColor.yellow
+        self.alarmDateLabel.layer.masksToBounds = true        
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
         tableView.reloadData()
     }
 
+    
+    func initDatePickerSeperator(){
+        
+        guard let guardDatePickerView = datePicker else{
+            
+            return
+        }
+        
+        let frame = guardDatePickerView.frame
+        
+        let border = CALayer()
+        border.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: 1 / UIScreen.main.scale)
+        border.backgroundColor = UIColor(red: 205/255.0, green: 205/255.0, blue: 205/255.0, alpha: 1.0).cgColor;
+        
+        guardDatePickerView.layer.addSublayer(border)
+    }
     
     func initTableSeperator(){
         
@@ -149,7 +181,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if pickHour == currentHour {
             
-            if pickMinutes < currentMinutes{
+            if pickMinutes <= currentMinutes{
                 
                 return calendar.date(byAdding: .day, value: 1, to: pickDate!)!
             }
@@ -169,7 +201,16 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
+    func updateDateLabel(date:Date){
+        
+        let today = Calendar.current.isDateInToday(date)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = (today == true ? "오늘 - " : "내일 - ") + "M월 d일"
+        self.alarmDateLabel.text = dateFormatter.string(from: date)
+
+        
+    }
     
     @IBAction func timeChanged(_ sender: Any) {
         
@@ -178,19 +219,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
 
-        let alarmDate = correctAlarm(date:picker.date)
+        let date = correctAlarm(date:picker.date)
         
-        /*
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let aa:String = dateFormatter.string(from: alarmDate)
+        updateDateLabel(date:date)
         
-        print(aa)
-        */
-        
-        
-
-
     }
 
     

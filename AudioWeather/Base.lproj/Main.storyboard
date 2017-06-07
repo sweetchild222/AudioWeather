@@ -75,11 +75,10 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVT-Mf-kxe">
                                 <rect key="frame" x="16" y="72" width="289" height="40"/>
-                                <color key="backgroundColor" red="0.78438019752502441" green="0.78038525581359863" blue="0.80002355575561523" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="wd3-74-Xsw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -340,6 +339,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="alarmDateLabel" destination="qVT-Mf-kxe" id="ysb-tS-nMU"/>
+                        <outlet property="datePicker" destination="N9K-7b-m2z" id="YYL-gr-6dX"/>
                         <outlet property="tableView" destination="lOa-o4-BMm" id="Fld-8O-v2H"/>
                     </connections>
                 </viewController>
