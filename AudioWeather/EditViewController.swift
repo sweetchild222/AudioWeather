@@ -8,7 +8,15 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+
+protocol PickDateDelegate
+{
+    func selectDate(date:Date)
+}
+
+
+class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PickDateDelegate{
+    
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var alarmDateLabel: UILabel!
@@ -73,6 +81,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
     }
     
+    
+    func selectDate(date:Date) {
+        
+        print("adsfadf")
+        
+    }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -225,10 +240,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         dateFormatter.dateFormat = (today == true ? "오늘 - " : "내일 - ") + "M월 d일 (" + weekToString(week:week) + ")"
         self.alarmDateLabel.text = dateFormatter.string(from: date)
         
-        
-        
-        
-        
     }
     
     @IBAction func timeChanged(_ sender: Any) {
@@ -258,10 +269,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func selectDate(_ sender: Any) {
         
-        let popup: DatePickerPopUp = UINib(nibName: "DatePickerPopUp", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DatePickerPopUp
+        let popUp: DatePickerPopUp = UINib(nibName: "DatePickerPopUp", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DatePickerPopUp
     
-        popup.frame = self.view.frame
+        popUp.frame = self.view.frame
+        popUp.delegate = self
         
-        self.view.addSubview(popup)
+        self.view.addSubview(popUp)
     }
 }

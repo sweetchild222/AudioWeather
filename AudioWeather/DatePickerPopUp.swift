@@ -8,10 +8,15 @@
 
 import UIKit
 
+
 class DatePickerPopUp: UIView {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var baseView: UIView!
+    
+    var date:Date? = nil
+    
+    var delegate:PickDateDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,8 +24,14 @@ class DatePickerPopUp: UIView {
         initStyle()
         initDatePicker()
         
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.touchedOutSide)))
     }
     
+    
+    func touchedOutSide() {
+        
+        self.removeFromSuperview()
+    }
     
     func initDatePicker(){
         
@@ -44,12 +55,22 @@ class DatePickerPopUp: UIView {
     
     @IBAction func dateChanged(_ sender: Any) {
         
+        guard let picker = sender as? UIDatePicker else{
+            return
+        }
         
+        self.date = picker.date
     }
     
-    
+
     @IBAction func selectDate(_ sender: Any) {
         
         self.removeFromSuperview()
+        
+        guard let guardDate = self.date else{
+            return
+        }
+        
+        self.delegate?.selectDate(date:guardDate)
     }
 }
