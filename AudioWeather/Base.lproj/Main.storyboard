@@ -131,6 +131,9 @@
                                                                         <constraint firstAttribute="width" constant="40" id="t2m-Yh-rJ7"/>
                                                                     </constraints>
                                                                     <state key="normal" title="일"/>
+                                                                    <connections>
+                                                                        <action selector="touchedWeek:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="YQx-kD-lnA"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOs-8Q-MwM" customClass="ButtonCheck" customModule="AudioWeather" customModuleProvider="target">
                                                                     <rect key="frame" x="45" y="0.0" width="40" height="30"/>
@@ -138,6 +141,9 @@
                                                                         <constraint firstAttribute="width" constant="40" id="g7D-mN-DGe"/>
                                                                     </constraints>
                                                                     <state key="normal" title="월"/>
+                                                                    <connections>
+                                                                        <action selector="touchedWeek:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="Lay-AX-zR9"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f50-5y-rxr" customClass="ButtonCheck" customModule="AudioWeather" customModuleProvider="target">
                                                                     <rect key="frame" x="90" y="0.0" width="40" height="30"/>
@@ -145,6 +151,9 @@
                                                                         <constraint firstAttribute="width" constant="40" id="SlF-Nx-b5r"/>
                                                                     </constraints>
                                                                     <state key="normal" title="화"/>
+                                                                    <connections>
+                                                                        <action selector="touchedWeek:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="Pfi-Cx-tiG"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa7-Xd-VCi" customClass="ButtonCheck" customModule="AudioWeather" customModuleProvider="target">
                                                                     <rect key="frame" x="135" y="0.0" width="40" height="30"/>
@@ -152,6 +161,9 @@
                                                                         <constraint firstAttribute="width" constant="40" id="6At-F5-XBC"/>
                                                                     </constraints>
                                                                     <state key="normal" title="수"/>
+                                                                    <connections>
+                                                                        <action selector="touchedWeek:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="Viq-7h-sY6"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZV-Ev-3JA" customClass="ButtonCheck" customModule="AudioWeather" customModuleProvider="target">
                                                                     <rect key="frame" x="180" y="0.0" width="40" height="30"/>
@@ -159,6 +171,9 @@
                                                                         <constraint firstAttribute="width" constant="40" id="l9P-CH-iDC"/>
                                                                     </constraints>
                                                                     <state key="normal" title="목"/>
+                                                                    <connections>
+                                                                        <action selector="touchedWeek:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="8Ga-8m-CpU"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-kd-Ioj" customClass="ButtonCheck" customModule="AudioWeather" customModuleProvider="target">
                                                                     <rect key="frame" x="225" y="0.0" width="40" height="30"/>
@@ -166,6 +181,9 @@
                                                                         <constraint firstAttribute="width" constant="40" id="z29-Ew-uX2"/>
                                                                     </constraints>
                                                                     <state key="normal" title="금"/>
+                                                                    <connections>
+                                                                        <action selector="touchedWeek:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="s8C-7V-0gd"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vER-CS-hux" customClass="ButtonCheck" customModule="AudioWeather" customModuleProvider="target">
                                                                     <rect key="frame" x="270" y="0.0" width="40" height="30"/>
@@ -173,6 +191,9 @@
                                                                         <constraint firstAttribute="width" constant="40" id="CMC-9e-3wY"/>
                                                                     </constraints>
                                                                     <state key="normal" title="토"/>
+                                                                    <connections>
+                                                                        <action selector="touchedWeek:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="k8O-83-qbD"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>

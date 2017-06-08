@@ -24,6 +24,16 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var locationSection:Int = 0
     var locationRow:Int = 0
     
+    var selectedDate = Date()
+    var selectedWeek = [Bool](repeating:false, count:7)
+    var selectedDateType:dateType = .todayTomorrow
+    
+    enum dateType{
+        
+        case todayTomorrow, fixDate, week
+    }
+
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -82,10 +92,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    
     func selectDate(date:Date) {
         
-        print("adsfadf")
+        self.selectedDate = date
         
+        selectedDateType = .fixDate
     }
 
     
@@ -229,6 +241,66 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return "일"
         }
     }
+    
+    
+    func isCheckedWeek() -> Bool{
+        
+        for checked in  selectedWeek{
+            if checked == true{
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+
+    
+    @IBAction func touchedWeek(_ sender: Any) {
+        
+        let button = sender as! ButtonCheck
+        
+        let text = button.titleLabel?.text
+        
+        guard let guardText = text else{
+            return
+        }
+        
+        let checked = button.isChecked ? true : false
+        
+        switch guardText {
+            
+        case "일":
+            selectedWeek[0] = checked
+        case "월":
+            selectedWeek[1] = checked
+        case "화":
+            selectedWeek[2] = checked
+        case "수":
+            selectedWeek[3] = checked
+        case "목":
+            selectedWeek[4] = checked
+        case "금":
+            selectedWeek[5] = checked
+        case "토":
+            selectedWeek[6] = checked
+        default:
+            selectedWeek[0] = checked
+            
+        }
+        
+
+        if isCheckedWeek() == true {
+        
+            selectedDateType = .week
+        }
+        else{
+            
+            selectedDateType = .todayTomorrow
+        }
+        
+    }
+    
     
     
     func updateDateLabel(date:Date){
