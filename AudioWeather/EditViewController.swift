@@ -11,7 +11,7 @@ import UIKit
 
 protocol PickDateDelegate
 {
-    func selectDate(date:Date)
+    func selectDateHandler(date:Date)
 }
 
 
@@ -20,6 +20,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var alarmDateLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var locationSection:Int = 0
     var locationRow:Int = 0
@@ -33,8 +34,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         case todayTomorrow, fixDate, week
     }
 
-    
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         
@@ -53,6 +52,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    
     func initDatePickerSeperator(){
         
         guard let guardDatePickerView = datePicker else{
@@ -70,7 +74,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
     func initTableSeperator(){
         
         guard let guardTableView = tableView else{
@@ -86,14 +89,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
-    
-    func selectDate(date:Date) {
+    func selectDateHandler(date:Date) {
         
         self.selectedDate = date
         
@@ -177,6 +173,16 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    @IBAction func showDatePicker(_ sender: Any) {
+        
+        let popUp: DatePickerPopUp = UINib(nibName: "DatePickerPopUp", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DatePickerPopUp
+        
+        popUp.frame = self.view.frame
+        popUp.delegate = self
+        
+        self.view.addSubview(popUp)
+        
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -313,7 +319,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             selectedWeek[0] = checked
             
         }
-        
 
         if isCheckedWeek() == true {
         
@@ -364,13 +369,4 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    @IBAction func selectDate(_ sender: Any) {
-        
-        let popUp: DatePickerPopUp = UINib(nibName: "DatePickerPopUp", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DatePickerPopUp
-    
-        popUp.frame = self.view.frame
-        popUp.delegate = self
-        
-        self.view.addSubview(popUp)
-    }
 }

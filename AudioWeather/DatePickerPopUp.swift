@@ -69,6 +69,6 @@ class DatePickerPopUp: UIView {
         
         
         
-        self.delegate?.selectDate(date:self.date)
+        self.delegate?.selectDateHandler(date:self.date)
     }
 }

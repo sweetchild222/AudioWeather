@@ -90,7 +90,7 @@
                                 </constraints>
                                 <state key="normal" title="날짜"/>
                                 <connections>
-                                    <action selector="selectDate:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="hqU-fb-Adg"/>
+                                    <action selector="showDatePicker:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="VVX-7d-709"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="N9K-7b-m2z">
