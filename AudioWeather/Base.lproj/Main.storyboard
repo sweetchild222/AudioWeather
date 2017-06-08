@@ -209,6 +209,15 @@
                                                 <constraint firstItem="deN-TY-xy3" firstAttribute="top" secondItem="GlT-dj-ch8" secondAttribute="top" constant="8" id="gND-r9-DFf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outletCollection property="buttons" destination="q3o-zh-u7b" collectionClass="NSMutableArray" id="IV1-6w-yEU"/>
+                                            <outletCollection property="buttons" destination="qOs-8Q-MwM" collectionClass="NSMutableArray" id="cNH-np-3dy"/>
+                                            <outletCollection property="buttons" destination="f50-5y-rxr" collectionClass="NSMutableArray" id="kAN-FR-mmJ"/>
+                                            <outletCollection property="buttons" destination="qa7-Xd-VCi" collectionClass="NSMutableArray" id="c2S-nX-JBY"/>
+                                            <outletCollection property="buttons" destination="NZV-Ev-3JA" collectionClass="NSMutableArray" id="345-w8-8r3"/>
+                                            <outletCollection property="buttons" destination="dfv-kd-Ioj" collectionClass="NSMutableArray" id="of9-GY-YFi"/>
+                                            <outletCollection property="buttons" destination="vER-CS-hux" collectionClass="NSMutableArray" id="7LW-3i-e0F"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="repeatTableCell" rowHeight="64" id="dek-qy-1q9" customClass="TableViewCellRepeat" customModule="AudioWeather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="343" height="64"/>

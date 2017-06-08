@@ -14,7 +14,7 @@ class DatePickerPopUp: UIView {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var baseView: UIView!
     
-    var date:Date? = nil
+    var date:Date = Date()
     
     var delegate:PickDateDelegate?
     
@@ -67,10 +67,8 @@ class DatePickerPopUp: UIView {
         
         self.removeFromSuperview()
         
-        guard let guardDate = self.date else{
-            return
-        }
         
-        self.delegate?.selectDate(date:guardDate)
+        
+        self.delegate?.selectDate(date:self.date)
     }
 }

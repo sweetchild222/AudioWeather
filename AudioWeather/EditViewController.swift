@@ -98,6 +98,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.selectedDate = date
         
         selectedDateType = .fixDate
+        
+        for index in 0..<selectedWeek.count{
+            
+            self.selectedWeek[index] = false
+        }
+        
+
+        tableView.reloadData()
     }
 
     
@@ -158,6 +166,18 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    func updateWeekCell(cell:UITableViewCell){
+        
+        guard let weekCell = (cell as? TableViewCellWeek) else{
+            return
+        }
+        
+        weekCell.updateChecked(checked:selectedWeek)
+
+        
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let identifier = tableCellIdentifier(row: indexPath.row)
@@ -177,7 +197,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             updateLocationCell(cell:cell!)
         }
+        else if indexPath.row == 0{
 
+            
+            updateWeekCell(cell:cell!)
+        }
+        
     
         return cell!
     }
