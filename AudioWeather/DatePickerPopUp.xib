@@ -59,6 +59,7 @@
             </constraints>
             <connections>
                 <outlet property="baseView" destination="xrj-Yd-Vec" id="5Jo-gm-m9E"/>
+                <outlet property="datePicker" destination="rrN-z7-Db4" id="zkf-5i-1tG"/>
             </connections>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
