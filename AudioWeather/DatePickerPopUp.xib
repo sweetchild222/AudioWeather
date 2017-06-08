@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DatePickerPopUp" customModule="AudioWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrj-Yd-Vec">
+                    <rect key="frame" x="20" y="190.5" width="335" height="286"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HNG-GO-us9">
+                            <rect key="frame" x="7.5" y="20" width="320" height="246"/>
+                            <subviews>
+                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rrN-z7-Db4">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                    <date key="date" timeIntervalSinceReferenceDate="518610115.67434001">
+                                        <!--2017-06-08 10:21:55 +0000-->
+                                    </date>
+                                    <connections>
+                                        <action selector="dateChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="ltK-Vh-dnU"/>
+                                    </connections>
+                                </datePicker>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJP-AA-r3C" customClass="ButtonRound" customModule="AudioWeather" customModuleProvider="target">
+                                    <rect key="frame" x="125" y="216" width="70" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="70" id="aDJ-VD-7Ze"/>
+                                    </constraints>
+                                    <state key="normal" title="선택"/>
+                                    <connections>
+                                        <action selector="selectDate:" destination="iN0-l3-epB" eventType="touchUpInside" id="AJf-bi-aTv"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="HNG-GO-us9" firstAttribute="centerY" secondItem="xrj-Yd-Vec" secondAttribute="centerY" id="XKM-xN-0hh"/>
+                        <constraint firstItem="HNG-GO-us9" firstAttribute="centerX" secondItem="xrj-Yd-Vec" secondAttribute="centerX" id="gD1-95-cyb"/>
+                        <constraint firstItem="HNG-GO-us9" firstAttribute="top" secondItem="xrj-Yd-Vec" secondAttribute="top" constant="20" symbolic="YES" id="zCR-F1-di1"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xrj-Yd-Vec" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MUE-0y-HmU"/>
+                <constraint firstItem="xrj-Yd-Vec" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="caP-ye-R7J"/>
+                <constraint firstAttribute="trailing" secondItem="xrj-Yd-Vec" secondAttribute="trailing" constant="20" symbolic="YES" id="fgw-pg-y5h"/>
+                <constraint firstItem="xrj-Yd-Vec" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nIZ-lI-kcP"/>
+            </constraints>
+            <connections>
+                <outlet property="baseView" destination="xrj-Yd-Vec" id="5Jo-gm-m9E"/>
+            </connections>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

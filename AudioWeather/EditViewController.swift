@@ -258,8 +258,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func selectDate(_ sender: Any) {
         
-        print("sesfe")
+        let popup: DatePickerPopUp = UINib(nibName: "DatePickerPopUp", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DatePickerPopUp
+    
+        popup.frame = self.view.frame
         
+        self.view.addSubview(popup)
     }
-
 }
