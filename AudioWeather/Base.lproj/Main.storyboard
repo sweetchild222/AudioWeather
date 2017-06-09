@@ -370,6 +370,13 @@
                             <constraint firstItem="qVT-Mf-kxe" firstAttribute="top" secondItem="lMA-rr-RSJ" secondAttribute="bottom" constant="8" symbolic="YES" id="vqz-IO-pYo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="6E4-4g-f4r">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="WL1-WR-Cbt">
+                            <connections>
+                                <action selector="save:" destination="z3B-Vv-DAg" id="jBo-P7-Esi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="alarmDateLabel" destination="qVT-Mf-kxe" id="ysb-tS-nMU"/>
                         <outlet property="datePicker" destination="N9K-7b-m2z" id="YYL-gr-6dX"/>
