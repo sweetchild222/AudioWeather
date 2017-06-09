@@ -17,7 +17,6 @@ protocol PickDateDelegate
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PickDateDelegate{
     
-    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var alarmDateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -56,6 +55,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
     }
     
@@ -67,10 +67,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         
-        let frame = guardDatePickerView.frame
-        
         let border = CALayer()
-        border.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: 1 / UIScreen.main.scale)
+        border.frame = CGRect.init(x: 0, y: 0, width: guardDatePickerView.frame.width, height: 1 / UIScreen.main.scale)
         border.backgroundColor = UIColor(red: 205/255.0, green: 205/255.0, blue: 205/255.0, alpha: 1.0).cgColor;
         
         guardDatePickerView.layer.addSublayer(border)
@@ -104,8 +102,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return UITableViewAutomaticDimension
     }
     
@@ -191,11 +189,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         else if indexPath.row == 0{
 
-            
             updateWeekCell(cell:cell!)
         }
         
-    
         return cell!
     }
 
@@ -233,13 +229,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return pickDate!
         }
     }
-
     
     
     func isCheckedWeek() -> Bool{
         
         for checked in  self.weekChecked{
+            
             if checked == true{
+                
                 return true
             }
         }
@@ -338,12 +335,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    
     func updateWeekLabel(){
         
         let weekString = ["일", "월", "화", "수", "목", "금", "토"]
         
         var text:String = ""
-        
         
         for index in 0..<self.weekChecked.count {
             
@@ -355,7 +352,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
 
         self.alarmDateLabel.text = String(text.characters.dropLast(2))
-        
     }
     
     
@@ -385,6 +381,5 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.locationSection = locationController.selectedSection
         self.locationRow = locationController.selectedRow
     }
-    
     
 }
