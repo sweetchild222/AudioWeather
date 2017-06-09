@@ -195,6 +195,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell!
     }
 
+    @IBAction func touchedRepeat(_ sender: Any) {
+        
+        
+        print("ffe")
+    }
     
     func correctAlarm(date:Date) -> Date{
         

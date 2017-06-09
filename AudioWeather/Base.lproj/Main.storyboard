@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xjn-4t-WVr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xjn-4t-WVr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -245,7 +245,8 @@
                                                                     </constraints>
                                                                     <state key="normal" title="1"/>
                                                                     <connections>
-                                                                        <action selector="touchedOne:" destination="dek-qy-1q9" eventType="touchUpInside" id="f6c-Qc-LUH"/>
+                                                                        <action selector="touchedRepeat:" destination="dek-qy-1q9" eventType="touchUpInside" id="q0b-DF-2nD"/>
+                                                                        <action selector="touchedRepeat:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="y6D-mO-B8E"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhf-HS-AJQ" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
@@ -258,7 +259,8 @@
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="touchedTwo:" destination="dek-qy-1q9" eventType="touchUpInside" id="zcp-DN-jOu"/>
+                                                                        <action selector="touchedRepeat:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="I0g-pH-M4f"/>
+                                                                        <action selector="touchedRepeat:" destination="dek-qy-1q9" eventType="touchUpInside" id="Wpt-2n-Oik"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8E-ib-EjR" customClass="ButtonRepeat" customModule="AudioWeather" customModuleProvider="target">
@@ -268,7 +270,8 @@
                                                                     </constraints>
                                                                     <state key="normal" title="5"/>
                                                                     <connections>
-                                                                        <action selector="touchedFive:" destination="dek-qy-1q9" eventType="touchUpInside" id="KLG-70-SJi"/>
+                                                                        <action selector="touchedRepeat:" destination="z3B-Vv-DAg" eventType="touchUpInside" id="UmT-Vl-obE"/>
+                                                                        <action selector="touchedRepeat:" destination="dek-qy-1q9" eventType="touchUpInside" id="YIz-ja-myp"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>

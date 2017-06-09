@@ -28,17 +28,7 @@ class TableViewCellRepeat: UITableViewCell {
         }
     }
     
-
-    @IBAction func touchedOne(_ sender: Any) {
-        updateCheckState(sender:sender)
-        
-    }
-
-    @IBAction func touchedTwo(_ sender: Any) {
-        updateCheckState(sender:sender)
-    }
-    @IBAction func touchedFive(_ sender: Any) {
-        
+    @IBAction func touchedRepeat(_ sender: Any) {
         updateCheckState(sender:sender)
     }
 }
