@@ -233,31 +233,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return pickDate!
         }
     }
-    
-    
-    
-    func weekToString(week:Int) -> String{
-        
-        switch week{
-            
-        case 1:
-            return "일"
-        case 2:
-            return "월"
-        case 3:
-            return "화"
-        case 4:
-            return "수"
-        case 5:
-            return "목"
-        case 6:
-            return "금"
-        case 7:
-            return "토"
-        default:
-            return "일"
-        }
-    }
+
     
     
     func isCheckedWeek() -> Bool{
@@ -337,11 +313,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func updateTodayTomorrowLabel(){
         
-        let week = Calendar.current.component(.weekday, from: self.todayTomorrowDate)
+        let weekInt = Calendar.current.component(.weekday, from: self.todayTomorrowDate)
         let today = Calendar.current.isDateInToday(self.todayTomorrowDate)
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = (today == true ? "오늘 - " : "내일 - ") + "M월 d일 (" + weekToString(week:week) + ")"
+        
+        let weekString = ["일", "월", "화", "수", "목", "금", "토"]
+        
+        dateFormatter.dateFormat = (today == true ? "오늘 - " : "내일 - ") + "M월 d일 (" + weekString[weekInt - 1] + ")"
         self.alarmDateLabel.text = dateFormatter.string(from: self.todayTomorrowDate)
     }
     
@@ -349,9 +328,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func updateFixDateLabel(){
         
         let dateFormatter = DateFormatter()
-        let week = Calendar.current.component(.weekday, from: self.todayTomorrowDate)
+        let weekInt = Calendar.current.component(.weekday, from: self.todayTomorrowDate)
         
-        dateFormatter.dateFormat = "M월 d일 (" + weekToString(week:week) + ")"
+        let weekString = ["일", "월", "화", "수", "목", "금", "토"]
+        
+        dateFormatter.dateFormat = "M월 d일 (" + weekString[weekInt - 1] + ")"
         
         self.alarmDateLabel.text = dateFormatter.string(from: self.fixDate)
         
