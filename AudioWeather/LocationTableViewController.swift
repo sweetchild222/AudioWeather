@@ -12,7 +12,6 @@ class LocationTableViewController: UITableViewController {
     
     var selectedSection:Int = 0
     var selectedRow:Int = 0
-    let currentLocationText = "현재 위치"
     
 
     override func viewDidLoad() {
@@ -61,7 +60,7 @@ class LocationTableViewController: UITableViewController {
         
         if section == 0 {
             
-            return currentLocationText
+            return AddressMap.instance.cuurent
         }
         
         let mapList = AddressMap.instance.mapList;
@@ -92,7 +91,7 @@ class LocationTableViewController: UITableViewController {
 
         if indexPath.section == 0 {
             
-            cell?.textLabel?.text = currentLocationText
+            cell?.textLabel?.text = AddressMap.instance.cuurent
             
         }
         else{

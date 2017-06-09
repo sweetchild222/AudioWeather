@@ -47,10 +47,10 @@ class AlarmTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.alarmCell, for: indexPath)
-
-        // Configure the cell...
         
+        let identifier = "alarmTableCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+
         cell.textLabel?.text = "gge"
         cell.detailTextLabel?.text = "232234"
         

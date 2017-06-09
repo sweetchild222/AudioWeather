@@ -10,9 +10,10 @@ import Foundation
 
 class Alarm{
     
-    var date: Date = Date()
     var enabled: Bool = false
-    var repeatWeek: [Int] = []
-    //var locationUpper:String
-    //var locationLower:String
+    var date: Date = Date()
+    var repeatWeek = [Bool](repeating:false, count:7)
+    var repeatCount:Int = 3
+    var locationUpper:String = AddressMap.instance.cuurent
+    var locationLower:String = ""
 }

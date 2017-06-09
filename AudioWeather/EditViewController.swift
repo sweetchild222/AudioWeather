@@ -133,7 +133,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if self.locationSection == 0{
             
-            locationCell.updateLocation(location:"현재 위치")
+            locationCell.updateLocation(location:AddressMap.instance.cuurent)
         }
         else{
             
@@ -199,6 +199,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         print("ffe")
+    }
+    
+    
+    @IBAction func save(_ sender: Any) {
+        
+        print("geg")
+        
     }
     
     func correctAlarm(date:Date) -> Date{
