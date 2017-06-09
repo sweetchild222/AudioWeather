@@ -11,7 +11,7 @@ import UIKit
 
 protocol PickDateDelegate
 {
-    func selectDateHandler(date:Date)
+    func selectFixDateHandler(date:Date)
 }
 
 
@@ -25,8 +25,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var locationSection:Int = 0
     var locationRow:Int = 0
     
-    var selectedDate = Date()
-    var selectedWeek = [Bool](repeating:false, count:7)
+    var todayTomorrowDate = Date()
+    var fixDate = Date()
+    var weekChecked = [Bool](repeating:false, count:7)
     var selectedDateType:dateType = .todayTomorrow
     
     enum dateType{
@@ -42,7 +43,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         initTableSeperator()
         initDatePickerSeperator()
         
-        updateDateLabel(date:Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
+        self.todayTomorrowDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+        
+        updateTodayTomorrowLabel()
     }
     
     
@@ -86,22 +89,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         guardTableView.tableHeaderView = line
         
         guardTableView.tableFooterView = UIView(frame: CGRect.zero)
-    }
-    
-    
-    func selectDateHandler(date:Date) {
-        
-        self.selectedDate = date
-        
-        selectedDateType = .fixDate
-        
-        for index in 0..<selectedWeek.count{
-            
-            self.selectedWeek[index] = false
-        }
-        
-
-        tableView.reloadData()
     }
 
     
@@ -168,8 +155,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         
-        weekCell.updateChecked(checked:selectedWeek)
-
+        weekCell.updateChecked(checked:self.weekChecked)
         
     }
     
@@ -276,7 +262,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func isCheckedWeek() -> Bool{
         
-        for checked in  selectedWeek{
+        for checked in  self.weekChecked{
             if checked == true{
                 return true
             }
@@ -285,6 +271,26 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         return false
     }
     
+    
+    func uncheckedWeek() {
+        
+        for index in 0..<weekChecked.count{
+            
+            self.weekChecked[index] = false
+        }
+    }
+    
+    
+    func selectFixDateHandler(date:Date) {
+        
+        self.fixDate = date
+        
+        selectedDateType = .fixDate
+        
+        updateFixDateLabel()
+        
+        uncheckedWeek()
+    }
 
     
     @IBAction func touchedWeek(_ sender: Any) {
@@ -297,52 +303,81 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         
-        let checked = button.isChecked ? true : false
+        let weekString = ["일", "월", "화", "수", "목", "금", "토"]
         
-        switch guardText {
+        var index = 0
+        
+        for week in weekString{
             
-        case "일":
-            selectedWeek[0] = checked
-        case "월":
-            selectedWeek[1] = checked
-        case "화":
-            selectedWeek[2] = checked
-        case "수":
-            selectedWeek[3] = checked
-        case "목":
-            selectedWeek[4] = checked
-        case "금":
-            selectedWeek[5] = checked
-        case "토":
-            selectedWeek[6] = checked
-        default:
-            selectedWeek[0] = checked
+            if week == guardText {
+                
+                self.weekChecked[index] = button.isChecked
+                break
+            }
             
+            index += 1
         }
-
+        
         if isCheckedWeek() == true {
         
             selectedDateType = .week
+            
+            updateWeekLabel()
+            
+            tableView.reloadData()
         }
         else{
             
             selectedDateType = .todayTomorrow
+            
+            updateTodayTomorrowLabel()
         }
-        
     }
     
     
-    
-    func updateDateLabel(date:Date){
+    func updateTodayTomorrowLabel(){
         
-        let week = Calendar.current.component(.weekday, from: date)
-        let today = Calendar.current.isDateInToday(date)
+        let week = Calendar.current.component(.weekday, from: self.todayTomorrowDate)
+        let today = Calendar.current.isDateInToday(self.todayTomorrowDate)
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = (today == true ? "오늘 - " : "내일 - ") + "M월 d일 (" + weekToString(week:week) + ")"
-        self.alarmDateLabel.text = dateFormatter.string(from: date)
+        self.alarmDateLabel.text = dateFormatter.string(from: self.todayTomorrowDate)
+    }
+    
+    
+    func updateFixDateLabel(){
+        
+        let dateFormatter = DateFormatter()
+        let week = Calendar.current.component(.weekday, from: self.todayTomorrowDate)
+        
+        dateFormatter.dateFormat = "M월 d일 (" + weekToString(week:week) + ")"
+        
+        self.alarmDateLabel.text = dateFormatter.string(from: self.fixDate)
         
     }
+    
+    func updateWeekLabel(){
+        
+        let weekString = ["일", "월", "화", "수", "목", "금", "토"]
+        
+        var text:String = ""
+        
+        
+        for index in 0..<self.weekChecked.count {
+            
+            if self.weekChecked[index] == true {
+            
+                text += (weekString[index] + ", ")
+            }
+        }
+        
+
+        self.alarmDateLabel.text = String(text.characters.dropLast(2))
+        
+    }
+    
+    
     
     @IBAction func timeChanged(_ sender: Any) {
         
@@ -350,11 +385,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         
-
-        let date = correctAlarm(date:picker.date)
+        self.todayTomorrowDate = correctAlarm(date:picker.date)
         
-        updateDateLabel(date:date)
         
+        if selectedDateType == .todayTomorrow {
+            
+            updateTodayTomorrowLabel()
+        }
     }
 
     
