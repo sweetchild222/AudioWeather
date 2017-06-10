@@ -37,11 +37,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         case todayTomorrow, fixDate, week
     }
 
-    @IBAction func test(_ sender: Any) {
-        print("gadfa")
-    }
 
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -60,13 +56,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.reloadData()
     }
 
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-    }
-    
-    
+
     func initDatePickerSeperator(){
         
         guard let guardDatePickerView = datePicker else{
