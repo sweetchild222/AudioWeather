@@ -250,7 +250,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func save(_ sender: Any) {
         
-        print("save")
         let alarm:Alarm = Alarm()
         
         alarm.repeatCount = self.repeatCount
@@ -272,6 +271,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         self.alarm = alarm
+        
+        self.performSegue(withIdentifier: "unwindToAlarm", sender: self)
         
     }
 

@@ -381,9 +381,11 @@
                         <outlet property="alarmDateLabel" destination="qVT-Mf-kxe" id="ysb-tS-nMU"/>
                         <outlet property="datePicker" destination="N9K-7b-m2z" id="YYL-gr-6dX"/>
                         <outlet property="tableView" destination="lOa-o4-BMm" id="Fld-8O-v2H"/>
+                        <segue destination="Aoq-wD-z4X" kind="unwind" identifier="unwindToAlarm" unwindAction="unwindToAlarmWithSegue:" id="7jq-V3-GUE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-Uo-4rQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Aoq-wD-z4X" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2335.1999999999998" y="105.69715142428787"/>
         </scene>
