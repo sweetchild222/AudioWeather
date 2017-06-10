@@ -248,7 +248,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
     @IBAction func save(_ sender: Any) {
         
         print("save")
@@ -259,11 +258,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         alarm.location = selectedLocation()
         
         switch selectedDateType{
-
+            
         case .week:
             alarm.date = self.todayTomorrowDate
             alarm.repeatWeek = self.weekChecked
-
+            
         case .fixDate:
             alarm.date = makeFixDate()
             
@@ -274,9 +273,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.alarm = alarm
         
-//        self.performSegue(withIdentifier: "unwindToAlarm", sender: self)
     }
-    
+
     func correctAlarm(date:Date) -> Date{
         
         
