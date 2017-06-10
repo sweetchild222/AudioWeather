@@ -126,7 +126,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if self.locationSection == 0{
             
-            return (AddressMap.instance.current, "")
+            return (AddressMap.instance.current, String())
 
         }
         else{
@@ -164,6 +164,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    
     @IBAction func showDatePicker(_ sender: Any) {
         
         let popUp: DatePickerPopUp = UINib(nibName: "DatePickerPopUp", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DatePickerPopUp
@@ -172,8 +173,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         popUp.delegate = self
         
         self.view.addSubview(popUp)
-        
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -224,7 +225,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         let date = dateFormatter.date(from: stringTime)
         
         return date!
-
     }
 
     
@@ -247,11 +247,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.alarm = alarm
         
         self.performSegue(withIdentifier: "unwindToAlarm", sender: self)
-        
     }
 
+    
     func correctAlarm(date:Date) -> Date{
-        
         
         let calendar = Calendar.current
         let second = calendar.component(.second, from: date)
@@ -396,7 +395,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let weekString = ["일", "월", "화", "수", "목", "금", "토"]
         
-        var text:String = ""
+        var text:String = String()
         
         for index in 0..<self.weekChecked.count {
             
@@ -409,7 +408,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         self.alarmDateLabel.text = String(text.characters.dropLast(2))
     }
-    
     
     
     @IBAction func timeChanged(_ sender: Any) {

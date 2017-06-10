@@ -12,7 +12,6 @@ class TableViewCellRepeat: UITableViewCell {
 
     @IBOutlet var buttons: [ButtonRepeat]!
     
-    
     func updateCheckState(sender: Any){
         
         for button in buttons{
@@ -29,6 +28,7 @@ class TableViewCellRepeat: UITableViewCell {
     }
     
     @IBAction func touchedRepeat(_ sender: Any) {
+        
         updateCheckState(sender:sender)
     }
 }

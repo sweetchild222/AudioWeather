@@ -34,7 +34,6 @@ class ButtonCheck: UIButton {
     
     var isChecked: Bool = false {
         
-        
         didSet{
             
             if isChecked == true {

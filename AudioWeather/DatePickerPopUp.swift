@@ -67,8 +67,6 @@ class DatePickerPopUp: UIView {
         
         self.removeFromSuperview()
         
-        
-        
         self.delegate?.selectFixDateHandler(date:self.date)
     }
 }

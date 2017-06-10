@@ -16,7 +16,7 @@ class Alarm : ReflectableProperty{
     var repeatCount:Int = 3
     
     var locationUpper:String = AddressMap.instance.current
-    var locationLower:String = ""
+    var locationLower:String = String()
 
     func isRepeatWeek() -> Bool{
         

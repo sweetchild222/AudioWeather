@@ -19,12 +19,7 @@ class LocationTableViewController: UITableViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         let mapList = AddressMap.instance.mapList;
@@ -33,7 +28,6 @@ class LocationTableViewController: UITableViewController {
         
     }
 
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
@@ -48,13 +42,11 @@ class LocationTableViewController: UITableViewController {
     }
     
     
-    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 40.0
     }
 
-    
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
@@ -87,7 +79,6 @@ class LocationTableViewController: UITableViewController {
             
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifier)
         }
-        
 
         if indexPath.section == 0 {
             
@@ -103,7 +94,6 @@ class LocationTableViewController: UITableViewController {
         }
         
         return cell!
-
     }
 
 }

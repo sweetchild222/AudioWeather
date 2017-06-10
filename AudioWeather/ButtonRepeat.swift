@@ -26,7 +26,6 @@ class ButtonRepeat: UIButton {
         
     var isChecked: Bool = false {
         
-        
         didSet{
             
             if isChecked == true {

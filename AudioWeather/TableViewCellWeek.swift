@@ -28,7 +28,6 @@ class TableViewCellWeek: UITableViewCell {
     
     func updateChecked(checked:[Bool]){
         
-        
         for index in 0..<checked.count{
             
             buttons[index].isChecked = checked[index]
