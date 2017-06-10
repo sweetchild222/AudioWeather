@@ -373,7 +373,8 @@
                     <navigationItem key="navigationItem" title="Title" id="6E4-4g-f4r">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="WL1-WR-Cbt">
                             <connections>
-                                <action selector="save:" destination="z3B-Vv-DAg" id="jBo-P7-Esi"/>
+                                <action selector="test:" destination="z3B-Vv-DAg" id="vj7-zR-Del"/>
+                                <segue destination="Ayb-yl-67M" kind="unwind" unwindAction="unwindToAlarmWithSegue:" id="Te9-DN-qco"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -384,6 +385,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-Uo-4rQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ayb-yl-67M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2335.1999999999998" y="105.69715142428787"/>
         </scene>

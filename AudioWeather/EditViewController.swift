@@ -28,10 +28,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var fixDate = Date()
     var weekChecked = [Bool](repeating:false, count:7)
     var selectedDateType:dateType = .todayTomorrow
+    var repeatCount:Int = 3
+    
+    var alarm:Alarm = Alarm()
     
     enum dateType{
         
         case todayTomorrow, fixDate, week
+    }
+
+    @IBAction func test(_ sender: Any) {
+        print("gadfa")
     }
 
     
@@ -42,7 +49,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         initTableSeperator()
         initDatePickerSeperator()
         
-        self.todayTomorrowDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+        self.todayTomorrowDate = correctAlarm(date: Date())
         
         updateTodayTomorrowLabel()
     }
@@ -125,15 +132,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    func updateLocationCell(cell:UITableViewCell) {
-        
-        guard let locationCell = (cell as? TableViewCellLocation) else{
-            return
-        }
+    func selectedLocation() -> (upper:String, lower:String){
         
         if self.locationSection == 0{
             
-            locationCell.updateLocation(location:AddressMap.instance.cuurent)
+            return (AddressMap.instance.cuurent, "")
+
         }
         else{
             
@@ -142,8 +146,21 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             let locationUpper = mapList[self.locationSection - 1].getUpper()
             let locationLower = mapList[self.locationSection - 1].getLowerList()[locationRow].getLower()
             
-            locationCell.updateLocation(location:locationUpper + " " + locationLower)
+            return (locationUpper, locationLower)
         }
+    }
+    
+    
+    func updateLocationCell(cell:UITableViewCell) {
+        
+        guard let locationCell = (cell as? TableViewCellLocation) else{
+            return
+        }
+        
+        let location = selectedLocation()
+        
+        locationCell.updateLocation(location:location.upper + " " + location.lower)
+
     }
     
     
@@ -194,26 +211,80 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell!
     }
+    
+    
+    func makeFixDate() -> Date{
+    
+        let calendar = Calendar.current
 
+        let year = calendar.component(.year, from: self.fixDate)
+
+        let month = calendar.component(.month, from: self.fixDate)
+
+        let day = calendar.component(.day, from: self.fixDate)
+
+        let hour = calendar.component(.hour, from: self.todayTomorrowDate)
+
+        let minute = calendar.component(.minute, from: self.todayTomorrowDate)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd/HH:mm:ss"
+        let stringTime = "\(year)-\(month)-\(day)/\(hour):\(minute):0"
+        
+        let date = dateFormatter.date(from: stringTime)
+        
+        return date!
+
+    }
+
+    
     @IBAction func touchedRepeat(_ sender: Any) {
         
+        let button = sender as? UIButton
         
-        print("ffe")
+        let text = button?.titleLabel?.text
+        
+        self.repeatCount = Int(text!)!
     }
+    
     
     
     @IBAction func save(_ sender: Any) {
         
-        print("geg")
+        print("save")
+        let alarm:Alarm = Alarm()
         
+        alarm.repeatCount = self.repeatCount
+        alarm.enabled = true
+        alarm.location = selectedLocation()
+        
+        switch selectedDateType{
+
+        case .week:
+            alarm.date = self.todayTomorrowDate
+            alarm.repeatWeek = self.weekChecked
+
+        case .fixDate:
+            alarm.date = makeFixDate()
+            
+        case .todayTomorrow:
+            alarm.date = self.todayTomorrowDate
+        }
+        
+        
+        self.alarm = alarm
+        
+//        self.performSegue(withIdentifier: "unwindToAlarm", sender: self)
     }
     
     func correctAlarm(date:Date) -> Date{
+        
         
         let calendar = Calendar.current
         let second = calendar.component(.second, from: date)
         
         let pickDate = calendar.date(byAdding: .second, value: -second, to: date)
+        
         
         let pickHour = calendar.component(.hour, from: pickDate!)
         let pickMinutes = calendar.component(.minute, from: pickDate!)
@@ -337,7 +408,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func updateFixDateLabel(){
         
         let dateFormatter = DateFormatter()
-        let weekInt = Calendar.current.component(.weekday, from: self.todayTomorrowDate)
+        let weekInt = Calendar.current.component(.weekday, from: self.fixDate)
         
         let weekString = ["일", "월", "화", "수", "목", "금", "토"]
         

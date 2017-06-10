@@ -65,6 +65,24 @@ class AlarmTableViewController: UITableViewController {
         return true
     }
     
+    
+    @IBAction func unwindToAlarm(segue: UIStoryboardSegue){
+        
+        guard let editViewController = segue.source as? EditViewController else {
+            return
+        }
+        
+        let alarm = editViewController.alarm
+        
+        print("----")
+        print(alarm.date.description(with:Locale.current))
+        print("xxx")
+        //print(alarm.date)
+        
+        //self.locationSection = locationController.selectedSection
+        //self.locationRow = locationController.selectedRow
+    }
+    
 
     
     

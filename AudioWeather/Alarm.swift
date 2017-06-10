@@ -14,6 +14,18 @@ class Alarm{
     var date: Date = Date()
     var repeatWeek = [Bool](repeating:false, count:7)
     var repeatCount:Int = 3
-    var locationUpper:String = AddressMap.instance.cuurent
-    var locationLower:String = ""
+    
+    var location:(upper:String, lower:String) = (upper:AddressMap.instance.cuurent, lower:"")
+    
+    func isRepeatWeek() -> Bool{
+        
+        for week in repeatWeek{
+            
+            if week == true{
+                return true
+            }
+        }
+        
+        return false
+    }
 }
