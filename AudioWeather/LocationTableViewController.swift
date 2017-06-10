@@ -60,7 +60,7 @@ class LocationTableViewController: UITableViewController {
         
         if section == 0 {
             
-            return AddressMap.instance.cuurent
+            return AddressMap.instance.current
         }
         
         let mapList = AddressMap.instance.mapList;
@@ -91,7 +91,7 @@ class LocationTableViewController: UITableViewController {
 
         if indexPath.section == 0 {
             
-            cell?.textLabel?.text = AddressMap.instance.cuurent
+            cell?.textLabel?.text = AddressMap.instance.current
             
         }
         else{

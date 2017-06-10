@@ -105,7 +105,7 @@ class AddressMap{
     
     let mapList:[UpperMapInfo]
     
-    let cuurent = "현재 위치"
+    let current = "현재 위치"
     
     
     init(){

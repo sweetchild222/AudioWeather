@@ -74,13 +74,17 @@ class AlarmTableViewController: UITableViewController {
         
         let alarm = editViewController.alarm
         
-        print("----")
-        print(alarm.date.description(with:Locale.current))
-        print("xxx")
-        //print(alarm.date)
+        let manager = AlarmManager()
         
-        //self.locationSection = locationController.selectedSection
-        //self.locationRow = locationController.selectedRow
+        manager.alarms.insert(alarm!, at:0)
+        
+        print("----")
+        
+        for aa in manager.alarms {
+            
+            print(aa.date)
+            
+        }
     }
     
 

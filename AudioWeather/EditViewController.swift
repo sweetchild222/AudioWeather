@@ -30,7 +30,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var selectedDateType:dateType = .todayTomorrow
     var repeatCount:Int = 3
     
-    var alarm:Alarm = Alarm()
+    var alarm:Alarm? = nil
     
     enum dateType{
         
@@ -136,7 +136,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if self.locationSection == 0{
             
-            return (AddressMap.instance.cuurent, "")
+            return (AddressMap.instance.current, "")
 
         }
         else{
@@ -250,26 +250,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func save(_ sender: Any) {
         
-        let alarm:Alarm = Alarm()
+        let date:Date = selectedDateType == .fixDate ? makeFixDate() : self.todayTomorrowDate
         
-        alarm.repeatCount = self.repeatCount
-        alarm.enabled = true
-        alarm.location = selectedLocation()
-        
-        switch selectedDateType{
-            
-        case .week:
-            alarm.date = self.todayTomorrowDate
-            alarm.repeatWeek = self.weekChecked
-            
-        case .fixDate:
-            alarm.date = makeFixDate()
-            
-        case .todayTomorrow:
-            alarm.date = self.todayTomorrowDate
-        }
-        
-        
+        let alarm:Alarm = Alarm(enabled: true, date: date, repeatWeek: self.weekChecked, repeatCount: self.repeatCount, location: selectedLocation())
+    
         self.alarm = alarm
         
         self.performSegue(withIdentifier: "unwindToAlarm", sender: self)
