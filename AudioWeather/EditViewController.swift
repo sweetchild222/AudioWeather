@@ -318,6 +318,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         updateFixDateLabel()
         
         uncheckedWeek()
+        
+        tableView.reloadData()
     }
 
     
