@@ -46,6 +46,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqC-WH-Dpn">
                                                     <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="tapped:" destination="rof-Zc-K40" eventType="valueChanged" id="hyO-hw-hGJ"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </stackView>
@@ -58,6 +61,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="date" destination="ybP-2i-loq" id="QKi-ur-MEk"/>
+                                    <outlet property="enable" destination="cqC-WH-Dpn" id="qTd-Vc-vJ6"/>
                                     <outlet property="time" destination="bWt-He-MvW" id="DOd-BC-GBM"/>
                                 </connections>
                             </tableViewCell>

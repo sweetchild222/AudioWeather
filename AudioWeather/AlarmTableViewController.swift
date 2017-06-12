@@ -35,22 +35,22 @@ class AlarmTableViewController: UITableViewController {
         let identifier = "alarmTableCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
-        let alarm = AlarmManager().alarms[indexPath.row]
-        
-        updateAlarm(cell:cell, alarm:alarm)
+
+        updateAlarm(cell:cell, indexPath:indexPath)
         
         return cell
     }
 
     
     
-    func updateAlarm(cell:UITableViewCell, alarm:Alarm){
+    func updateAlarm(cell:UITableViewCell, indexPath: IndexPath){
         
         guard let alarmCell = (cell as? TableViewCellAlarm) else{
             return
         }
         
-        alarmCell.updateAlarm(alarm:alarm)
+        alarmCell.updateAlarm(indexPath:indexPath)
+        
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

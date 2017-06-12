@@ -81,6 +81,7 @@ class AlarmManager{
     var alarms: [Alarm] = [] {
         
         didSet{
+            print("ggffefefe")
             persist()
         }
     }
@@ -94,6 +95,7 @@ class AlarmManager{
     
     private func persist() {
         
+        print("persist")
         ud.set(getRepresentation(), forKey: persistKey)
         ud.synchronize()
     }

@@ -14,9 +14,25 @@ class TableViewCellAlarm: UITableViewCell {
 
     @IBOutlet weak var date: UILabel!
     
-    func updateAlarm(alarm:Alarm){
+    @IBOutlet weak var enable: UISwitch!
     
+    func updateAlarm(indexPath:IndexPath){
+    
+        let alarm = AlarmManager().alarms[indexPath.row]
         time.text = "gege"
         date.text = "ggadfaefa"
+        enable.isOn = alarm.enabled
+        
+        enable.tag = indexPath.row
+        
+
+    }
+    @IBAction func tapped(_ sender: UISwitch) {
+        
+        print(sender.tag)
+        AlarmManager().alarms[sender.tag].enabled = false
+        
+        
+        
     }
 }
