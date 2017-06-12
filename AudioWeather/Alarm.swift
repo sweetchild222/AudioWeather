@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Alarm : ReflectableProperty{
+struct Alarm : ReflectableProperty{
     
     var enabled: Bool = false
     var date: Date = Date()
@@ -42,7 +42,7 @@ class Alarm : ReflectableProperty{
     }
     
     
-    required init(dict: ReflectableProperty.RepresentationType){
+    init(dict: ReflectableProperty.RepresentationType){
         
         self.enabled = dict["enabled"] as! Bool
         self.date = dict["date"] as! Date
@@ -81,7 +81,6 @@ class AlarmManager{
     var alarms: [Alarm] = [] {
         
         didSet{
-            print("ggffefefe")
             persist()
         }
     }
@@ -94,8 +93,7 @@ class AlarmManager{
 
     
     private func persist() {
-        
-        print("persist")
+
         ud.set(getRepresentation(), forKey: persistKey)
         ud.synchronize()
     }

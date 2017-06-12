@@ -22,17 +22,13 @@ class TableViewCellAlarm: UITableViewCell {
         time.text = "gege"
         date.text = "ggadfaefa"
         enable.isOn = alarm.enabled
-        
         enable.tag = indexPath.row
-        
-
+    
     }
+    
+    
     @IBAction func tapped(_ sender: UISwitch) {
         
-        print(sender.tag)
-        AlarmManager().alarms[sender.tag].enabled = false
-        
-        
-        
+        AlarmManager().alarms[sender.tag].enabled = sender.isOn
     }
 }

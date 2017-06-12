@@ -14,11 +14,11 @@ class AlarmTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
     }
 
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 1
     }
 
@@ -34,7 +34,6 @@ class AlarmTableViewController: UITableViewController {
         
         let identifier = "alarmTableCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        
 
         updateAlarm(cell:cell, indexPath:indexPath)
         
@@ -75,8 +74,7 @@ class AlarmTableViewController: UITableViewController {
         
     }
     
-    
-    
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
