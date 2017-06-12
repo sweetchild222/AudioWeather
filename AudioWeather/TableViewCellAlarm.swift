@@ -19,7 +19,7 @@ class TableViewCellAlarm: UITableViewCell {
     func updateAlarm(indexPath:IndexPath){
     
         let alarm = AlarmManager().alarms[indexPath.row]
-        time.text = "gege"
+        time.text = getTime(alarm:alarm)
         date.text = "ggadfaefa"
         enable.isOn = alarm.enabled
         enable.tag = indexPath.row
@@ -27,8 +27,20 @@ class TableViewCellAlarm: UITableViewCell {
     }
     
     
+    func getTime(alarm:Alarm) -> String{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        return dateFormatter.string(from: alarm.date)
+    }
+    
+    
     @IBAction func tapped(_ sender: UISwitch) {
         
         AlarmManager().alarms[sender.tag].enabled = sender.isOn
+        
+        time.textColor = sender.isOn ? UIColor.black : UIColor.lightGray
+        date.textColor = sender.isOn ? UIColor.darkGray : UIColor.lightGray
+        
     }
 }
