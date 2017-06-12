@@ -23,6 +23,8 @@ class TableViewCellAlarm: UITableViewCell {
         date.text = "ggadfaefa"
         enable.isOn = alarm.enabled
         enable.tag = indexPath.row
+        
+        updateColor(enabled:alarm.enabled)
     
     }
     
@@ -35,12 +37,20 @@ class TableViewCellAlarm: UITableViewCell {
     }
     
     
+    func updateColor(enabled:Bool){
+        
+        time.textColor = enabled ? UIColor.black : UIColor.lightGray
+        date.textColor = enabled ? UIColor.darkGray : UIColor.lightGray
+
+        
+    }
+    
+    
     @IBAction func tapped(_ sender: UISwitch) {
         
         AlarmManager().alarms[sender.tag].enabled = sender.isOn
         
-        time.textColor = sender.isOn ? UIColor.black : UIColor.lightGray
-        date.textColor = sender.isOn ? UIColor.darkGray : UIColor.lightGray
+        updateColor(enabled:sender.isOn)
         
     }
 }
