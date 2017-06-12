@@ -833,6 +833,7 @@
 		6C4E6D131ED70BA5002F0B27 /* min9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E6A231ED70BA4002F0B27 /* min9.mp3 */; };
 		6C4E6D171ED851AC002F0B27 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E6D161ED851AC002F0B27 /* Address.swift */; };
 		6C4E6D191ED85EFE002F0B27 /* ItemSetEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E6D181ED85EFE002F0B27 /* ItemSetEmpty.swift */; };
+		6C5569821EEEB87C006CD8F8 /* TableViewCellAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5569811EEEB87C006CD8F8 /* TableViewCellAlarm.swift */; };
 		6C58940D1ECFF00700E052F6 /* ItemSetCurrentTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58940C1ECFF00700E052F6 /* ItemSetCurrentTemp.swift */; };
 		6C58940F1ECFF01700E052F6 /* ItemSetMaxTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58940E1ECFF01700E052F6 /* ItemSetMaxTemp.swift */; };
 		6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6246D91EC0A2740044F5B7 /* WeatherData.swift */; };
@@ -1701,6 +1702,7 @@
 		6C4E6A231ED70BA4002F0B27 /* min9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = min9.mp3; sourceTree = "<group>"; };
 		6C4E6D161ED851AC002F0B27 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		6C4E6D181ED85EFE002F0B27 /* ItemSetEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetEmpty.swift; sourceTree = "<group>"; };
+		6C5569811EEEB87C006CD8F8 /* TableViewCellAlarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellAlarm.swift; sourceTree = "<group>"; };
 		6C58940C1ECFF00700E052F6 /* ItemSetCurrentTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetCurrentTemp.swift; sourceTree = "<group>"; };
 		6C58940E1ECFF01700E052F6 /* ItemSetMaxTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetMaxTemp.swift; sourceTree = "<group>"; };
 		6C6246D91EC0A2740044F5B7 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
@@ -2884,6 +2886,7 @@
 				6C0711531EE835E600902075 /* ButtonRound.swift */,
 				6C0711571EE83AF000902075 /* DatePickerPopUp.swift */,
 				6C393EA41EEBF40100920F56 /* ReflectableProperty.swift */,
+				6C5569811EEEB87C006CD8F8 /* TableViewCellAlarm.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -3887,6 +3890,7 @@
 				6CAFA9311EE2B18200C836C8 /* ButtonCheck.swift in Sources */,
 				6C4E60E31ED4459B002F0B27 /* WeatherDataManager.swift in Sources */,
 				6C7A21461ECB2ED100B71F7A /* ItemSet.swift in Sources */,
+				6C5569821EEEB87C006CD8F8 /* TableViewCellAlarm.swift in Sources */,
 				6C393EA51EEBF40100920F56 /* ReflectableProperty.swift in Sources */,
 				6C0711581EE83AF000902075 /* DatePickerPopUp.swift in Sources */,
 				6C4E60DF1ED444F9002F0B27 /* WeatherDataClosed.swift in Sources */,
