@@ -10,6 +10,7 @@
 		6C0711541EE835E600902075 /* ButtonRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0711531EE835E600902075 /* ButtonRound.swift */; };
 		6C0711561EE83ACD00902075 /* DatePickerPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0711551EE83ACD00902075 /* DatePickerPopUp.xib */; };
 		6C0711581EE83AF000902075 /* DatePickerPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0711571EE83AF000902075 /* DatePickerPopUp.swift */; };
+		6C0BBD011EF64B800092C237 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C0BBD001EF64B800092C237 /* bell.mp3 */; };
 		6C1B57241EE652AB00F55872 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B57231EE652AB00F55872 /* LocationTableViewController.swift */; };
 		6C1B57261EE6B2F400F55872 /* TableViewCellLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B57251EE6B2F400F55872 /* TableViewCellLocation.swift */; };
 		6C36F44A1EC5CCC500B09B74 /* AddrRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36F4491EC5CCC500B09B74 /* AddrRequester.swift */; };
@@ -879,6 +880,7 @@
 		6C0711531EE835E600902075 /* ButtonRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonRound.swift; sourceTree = "<group>"; };
 		6C0711551EE83ACD00902075 /* DatePickerPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerPopUp.xib; sourceTree = "<group>"; };
 		6C0711571EE83AF000902075 /* DatePickerPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerPopUp.swift; sourceTree = "<group>"; };
+		6C0BBD001EF64B800092C237 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		6C1B57231EE652AB00F55872 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		6C1B57251EE6B2F400F55872 /* TableViewCellLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellLocation.swift; sourceTree = "<group>"; };
 		6C36F4491EC5CCC500B09B74 /* AddrRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddrRequester.swift; sourceTree = "<group>"; };
@@ -1881,6 +1883,7 @@
 		6C4E67181ED70BA3002F0B27 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6C0BBD001EF64B800092C237 /* bell.mp3 */,
 				6C4E67191ED70BA3002F0B27 /* body */,
 				6C4E68661ED70BA4002F0B27 /* empty */,
 				6C4E687B1ED70BA4002F0B27 /* head */,
@@ -3558,6 +3561,7 @@
 				6C4E6A521ED70BA4002F0B27 /* current_hour_3pm.mp3 in Resources */,
 				6C4E6A551ED70BA4002F0B27 /* current_hour_5am.mp3 in Resources */,
 				6C4E6CAF1ED70BA5002F0B27 /* 6w.mp3 in Resources */,
+				6C0BBD011EF64B800092C237 /* bell.mp3 in Resources */,
 				6C4E6B6B1ED70BA4002F0B27 /* empty10.mp3 in Resources */,
 				6C4E6BA11ED70BA5002F0B27 /* city_ic6.mp3 in Resources */,
 				6C4E6BDE1ED70BA5002F0B27 /* city_kb25.mp3 in Resources */,
