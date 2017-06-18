@@ -8,6 +8,8 @@
 
 import Foundation
 
+import UserNotifications
+
 struct Alarm : ReflectableProperty{
     
     var enabled: Bool = false
@@ -184,50 +186,67 @@ class AlarmManager{
     
                 weeklyDateList.append(nextDate!)
                 
-                print(nextDate!.description(with: Locale.current))
-                
             }
         }
         
         return weeklyDateList
     }
     
+
+    func addNotification(date:Date, weekly:Bool, repeatCount:Int){
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Hello"
+        content.body = "Test"
+        content.sound = UNNotificationSound(named:"bell.mp3")
     
-    func setNotificationWeekly(alarm:Alarm){
+        for count in 0..<repeatCount {
+            
+            let current = Calendar.current
+            
+            let nextDate = current.date(byAdding: .minute, value: count, to: date)
+            
+            let triggerDate =  weekly == true ? current.dateComponents([.weekday,.hour,.minute], from: nextDate!) : current.dateComponents([.hour, .month, .weekday, .hour, .minute], from: nextDate!)
+            
+            let trigger = weekly == true ? UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true) : UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         
-        let dates = getWeeklyDate(alarm:alarm)
+            let identifier = nextDate!.description(with: Locale.current) + String(" ") + String(weekly) + " " + String(count)
+            
+            print(identifier)
         
-        print(dates.count)
-    }
-    
-    
-    func setNotificationFixDate(alarm:Alarm){
-        
-        
-        
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
     }
     
     
     func setNotification() {
+        
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         let alarms = getAlarms()
         
         for alarm in alarms{
             
             if alarm.enabled == false {
+                
                 continue
             }
             
             if alarm.isRepeatWeek() == true{
                 
-                setNotificationWeekly(alarm:alarm)
+                let dates = getWeeklyDate(alarm:alarm)
+                
+                for date in dates {
+
+                    addNotification(date: date, weekly: true, repeatCount:alarm.repeatCount)
+                }
             }
             else{
-                
+
+                addNotification(date: alarm.date, weekly: false, repeatCount:alarm.repeatCount)
             }
-            
         }
-        
-    
     }
 }
