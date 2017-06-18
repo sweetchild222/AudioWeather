@@ -135,4 +135,99 @@ class AlarmManager{
         
         return [Alarm]()
     }
+
+    
+    func makeStartDate(alarmDate:Date) -> Date{
+        
+        let calendar = Calendar.current
+        
+        let date = Date()
+        
+        let year = calendar.component(.year, from: date)
+        
+        let month = calendar.component(.month, from: date)
+        
+        let day = calendar.component(.day, from: date)
+        
+        let hour = calendar.component(.hour, from: alarmDate)
+        
+        let minute = calendar.component(.minute, from: alarmDate)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd/HH:mm:ss"
+        let stringTime = "\(year)-\(month)-\(day)/\(hour):\(minute):0"
+        
+        return dateFormatter.date(from: stringTime)!
+    }
+    
+    
+    
+    func getWeeklyDate(alarm:Alarm) -> [Date]{
+        
+        let count = alarm.repeatWeek.count
+        
+        let startDate = makeStartDate(alarmDate:alarm.date)
+
+        let weekInt = Calendar.current.component(.weekday, from: startDate) - 1
+        
+        var weeklyDateList:[Date] = []
+    
+        for weekIndex in 0..<count{
+            
+            if alarm.repeatWeek[weekIndex] == true{
+                
+                let space = weekIndex - weekInt
+                
+                let daySpace = (space == 0 && startDate < Date()) || (space < 0) ? space + 7 : space
+                
+                let nextDate = Calendar.current.date(byAdding: .day, value: daySpace, to: startDate)
+    
+                weeklyDateList.append(nextDate!)
+                
+                print(nextDate!.description(with: Locale.current))
+                
+            }
+        }
+        
+        return weeklyDateList
+    }
+    
+    
+    func setNotificationWeekly(alarm:Alarm){
+        
+        let dates = getWeeklyDate(alarm:alarm)
+        
+        print(dates.count)
+    }
+    
+    
+    func setNotificationFixDate(alarm:Alarm){
+        
+        
+        
+    }
+    
+    
+    func setNotification() {
+        
+        let alarms = getAlarms()
+        
+        for alarm in alarms{
+            
+            if alarm.enabled == false {
+                continue
+            }
+            
+            if alarm.isRepeatWeek() == true{
+                
+                setNotificationWeekly(alarm:alarm)
+            }
+            else{
+                
+            }
+            
+        }
+        
+    
+    }
 }

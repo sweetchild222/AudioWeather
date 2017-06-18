@@ -50,6 +50,8 @@ class TableViewCellAlarm: UITableViewCell {
         
         AlarmManager().alarms[sender.tag].enabled = sender.isOn
         
+        AlarmManager().setNotification()
+        
         updateColor(enabled:sender.isOn)
         
     }
