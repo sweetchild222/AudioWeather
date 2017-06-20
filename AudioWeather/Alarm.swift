@@ -224,6 +224,7 @@ class AlarmManager{
     func setNotification() {
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         
         let alarms = getAlarms()
         
