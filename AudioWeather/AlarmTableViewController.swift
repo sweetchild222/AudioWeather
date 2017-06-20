@@ -24,9 +24,7 @@ class AlarmTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let manager = AlarmManager()
-        
-        return manager.count
+        return AlarmManager().count
     }
 
     
@@ -34,21 +32,23 @@ class AlarmTableViewController: UITableViewController {
         
         let identifier = "alarmTableCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-
-        updateAlarm(cell:cell, indexPath:indexPath)
+        
+        let alarm = AlarmManager().alarms[indexPath.row]
+        
+        updateAlarm(cell:cell, uuid:alarm.uuid)
         
         return cell
     }
 
     
     
-    func updateAlarm(cell:UITableViewCell, indexPath: IndexPath){
+    func updateAlarm(cell:UITableViewCell, uuid: String){
         
         guard let alarmCell = (cell as? TableViewCellAlarm) else{
             return
         }
         
-        alarmCell.updateAlarm(indexPath:indexPath)
+        alarmCell.updateAlarm(uuid:uuid)
         
     }
 
@@ -66,9 +66,7 @@ class AlarmTableViewController: UITableViewController {
         
         let alarm = editViewController.alarm
         
-        let manager = AlarmManager()
-        
-        manager.alarms.insert(alarm!, at:0)
+        AlarmManager().alarms.insert(alarm!, at:0)
         
         self.tableView.reloadData()
         

@@ -16,16 +16,24 @@ class TableViewCellAlarm: UITableViewCell {
     
     @IBOutlet weak var enable: UISwitch!
     
-    func updateAlarm(indexPath:IndexPath){
+    var uuid:String = ""
     
-        let alarm = AlarmManager().alarms[indexPath.row]
+    func updateAlarm(uuid:String){
+    
+        self.uuid = uuid
+        
+        let index = AlarmManager().findIndex(uuid:uuid)
+        
+        if index == -1 {
+            return
+        }
+    
+        let alarm = AlarmManager().alarms[index]
+        
         time.text = getTime(alarm:alarm)
         date.text = "ggadfaefa"
         enable.isOn = alarm.enabled
-        enable.tag = indexPath.row
-        
         updateColor(enabled:alarm.enabled)
-    
     }
     
     
@@ -41,18 +49,21 @@ class TableViewCellAlarm: UITableViewCell {
         
         time.textColor = enabled ? UIColor.black : UIColor.lightGray
         date.textColor = enabled ? UIColor.darkGray : UIColor.lightGray
-
-        
     }
     
     
     @IBAction func tapped(_ sender: UISwitch) {
         
-        AlarmManager().alarms[sender.tag].enabled = sender.isOn
+        let index = AlarmManager().findIndex(uuid:uuid)
+        
+        if index == -1 {
+            return
+        }
+        
+        AlarmManager().alarms[index].enabled = sender.isOn
         
         AlarmManager().setNotification()
         
         updateColor(enabled:sender.isOn)
-        
     }
 }

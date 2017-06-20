@@ -19,6 +19,8 @@ struct Alarm : ReflectableProperty{
     
     var locationUpper:String = AddressMap.instance.current
     var locationLower:String = String()
+    
+    var uuid:String = UUID().uuidString
 
     func isRepeatWeek() -> Bool{
         
@@ -41,6 +43,7 @@ struct Alarm : ReflectableProperty{
         self.repeatCount = repeatCount
         self.locationUpper = location.upper
         self.locationLower = location.lower
+        self.uuid = UUID().uuidString
     }
     
     
@@ -52,6 +55,13 @@ struct Alarm : ReflectableProperty{
         self.repeatCount = dict["repeatCount"] as! Int
         self.locationUpper = dict["locationUpper"] as! String
         self.locationLower = dict["locationLower"] as! String
+        self.uuid = dict["uuid"] as! String
+    }
+    
+    
+    func getUUID() -> String{
+        
+        return uuid;
     }
     
     
@@ -63,7 +73,7 @@ struct Alarm : ReflectableProperty{
         }
     }
     
-    static let propertyCount: Int = 6
+    static let propertyCount: Int = 7
 }
 
 
@@ -77,6 +87,24 @@ class AlarmManager{
     init() {
         
         alarms = getAlarms()
+    }
+    
+
+    func findIndex(uuid:String) -> Int{
+
+        var index = 0
+        
+        for alarm in alarms {
+            
+            if alarm.getUUID() == uuid {
+                
+                return index
+            }
+            
+            index += 1
+        }
+        
+        return -1
     }
     
     
