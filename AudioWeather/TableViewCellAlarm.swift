@@ -61,8 +61,6 @@ class TableViewCellAlarm: UITableViewCell {
         
         if alarm.isRepeatWeek() == true{
             
-            print(alarm.repeatWeek)
-            
             return getWeekString(repeatWeek:alarm.repeatWeek)
         }
         else if alarm.enabled == true{
