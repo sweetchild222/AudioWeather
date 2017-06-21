@@ -224,10 +224,10 @@ class AlarmManager{
     func addNotification(date:Date, weekly:Bool, repeatCount:Int){
         
         let content = UNMutableNotificationContent()
-        content.title = "Hello"
-        content.body = "Test"
+        content.title = "일어나세요"
+        content.body = "날씨를 알려주세요"
         content.sound = UNNotificationSound(named:"bell.mp3")
-    
+        
         for count in 0..<repeatCount {
             
             let current = Calendar.current

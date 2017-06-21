@@ -68,6 +68,8 @@ class AlarmTableViewController: UITableViewController {
         
         AlarmManager().alarms.insert(alarm!, at:0)
         
+        AlarmManager().setNotification()
+        
         self.tableView.reloadData()
         
     }
@@ -78,6 +80,8 @@ class AlarmTableViewController: UITableViewController {
         if editingStyle == .delete {
             
             AlarmManager().alarms.remove(at: indexPath.row)
+            
+            AlarmManager().setNotification()
             
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             
