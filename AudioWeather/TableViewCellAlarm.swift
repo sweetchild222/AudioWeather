@@ -78,13 +78,11 @@ class TableViewCellAlarm: UITableViewCell {
     func getFixDate(date:Date) -> String{
         
         let weekInt = Calendar.current.component(.weekday, from: date)
-        let today = Calendar.current.isDateInToday(date)
-        
-        let dateFormatter = DateFormatter()
-        
+
         let weekString = ["일", "월", "화", "수", "목", "금", "토"]
         
-        dateFormatter.dateFormat = (today == true ? "오늘 - " : "내일 - ") + "M월 d일 (" + weekString[weekInt - 1] + ")"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M월 d일 (" + weekString[weekInt - 1] + ")"
         return dateFormatter.string(from: date)
     }
     
@@ -113,6 +111,12 @@ class TableViewCellAlarm: UITableViewCell {
         
         
         AlarmManager().alarms[index].enabled = sender.isOn
+        
+        if sender.isOn == true{
+
+            AlarmManager().alarms[index].refreshNewDate()
+        }
+        
         AlarmManager().setNotification()
         
         date.text = getDate(alarm:AlarmManager().alarms[index])

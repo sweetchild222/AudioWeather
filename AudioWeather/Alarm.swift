@@ -59,9 +59,64 @@ struct Alarm : ReflectableProperty{
     }
     
     
+
     func getUUID() -> String{
         
         return uuid;
+    }
+
+    
+    mutating func refreshNewDate(){
+        
+        if isRepeatWeek() == true{
+            return
+        }
+        
+        if self.date > Date() {
+            return
+        }
+        
+        let newDate = makeStartDate(alarmDate: self.date)
+
+        self.date = newDate
+    }
+    
+    
+    func makeTodayDate(alarmDate:Date) -> Date{
+        
+        let calendar = Calendar.current
+        
+        let date = Date()
+        
+        let year = calendar.component(.year, from: date)
+        
+        let month = calendar.component(.month, from: date)
+        
+        let day = calendar.component(.day, from: date)
+        
+        let hour = calendar.component(.hour, from: alarmDate)
+        
+        let minute = calendar.component(.minute, from: alarmDate)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd/HH:mm:ss"
+        let stringTime = "\(year)-\(month)-\(day)/\(hour):\(minute):0"
+        
+        return dateFormatter.date(from: stringTime)!
+    }
+
+    
+    func makeStartDate(alarmDate:Date) -> Date{
+        
+        let todayDate = makeTodayDate(alarmDate: alarmDate)
+        
+        if todayDate < Date(){
+            
+            return Calendar.current.date(byAdding: .day, value: 1, to: todayDate)!
+        }
+        else{
+            return todayDate
+        }
     }
     
     
@@ -72,6 +127,9 @@ struct Alarm : ReflectableProperty{
             return (upper:self.locationUpper, lower:self.locationLower)
         }
     }
+    
+    
+    
     
     static let propertyCount: Int = 7
 }
