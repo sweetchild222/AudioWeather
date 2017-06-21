@@ -279,13 +279,15 @@ class AlarmManager{
     }
     
 
-    func addNotification(date:Date, weekly:Bool, repeatCount:Int){
+    func addNotification(uuid:String, date:Date, weekly:Bool, repeatCount:Int){
         
         let content = UNMutableNotificationContent()
         content.title = "일어나세요"
         content.body = "날씨를 알려주세요"
         content.sound = UNNotificationSound(named:"bell.mp3")
+        content.categoryIdentifier = uuid
         
+
         for count in 0..<repeatCount {
             
             let current = Calendar.current
@@ -296,7 +298,7 @@ class AlarmManager{
             
             let trigger = weekly == true ? UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true) : UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         
-            let identifier = nextDate!.description(with: Locale.current) + String(" ") + String(weekly) + " " + String(count)
+            let identifier = UUID().uuidString
             
             print(identifier)
         
@@ -328,12 +330,12 @@ class AlarmManager{
                 
                 for date in dates {
 
-                    addNotification(date: date, weekly: true, repeatCount:alarm.repeatCount)
+                    addNotification(uuid:alarm.uuid, date: date, weekly: true, repeatCount:alarm.repeatCount)
                 }
             }
             else{
 
-                addNotification(date: alarm.date, weekly: false, repeatCount:alarm.repeatCount)
+                addNotification(uuid:alarm.uuid, date: alarm.date, weekly: false, repeatCount:alarm.repeatCount)
             }
         }
     }

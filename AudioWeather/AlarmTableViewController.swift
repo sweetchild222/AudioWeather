@@ -17,6 +17,28 @@ class AlarmTableViewController: UITableViewController {
     }
 
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        let notificationName = Notification.Name("NotificationIdentifier")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.methodOfReceivedNotification), name: notificationName, object: nil)
+        print("aaaaaaa")
+    }
+    
+    
+    func methodOfReceivedNotification() {
+        print("reload")
+        tableView.reloadData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        print("fffeef")
+        tableView.reloadData()
+    }
+    
+    
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
