@@ -50,12 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if AlarmManager().alarms[index].isRepeatWeek() == false{
             
             AlarmManager().alarms[index].enabled = false
-            print("false")
         }
         
-        let notificationName = Notification.Name("NotificationIdentifier")
-        
-        NotificationCenter.default.post(name: notificationName, object: nil)
+        NotificationCenter.default.post(name: Notification.Name("reloadAlarm"), object: nil)
         completionHandler()
     }
     
