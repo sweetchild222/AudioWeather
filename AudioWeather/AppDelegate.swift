@@ -38,9 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void){
         
-        let identifier = response.notification.request.content.categoryIdentifier
+        guard let uuid = response.notification.request.content.userInfo["uuid"] else{
+            
+            return
+        }
         
-        let index = AlarmManager().findIndex(uuid:identifier)
+        let index = AlarmManager().findIndex(uuid:uuid as! String)
         
         if index == -1{
             completionHandler()

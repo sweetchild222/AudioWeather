@@ -285,7 +285,8 @@ class AlarmManager{
         content.title = "일어나세요"
         content.body = "날씨를 알려주세요"
         content.sound = UNNotificationSound(named:"bell.mp3")
-        content.categoryIdentifier = uuid
+        content.categoryIdentifier = UUID().uuidString
+        content.userInfo = ["uuid":uuid]
         
 
         for count in 0..<repeatCount {
@@ -299,8 +300,6 @@ class AlarmManager{
             let trigger = weekly == true ? UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true) : UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         
             let identifier = UUID().uuidString
-            
-            print(identifier)
         
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             
