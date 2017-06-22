@@ -29,33 +29,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     
-    
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void){
+    func showAlert(){
         
-        print("will")
+        let alert = UIAlertController(title: "날씨 방송중", message: nil, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "멈춰요", style: .default) { (action:UIAlertAction)->Void in
+            
+            print("stop")
+        }
+        
+        alert.addAction(action)
+        
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 30) {
+            
+            alert.dismiss(animated: true, completion: nil)
+        }
     }
     
     
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void){
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void){
         
-        guard let uuid = response.notification.request.content.userInfo["uuid"] else{
+        updateAlarmState()
+        showAlert()
+    }
+    
+    
+    func updateAlarmState(){
+        
+        let alarms = AlarmManager().alarms
+        
+        for index in 0..<alarms.count{
             
-            return
-        }
-        
-        let index = AlarmManager().findIndex(uuid:uuid as! String)
-        
-        if index == -1{
-            completionHandler()
-            return
-        }
-        
-        if AlarmManager().alarms[index].isRepeatWeek() == false{
+            let alarm = alarms[index]
             
-            AlarmManager().alarms[index].enabled = false
+            if alarm.enabled == true && alarm.isRepeatWeek() == false{
+                
+                if alarm.date <= Date() {
+                    
+                    AlarmManager().alarms[index].enabled = false
+                }
+            }
         }
+
+        
+        AlarmManager().setNotification()
         
         NotificationCenter.default.post(name: Notification.Name("reloadAlarm"), object: nil)
+    }
+    
+
+    
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void){
+        
+        updateAlarmState()
+        showAlert()
         completionHandler()
     }
     
