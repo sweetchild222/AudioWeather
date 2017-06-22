@@ -16,23 +16,42 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-    
     let locationManager = CLLocationManager()
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        isAuthorizedtoGetUserLocation()
+        initLocationService()
+        
+        initNotificationService()
+        
+        return true
+    }
+    
+    
+    func initNotificationService(){
         
         let center = UNUserNotificationCenter.current()
         
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-        
+            
             print(granted)
         }
         
         center.delegate = self
+
+    }
+    
+    func initLocationService(){
         
-        return true
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+            self.locationManager.requestWhenInUseAuthorization()
+        }
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        }
     }
 
     
@@ -54,22 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             alert.dismiss(animated: true, completion: nil)
         }
     }
-    
-    
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void){
-        
-        updateAlarmState()
-        showAlert()
-    }
-    
-    
-    func isAuthorizedtoGetUserLocation() {
-        
-        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse     {
-            locationManager.requestWhenInUseAuthorization()
-        }
-    }
-
     
     
     func updateAlarmState(){
@@ -95,15 +98,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         NotificationCenter.default.post(name: Notification.Name("reloadAlarm"), object: nil)
     }
     
-
     
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void){
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void){
+        
+        updateAlarmState()
+        showAlert()
+        requestLocation()
+    }
+    
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void){
         
         updateAlarmState()
         showAlert()
         completionHandler()
     }
     
+    
+    func requestLocation(){
+        
+        self.locationManager.requestLocation()
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print(status)
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations)
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("location updates failed \(error)")
+    }
+
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
