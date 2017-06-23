@@ -13,6 +13,9 @@ import Foundation
 class PlayWeather{
     
     let address:Address
+
+    var dataManager:WeatherDataManager? = nil
+    var dustList:[String: [String: DustRequester.Grade]]? = nil
     
     init(address:Address){
         
@@ -22,16 +25,72 @@ class PlayWeather{
     
     func play(){
         
-        
         print("play")
         print(self.address.getUpper())
         print(self.address.getLower())
         
+        requestWeather()
+        requestDust()
     }
     
     
     func stop(){
         
         print("stop")
+    }
+    
+    
+    
+    func playWithData(){
+        
+        guard let weatherData = self.dataManager else{
+            return
+        }
+        
+        guard let dustData = self.dustList else{
+            return
+        }
+        
+        
+        let list = ItemListGenerator.instance.generate(addr: self.address, dustList: dustData, dataManager: weatherData)
+        
+
+        for item in list{
+            
+            print(item.getText())
+        }
+        
+        //print("aasadfa")
+    }
+    
+    func requestWeather(){
+        
+        WeatherRequester.instance.request(){ response in
+            
+            guard let value = response else {
+                return
+            }
+
+            
+            self.dataManager = value
+            
+            self.playWithData()
+            
+        }
+    }
+    
+    
+
+    func requestDust(){
+        
+        DustRequester.instance.request(){ response in
+            
+            guard let value = response, value.isEmpty == false else {
+                return
+            }
+            
+            self.dustList = value
+            self.playWithData()
+        }
     }
 }
