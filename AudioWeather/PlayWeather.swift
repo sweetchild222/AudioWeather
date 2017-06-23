@@ -16,7 +16,6 @@ class PlayWeather{
 
     var dataManager:WeatherDataManager? = nil
     var dustList:[String: [String: DustRequester.Grade]]? = nil
-    
     var player:AVQueuePlayer? = nil
     
     init(address:Address){
@@ -27,10 +26,6 @@ class PlayWeather{
     
     func play(){
         
-        print("play")
-        print(self.address.getUpper())
-        print(self.address.getLower())
-        
         requestWeather()
         requestDust()
     }
@@ -38,9 +33,12 @@ class PlayWeather{
     
     func stop(){
         
-        print("stop")
+        guard let queuePlayer = self.player else{
+            return
+        }
+        
+        queuePlayer.removeAllItems()
     }
-    
     
     
     func playWithData(){
@@ -53,29 +51,24 @@ class PlayWeather{
             return
         }
         
-        
         let list = ItemListGenerator.instance.generate(addr: self.address, dustList: dustData, dataManager: weatherData)
-        
         
         var items:[AVPlayerItem] = []
 
         for item in list{
             
-            let avItem = AVPlayerItem(url: URL(string:item.getAudio() + ".mp3")!)
+            let url = Bundle.main.url(forResource: item.getAudio(), withExtension: "mp3")
+            
+            let avItem = AVPlayerItem(url:url!)
             
             items.append(avItem)
-            
-            print(item.getAudio())
         }
         
-        
-        print(items.count)
-        
         self.player = AVQueuePlayer(items: items)
-        print("play")
         self.player?.play()
-        
     }
+    
+    
     
     func requestWeather(){
         
