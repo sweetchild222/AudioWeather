@@ -8,7 +8,7 @@
 
 import Foundation
 import AVFoundation
-
+import NotificationCenter
 
 class PlayWeather{
     
@@ -17,10 +17,12 @@ class PlayWeather{
     var dataManager:WeatherDataManager? = nil
     var dustList:[String: [String: DustRequester.Grade]]? = nil
     var player:AVQueuePlayer? = nil
+    let completionHandler:(()-> Void)
     
-    init(address:Address){
+    init(address:Address, completionHandler:@escaping (()-> Void)){
         
         self.address = address
+        self.completionHandler = completionHandler
     }
     
     
@@ -40,6 +42,10 @@ class PlayWeather{
         queuePlayer.removeAllItems()
     }
     
+    
+    func addCompletionHandler(completionHandler: @escaping () -> Void){
+        
+    }
     
     func playWithData(){
         
@@ -65,10 +71,17 @@ class PlayWeather{
         }
         
         self.player = AVQueuePlayer(items: items)
+        NotificationCenter.default.addObserver(self, selector: #selector(PlayWeather.finished), name: .AVPlayerItemDidPlayToEndTime, object: self.player?.items().last)
         self.player?.play()
     }
     
     
+    
+    @objc func finished() {
+        
+        self.completionHandler()
+        
+    }
     
     func requestWeather(){
         

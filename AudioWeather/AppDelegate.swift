@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     let locationManager = CLLocationManager()
     var locationFixAchieved:Bool = false
     var playWeather:PlayWeather? = nil
+    var alert:UIAlertController? = nil
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -55,11 +56,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         }
     }
+    
+    
+    func closeAlert(){
+        
+        guard let gAlert = self.alert else{
+            return
+        }
+        
+        gAlert.dismiss(animated: true, completion: nil)
+    }
 
     
     func showAlert(){
         
-        let alert = UIAlertController(title: "날씨 방송중", message: nil, preferredStyle: .alert)
+        self.alert = UIAlertController(title: "날씨 방송중", message: nil, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "멈춰요", style: .default) { (action:UIAlertAction)->Void in
             
@@ -71,13 +82,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.playWeather = nil
         }
         
-        alert.addAction(action)
+        self.alert?.addAction(action)
         
-        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        self.window?.rootViewController?.present(alert!, animated: true, completion: nil)
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 30) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 40) {
             
-            alert.dismiss(animated: true, completion: nil)
+            self.alert?.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -99,7 +110,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
 
-        
         AlarmManager().setNotification()
         
         NotificationCenter.default.post(name: Notification.Name("reloadAlarm"), object: nil)
@@ -124,7 +134,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         else{
         
-            self.playWeather = PlayWeather(address:AlarmManager().alarms[index].address)
+            self.playWeather = PlayWeather(address:AlarmManager().alarms[index].address, completionHandler:{
+                
+                self.closeAlert()
+            })
             self.playWeather?.play()
         }
     }
@@ -181,7 +194,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 return
             }
             
-            self.playWeather = PlayWeather(address:address)
+            self.playWeather = PlayWeather(address:address, completionHandler:{
+                
+                self.closeAlert()
+            })
             self.playWeather?.play()
         }
     }
