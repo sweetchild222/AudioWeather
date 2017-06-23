@@ -36,8 +36,7 @@ class AudioWeatherTests: XCTestCase {
                 return
             }
             
-            print(responseValue)
-            
+            print(responseValue.getUpper())
             
             expt.fulfill()
         }

@@ -100,19 +100,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void){
+    func performWeatherAudioAlarm(uuid:String){
+        
+        let index = AlarmManager().findIndex(uuid: uuid)
+        
+        if index == -1{
+            return
+        }
         
         updateAlarmState()
         showAlert()
-        requestLocation()
+        
+        if AlarmManager().alarms[index].location.upper == AddressMap.instance.current{
+            
+            requestLocation()
+        }
+
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void){
+        
+        let uuid = notification.request.content.userInfo["uuid"]
+        
+        performWeatherAudioAlarm(uuid:uuid as! String)
     }
     
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void){
         
-        updateAlarmState()
-        showAlert()
+        let uuid = response.notification.request.content.userInfo["uuid"]
+        
+        performWeatherAudioAlarm(uuid:uuid as! String)
+
         completionHandler()
     }
     
