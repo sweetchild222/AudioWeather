@@ -58,15 +58,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     
-    func closeAlert(){
+    func closeAlert(completion: (() -> Swift.Void)? = nil){
         
         guard let gAlert = self.alert else{
             return
         }
         
-        gAlert.dismiss(animated: true, completion: nil)
+        gAlert.dismiss(animated: true, completion:completion)
     }
 
+    
+    func showError(error:String){
+        
+        let alert = UIAlertController(title: error, message: nil, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "확인", style: .default) { (action:UIAlertAction)->Void in
+            
+        }
+        
+        alert.addAction(action)
+        
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        
+    }
     
     func showAlert(){
         
@@ -134,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         else{
         
-            self.playWeather = PlayWeather(address:AlarmManager().alarms[index].address, completionHandler:{
+            self.playWeather = PlayWeather(address:AlarmManager().alarms[index].address, completionHandler:{ error in
                 
                 self.closeAlert()
             })
@@ -191,19 +205,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         AddrRequester.instance.request(lat:lat, lgt:lgt){ response in
             
             guard let address = response else {
+                
+                self.closeAlert(completion: {
+                    
+                    self.showError(error:"현재 지역 정보를 가져 올 수 없습니다. 네트워크 상태를 확인 해주세요")
+                })
+    
                 return
             }
             
-            self.playWeather = PlayWeather(address:address, completionHandler:{
+            self.playWeather = PlayWeather(address:address, completionHandler:{ error in
                 
-                self.closeAlert()
+                self.closeAlert(completion: {
+                    
+                    if error == true {
+                        
+                        self.showError(error:"날씨 정보를 가져 올 수 없습니다. 네트워크 상태를 확인 해주세요")
+                    }
+                })
             })
             self.playWeather?.play()
         }
     }
     
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("location updates failed \(error)")
+        
+        self.showError(error:"현재 위치 정보를 가져 올 수 없습니다. GPS 상태를 확인 해주세요")
     }
 
     

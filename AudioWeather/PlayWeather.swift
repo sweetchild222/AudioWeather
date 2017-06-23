@@ -17,9 +17,9 @@ class PlayWeather{
     var dataManager:WeatherDataManager? = nil
     var dustList:[String: [String: DustRequester.Grade]]? = nil
     var player:AVQueuePlayer? = nil
-    let completionHandler:(()-> Void)
+    let completionHandler:((_ error:Bool)-> Void)
     
-    init(address:Address, completionHandler:@escaping (()-> Void)){
+    init(address:Address, completionHandler:@escaping ((_ error:Bool)-> Void)){
         
         self.address = address
         self.completionHandler = completionHandler
@@ -42,10 +42,6 @@ class PlayWeather{
         queuePlayer.removeAllItems()
     }
     
-    
-    func addCompletionHandler(completionHandler: @escaping () -> Void){
-        
-    }
     
     func playWithData(){
         
@@ -79,8 +75,7 @@ class PlayWeather{
     
     @objc func finished() {
         
-        self.completionHandler()
-        
+        self.completionHandler(false)
     }
     
     func requestWeather(){
@@ -88,6 +83,8 @@ class PlayWeather{
         WeatherRequester.instance.request(){ response in
             
             guard let value = response else {
+                
+                self.completionHandler(true)
                 return
             }
 
@@ -106,6 +103,8 @@ class PlayWeather{
         DustRequester.instance.request(){ response in
             
             guard let value = response, value.isEmpty == false else {
+                
+                self.completionHandler(true)
                 return
             }
             
