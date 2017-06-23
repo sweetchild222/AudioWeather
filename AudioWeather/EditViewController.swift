@@ -122,11 +122,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    func selectedLocation() -> (upper:String, lower:String){
+    func selectedLocation() -> Address{
         
         if self.locationSection == 0{
             
-            return (AddressMap.instance.current, String())
+            return Address(upper:AddressMap.instance.current, lower:String())
 
         }
         else{
@@ -136,7 +136,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             let locationUpper = mapList[self.locationSection - 1].getUpper()
             let locationLower = mapList[self.locationSection - 1].getLowerList()[locationRow].getLower()
             
-            return (locationUpper, locationLower)
+            return Address(upper:locationUpper, lower:locationLower)
         }
     }
     
@@ -242,7 +242,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let date:Date = selectedDateType == .fixDate ? makeFixDate() : self.todayTomorrowDate
         
-        let alarm:Alarm = Alarm(enabled: true, date: date, repeatWeek: self.weekChecked, repeatCount: self.repeatCount, location: selectedLocation())
+        let alarm:Alarm = Alarm(enabled: true, date: date, repeatWeek: self.weekChecked, repeatCount: self.repeatCount, address: selectedLocation())
     
         self.alarm = alarm
         

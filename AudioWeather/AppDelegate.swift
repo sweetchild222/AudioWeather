@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
     let locationManager = CLLocationManager()
+    var locationFixAchieved:Bool = false
+    var playWeather:PlayWeather? = nil
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -61,7 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let action = UIAlertAction(title: "멈춰요", style: .default) { (action:UIAlertAction)->Void in
             
-            print("stop")
+            if self.playWeather == nil {
+                return
+            }
+            
+            self.playWeather?.stop()
+            self.playWeather = nil
         }
         
         alert.addAction(action)
@@ -111,11 +118,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         updateAlarmState()
         showAlert()
         
-        if AlarmManager().alarms[index].location.upper == AddressMap.instance.current{
+        if AlarmManager().alarms[index].address.getUpper() == AddressMap.instance.current{
             
             requestLocation()
         }
-
+        else{
+        
+            self.playWeather = PlayWeather(address:AlarmManager().alarms[index].address)
+            self.playWeather?.play()
+        }
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void){
@@ -139,6 +150,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func requestLocation(){
         
+        locationFixAchieved = false
         self.locationManager.requestLocation()
     }
     
@@ -149,9 +161,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
+        
+        if locationFixAchieved == false {
+            
+            locationFixAchieved = true
+            
+            let location = locations.last! as CLLocation
+            
+            requestAddr(lat:location.coordinate.latitude, lgt:location.coordinate.longitude)
+        }
     }
     
+    
+    func requestAddr(lat:Double, lgt:Double){
+        
+        AddrRequester.instance.request(lat:lat, lgt:lgt){ response in
+            
+            guard let address = response else {
+                return
+            }
+            
+            self.playWeather = PlayWeather(address:address)
+            self.playWeather?.play()
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("location updates failed \(error)")

@@ -35,14 +35,14 @@ struct Alarm : ReflectableProperty{
     }
     
     
-    init(enabled:Bool, date:Date, repeatWeek:[Bool], repeatCount:Int, location:(upper:String, lower:String)){
+    init(enabled:Bool, date:Date, repeatWeek:[Bool], repeatCount:Int, address:Address){
         
         self.enabled = enabled
         self.date = date
         self.repeatWeek = repeatWeek
         self.repeatCount = repeatCount
-        self.locationUpper = location.upper
-        self.locationLower = location.lower
+        self.locationUpper = address.getUpper()
+        self.locationLower = address.getLower()
         self.uuid = UUID().uuidString
     }
     
@@ -120,11 +120,11 @@ struct Alarm : ReflectableProperty{
     }
     
     
-    var location:(upper:String, lower:String){
+    var address:Address{
         
         get{
             
-            return (upper:self.locationUpper, lower:self.locationLower)
+            return Address(upper:self.locationUpper, lower:self.locationLower)
         }
     }
     
