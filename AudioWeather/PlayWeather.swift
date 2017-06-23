@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import AVFoundation
 
 
 class PlayWeather{
@@ -16,6 +16,8 @@ class PlayWeather{
 
     var dataManager:WeatherDataManager? = nil
     var dustList:[String: [String: DustRequester.Grade]]? = nil
+    
+    var player:AVQueuePlayer? = nil
     
     init(address:Address){
         
@@ -54,13 +56,25 @@ class PlayWeather{
         
         let list = ItemListGenerator.instance.generate(addr: self.address, dustList: dustData, dataManager: weatherData)
         
+        
+        var items:[AVPlayerItem] = []
 
         for item in list{
             
-            print(item.getText())
+            let avItem = AVPlayerItem(url: URL(string:item.getAudio() + ".mp3")!)
+            
+            items.append(avItem)
+            
+            print(item.getAudio())
         }
         
-        //print("aasadfa")
+        
+        print(items.count)
+        
+        self.player = AVQueuePlayer(items: items)
+        print("play")
+        self.player?.play()
+        
     }
     
     func requestWeather(){
