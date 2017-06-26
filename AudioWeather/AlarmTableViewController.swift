@@ -8,20 +8,76 @@
 
 import UIKit
 
-
+ 
 class AlarmTableViewController: UITableViewController {
     
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.reloadAlarm), name: Notification.Name("reloadAlarm"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.showRescent), name: Notification.Name("showRescent"), object: nil)
     }
 
     
-    override func viewDidDisappear(_ animated: Bool) {
+    func showRescent(){
         
-        NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.reloadAlarm), name: Notification.Name("reloadAlarm"), object: nil)
+        AlarmManager().getRescentDate(completionHandler: { date in
+            
+            guard let xDate = date else{
+                return
+            }
+            
+            let hour = Calendar.current.dateComponents([.hour], from: Date(), to: xDate).hour!
+            
+            var message:String? = nil
+            
+            if hour > 0 {
+                
+                message = "다음 알람은 \(hour) 시간 후 입니다."
+                
+            }
+            else{
+                
+                let minute = Calendar.current.dateComponents([.minute], from: Date(), to: xDate).minute!
+                
+                message = "다음 알람은 \(minute) 분 후 입니다."
+            }
+            
+            
+            guard let xMessage = message else{
+                return
+            }
+            
+            
+            DispatchQueue.main.async {
+                
+                self.showToast(message:xMessage)
+            }
+        })
+    }
+    
+    func showToast(message:String) {
         
+        let width:CGFloat = 250.0
+        let height:CGFloat = 40.0
+        
+        let label = UILabel(frame: CGRect(x: (self.view.frame.size.width - width) / 2, y: (self.view.frame.size.height - height)/2, width: width, height: height))
+        label.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        label.textColor = UIColor.white
+        label.textAlignment = .center;
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.text = message
+        label.alpha = 1.0
+        label.layer.cornerRadius = 10;
+        label.clipsToBounds  =  true
+        self.view.addSubview(label)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            label.alpha = 0.0
+        }, completion: {(isCompleted) in
+            label.removeFromSuperview()
+        })
     }
     
     
@@ -30,6 +86,7 @@ class AlarmTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -84,6 +141,8 @@ class AlarmTableViewController: UITableViewController {
         
         AlarmManager().setNotification()
         
+        showRescent()
+        
         self.tableView.reloadData()
         
     }
@@ -96,6 +155,8 @@ class AlarmTableViewController: UITableViewController {
             AlarmManager().alarms.remove(at: indexPath.row)
             
             AlarmManager().setNotification()
+            
+            showRescent()
             
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             

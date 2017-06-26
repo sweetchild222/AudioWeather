@@ -100,7 +100,7 @@ class TableViewCellAlarm: UITableViewCell {
         date.textColor = enabled ? UIColor.darkGray : UIColor.lightGray
     }
     
-    
+
     @IBAction func tapped(_ sender: UISwitch) {
         
         let index = AlarmManager().findIndex(uuid:uuid)
@@ -118,8 +118,10 @@ class TableViewCellAlarm: UITableViewCell {
         }
         
         AlarmManager().setNotification()
-        
+
         date.text = getDate(alarm:AlarmManager().alarms[index])
         updateColor(enabled:sender.isOn)
+        
+        NotificationCenter.default.post(name: Notification.Name("showRescent"), object: nil)
     }
 }

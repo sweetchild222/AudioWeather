@@ -288,7 +288,6 @@ class AlarmManager{
         content.categoryIdentifier = UUID().uuidString
         content.userInfo = ["uuid":uuid]
         
-
         for count in 0..<repeatCount {
             
             let current = Calendar.current
@@ -298,13 +297,46 @@ class AlarmManager{
             let triggerDate =  weekly == true ? current.dateComponents([.weekday,.hour,.minute], from: nextDate!) : current.dateComponents([.hour, .month, .weekday, .hour, .minute], from: nextDate!)
             
             let trigger = weekly == true ? UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true) : UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        
+            
             let identifier = UUID().uuidString
         
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            
         }
+    }
+    
+    
+    func getRescentDate(completionHandler: @escaping (Date?) -> Swift.Void){
+        
+        var rescent:Date? = nil
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests in
+            
+            for request in requests {
+                
+                guard let trigger = request.trigger as? UNCalendarNotificationTrigger else{
+                    return
+                }
+                
+                guard let date = trigger.nextTriggerDate() else{
+                    return
+                }
+                
+                if rescent == nil{
+                    
+                    rescent = date
+                }
+                else if rescent! > date {
+                
+                    rescent = date
+                }
+                
+                completionHandler(rescent)
+            }
+        })
+        
     }
     
     
@@ -318,7 +350,6 @@ class AlarmManager{
         for alarm in alarms{
             
             if alarm.enabled == false {
-                
                 
                 continue
             }
