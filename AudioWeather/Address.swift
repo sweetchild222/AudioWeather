@@ -31,5 +31,4 @@ class Address{
         
         return self.lower
     }
-
 }

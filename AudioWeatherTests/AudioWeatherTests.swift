@@ -21,7 +21,7 @@ class AudioWeatherTests: XCTestCase {
         super.tearDown()
     }
     
-
+/*
     func testAddrRequest(){
         
         let expt = expectation(description: "Waiting addr request..")
@@ -50,8 +50,9 @@ class AudioWeatherTests: XCTestCase {
                 return
             }
         }
+ 
     }
-    
+    */
 
     
     
@@ -108,8 +109,79 @@ class AudioWeatherTests: XCTestCase {
         }
         
     }
+    
 
+    func test(){
+        
+        let upperList = AddressMap.instance.mapList
+        
+        for upper in upperList{
+            
+            let lowerList = upper.getLowerList()
+            
+            for lower in lowerList{
+                
+                let lat = lower.getLocation().lat
+                let lgt = lower.getLocation().lgt
+    
+                let expt = expectation(description: "Waiting dust request..")
+                
+                AddrRequester.instance.request(lat:lat, lgt:lgt){ response in
+                    
+                    guard let responseValue = response else {
+                        
+                        XCTAssert(false)
+                        
+                        return
+                    }
+                    
+                    print("result \(responseValue.getLower()) - \(lower.lower)")
+                    
+                    expt.fulfill()
+                }
+                
+                waitForExpectations(timeout: 5.0){ error in
+                    
+                    guard error == nil else {
+                        
+                        XCTAssert(false)
+                        return
+                    }
+                }
+
+            }
+        }
+        
+        
+        
+        /*
+        AddrRequester.instance.request(lat:36.4990227, lgt:127.3023216){ response in
+            
+            guard let responseValue = response else {
+                
+                XCTAssert(false)
+                
+                return
+            }
+            
+            print(responseValue.getUpper())
+            
+            expt.fulfill()
+        }
+        
+        
+        waitForExpectations(timeout: 5.0){ error in
+            
+            guard error == nil else {
+                
+                XCTAssert(false)
+                return
+            }
+        }
+         */
+    }
  
+    
 
 
 }

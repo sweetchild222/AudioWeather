@@ -24,5 +24,19 @@ class GlobalConfig{
         
         return "1247d4d946e4e893b92336d83bebe792"
     }
+    
+    
+    public func getNaverAPIID() -> String{
+        
+        return "_H_ogbPwFHl_eCRBNdQG"
+    }
+    
+    
+    public func getNaverAPISecret() -> String{
+        
+        return "X97KBFqSLt"
+
+        
+    }
 
 }
