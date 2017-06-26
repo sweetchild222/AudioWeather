@@ -53,6 +53,8 @@ class PlayWeather{
             return
         }
         
+        weatherData.printData()
+        
         let list = ItemListGenerator.instance.generate(addr: self.address, dustList: dustData, dataManager: weatherData)
         
         var items:[AVPlayerItem] = []
