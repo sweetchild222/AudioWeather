@@ -35,14 +35,30 @@ class AlarmTableViewController: UITableViewController {
             
             if hour > 0 {
                 
-                message = "다음 알람은 \(hour) 시간 후 입니다."
-                
+                if hour > (24 * 5) {
+                    
+                    let day = Calendar.current.dateComponents([.day], from: Date(), to: xDate).day!
+                    
+                    message = "다음 알람은 \(day)일 후 입니다."
+                }else{
+                    
+                    message = "다음 알람은 \(hour)시간 후 입니다."
+                }
             }
             else{
                 
                 let minute = Calendar.current.dateComponents([.minute], from: Date(), to: xDate).minute!
                 
-                message = "다음 알람은 \(minute) 분 후 입니다."
+                if minute == 0{
+                    
+                    let second = Calendar.current.dateComponents([.second], from: Date(), to: xDate).second!
+                    
+                    message = "다음 알람은 \(second)초 후 입니다."
+                }
+                else{
+                
+                    message = "다음 알람은 \(minute)분 후 입니다."
+                }
             }
             
             
