@@ -37,20 +37,6 @@
                BlueprintName = "AudioWeatherTests"
                ReferencedContainer = "container:AudioWeather.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "AudioItemGenerateTest">
-               </Test>
-               <Test
-                  Identifier = "AudioWeatherTests/testDustRequest()">
-               </Test>
-               <Test
-                  Identifier = "AudioWeatherTests/testWeatherRequest()">
-               </Test>
-               <Test
-                  Identifier = "UtilTest">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

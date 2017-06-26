@@ -21,40 +21,6 @@ class AudioWeatherTests: XCTestCase {
         super.tearDown()
     }
     
-/*
-    func testAddrRequest(){
-        
-        let expt = expectation(description: "Waiting addr request..")
-        
-        
-        AddrRequester.instance.request(lat:36.4990227, lgt:127.3023216){ response in
-
-            guard let responseValue = response else {
-                
-                XCTAssert(false)
-    
-                return
-            }
-            
-            print(responseValue.getUpper())
-            
-            expt.fulfill()
-        }
-
-        
-        waitForExpectations(timeout: 5.0){ error in
-            
-            guard error == nil else {
-                
-                XCTAssert(false)
-                return
-            }
-        }
- 
-    }
-    */
-
-    
     
     func testWeatherRequest(){
         
@@ -111,7 +77,7 @@ class AudioWeatherTests: XCTestCase {
     }
     
 
-    func test(){
+    func testAddrRequest(){
         
         let upperList = AddressMap.instance.mapList
         
@@ -124,7 +90,7 @@ class AudioWeatherTests: XCTestCase {
                 let lat = lower.getLocation().lat
                 let lgt = lower.getLocation().lgt
     
-                let expt = expectation(description: "Waiting dust request..")
+                let expt = expectation(description: "Waiting addr request..")
                 
                 AddrRequester.instance.request(lat:lat, lgt:lgt){ response in
                     
@@ -135,7 +101,7 @@ class AudioWeatherTests: XCTestCase {
                         return
                     }
                     
-                    print("result \(responseValue.getLower()) - \(lower.lower)")
+                    print("addr \(responseValue.getLower()) - \(lower.lower)")
                     
                     expt.fulfill()
                 }
@@ -151,37 +117,50 @@ class AudioWeatherTests: XCTestCase {
 
             }
         }
-        
-        
-        
-        /*
-        AddrRequester.instance.request(lat:36.4990227, lgt:127.3023216){ response in
-            
-            guard let responseValue = response else {
-                
-                XCTAssert(false)
-                
-                return
-            }
-            
-            print(responseValue.getUpper())
-            
-            expt.fulfill()
-        }
-        
-        
-        waitForExpectations(timeout: 5.0){ error in
-            
-            guard error == nil else {
-                
-                XCTAssert(false)
-                return
-            }
-        }
-         */
     }
  
     
+    
+    
+    func testLocationRequest(){
+        
+        let upperList = AddressMap.instance.mapList
+        
+        for upper in upperList{
+            
+            let lowerList = upper.getLowerList()
+            
+            for lower in lowerList{
+                
+                let expt = expectation(description: "Waiting Location request..")
+                
+                let address = upper.getUpper() == lower.getLower() ? upper.getUpper() : upper.getUpper() + " " + lower.getLower()
+                
+                LocationRequester.instance.request(address:address){ response in
+                    
+                    guard let responseValue = response else {
+                        
+                        XCTAssert(false)
+                        
+                        return
+                    }
+                    
+                    print("lat:\(responseValue.lat), lgt:\(responseValue.lgt)")
 
+                    
+                    expt.fulfill()
+                }
+                
+                waitForExpectations(timeout: 5.0){ error in
+                    
+                    guard error == nil else {
+                        
+                        XCTAssert(false)
+                        return
+                    }
+                }
+            }
+        }
+    }
 
 }
