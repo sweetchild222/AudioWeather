@@ -294,7 +294,7 @@ class AlarmManager{
             
             let nextDate = current.date(byAdding: .minute, value: count, to: date)
             
-            let triggerDate =  weekly == true ? current.dateComponents([.weekday,.hour,.minute], from: nextDate!) : current.dateComponents([.hour, .month, .weekday, .hour, .minute], from: nextDate!)
+            let triggerDate =  weekly == true ? current.dateComponents([.weekday,.hour,.minute], from: nextDate!) : current.dateComponents([.month, .day, .hour, .minute], from: nextDate!)
             
             let trigger = weekly == true ? UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true) : UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
             
@@ -332,9 +332,9 @@ class AlarmManager{
                 
                     rescent = date
                 }
-                
-                completionHandler(rescent)
             }
+            
+            completionHandler(rescent)
         })
         
     }
@@ -345,10 +345,11 @@ class AlarmManager{
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         
-        let alarms = getAlarms()
+        let alarms = self.alarms
         
         for alarm in alarms{
             
+
             if alarm.enabled == false {
                 
                 continue
