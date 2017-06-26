@@ -26,7 +26,7 @@ class AudioWeatherTests: XCTestCase {
         
         let expt = expectation(description: "Waiting weather request..")
         
-        WeatherRequester.instance.request(){ dataManager in
+        WeatherRequester.instance.request(lat:37.433913, lng:127.1781417){ dataManager in
             
             dataManager!.printData()
             

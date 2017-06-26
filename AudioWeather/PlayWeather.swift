@@ -64,6 +64,8 @@ class PlayWeather{
             let avItem = AVPlayerItem(url:url!)
             
             items.append(avItem)
+            
+            print(item.getText())
         }
         
         self.player = AVQueuePlayer(items: items)
@@ -78,9 +80,19 @@ class PlayWeather{
         self.completionHandler(false)
     }
     
+    
     func requestWeather(){
         
-        WeatherRequester.instance.request(){ response in
+        
+        guard let location = AddressMap.instance.getLocation(addr:self.address) else{
+            
+            return
+        }
+        
+        let lat = location.lat
+        let lgt = location.lgt
+    
+        WeatherRequester.instance.request(lat:lat, lng:lgt){ response in
             
             guard let value = response else {
                 

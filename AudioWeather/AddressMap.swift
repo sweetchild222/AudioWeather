@@ -44,9 +44,6 @@ class Location{
         self.lat = lat
         self.lgt = lgt
     }
-    
-    
-
 }
 
 
@@ -450,6 +447,29 @@ class AddressMap{
                     if lowerMapInfo.getLower() == addr.getLower(){
                         
                         return lowerMapInfo.getMapInfo()
+                    }
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    
+    func getLocation(addr:Address) -> Location? {
+        
+        for upperMapInfo in mapList{
+            
+            if upperMapInfo.getUpper() == addr.getUpper(){
+                
+                let lowerList = upperMapInfo.getLowerList()
+                
+                for lowerMapInfo in lowerList{
+                    
+                    
+                    if lowerMapInfo.getLower() == addr.getLower(){
+                        
+                        return lowerMapInfo.getLocation()
                     }
                 }
             }

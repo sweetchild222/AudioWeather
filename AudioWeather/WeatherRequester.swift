@@ -64,16 +64,16 @@ class WeatherRequester{
     }
     
     
-    func createRequestDataCurrent() -> URLRequest{
+    func createRequestDataCurrent(nx:Double, ny:Double) -> URLRequest{
         
-        let nx = 55
-        let ny = 127
+        //let nx = 55
+        //let ny = 127
         let pageNo = 1
         let numOfRows = 10
         
         let date = baseDateDataCurrent()
         
-        let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastGrib").appending("?base_date=").appending(getDate(date: date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: false)).appending("&nx=").appending(String(nx)).appending("&ny=").appending(String(ny)).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
+        let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastGrib").appending("?base_date=").appending(getDate(date: date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: false)).appending("&nx=").appending(String(Int(nx))).appending("&ny=").appending(String(Int(ny))).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
     
         print(url)
         
@@ -99,16 +99,16 @@ class WeatherRequester{
     }
     
 
-    func createRequestDataClosed() -> URLRequest{
+    func createRequestDataClosed(nx:Double, ny:Double) -> URLRequest{
         
-        let nx = 55
-        let ny = 127
+        //let nx = 55
+        //let ny = 127
         let pageNo = 1
         let numOfRows = 40
         
         let date = baseDateDataClosed()
     
-        let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastTimeData").appending("?base_date=").appending(getDate(date: date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: true)).appending("&nx=").appending(String(nx)).appending("&ny=").appending(String(ny)).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
+        let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastTimeData").appending("?base_date=").appending(getDate(date: date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: true)).appending("&nx=").appending(String(Int(nx))).appending("&ny=").appending(String(Int(ny))).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
         
         print(url)
         
@@ -141,16 +141,14 @@ class WeatherRequester{
     }
 
     
-    func createRequestDataSpace() -> URLRequest{
+    func createRequestDataSpace(nx:Double, ny:Double) -> URLRequest{
         
-        let nx = 55
-        let ny = 127
         let pageNo = 1
         let numOfRows = 225
         
         let date = baseDateDataSpace()
         
-        let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastSpaceData").appending("?base_date=").appending(getDate(date:date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: false)).appending("&nx=").appending(String(nx)).appending("&ny=").appending(String(ny)).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
+        let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastSpaceData").appending("?base_date=").appending(getDate(date:date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: false)).appending("&nx=").appending(String(Int(nx))).appending("&ny=").appending(String(Int(ny))).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
         
         
         print(url)
@@ -586,17 +584,17 @@ class WeatherRequester{
             
             if self.dataCurrent == nil || self.dataClosed == nil || self.dataSpace == nil{
                 completionHandler(nil)
+                
+            }else{
+            
+                let dataManager = WeatherDataManager(dataCurrent:dataCurrent!, dataClosed:dataClosed!, dataSpace:dataSpace!)
+                completionHandler(dataManager)
             }
-            
-            let dataManager = WeatherDataManager(dataCurrent:dataCurrent!, dataClosed:dataClosed!, dataSpace:dataSpace!)
-            
-            
-            completionHandler(dataManager)
         }
     }
 
     
-    public func request(completionHandler: @escaping (WeatherDataManager?) -> Void) {
+    public func request(lat:Double, lng:Double, completionHandler: @escaping (WeatherDataManager?) -> Void) {
         
         self.exitCount = 3
         
@@ -604,7 +602,11 @@ class WeatherRequester{
         self.dataClosed = nil
         self.dataSpace = nil
         
-        requestCore(request: createRequestDataCurrent()){ response in
+        let position = Position(lat: lat, lng: lng)
+        let nx = position.xy.x
+        let ny = position.xy.y
+        
+        requestCore(request: createRequestDataCurrent(nx:nx, ny:ny)){ response in
          
             guard let responseValue = response, responseValue.count > 0 else {
          
@@ -638,7 +640,7 @@ class WeatherRequester{
         }
 
         
-        requestCore(request: createRequestDataClosed()){ response in
+        requestCore(request: createRequestDataClosed(nx:nx, ny:ny)){ response in
         
             
             guard let responseValue = response, responseValue.count > 0 else {
@@ -672,7 +674,7 @@ class WeatherRequester{
         }
  
 
-        requestCore(request: createRequestDataSpace()){ response in
+        requestCore(request: createRequestDataSpace(nx:nx, ny:ny)){ response in
             
             guard let responseValue = response, responseValue.count > 0 else {
 
