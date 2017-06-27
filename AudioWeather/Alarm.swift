@@ -15,8 +15,6 @@ struct Alarm : ReflectableProperty{
     var enabled: Bool = false
     var date: Date = Date()
     var repeatWeek = [Bool](repeating:false, count:7)
-    var repeatCount:Int = 3
-    
     var locationUpper:String = AddressMap.instance.current
     var locationLower:String = String()
     
@@ -52,16 +50,15 @@ struct Alarm : ReflectableProperty{
             count = 1
         }
         
-        return count * self.repeatCount
+        return count
     }
     
     
-    init(enabled:Bool, date:Date, repeatWeek:[Bool], repeatCount:Int, address:Address){
+    init(enabled:Bool, date:Date, repeatWeek:[Bool], address:Address){
         
         self.enabled = enabled
         self.date = date
         self.repeatWeek = repeatWeek
-        self.repeatCount = repeatCount
         self.locationUpper = address.getUpper()
         self.locationLower = address.getLower()
         self.uuid = UUID().uuidString
@@ -73,7 +70,6 @@ struct Alarm : ReflectableProperty{
         self.enabled = dict["enabled"] as! Bool
         self.date = dict["date"] as! Date
         self.repeatWeek = dict["repeatWeek"] as! [Bool]
-        self.repeatCount = dict["repeatCount"] as! Int
         self.locationUpper = dict["locationUpper"] as! String
         self.locationLower = dict["locationLower"] as! String
         self.uuid = dict["uuid"] as! String
@@ -152,7 +148,7 @@ struct Alarm : ReflectableProperty{
     
     
     
-    static let propertyCount: Int = 7
+    static let propertyCount: Int = 6
 }
 
 
@@ -287,7 +283,7 @@ class AlarmManager{
                 
                 let space = weekIndex - weekInt
                 
-                let daySpace = (space == 0 && startDate < Date()) || (space < 0) ? space + 7 : space
+                let daySpace = (space == 0 && startDate <= Date()) || (space < 0) ? space + 7 : space
                 
                 let nextDate = Calendar.current.date(byAdding: .day, value: daySpace, to: startDate)
     
@@ -300,7 +296,7 @@ class AlarmManager{
     }
     
 
-    func addNotification(uuid:String, date:Date, weekly:Bool, repeatCount:Int){
+    func addNotification(uuid:String, date:Date, weekly:Bool){
         
         let content = UNMutableNotificationContent()
         content.title = "일어나세요"
@@ -308,24 +304,22 @@ class AlarmManager{
         content.sound = UNNotificationSound(named:"bell.mp3")
         content.categoryIdentifier = UUID().uuidString
         content.userInfo = ["uuid":uuid]
+
+        let current = Calendar.current
+    
+        let triggerDate =  weekly == true ? current.dateComponents([.weekday, .hour, .minute, .second], from: date) : current.dateComponents([.month, .day, .hour, .minute, .second], from: date)
+
+        let trigger = weekly == true ? UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true) : UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         
-        for count in 0..<repeatCount {
-            
-            let current = Calendar.current
-            
-            let nextDate = current.date(byAdding: .minute, value: count, to: date)
-            
-            let triggerDate =  weekly == true ? current.dateComponents([.weekday,.hour,.minute], from: nextDate!) : current.dateComponents([.month, .day, .hour, .minute], from: nextDate!)
-            
-            let trigger = weekly == true ? UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true) : UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-            
-            let identifier = UUID().uuidString
+        let identifier = UUID().uuidString
         
-            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        print(triggerDate)
+    
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
             
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            
-        }
+        
     }
     
     
@@ -400,12 +394,12 @@ class AlarmManager{
                 
                 for date in dates {
 
-                    addNotification(uuid:alarm.uuid, date: date, weekly: true, repeatCount:alarm.repeatCount)
+                    addNotification(uuid:alarm.uuid, date: date, weekly: true)
                 }
             }
             else{
 
-                addNotification(uuid:alarm.uuid, date: alarm.date, weekly: false, repeatCount:alarm.repeatCount)
+                addNotification(uuid:alarm.uuid, date: alarm.date, weekly: false)
             }
         }
     }

@@ -124,10 +124,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 }
             }
         }
-
-        AlarmManager().setNotification()
         
-        NotificationCenter.default.post(name: Notification.Name("reloadAlarm"), object: nil)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            
+            AlarmManager().setNotification()
+            
+            NotificationCenter.default.post(name: Notification.Name("reloadAlarm"), object: nil)
+        }
     }
     
     

@@ -28,7 +28,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var fixDate = Date()
     var weekChecked = [Bool](repeating:false, count:7)
     var selectedDateType:dateType = .todayTomorrow
-    var repeatCount:Int = 3
     
     var alarm:Alarm? = nil
     
@@ -95,7 +94,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return 2
     }
     
     
@@ -112,8 +111,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 0:
             return "weekTableCell"
         case 1:
-            return "repeatTableCell"
-        case 2:
             return "locationTableCell"
         default:
             return "defaultCell"
@@ -226,23 +223,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return date!
     }
-
-    
-    @IBAction func touchedRepeat(_ sender: Any) {
-        
-        let button = sender as? UIButton
-        
-        let text = button?.titleLabel?.text
-        
-        self.repeatCount = Int(text!)!
-    }
-    
     
     @IBAction func save(_ sender: Any) {
         
         let date:Date = selectedDateType == .fixDate ? makeFixDate() : self.todayTomorrowDate
         
-        let alarm:Alarm = Alarm(enabled: true, date: date, repeatWeek: self.weekChecked, repeatCount: self.repeatCount, address: selectedLocation())
+        let alarm:Alarm = Alarm(enabled: true, date: date, repeatWeek: self.weekChecked, address: selectedLocation())
     
         self.alarm = alarm
         
