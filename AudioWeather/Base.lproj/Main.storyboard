@@ -352,6 +352,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="8I9-ZQ-iel" kind="show" id="qnr-Vs-Ngo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -359,14 +362,42 @@
                             <outlet property="delegate" destination="j4B-ZH-nY8" id="tqx-0E-HgH"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="JA2-cb-goK" kind="unwind" identifier="unwindToEdit" unwindAction="unwindToEditWithSegue:" id="xKr-NZ-is0"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6vG-Wd-QCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="JA2-cb-goK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3174" y="99"/>
+            <point key="canvasLocation" x="3092" y="106"/>
+        </scene>
+        <!--Location Lower-->
+        <scene sceneID="pEA-TE-OXs">
+            <objects>
+                <tableViewController title="Location Lower" id="8I9-ZQ-iel" customClass="ViewLocationLower" customModule="AudioWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sdk-tS-LFD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellLowerID" id="50Q-hd-p3t">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="50Q-hd-p3t" id="UXs-Ac-7lU">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8I9-ZQ-iel" id="06s-i2-dv2"/>
+                            <outlet property="delegate" destination="8I9-ZQ-iel" id="NOR-fX-4cI"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="QCy-yo-IIi" kind="unwind" identifier="unwindToAdd" unwindAction="unwindToAddWithSegue:" id="yl0-5b-mk6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cy0-Un-jd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QCy-yo-IIi" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3881" y="106"/>
         </scene>
         <!--Navigation-->
         <scene sceneID="OWn-4y-rA7">

@@ -104,7 +104,7 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
     }
     
     
-    func tableCellIdentifier(row:Int) -> String{
+    func cellIdentifier(row:Int) -> String{
         
         switch(row){
             
@@ -175,7 +175,7 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let identifier = tableCellIdentifier(row: indexPath.row)
+        let identifier = cellIdentifier(row: indexPath.row)
         
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         
@@ -414,14 +414,14 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
     }
 
     
-    @IBAction func unwindToEdit(segue: UIStoryboardSegue){
+    
+    @IBAction func unwindToAdd(segue: UIStoryboardSegue){
         
-        guard let view = segue.source as? ViewLocation else {
+        guard let view = segue.source as? ViewLocationLower else {
             return
         }
         
         self.locationSection = view.selectedSection
         self.locationRow = view.selectedRow
-    }
-    
+    }    
 }

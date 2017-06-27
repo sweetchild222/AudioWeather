@@ -1,24 +1,24 @@
 //
-//  LocationTableViewController.swift
+//  ViewLocationLower.swift
 //  AudioWeather
 //
-//  Created by 최인국 on 2017. 6. 6..
+//  Created by 최인국 on 2017. 6. 27..
 //  Copyright © 2017년 최인국. All rights reserved.
 //
 
 import UIKit
 
-class ViewLocation: UITableViewController {
-    
+class ViewLocationLower: UITableViewController {
+
     var selectedSection:Int = 0
     var selectedRow:Int = 0
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -27,17 +27,17 @@ class ViewLocation: UITableViewController {
         return mapList.count + 1
         
     }
-
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+        
         if section == 0{
             
             return 1
         }
         
         let mapList = AddressMap.instance.mapList;
-    
+        
         return mapList[section - 1].lowerList.count
     }
     
@@ -46,8 +46,8 @@ class ViewLocation: UITableViewController {
         
         return 40.0
     }
-
-
+    
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if section == 0 {
@@ -56,7 +56,7 @@ class ViewLocation: UITableViewController {
         }
         
         let mapList = AddressMap.instance.mapList;
-    
+        
         return mapList[section - 1].getUpper()
     }
     
@@ -66,20 +66,21 @@ class ViewLocation: UITableViewController {
         self.selectedSection = indexPath.section
         self.selectedRow = indexPath.row
         
-        //self.performSegue(withIdentifier: "unwindToAdd", sender: self)
+        print("sefasefaef")
+        self.performSegue(withIdentifier: "unwindToAdd", sender: self)
     }
-
-
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let identifier = "CellUpperID"
+        let identifier = "CellLowerID"
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         
         if(cell == nil) {
             
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifier)
         }
-
+        
         if indexPath.section == 0 {
             
             cell?.textLabel?.text = AddressMap.instance.current
