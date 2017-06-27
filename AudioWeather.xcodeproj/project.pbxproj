@@ -2860,13 +2860,10 @@
 		6C4E6D141ED70F08002F0B27 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				6C65CE841F0226F2009A9FDD /* Story */,
+				6C65CE841F0226F2009A9FDD /* View */,
 				6C4E67181ED70BA3002F0B27 /* Audio */,
 				6C8BDBB71EB6F8D2001EA059 /* Assets.xcassets */,
-				6C0711551EE83ACD00902075 /* BoxDatePicker.xib */,
 				6C8BDBBC1EB6F8D2001EA059 /* Info.plist */,
-				6C8BDBB91EB6F8D2001EA059 /* LaunchScreen.storyboard */,
-				6C8BDBB41EB6F8D2001EA059 /* Main.storyboard */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -2878,17 +2875,18 @@
 				6C65CE891F024371009A9FDD /* Alarm */,
 				6C65CE881F02434B009A9FDD /* Add */,
 				6C8BDBB01EB6F8D2001EA059 /* AppDelegate.swift */,
-				6CAFA9281EE04D7F00C836C8 /* AlarmManager.swift */,
-				6C0BBD061EFCA5F80092C237 /* PlayWeather.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
 		};
-		6C65CE841F0226F2009A9FDD /* Story */ = {
+		6C65CE841F0226F2009A9FDD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C8BDBB41EB6F8D2001EA059 /* Main.storyboard */,
+				6C8BDBB91EB6F8D2001EA059 /* LaunchScreen.storyboard */,
+				6C0711551EE83ACD00902075 /* BoxDatePicker.xib */,
 			);
-			name = Story;
+			name = View;
 			sourceTree = "<group>";
 		};
 		6C65CE881F02434B009A9FDD /* Add */ = {
@@ -2924,6 +2922,8 @@
 		6C774E041EB75C1500709895 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6CAFA9281EE04D7F00C836C8 /* AlarmManager.swift */,
+				6C0BBD061EFCA5F80092C237 /* PlayWeather.swift */,
 				6C774E0D1EB9F76800709895 /* GlobalConfig.swift */,
 				6C4D83691EDADE9600227579 /* Position.swift */,
 			);
