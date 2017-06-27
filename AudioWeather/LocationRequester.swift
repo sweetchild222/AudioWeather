@@ -54,10 +54,10 @@ class LocationRequester{
             return nil
         }
         
-        let lng = values["x"] as! Double
+        let lgt = values["x"] as! Double
         let lat = values["y"] as! Double
         
-        return Location(lat:lat, lgt:lng)
+        return Location(lat:lat, lgt:lgt)
     }
     
     

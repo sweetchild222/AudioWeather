@@ -45,13 +45,13 @@ class UtilTest: XCTestCase {
             
             
             let positionXY = Position(x:value[0], y:value[1])
-            let positionGPS = Position(lat:value[2], lng:value[3])
+            let positionGPS = Position(lat:value[2], lgt:value[3])
         
             let gps = positionXY.gps
             let xy = positionGPS.xy
             
             
-            if gps.lat != value[2] || gps.lng != value[3]{
+            if gps.lat != value[2] || gps.lgt != value[3]{
                 XCTAssert(false)
             }
             

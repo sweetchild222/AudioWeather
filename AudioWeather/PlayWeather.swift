@@ -94,7 +94,7 @@ class PlayWeather{
         let lat = location.lat
         let lgt = location.lgt
     
-        WeatherRequester.instance.request(lat:lat, lng:lgt){ response in
+        WeatherRequester.instance.request(lat:lat, lgt:lgt){ response in
             
             guard let value = response else {
                 

@@ -594,7 +594,7 @@ class WeatherRequester{
     }
 
     
-    public func request(lat:Double, lng:Double, completionHandler: @escaping (WeatherDataManager?) -> Void) {
+    public func request(lat:Double, lgt:Double, completionHandler: @escaping (WeatherDataManager?) -> Void) {
         
         self.exitCount = 3
         
@@ -602,7 +602,7 @@ class WeatherRequester{
         self.dataClosed = nil
         self.dataSpace = nil
         
-        let position = Position(lat: lat, lng: lng)
+        let position = Position(lat: lat, lgt: lgt)
         let nx = position.xy.x
         let ny = position.xy.y
         

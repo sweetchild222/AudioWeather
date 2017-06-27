@@ -21,12 +21,12 @@ class Position{
     let YO:Double = 136 // 기1준점 Y좌표(GRID)
     
     let lat:Double
-    let lng:Double
+    let lgt:Double
 
-    init(lat:Double, lng:Double){
+    init(lat:Double, lgt:Double){
         
         self.lat = lat
-        self.lng = lng
+        self.lgt = lgt
     }
     
     
@@ -69,16 +69,16 @@ class Position{
         
         let alon = theta / sn + olon;
         self.lat = alat * RADDEG;
-        self.lng = alon * RADDEG;
+        self.lgt = alon * RADDEG;
     }
     
     
     
-    var gps:(lat:Double, lng:Double){
+    var gps:(lat:Double, lgt:Double){
         
         get{
             
-            return (self.lat, self.lng)
+            return (self.lat, self.lgt)
         }
         
     }
@@ -102,7 +102,7 @@ class Position{
             let ro = re * sf / pow(tan(Double.pi * 0.25 + olat * 0.5), sn);
             let ra = re * sf / pow(tan(Double.pi * 0.25 + (self.lat) * DEGRAD * 0.5), sn)
             
-            var theta = self.lng * DEGRAD - olon
+            var theta = self.lgt * DEGRAD - olon
             if theta > Double.pi {
                 
                 theta -= 2.0 * Double.pi
