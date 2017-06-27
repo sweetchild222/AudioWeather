@@ -31,4 +31,14 @@ class Address{
         
         return self.lower
     }
+    
+    
+    func getText() -> String{
+        
+        if self.upper == self.lower{
+            return self.upper
+        }
+        
+        return self.upper + " " + self.lower
+    }
 }

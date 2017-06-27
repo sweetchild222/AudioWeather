@@ -82,11 +82,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
     }
     
-    func showAlert(){
+    func showAlert(address:Address){
         
-        self.alert = UIAlertController(title: "날씨 방송중", message: nil, preferredStyle: .alert)
+        self.alert = UIAlertController(title: "\(address.getText()) 날씨", message: nil, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "멈춰요", style: .default) { (action:UIAlertAction)->Void in
+        let action = UIAlertAction(title: "중단", style: .default) { (action:UIAlertAction)->Void in
             
             if self.playWeather == nil {
                 return
@@ -141,7 +141,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         updateAlarmState()
-        showAlert()
         
         if AlarmManager().alarms[index].address.getUpper() == AddressMap.instance.current{
             
@@ -149,6 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         else{
         
+            showAlert(address:AlarmManager().alarms[index].address)
             self.playWeather = PlayWeather(address:AlarmManager().alarms[index].address, completionHandler:{ error in
                 
                 self.closeAlert()
@@ -216,6 +216,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 return
             }
             
+            self.showAlert(address:address)
             self.playWeather = PlayWeather(address:address, completionHandler:{ error in
                 
                 self.closeAlert(completion: {
