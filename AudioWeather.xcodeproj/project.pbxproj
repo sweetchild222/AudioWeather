@@ -851,7 +851,6 @@
 		6C7A21541ECB319B00B71F7A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7A21531ECB319B00B71F7A /* Item.swift */; };
 		6C7A21561ECB34A300B71F7A /* ItemListGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7A21551ECB34A300B71F7A /* ItemListGenerator.swift */; };
 		6C8BDBB11EB6F8D2001EA059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8BDBB01EB6F8D2001EA059 /* AppDelegate.swift */; };
-		6C8BDBB31EB6F8D2001EA059 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8BDBB21EB6F8D2001EA059 /* ViewController.swift */; };
 		6C8BDBB61EB6F8D2001EA059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8BDBB41EB6F8D2001EA059 /* Main.storyboard */; };
 		6C8BDBB81EB6F8D2001EA059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C8BDBB71EB6F8D2001EA059 /* Assets.xcassets */; };
 		6C8BDBBB1EB6F8D2001EA059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8BDBB91EB6F8D2001EA059 /* LaunchScreen.storyboard */; };
@@ -1724,7 +1723,6 @@
 		6C7A21551ECB34A300B71F7A /* ItemListGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListGenerator.swift; sourceTree = "<group>"; };
 		6C8BDBAD1EB6F8D2001EA059 /* AudioWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8BDBB01EB6F8D2001EA059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6C8BDBB21EB6F8D2001EA059 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6C8BDBB51EB6F8D2001EA059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C8BDBB71EB6F8D2001EA059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C8BDBBA1EB6F8D2001EA059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2880,7 +2878,6 @@
 		6C4E6D151ED70F25002F0B27 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6C8BDBB21EB6F8D2001EA059 /* ViewController.swift */,
 				6C8BDBB01EB6F8D2001EA059 /* AppDelegate.swift */,
 				6CAFA9221EE030C700C836C8 /* EditViewController.swift */,
 				6CAFA9241EE03E3000C836C8 /* AlarmTableViewController.swift */,
@@ -3881,7 +3878,6 @@
 				6CAFA93F1EE41A3400C836C8 /* TableViewCellRepeat.swift in Sources */,
 				6C0BBD071EFCA5F80092C237 /* PlayWeather.swift in Sources */,
 				6C774E0E1EB9F76800709895 /* GlobalConfig.swift in Sources */,
-				6C8BDBB31EB6F8D2001EA059 /* ViewController.swift in Sources */,
 				6C4E60D91ED31CC1002F0B27 /* ItemSetWillRainSnow.swift in Sources */,
 				6C4E60DB1ED31CD7002F0B27 /* ItemSetCurrentRainSnow.swift in Sources */,
 				6C4D836A1EDADE9600227579 /* Position.swift in Sources */,
