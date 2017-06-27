@@ -94,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             self.playWeather?.stop()
             self.playWeather = nil
+            NotificationCenter.default.post(name: Notification.Name("showRescent"), object: nil)
         }
         
         self.alert?.addAction(action)
@@ -151,6 +152,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.playWeather = PlayWeather(address:AlarmManager().alarms[index].address, completionHandler:{ error in
                 
                 self.closeAlert()
+                NotificationCenter.default.post(name: Notification.Name("showRescent"), object: nil)
             })
             self.playWeather?.play()
         }
@@ -221,6 +223,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     if error == true {
                         
                         self.showError(error:"날씨 정보를 가져 올 수 없습니다. 네트워크 상태를 확인 해주세요")
+                    }
+                    else{
+                        
+                        NotificationCenter.default.post(name: Notification.Name("showRescent"), object: nil)
                     }
                 })
             })

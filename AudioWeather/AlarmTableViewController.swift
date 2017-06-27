@@ -66,7 +66,6 @@ class AlarmTableViewController: UITableViewController {
                 return
             }
             
-            
             DispatchQueue.main.async {
                 
                 self.showToast(message:xMessage)
