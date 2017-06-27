@@ -140,6 +140,9 @@ class TableViewCellAlarm: UITableViewCell {
         date.text = getDate(alarm:AlarmManager().alarms[index])
         updateColor(enabled:sender.isOn)
         
-        NotificationCenter.default.post(name: Notification.Name("showRescent"), object: nil)
+        if sender.isOn == true{
+            
+            NotificationCenter.default.post(name: Notification.Name("showRescent"), object: nil)
+        }
     }
 }

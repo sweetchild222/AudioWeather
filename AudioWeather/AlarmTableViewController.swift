@@ -115,7 +115,7 @@ class AlarmTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    
         return AlarmManager().count
     }
 
@@ -188,8 +188,6 @@ class AlarmTableViewController: UITableViewController {
             AlarmManager().alarms.remove(at: indexPath.row)
             
             AlarmManager().setNotification()
-            
-            showRescent()
             
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             

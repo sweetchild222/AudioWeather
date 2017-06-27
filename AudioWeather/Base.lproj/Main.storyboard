@@ -30,16 +30,16 @@
                                             <rect key="frame" x="20" y="6.5" width="335" height="31"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:15 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWt-He-MvW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="31"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="31"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="t9p-xF-AJb"/>
+                                                        <constraint firstAttribute="width" constant="80" id="t9p-xF-AJb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybP-2i-loq">
-                                                    <rect key="frame" x="125" y="0.0" width="156" height="31"/>
+                                                    <rect key="frame" x="85" y="0.0" width="196" height="31"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
