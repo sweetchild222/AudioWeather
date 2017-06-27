@@ -100,12 +100,31 @@ class TableViewCellAlarm: UITableViewCell {
         date.textColor = enabled ? UIColor.darkGray : UIColor.lightGray
     }
     
+    
+    func checkMaxNotification(index:Int) -> Bool{
+
+        let notiCount = AlarmManager().alarms[index].getNotificationCount()
+        
+        if (AlarmManager().getNotificationCount() + (notiCount)) > 64{
+            
+            return true
+        }
+        
+        return false
+    }
 
     @IBAction func tapped(_ sender: UISwitch) {
         
         let index = AlarmManager().findIndex(uuid:uuid)
         
         if index == -1 {
+            return
+        }
+        
+        if sender.isOn == true && checkMaxNotification(index:index) == true{
+            
+            sender.isOn = false
+            NotificationCenter.default.post(name: Notification.Name("showOverMax"), object: nil)
             return
         }
         

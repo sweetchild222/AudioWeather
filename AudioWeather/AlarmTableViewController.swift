@@ -18,6 +18,12 @@ class AlarmTableViewController: UITableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.reloadAlarm), name: Notification.Name("reloadAlarm"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.showRescent), name: Notification.Name("showRescent"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.showOverMax), name: Notification.Name("showOverMax"), object: nil)
+    }
+    
+    func showOverMax(){
+        
+        self.showToast(message:"설정한 알람 갯수가 너무 많습니다")
     }
 
     
@@ -154,10 +160,11 @@ class AlarmTableViewController: UITableViewController {
         
         let notiCount = alarm?.getNotificationCount()
         
-        if (AlarmManager().getNotificationCount() + (notiCount)!) > 64{
+        if (AlarmManager().getNotificationCount() + (notiCount!)) > 64{
             
-            self.showToast(message:"설정한 알람 갯수가 너무 많습니다")
             alarm?.enabled = false
+            
+            showOverMax()
         }
         
         AlarmManager().alarms.insert(alarm!, at:0)
@@ -165,7 +172,7 @@ class AlarmTableViewController: UITableViewController {
         AlarmManager().setNotification()
         
         if alarm?.enabled == true{
-        
+
             showRescent()
         }
         
