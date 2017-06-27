@@ -15,7 +15,7 @@ protocol PickDateDelegate
 }
 
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PickDateDelegate{
+class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, PickDateDelegate{
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var alarmDateLabel: UILabel!
@@ -109,11 +109,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         switch(row){
             
         case 0:
-            return "weekTableCell"
+            return "CellWeekID"
         case 1:
-            return "locationTableCell"
+            return "CellLocationID"
         default:
-            return "defaultCell"
+            return "CellDefaultID"
 
         }
     }
@@ -140,7 +140,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func updateLocationCell(cell:UITableViewCell) {
         
-        guard let locationCell = (cell as? TableViewCellLocation) else{
+        guard let locationCell = (cell as? CellLocation) else{
             return
         }
         
@@ -153,7 +153,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func updateWeekCell(cell:UITableViewCell){
         
-        guard let weekCell = (cell as? TableViewCellWeek) else{
+        guard let weekCell = (cell as? CellWeek) else{
             return
         }
         
@@ -416,12 +416,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func unwindToEdit(segue: UIStoryboardSegue){
         
-        guard let locationController = segue.source as? LocationTableViewController else {
+        guard let view = segue.source as? ViewLocation else {
             return
         }
         
-        self.locationSection = locationController.selectedSection
-        self.locationRow = locationController.selectedRow
+        self.locationSection = view.selectedSection
+        self.locationRow = view.selectedRow
     }
     
 }

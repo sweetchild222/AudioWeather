@@ -9,16 +9,16 @@
 import UIKit
 
  
-class AlarmTableViewController: UITableViewController {
+class ViewAlarm: UITableViewController {
     
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.reloadAlarm), name: Notification.Name("reloadAlarm"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.showRescent), name: Notification.Name("showRescent"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(AlarmTableViewController.showOverMax), name: Notification.Name("showOverMax"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewAlarm.reloadAlarm), name: Notification.Name("reloadAlarm"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewAlarm.showRescent), name: Notification.Name("showRescent"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewAlarm.showOverMax), name: Notification.Name("showOverMax"), object: nil)
     }
     
     func showOverMax(){
@@ -122,7 +122,7 @@ class AlarmTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let identifier = "alarmTableCell"
+        let identifier = "CellAlarmID"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
         let alarm = AlarmManager().alarms[indexPath.row]
@@ -136,7 +136,7 @@ class AlarmTableViewController: UITableViewController {
     
     func updateAlarm(cell:UITableViewCell, uuid: String){
         
-        guard let alarmCell = (cell as? TableViewCellAlarm) else{
+        guard let alarmCell = (cell as? CellAlarm) else{
             return
         }
         
@@ -152,11 +152,11 @@ class AlarmTableViewController: UITableViewController {
     
     @IBAction func unwindToAlarm(segue: UIStoryboardSegue){
         
-        guard let editViewController = segue.source as? EditViewController else {
+        guard let view = segue.source as? ViewAdd else {
             return
         }
         
-        var alarm = editViewController.alarm
+        var alarm = view.alarm
         
         let notiCount = alarm?.getNotificationCount()
         

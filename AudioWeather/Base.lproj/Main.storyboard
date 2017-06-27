@@ -13,13 +13,13 @@
         <!--Alarm-->
         <scene sceneID="JPt-Sc-5v3">
             <objects>
-                <tableViewController id="W8v-Nt-Xwu" customClass="AlarmTableViewController" customModule="AudioWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="W8v-Nt-Xwu" customClass="ViewAlarm" customModule="AudioWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CZl-tf-7fl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="alarmTableCell" id="rof-Zc-K40" customClass="TableViewCellAlarm" customModule="AudioWeather" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellAlarmID" id="rof-Zc-K40" customClass="CellAlarm" customModule="AudioWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rof-Zc-K40" id="OpX-Am-NS7">
@@ -27,7 +27,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="reM-Sn-L7w">
-                                            <rect key="frame" x="20" y="7" width="335" height="31"/>
+                                            <rect key="frame" x="20" y="6" width="335" height="31"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:15 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWt-He-MvW">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="31"/>
@@ -74,7 +74,7 @@
                     <navigationItem key="navigationItem" title="Alarm" id="hnC-25-4lJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="t4E-IQ-Swg">
                             <connections>
-                                <segue destination="z3B-Vv-DAg" kind="show" id="voW-vM-Pe6"/>
+                                <segue destination="z3B-Vv-DAg" kind="show" id="N9R-qN-2et"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="1535" y="107"/>
         </scene>
-        <!--Edit-->
+        <!--Add-->
         <scene sceneID="5a2-AY-dmX">
             <objects>
-                <viewController title="Edit" id="z3B-Vv-DAg" customClass="EditViewController" customModule="AudioWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add" id="z3B-Vv-DAg" customClass="ViewAdd" customModule="AudioWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lMA-rr-RSJ"/>
                         <viewControllerLayoutGuide type="bottom" id="eA8-0A-fAR"/>
@@ -128,7 +128,7 @@
                                 <rect key="frame" x="16" y="356" width="343" height="262"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weekTableCell" id="uqq-0b-2NN" customClass="TableViewCellWeek" customModule="AudioWeather" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellWeekID" id="uqq-0b-2NN" customClass="CellWeek" customModule="AudioWeather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uqq-0b-2NN" id="GlT-dj-ch8">
@@ -241,7 +241,7 @@
                                             <outletCollection property="buttons" destination="vER-CS-hux" collectionClass="NSMutableArray" id="7LW-3i-e0F"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="locationTableCell" id="YWQ-7t-9Zf" customClass="TableViewCellLocation" customModule="AudioWeather" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellLocationID" id="YWQ-7t-9Zf" customClass="CellLocation" customModule="AudioWeather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWQ-7t-9Zf" id="opu-yn-4Hs">
@@ -339,13 +339,13 @@
         <!--Location-->
         <scene sceneID="iSk-WZ-Ccg">
             <objects>
-                <tableViewController title="Location" id="j4B-ZH-nY8" customClass="LocationTableViewController" customModule="AudioWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Location" id="j4B-ZH-nY8" customClass="ViewLocation" customModule="AudioWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8hJ-OE-bkE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationDetailID" id="mZy-Ad-YGG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellUpperID" id="mZy-Ad-YGG">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mZy-Ad-YGG" id="4od-hB-ERv">
@@ -368,10 +368,10 @@
             </objects>
             <point key="canvasLocation" x="3174" y="99"/>
         </scene>
-        <!--Alarm-->
+        <!--Navigation-->
         <scene sceneID="OWn-4y-rA7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vke-JV-8l4" sceneMemberID="viewController">
+                <navigationController title="Navigation" automaticallyAdjustsScrollViewInsets="NO" id="vke-JV-8l4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Alarm" id="k2W-G8-U4j"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="x0H-km-cLf">
@@ -406,10 +406,10 @@
             </objects>
             <point key="canvasLocation" x="591" y="894"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--TabBar-->
         <scene sceneID="Peo-pO-uqL">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xjn-4t-WVr" sceneMemberID="viewController">
+                <tabBarController title="TabBar" automaticallyAdjustsScrollViewInsets="NO" id="xjn-4t-WVr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Bzt-I3-Qxk">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewCellLocation: UITableViewCell {
+class CellLocation: UITableViewCell {
 
     @IBOutlet weak var location: UILabel!
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationTableViewController: UITableViewController {
+class ViewLocation: UITableViewController {
     
     var selectedSection:Int = 0
     var selectedRow:Int = 0
@@ -72,7 +72,7 @@ class LocationTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let identifier = "locationListID"
+        let identifier = "CellUpperID"
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         
         if(cell == nil) {

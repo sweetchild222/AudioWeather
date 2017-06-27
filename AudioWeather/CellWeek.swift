@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewCellWeek: UITableViewCell {
+class CellWeek: UITableViewCell {
 
     @IBOutlet var buttons: [ButtonCheck]!
     
