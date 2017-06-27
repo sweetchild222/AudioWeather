@@ -9,7 +9,7 @@
 import UIKit
 
 
-class DatePickerPopUp: UIView {
+class BoxDatePicker: UIView {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var baseView: UIView!

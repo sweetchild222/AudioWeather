@@ -164,12 +164,12 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
     
     @IBAction func showDatePicker(_ sender: Any) {
         
-        let popUp: DatePickerPopUp = UINib(nibName: "DatePickerPopUp", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DatePickerPopUp
+        let box: BoxDatePicker = UINib(nibName: "BoxDatePicker", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! BoxDatePicker
         
-        popUp.frame = self.view.frame
-        popUp.delegate = self
+        box.frame = self.view.frame
+        box.delegate = self
         
-        self.view.addSubview(popUp)
+        self.view.addSubview(box)
     }
     
     

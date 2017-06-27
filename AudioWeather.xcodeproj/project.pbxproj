@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6C0711541EE835E600902075 /* ButtonRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0711531EE835E600902075 /* ButtonRound.swift */; };
-		6C0711561EE83ACD00902075 /* DatePickerPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0711551EE83ACD00902075 /* DatePickerPopUp.xib */; };
-		6C0711581EE83AF000902075 /* DatePickerPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0711571EE83AF000902075 /* DatePickerPopUp.swift */; };
+		6C0711561EE83ACD00902075 /* BoxDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0711551EE83ACD00902075 /* BoxDatePicker.xib */; };
+		6C0711581EE83AF000902075 /* BoxDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0711571EE83AF000902075 /* BoxDatePicker.swift */; };
 		6C0BBD011EF64B800092C237 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C0BBD001EF64B800092C237 /* bell.mp3 */; };
 		6C0BBD071EFCA5F80092C237 /* PlayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BBD061EFCA5F80092C237 /* PlayWeather.swift */; };
 		6C1B57241EE652AB00F55872 /* ViewLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B57231EE652AB00F55872 /* ViewLocation.swift */; };
@@ -876,8 +876,8 @@
 
 /* Begin PBXFileReference section */
 		6C0711531EE835E600902075 /* ButtonRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonRound.swift; sourceTree = "<group>"; };
-		6C0711551EE83ACD00902075 /* DatePickerPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerPopUp.xib; sourceTree = "<group>"; };
-		6C0711571EE83AF000902075 /* DatePickerPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerPopUp.swift; sourceTree = "<group>"; };
+		6C0711551EE83ACD00902075 /* BoxDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoxDatePicker.xib; sourceTree = "<group>"; };
+		6C0711571EE83AF000902075 /* BoxDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxDatePicker.swift; sourceTree = "<group>"; };
 		6C0BBD001EF64B800092C237 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		6C0BBD061EFCA5F80092C237 /* PlayWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayWeather.swift; sourceTree = "<group>"; };
 		6C1B57231EE652AB00F55872 /* ViewLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLocation.swift; sourceTree = "<group>"; };
@@ -2863,7 +2863,7 @@
 				6C65CE841F0226F2009A9FDD /* Story */,
 				6C4E67181ED70BA3002F0B27 /* Audio */,
 				6C8BDBB71EB6F8D2001EA059 /* Assets.xcassets */,
-				6C0711551EE83ACD00902075 /* DatePickerPopUp.xib */,
+				6C0711551EE83ACD00902075 /* BoxDatePicker.xib */,
 				6C8BDBBC1EB6F8D2001EA059 /* Info.plist */,
 				6C8BDBB91EB6F8D2001EA059 /* LaunchScreen.storyboard */,
 				6C8BDBB41EB6F8D2001EA059 /* Main.storyboard */,
@@ -2895,7 +2895,7 @@
 			isa = PBXGroup;
 			children = (
 				6C0711531EE835E600902075 /* ButtonRound.swift */,
-				6C0711571EE83AF000902075 /* DatePickerPopUp.swift */,
+				6C0711571EE83AF000902075 /* BoxDatePicker.swift */,
 				6CAFA9301EE2B18200C836C8 /* ButtonCheck.swift */,
 				6C1B57251EE6B2F400F55872 /* CellLocation.swift */,
 				6CAFA92E1EE2AAAF00C836C8 /* CellWeek.swift */,
@@ -3437,7 +3437,7 @@
 				6C4E6BD61ED70BA5002F0B27 /* city_kb18.mp3 in Resources */,
 				6C4E6BD71ED70BA5002F0B27 /* city_kb19.mp3 in Resources */,
 				6C4E6B821ED70BA5002F0B27 /* city_cb7.mp3 in Resources */,
-				6C0711561EE83ACD00902075 /* DatePickerPopUp.xib in Resources */,
+				6C0711561EE83ACD00902075 /* BoxDatePicker.xib in Resources */,
 				6C4E6AD41ED70BA4002F0B27 /* current_temp_min28.mp3 in Resources */,
 				6C4E6A4D1ED70BA4002F0B27 /* current_hour_1am.mp3 in Resources */,
 				6C4E6A8F1ED70BA4002F0B27 /* rna130.mp3 in Resources */,
@@ -3921,7 +3921,7 @@
 				6C4E60E31ED4459B002F0B27 /* WeatherDataManager.swift in Sources */,
 				6C7A21461ECB2ED100B71F7A /* ItemSet.swift in Sources */,
 				6C5569821EEEB87C006CD8F8 /* CellAlarm.swift in Sources */,
-				6C0711581EE83AF000902075 /* DatePickerPopUp.swift in Sources */,
+				6C0711581EE83AF000902075 /* BoxDatePicker.swift in Sources */,
 				6C4E60DF1ED444F9002F0B27 /* WeatherDataClosed.swift in Sources */,
 				6CA20DEB1ECDD92700D13528 /* ItemSetDust.swift in Sources */,
 			);
