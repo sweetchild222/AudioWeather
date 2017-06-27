@@ -10,6 +10,52 @@ import Foundation
 
 import UserNotifications
 
+
+protocol ReflectableProperty{
+    
+    typealias RepresentationType = [String:Any]
+    typealias ValuesType = [Any]
+    typealias NamesType = [String]
+    
+    var representation: RepresentationType {get}
+    var values: ValuesType {get}
+    var names: NamesType {get}
+    
+    init(dict:RepresentationType)
+}
+
+
+extension ReflectableProperty{
+    
+    var representation: RepresentationType {
+        
+        var types: [String:Any] = [:]
+        
+        for case let (name, value) in Mirror(reflecting: self).children {
+            
+            guard let guardName = name else{
+                continue
+            }
+            
+            types.updateValue(value, forKey: guardName)
+        }
+        
+        return types
+    }
+    
+    
+    var values: ValuesType {
+        
+        return Array(representation.values)
+    }
+    
+    var names: NamesType {
+        
+        return Array(representation.keys)
+    }
+}
+
+
 struct Alarm : ReflectableProperty{
     
     var enabled: Bool = false
@@ -312,8 +358,6 @@ class AlarmManager{
         let trigger = weekly == true ? UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true) : UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         
         let identifier = UUID().uuidString
-        
-        print(triggerDate)
     
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         

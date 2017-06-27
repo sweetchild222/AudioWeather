@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             
-            print(granted)
+            
         }
         
         center.delegate = self
@@ -188,7 +188,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print(status)
     }
     
     
