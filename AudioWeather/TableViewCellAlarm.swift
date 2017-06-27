@@ -109,7 +109,6 @@ class TableViewCellAlarm: UITableViewCell {
             return
         }
         
-        
         AlarmManager().alarms[index].enabled = sender.isOn
         
         if sender.isOn == true{

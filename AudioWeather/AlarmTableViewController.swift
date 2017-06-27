@@ -39,10 +39,10 @@ class AlarmTableViewController: UITableViewController {
                     
                     let day = Calendar.current.dateComponents([.day], from: Date(), to: xDate).day!
                     
-                    message = "다음 알람은 \(day)일 후 입니다."
+                    message = "다음 알람은 \(day)일 후 입니다"
                 }else{
                     
-                    message = "다음 알람은 \(hour)시간 후 입니다."
+                    message = "다음 알람은 \(hour)시간 후 입니다"
                 }
             }
             else{
@@ -53,11 +53,11 @@ class AlarmTableViewController: UITableViewController {
                     
                     let second = Calendar.current.dateComponents([.second], from: Date(), to: xDate).second!
                     
-                    message = "다음 알람은 \(second)초 후 입니다."
+                    message = "다음 알람은 \(second)초 후 입니다"
                 }
                 else{
                 
-                    message = "다음 알람은 \(minute)분 후 입니다."
+                    message = "다음 알람은 \(minute)분 후 입니다"
                 }
             }
             
@@ -150,13 +150,24 @@ class AlarmTableViewController: UITableViewController {
             return
         }
         
-        let alarm = editViewController.alarm
+        var alarm = editViewController.alarm
+        
+        let notiCount = alarm?.getNotificationCount()
+        
+        if (AlarmManager().getNotificationCount() + (notiCount)!) > 64{
+            
+            self.showToast(message:"설정한 알람 갯수가 너무 많습니다")
+            alarm?.enabled = false
+        }
         
         AlarmManager().alarms.insert(alarm!, at:0)
         
         AlarmManager().setNotification()
         
-        showRescent()
+        if alarm?.enabled == true{
+        
+            showRescent()
+        }
         
         self.tableView.reloadData()
         

@@ -35,6 +35,27 @@ struct Alarm : ReflectableProperty{
     }
     
     
+    func getNotificationCount() -> Int{
+        
+        var count:Int = 0
+        
+        if isRepeatWeek() == true {
+            
+            for week in repeatWeek{
+                
+                if week == true{
+                    count += 1
+                }
+            }
+        }
+        else{
+            count = 1
+        }
+        
+        return count * self.repeatCount
+    }
+    
+    
     init(enabled:Bool, date:Date, repeatWeek:[Bool], repeatCount:Int, address:Address){
         
         self.enabled = enabled
@@ -337,6 +358,24 @@ class AlarmManager{
             completionHandler(rescent)
         })
         
+    }
+    
+    
+    func getNotificationCount() -> Int{
+        
+        var count:Int = 0
+        let alarms = self.alarms
+        
+        for alarm in alarms{
+            
+            if alarm.enabled == false {
+                continue
+            }
+
+            count += alarm.getNotificationCount()
+        }
+
+        return count
     }
     
     
