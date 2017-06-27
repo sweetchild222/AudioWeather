@@ -188,7 +188,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell?.separatorInset = UIEdgeInsets.zero
         cell?.layoutMargins = UIEdgeInsets.zero
         
-        if indexPath.row == 2{
+        if indexPath.row == 1{
             
             updateLocationCell(cell:cell!)
         }
