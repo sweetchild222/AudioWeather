@@ -10,10 +10,10 @@ import UIKit
 
 class ViewLocationLower: UITableViewController {
 
-    var selectedSection:Int = 0
-    var selectedRow:Int = 0
+    var selectedUpper:Int = 0
+    var selectedLower:Int = 0
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,51 +22,22 @@ class ViewLocationLower: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        let mapList = AddressMap.instance.mapList;
-        
-        return mapList.count + 1
-        
+        return 1
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0{
-            
-            return 1
-        }
-        
         let mapList = AddressMap.instance.mapList;
         
-        return mapList[section - 1].lowerList.count
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 40.0
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if section == 0 {
-            
-            return AddressMap.instance.current
-        }
-        
-        let mapList = AddressMap.instance.mapList;
-        
-        return mapList[section - 1].getUpper()
+        return mapList[self.selectedUpper].lowerList.count
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.selectedSection = indexPath.section
-        self.selectedRow = indexPath.row
+        self.selectedLower = indexPath.row
         
-        print("sefasefaef")
         self.performSegue(withIdentifier: "unwindToAdd", sender: self)
     }
     
@@ -81,18 +52,9 @@ class ViewLocationLower: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifier)
         }
         
-        if indexPath.section == 0 {
+        let mapList = AddressMap.instance.mapList;
             
-            cell?.textLabel?.text = AddressMap.instance.current
-            
-        }
-        else{
-            
-            let mapList = AddressMap.instance.mapList;
-            
-            cell?.textLabel?.text = mapList[indexPath.section - 1].getLowerList()[indexPath.row].getLower()
-            
-        }
+        cell?.textLabel?.text = mapList[self.selectedUpper].getLowerList()[indexPath.row].getLower()
         
         return cell!
     }

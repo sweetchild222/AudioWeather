@@ -21,8 +21,9 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
     @IBOutlet weak var alarmDateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var locationSection:Int = 0
-    var locationRow:Int = 0
+    var locationUpper:Int = 0
+    var locationLower:Int = 0
+    var isCurrentLocation:Bool = true
     
     var todayTomorrowDate = Date()
     var fixDate = Date()
@@ -121,7 +122,7 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
     
     func selectedLocation() -> Address{
         
-        if self.locationSection == 0{
+        if self.isCurrentLocation == true {
             
             return Address(upper:AddressMap.instance.current, lower:String())
 
@@ -130,8 +131,8 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
             
             let mapList = AddressMap.instance.mapList
             
-            let locationUpper = mapList[self.locationSection - 1].getUpper()
-            let locationLower = mapList[self.locationSection - 1].getLowerList()[locationRow].getLower()
+            let locationUpper = mapList[self.locationUpper].getUpper()
+            let locationLower = mapList[self.locationUpper].getLowerList()[self.locationLower].getLower()
             
             return Address(upper:locationUpper, lower:locationLower)
         }
@@ -414,14 +415,64 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
     }
 
     
+    func adjustSelectedLower(segue: UIStoryboardSegue) -> Bool{
+        
+        guard let view = segue.source as? ViewLocationLower else {
+            return false
+        }
+        
+        self.isCurrentLocation = false
+        self.locationUpper = view.selectedUpper
+        self.locationLower = view.selectedLower
+
+        return true
+    }
+    
+    
+    func adjustSelectedUpper(segue: UIStoryboardSegue) -> Bool{
+        
+        guard let view = segue.source as? ViewLocation else {
+            return false
+        }
+        
+        print(view.selected)
+        
+        self.isCurrentLocation = true
+        self.locationUpper = 0
+        self.locationLower = 0
+
+        return true
+    }
+
+    
     
     @IBAction func unwindToAdd(segue: UIStoryboardSegue){
         
-        guard let view = segue.source as? ViewLocationLower else {
+        if adjustSelectedUpper(segue: segue) == true{
+
             return
         }
         
-        self.locationSection = view.selectedSection
-        self.locationRow = view.selectedRow
-    }    
+        if adjustSelectedLower(segue: segue) == true{
+            
+            return
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

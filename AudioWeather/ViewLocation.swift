@@ -10,10 +10,8 @@ import UIKit
 
 class ViewLocation: UITableViewController {
     
-    var selectedSection:Int = 0
-    var selectedRow:Int = 0
+    var selected:Int = 0
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,53 +20,47 @@ class ViewLocation: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        let mapList = AddressMap.instance.mapList;
-        
-        return mapList.count + 1
-        
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-        if section == 0{
-            
-            return 1
-        }
-        
         let mapList = AddressMap.instance.mapList;
     
-        return mapList[section - 1].lowerList.count
+        return mapList.count + 1
     }
     
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 40.0
-    }
-
-
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if section == 0 {
-            
-            return AddressMap.instance.current
-        }
-        
-        let mapList = AddressMap.instance.mapList;
-    
-        return mapList[section - 1].getUpper()
-    }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.selectedSection = indexPath.section
-        self.selectedRow = indexPath.row
+        self.selected = indexPath.row
         
-        //self.performSegue(withIdentifier: "unwindToAdd", sender: self)
+        if indexPath.row == 0{
+
+            self.performSegue(withIdentifier: "unwindToAddOnLocation", sender: self)
+            
+        }
+        else{
+        
+            self.performSegue(withIdentifier: "segueLocationLower", sender: self)
+        }
     }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueLocationLower" {
+            
+            guard let view = segue.destination as? ViewLocationLower else{
+                return
+            }
+
+            view.selectedUpper = selected - 1
+        }
+        
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -80,7 +72,7 @@ class ViewLocation: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifier)
         }
 
-        if indexPath.section == 0 {
+        if indexPath.row == 0 {
             
             cell?.textLabel?.text = AddressMap.instance.current
             
@@ -89,7 +81,7 @@ class ViewLocation: UITableViewController {
             
             let mapList = AddressMap.instance.mapList;
             
-            cell?.textLabel?.text = mapList[indexPath.section - 1].getLowerList()[indexPath.row].getLower()
+            cell?.textLabel?.text = mapList[indexPath.row - 1].getUpper()
             
         }
         
