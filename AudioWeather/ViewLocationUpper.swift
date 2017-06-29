@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewLocation: UITableViewController {
+class ViewLocationUpper: UITableViewController {
     
     var selected:Int = 0
     

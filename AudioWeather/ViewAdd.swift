@@ -431,7 +431,7 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
     
     func adjustSelectedUpper(segue: UIStoryboardSegue) -> Bool{
         
-        guard let view = segue.source as? ViewLocation else {
+        guard let view = segue.source as? ViewLocationUpper else {
             return false
         }
         
