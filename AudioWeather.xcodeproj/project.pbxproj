@@ -10,7 +10,6 @@
 		6C0711541EE835E600902075 /* ButtonRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0711531EE835E600902075 /* ButtonRound.swift */; };
 		6C0711561EE83ACD00902075 /* BoxDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0711551EE83ACD00902075 /* BoxDatePicker.xib */; };
 		6C0711581EE83AF000902075 /* BoxDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0711571EE83AF000902075 /* BoxDatePicker.swift */; };
-		6C0BBD011EF64B800092C237 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C0BBD001EF64B800092C237 /* bell.mp3 */; };
 		6C0BBD071EFCA5F80092C237 /* PlayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BBD061EFCA5F80092C237 /* PlayWeather.swift */; };
 		6C1B57241EE652AB00F55872 /* ViewLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B57231EE652AB00F55872 /* ViewLocation.swift */; };
 		6C1B57261EE6B2F400F55872 /* CellLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B57251EE6B2F400F55872 /* CellLocation.swift */; };
@@ -841,6 +840,7 @@
 		6C6246DA1EC0A2740044F5B7 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6246D91EC0A2740044F5B7 /* WeatherData.swift */; };
 		6C631E1C1EBAFB4D00AC3D78 /* WeatherRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C631E1B1EBAFB4D00AC3D78 /* WeatherRequester.swift */; };
 		6C65CE901F026508009A9FDD /* ViewLocationLower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C65CE8F1F026508009A9FDD /* ViewLocationLower.swift */; };
+		6C65CE921F04C3AA009A9FDD /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C65CE911F04C3AA009A9FDD /* bell.mp3 */; };
 		6C774E061EB75E1500709895 /* DustRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C774E051EB75E1500709895 /* DustRequester.swift */; };
 		6C774E0E1EB9F76800709895 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C774E0D1EB9F76800709895 /* GlobalConfig.swift */; };
 		6C7A21461ECB2ED100B71F7A /* ItemSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7A21451ECB2ED100B71F7A /* ItemSet.swift */; };
@@ -879,7 +879,6 @@
 		6C0711531EE835E600902075 /* ButtonRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonRound.swift; sourceTree = "<group>"; };
 		6C0711551EE83ACD00902075 /* BoxDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoxDatePicker.xib; sourceTree = "<group>"; };
 		6C0711571EE83AF000902075 /* BoxDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxDatePicker.swift; sourceTree = "<group>"; };
-		6C0BBD001EF64B800092C237 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		6C0BBD061EFCA5F80092C237 /* PlayWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayWeather.swift; sourceTree = "<group>"; };
 		6C1B57231EE652AB00F55872 /* ViewLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLocation.swift; sourceTree = "<group>"; };
 		6C1B57251EE6B2F400F55872 /* CellLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellLocation.swift; sourceTree = "<group>"; };
@@ -1710,6 +1709,7 @@
 		6C6246D91EC0A2740044F5B7 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		6C631E1B1EBAFB4D00AC3D78 /* WeatherRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherRequester.swift; sourceTree = "<group>"; };
 		6C65CE8F1F026508009A9FDD /* ViewLocationLower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLocationLower.swift; sourceTree = "<group>"; };
+		6C65CE911F04C3AA009A9FDD /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		6C774E051EB75E1500709895 /* DustRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DustRequester.swift; sourceTree = "<group>"; };
 		6C774E0D1EB9F76800709895 /* GlobalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		6C7A21451ECB2ED100B71F7A /* ItemSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSet.swift; sourceTree = "<group>"; };
@@ -1882,7 +1882,7 @@
 		6C4E67181ED70BA3002F0B27 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				6C0BBD001EF64B800092C237 /* bell.mp3 */,
+				6C65CE911F04C3AA009A9FDD /* bell.mp3 */,
 				6C4E67191ED70BA3002F0B27 /* body */,
 				6C4E68661ED70BA4002F0B27 /* empty */,
 				6C4E687B1ED70BA4002F0B27 /* head */,
@@ -3421,6 +3421,7 @@
 				6C4E6A3B1ED70BA4002F0B27 /* after_much.mp3 in Resources */,
 				6C4E6B351ED70BA4002F0B27 /* max_temp_pls14.mp3 in Resources */,
 				6C4E6C2C1ED70BA5002F0B27 /* city_ky31.mp3 in Resources */,
+				6C65CE921F04C3AA009A9FDD /* bell.mp3 in Resources */,
 				6C4E6B321ED70BA4002F0B27 /* max_temp_pls11.mp3 in Resources */,
 				6C4E6C3B1ED70BA5002F0B27 /* city_ky45.mp3 in Resources */,
 				6C4E6A6D1ED70BA4002F0B27 /* from_hour_4am.mp3 in Resources */,
@@ -3591,7 +3592,6 @@
 				6C4E6A521ED70BA4002F0B27 /* current_hour_3pm.mp3 in Resources */,
 				6C4E6A551ED70BA4002F0B27 /* current_hour_5am.mp3 in Resources */,
 				6C4E6CAF1ED70BA5002F0B27 /* 6w.mp3 in Resources */,
-				6C0BBD011EF64B800092C237 /* bell.mp3 in Resources */,
 				6C4E6B6B1ED70BA4002F0B27 /* empty10.mp3 in Resources */,
 				6C4E6BA11ED70BA5002F0B27 /* city_ic6.mp3 in Resources */,
 				6C4E6BDE1ED70BA5002F0B27 /* city_kb25.mp3 in Resources */,
