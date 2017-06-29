@@ -145,9 +145,9 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
             return
         }
         
-        let location = selectedLocation()
+        let address = selectedLocation()
         
-        locationCell.updateLocation(location:location.upper + " " + location.lower)
+        locationCell.updateLocation(address:address)
 
     }
     

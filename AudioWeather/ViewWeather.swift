@@ -10,11 +10,14 @@ import UIKit
 
 class ViewWeather: UITableViewController {
     
-    var rows:[String] = []
     var loadingView:LoadingView? = nil
     
     var dataManager:WeatherDataManager? = nil
     var dustList:[String: [String: DustRequester.Grade]]? = nil
+    
+    var isCurrentLocation:Bool = true
+    var locationUpper:Int = 3
+    var locationLower:Int = 2
 
     
     override func viewDidLoad() {
@@ -48,30 +51,92 @@ class ViewWeather: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 0
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        if section == 0 {
+            
+            return 1
+        }
+        
+        return 0
     }
 
     
+
+    func cellIdentifier(section:Int) -> String{
+        
+        switch(section){
+            
+        case 0:
+            return "CellLocationID"
+        default:
+            return "CellDefaultID"
+            
+        }
+    }
+    
+    
+    
+    func selectedLocation() -> Address{
+        
+        if self.isCurrentLocation == true {
+            
+            return Address(upper:AddressMap.instance.current, lower:String())
+            
+        }
+        else{
+            
+            let mapList = AddressMap.instance.mapList
+            
+            let locationUpper = mapList[self.locationUpper].getUpper()
+            let locationLower = mapList[self.locationUpper].getLowerList()[self.locationLower].getLower()
+            
+            return Address(upper:locationUpper, lower:locationLower)
+        }
+    }
+    
+    
+    
+    func updateReloadCell(cell:UITableViewCell) {
+        
+        guard let cellWeatherLocation = (cell as? CellWeatherLocation) else{
+            return
+        }
+        
+        let address = selectedLocation()
+        
+        cellWeatherLocation.updateLocation(address:address)
+        
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        cell.textLabel!.text = rows[indexPath.row]
+        let identifier = cellIdentifier(section: indexPath.section)
         
-        return cell
+        var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+        
+        if(cell == nil) {
+            
+            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: identifier)
+        }
+        
+        cell?.preservesSuperviewLayoutMargins = false
+        cell?.separatorInset = UIEdgeInsets.zero
+        cell?.layoutMargins = UIEdgeInsets.zero
+        
+        if indexPath.section == 0{
+            
+            updateReloadCell(cell:cell!)
+        }
+        
+        return cell!
     }
     
     
-
-    
-
     func requestWeather(address:Address){
         
         guard let location = AddressMap.instance.getLocation(addr:address) else{
