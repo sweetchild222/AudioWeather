@@ -27,7 +27,7 @@ class ItemListGenerator{
         items += generateSky(dataManager: dataManager) + generateEmpty(empty:4)
         items += tempClosure(temp!) + generateEmpty(empty:4)
         items += generateDust(addr: addr, dustList: dustList)
-        items += generateTail()
+        //items += generateTail()
 
         return items
     }
