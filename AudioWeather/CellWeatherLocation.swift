@@ -14,7 +14,6 @@ class CellWeatherLocation: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,11 +22,6 @@ class CellWeatherLocation: UITableViewCell {
     }
     
     public func updateLocation(address:Address){
-        
-        if address.getText() == AddressMap.instance.current{
-            
-            self.location.text = "현재 위치"
-        }
         
         self.location.text = address.getText()
     }

@@ -73,6 +73,12 @@ class ViewWeather: UITableViewController {
     }
 
     
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableViewAutomaticDimension
+    }
+    
+    
 
     func cellIdentifier(section:Int) -> String{
         
