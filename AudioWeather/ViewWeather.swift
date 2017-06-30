@@ -64,12 +64,7 @@ class ViewWeather: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 {
-            
-            return 1
-        }
-        
-        return 0
+        return 2
     }
 
     
@@ -80,12 +75,15 @@ class ViewWeather: UITableViewController {
     
     
 
-    func cellIdentifier(section:Int) -> String{
+    func cellIdentifier(row:Int) -> String{
         
-        switch(section){
+        switch(row){
             
         case 0:
             return "CellLocationID"
+        case 1:
+            return "CellDustID"
+
         default:
             return "CellDefaultID"
             
@@ -128,7 +126,7 @@ class ViewWeather: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let identifier = cellIdentifier(section: indexPath.section)
+        let identifier = cellIdentifier(row: indexPath.row)
         
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         
@@ -141,7 +139,7 @@ class ViewWeather: UITableViewController {
         cell?.separatorInset = UIEdgeInsets.zero
         cell?.layoutMargins = UIEdgeInsets.zero
         
-        if indexPath.section == 0{
+        if indexPath.row == 0{
             
             updateReloadCell(cell:cell!)
         }
