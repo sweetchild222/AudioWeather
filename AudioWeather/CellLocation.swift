@@ -22,11 +22,6 @@ class CellLocation: UITableViewCell {
     
     public func updateLocation(address:Address){
         
-        if address.getText() == AddressMap.instance.current{
-            
-            self.location.text = "현재 위치"
-        }
-        
         self.location.text = address.getText()
     }
 }

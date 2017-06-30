@@ -11,6 +11,12 @@ import UIKit
 class ViewLocationUpper: UITableViewController {
     
     var selected:Int = 0
+    var type:ViewType = .Alarm
+    
+    enum ViewType:Int{
+        
+        case Weather, Alarm
+     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +45,7 @@ class ViewLocationUpper: UITableViewController {
         
         if indexPath.row == 0{
 
-            self.performSegue(withIdentifier: "unwindToAddOnLocation", sender: self)
+            self.performSegue(withIdentifier: "unwindFromLocationID", sender: self)
             
         }
         else{
@@ -74,7 +80,7 @@ class ViewLocationUpper: UITableViewController {
 
         if indexPath.row == 0 {
             
-            cell?.textLabel?.text = AddressMap.instance.current
+            cell?.textLabel?.text = self.type == .Alarm ? AddressMap.instance.alarmLocation : AddressMap.instance.current
             
         }
         else{

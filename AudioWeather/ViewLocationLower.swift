@@ -14,6 +14,13 @@ class ViewLocationLower: UITableViewController {
     var selectedLower:Int = 0
     
 
+    enum ViewType:Int{
+        
+        case Weather, Alarm
+    }
+
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +45,7 @@ class ViewLocationLower: UITableViewController {
         
         self.selectedLower = indexPath.row
         
-        self.performSegue(withIdentifier: "unwindToAdd", sender: self)
+        self.performSegue(withIdentifier: "unwindFromLocationID", sender: self)
     }
     
     

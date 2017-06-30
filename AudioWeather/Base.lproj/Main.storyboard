@@ -291,7 +291,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="location" destination="Qfc-vW-Vrn" id="Gno-9T-cKB"/>
-                                            <segue destination="j4B-ZH-nY8" kind="show" id="pxP-rh-7eJ"/>
+                                            <segue destination="j4B-ZH-nY8" kind="show" identifier="segueLocationUpper" id="pxP-rh-7eJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -361,7 +361,7 @@
                     </tableView>
                     <connections>
                         <segue destination="8I9-ZQ-iel" kind="show" identifier="segueLocationLower" id="kDj-WU-eyQ"/>
-                        <segue destination="41d-7c-wVP" kind="unwind" identifier="unwindToAddOnLocation" unwindAction="unwindToAddWithSegue:" id="1GN-Kg-TlB"/>
+                        <segue destination="41d-7c-wVP" kind="unwind" identifier="unwindFromLocationID" unwindAction="unwindFromLocationWithSegue:" id="60U-qI-Hoj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6vG-Wd-QCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -393,7 +393,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="QCy-yo-IIi" kind="unwind" identifier="unwindToAdd" unwindAction="unwindToAddWithSegue:" id="yl0-5b-mk6"/>
+                        <segue destination="QCy-yo-IIi" kind="unwind" identifier="unwindFromLocationID" unwindAction="unwindFromLocationWithSegue:" id="VIJ-ii-d49"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cy0-Un-jd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -463,7 +463,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="location" destination="ynA-SQ-fYX" id="CZX-Vz-jW6"/>
-                                    <segue destination="j4B-ZH-nY8" kind="show" id="PQf-4b-WEb"/>
+                                    <segue destination="j4B-ZH-nY8" kind="show" identifier="segueLocationUpper" id="PQf-4b-WEb"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellWeatherSpace" id="t5l-7l-s03">
@@ -527,6 +527,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PQf-4b-WEb"/>
+        <segue reference="pxP-rh-7eJ"/>
     </inferredMetricsTieBreakers>
 </document>

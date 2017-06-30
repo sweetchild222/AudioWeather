@@ -124,7 +124,7 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
         
         if self.isCurrentLocation == true {
             
-            return Address(upper:AddressMap.instance.current, lower:String())
+            return Address(upper:AddressMap.instance.alarmLocation, lower:String())
 
         }
         else{
@@ -431,11 +431,9 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
     
     func adjustSelectedUpper(segue: UIStoryboardSegue) -> Bool{
         
-        guard let view = segue.source as? ViewLocationUpper else {
+        guard segue.source is ViewLocationUpper else {
             return false
         }
-        
-        print(view.selected)
         
         self.isCurrentLocation = true
         self.locationUpper = 0
@@ -446,7 +444,7 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
 
     
     
-    @IBAction func unwindToAdd(segue: UIStoryboardSegue){
+    @IBAction func unwindFromLocation(segue: UIStoryboardSegue){
         
         if adjustSelectedUpper(segue: segue) == true{
 
@@ -456,6 +454,19 @@ class ViewAdd: UIViewController, UITableViewDelegate, UITableViewDataSource, Pic
         if adjustSelectedLower(segue: segue) == true{
             
             return
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueLocationUpper" {
+            
+            guard let view = segue.destination as? ViewLocationUpper else{
+                return
+            }
+            
+            view.type = .Alarm
         }
     }
 }

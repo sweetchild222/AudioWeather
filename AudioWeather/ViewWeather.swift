@@ -37,6 +37,13 @@ class ViewWeather: UITableViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        tableView.reloadData()
+    }
+    
+    
+    
     func startLoading(){
         
         self.loadingView?.start()
@@ -183,6 +190,60 @@ class ViewWeather: UITableViewController {
     }
     
     
+    func adjustSelectedLower(segue: UIStoryboardSegue) -> Bool{
+    
+        guard let view = segue.source as? ViewLocationLower else {
+            return false
+        }
+        
+        self.isCurrentLocation = false
+        self.locationUpper = view.selectedUpper
+        self.locationLower = view.selectedLower
+        
+        return true
+    }
+    
+    
+    func adjustSelectedUpper(segue: UIStoryboardSegue) -> Bool{
+        
+        guard segue.source is ViewLocationUpper else {
+            return false
+        }
+        
+        self.isCurrentLocation = true
+        self.locationUpper = 0
+        self.locationLower = 0
+        
+        return true
+    }
+    
+    
+    
+    @IBAction func unwindFromLocation(segue: UIStoryboardSegue){
+        
+        if adjustSelectedUpper(segue: segue) == true{
+            
+            return
+        }
+        
+        if adjustSelectedLower(segue: segue) == true{
+            
+            return
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueLocationUpper" {
+            
+            guard let view = segue.destination as? ViewLocationUpper else{
+                return
+            }
+            
+            view.type = .Weather
+        }
+    }
     
     
 

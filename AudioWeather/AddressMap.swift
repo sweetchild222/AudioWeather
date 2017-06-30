@@ -125,7 +125,8 @@ class AddressMap{
     
     let mapList:[UpperMapInfo]
     
-    let current = "알람시 위치"
+    let current = "현재 위치"
+    let alarmLocation = "알람시 위치"
     
     
     init(){

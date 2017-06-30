@@ -145,7 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         updateAlarmState()
         
-        if AlarmManager().alarms[index].address.getUpper() == AddressMap.instance.current{
+        if AlarmManager().alarms[index].address.getUpper() == AddressMap.instance.alarmLocation{
             
             requestLocation()
         }
