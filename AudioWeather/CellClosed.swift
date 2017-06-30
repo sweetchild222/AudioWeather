@@ -24,12 +24,16 @@ class CellClosed: UITableViewCell {
     
     func updateData(data:WeatherData){
         
-        let newView = UIView()
-        newView.backgroundColor = UIColor.green
-        newView.translatesAutoresizingMaskIntoConstraints = false
-        self.stackView.addArrangedSubview(newView)
+        let view = UIView()
+        view.backgroundColor = UIColor.blue
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint(item: newView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100).isActive = true
+        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
+        
+        constraint.isActive = true
+        constraint.priority = 999
+        
+        self.stackView.addArrangedSubview(view)
     }
     
     
@@ -48,7 +52,6 @@ class CellClosed: UITableViewCell {
     func update(dataClosed:WeatherDataClosed){
         
         cleanAll()
-        
         
         let dataList = dataClosed.dataList
         

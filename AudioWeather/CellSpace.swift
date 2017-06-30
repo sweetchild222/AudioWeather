@@ -26,21 +26,16 @@ class CellSpace: UITableViewCell {
     
     func updateData(data:WeatherData){
         
-        let newView = UIView()
-        newView.backgroundColor = UIColor.red
-        //newView.translatesAutoresizingMaskIntoConstraints = false
-        newView.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
+        let view = UIView()
+        view.backgroundColor = UIColor.green
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        self.stackView.translatesAutoresizingMaskIntoConstraints = false
-        self.stackView.addArrangedSubview(newView)
+        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
         
-        //NSLayoutConstraint(item: newView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100).isActive = true
-        
-        
-        //self.stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        //self.stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        
-        
+        constraint.isActive = true
+        constraint.priority = 999
+
+        self.stackView.addArrangedSubview(view)
     }
     
     
