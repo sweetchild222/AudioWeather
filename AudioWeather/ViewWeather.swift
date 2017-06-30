@@ -39,7 +39,7 @@ class ViewWeather: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        tableView.reloadData()
+        //tableView.reloadData()
     }
     
     
@@ -130,15 +130,35 @@ class ViewWeather: UITableViewController {
     
     func updateClosedCell(cell:UITableViewCell) {
         
-        print("adsfa")
+        
         guard let cellClosed = (cell as? CellClosed) else{
             return
         }
         
-        print("adsefe")
         
         cellClosed.update()
         
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        if indexPath.row == 3{
+            print("asdasfas")
+            //tableView.beginUpdates()
+            //tableView.endUpdates()
+            
+            //let identifier = cellIdentifier(row: 3)
+            
+            //var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+            
+            
+        
+
+
+            
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
