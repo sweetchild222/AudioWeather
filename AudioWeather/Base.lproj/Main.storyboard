@@ -429,8 +429,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellDustID" id="4n4-uc-ABY" customClass="CellDust" customModule="AudioWeather" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellCurrentID" id="HJJ-gB-RW9" customClass="CellCurrent" customModule="AudioWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJJ-gB-RW9" id="RCw-WE-w0y">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cSd-Pa-Ftl">
+                                            <rect key="frame" x="20" y="8" width="335" height="177"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="경기도 여주시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6y-UJ-JEv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-S6-qF2">
+                                                    <rect key="frame" x="0.0" y="22" width="335" height="155"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="erx-zf-51g">
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="155"/>
+                                                            <color key="backgroundColor" red="0.81418185763888884" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="150" id="D3E-8u-n3o"/>
+                                                                <constraint firstAttribute="width" constant="150" id="fb9-p6-oh2"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test\ntest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdz-lT-PrQ">
+                                                            <rect key="frame" x="158" y="0.0" width="177" height="155"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="cSd-Pa-Ftl" secondAttribute="trailing" constant="20" symbolic="YES" id="EOH-bN-cwX"/>
+                                        <constraint firstItem="cSd-Pa-Ftl" firstAttribute="top" secondItem="RCw-WE-w0y" secondAttribute="top" constant="8" id="IUA-dH-brp"/>
+                                        <constraint firstItem="cSd-Pa-Ftl" firstAttribute="leading" secondItem="RCw-WE-w0y" secondAttribute="leading" constant="20" symbolic="YES" id="tsJ-9p-N8G"/>
+                                        <constraint firstAttribute="bottom" secondItem="cSd-Pa-Ftl" secondAttribute="bottom" constant="8" id="x11-fL-gyJ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellDustID" id="4n4-uc-ABY" customClass="CellDust" customModule="AudioWeather" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4n4-uc-ABY" id="VrN-Sy-L99">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -493,7 +539,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellLocationID" id="BM2-1R-9K7" customClass="CellWeatherLocation" customModule="AudioWeather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BM2-1R-9K7" id="zV4-33-R5l">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -544,14 +590,6 @@
                                     <outlet property="location" destination="ynA-SQ-fYX" id="CZX-Vz-jW6"/>
                                     <segue destination="j4B-ZH-nY8" kind="show" identifier="segueLocationUpper" id="PQf-4b-WEb"/>
                                 </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellWeatherSpace" id="t5l-7l-s03">
-                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t5l-7l-s03" id="clK-iw-9SB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>

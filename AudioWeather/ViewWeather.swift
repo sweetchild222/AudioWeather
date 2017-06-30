@@ -64,7 +64,7 @@ class ViewWeather: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2
+        return 3
     }
 
     
@@ -83,6 +83,9 @@ class ViewWeather: UITableViewController {
             return "CellLocationID"
         case 1:
             return "CellDustID"
+        case 2:
+            return "CellCurrentID"
+
 
         default:
             return "CellDefaultID"
