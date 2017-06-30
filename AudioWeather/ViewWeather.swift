@@ -125,6 +125,19 @@ class ViewWeather: UITableViewController {
         let address = selectedLocation()
         
         cellWeatherLocation.updateLocation(address:address)
+    }
+    
+    
+    func updateClosedCell(cell:UITableViewCell) {
+        
+        print("adsfa")
+        guard let cellClosed = (cell as? CellClosed) else{
+            return
+        }
+        
+        print("adsefe")
+        
+        cellClosed.update()
         
     }
     
@@ -146,6 +159,10 @@ class ViewWeather: UITableViewController {
         if indexPath.row == 0{
             
             updateReloadCell(cell:cell!)
+        }
+        else if indexPath.row == 3{
+            
+            updateClosedCell(cell:cell!)
         }
         
         return cell!
