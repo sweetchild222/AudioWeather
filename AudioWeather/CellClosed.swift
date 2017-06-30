@@ -16,34 +16,45 @@ class CellClosed: UITableViewCell {
         super.awakeFromNib()
     }
 
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
-    func updateCore(color:UIColor){
+    
+    func updateData(data:WeatherData){
         
         let newView = UIView()
-        newView.backgroundColor = color
+        newView.backgroundColor = UIColor.green
         newView.translatesAutoresizingMaskIntoConstraints = false
         self.stackView.addArrangedSubview(newView)
         
         NSLayoutConstraint(item: newView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100).isActive = true
     }
     
-    func update(){
-        
+    
+    
+    func cleanAll(){
         
         let views = self.stackView.arrangedSubviews
         
         for view in views{
-        
             self.stackView.removeArrangedSubview(view)
         }
-        
-        
-        updateCore(color:UIColor.red)
-        updateCore(color:UIColor.blue)
-    }
 
+    }
+    
+    
+    func update(dataClosed:WeatherDataClosed){
+        
+        cleanAll()
+        
+        
+        let dataList = dataClosed.dataList
+        
+        for data in dataList{
+            
+            updateData(data:data)
+        }
+    }
 }

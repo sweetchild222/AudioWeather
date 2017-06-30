@@ -20,5 +20,12 @@ class CellCurrent: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    func updateData(dataCurrent:WeatherDataCurrent){
+        
+        print("update current")
+        
+    }
 
 }

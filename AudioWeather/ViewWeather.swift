@@ -24,16 +24,10 @@ class ViewWeather: UITableViewController {
         
         super.viewDidLoad()
         
-        let width = self.tableView.frame.width
-        let height = self.tableView.frame.height
-
-        self.loadingView = LoadingView(parentWidth:width, parentHeight:height)
-        self.tableView.addSubview(self.loadingView!)
-        
         startLoading()
         
-        //requestWeather(address: Address(upper:"서울특별시", lower:"동작구"))
-        //requestDust()
+        requestWeather(address: Address(upper:"서울특별시", lower:"동작구"))
+        requestDust()
     }
     
     
@@ -46,13 +40,20 @@ class ViewWeather: UITableViewController {
     
     func startLoading(){
         
+        let width = self.tableView.frame.width
+        let height = self.tableView.frame.height
+        
+        self.loadingView = LoadingView(parentWidth:width, parentHeight:height)
+        self.tableView.addSubview(self.loadingView!)
         self.loadingView?.start()
     }
+    
     
     func stopLoading(){
         
         self.loadingView?.stop()
-        self.loadingView?.isHidden = true
+        self.loadingView?.removeFromSuperview()
+    
     }
     
 
@@ -116,7 +117,7 @@ class ViewWeather: UITableViewController {
     
     
     
-    func updateReloadCell(cell:UITableViewCell) {
+    func updateLocationCell(cell:UITableViewCell) {
         
         guard let cellWeatherLocation = (cell as? CellWeatherLocation) else{
             return
@@ -128,16 +129,49 @@ class ViewWeather: UITableViewController {
     }
     
     
+    
+    func updateDustCell(cell:UITableViewCell) {
+        
+        guard let cellDust = (cell as? CellDust) else{
+            return
+        }
+        
+        guard let dustList = self.dustList else{
+            return
+        }
+        
+        cellDust.update(dustList:dustList)
+    }
+
+    
+    func updateCurrentCell(cell:UITableViewCell) {
+        
+        guard let cellCurrent = (cell as? CellCurrent) else{
+            return
+        }
+        
+
+        guard let dataCurrent = self.dataManager?.dataCurrent else{
+            return
+        }
+        
+        cellCurrent.updateData(dataCurrent:dataCurrent)
+    }
+    
+    
     func updateClosedCell(cell:UITableViewCell) {
         
-        
+
         guard let cellClosed = (cell as? CellClosed) else{
             return
         }
         
         
-        cellClosed.update()
-        
+        guard let dataClosed = self.dataManager?.dataClosed else{
+            return
+        }
+            
+        cellClosed.update(dataClosed:dataClosed)
     }
     
     
@@ -145,7 +179,8 @@ class ViewWeather: UITableViewController {
         
         
         if indexPath.row == 3{
-            print("asdasfas")
+            
+            self.stopLoading()
             //tableView.beginUpdates()
             //tableView.endUpdates()
             
@@ -178,7 +213,15 @@ class ViewWeather: UITableViewController {
         
         if indexPath.row == 0{
             
-            updateReloadCell(cell:cell!)
+            updateLocationCell(cell:cell!)
+        }
+        else if indexPath.row == 1{
+            
+            updateDustCell(cell:cell!)
+        }
+        else if indexPath.row == 2{
+            
+            updateCurrentCell(cell:cell!)
         }
         else if indexPath.row == 3{
             
@@ -210,8 +253,10 @@ class ViewWeather: UITableViewController {
             
             self.dataManager = value
             
-            
-            self.tableView.reloadSections(IndexSet(integer: 0), with: .right)
+            DispatchQueue.main.async {
+                
+                self.tableView.reloadRows(at: [IndexPath(item: 2, section: 0), IndexPath(item: 3, section: 0)], with: .fade)
+            }
         }
     }
     
@@ -230,7 +275,10 @@ class ViewWeather: UITableViewController {
             
             self.dustList = value
             
-            self.tableView.reloadSections(IndexSet(integer: 1), with: .right)
+            DispatchQueue.main.async {
+            
+                self.tableView.reloadRows(at: [IndexPath(item: 1, section: 0)], with: .fade)
+            }
         }
     }
     

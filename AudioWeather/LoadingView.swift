@@ -25,7 +25,6 @@ class LoadingView : UIView{
 
     init(parentWidth:CGFloat, parentHeight:CGFloat){
         
-
         let x = (parentWidth / 2) - (width / 2)
         let y = (parentHeight / 2) - (height / 2)
         
@@ -54,43 +53,4 @@ class LoadingView : UIView{
         self.spinner.stopAnimating()
         self.label.isHidden = true
     }
-    
-
-    /*
-    private func setLoadingScreen() {
-        
-        // Sets the view which contains the loading text and the spinner
-        let width: CGFloat = 120
-        let height: CGFloat = 30
-        let x = (self.tableView.frame.width / 2) - (width / 2)
-        let y = (self.tableView.frame.height / 2) - (height / 2)
-        loadingView.frame = CGRect(x:x, y:y, width:width, height:height)
-        
-        // Sets loading text
-        self.loadingLabel.textColor = UIColor.gray
-        self.loadingLabel.textAlignment = NSTextAlignment.center
-        self.loadingLabel.text = "Loading..."
-        self.loadingLabel.frame = CGRect(x:0, y:0, width:140, height:30)
-        
-        // Sets spinner
-        self.spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        self.spinner.frame = CGRect(x:0, y:0, width:30, height:30)
-        self.spinner.startAnimating()
-        
-        // Adds text and spinner to the view
-        loadingView.addSubview(self.spinner)
-        loadingView.addSubview(self.loadingLabel)
-        
-        self.tableView.addSubview(loadingView)
-    }
-    
-    
-    private func removeLoadingScreen() {
-        
-        self.spinner.stopAnimating()
-        self.loadingLabel.isHidden = true
-        
-    }
- */
-
 }
