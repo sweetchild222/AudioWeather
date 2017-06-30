@@ -429,8 +429,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellClosedID" id="xPU-av-lCy" customClass="CellClosed" customModule="AudioWeather" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSpaceID" id="ePP-mq-uiX" customClass="CellSpace" customModule="AudioWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ePP-mq-uiX" id="nZ7-MN-Ngc">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AjZ-W7-GDw">
+                                            <rect key="frame" x="20" y="8" width="335" height="27"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z71-Nd-F4U">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fS4-9o-75h">
+                                                    <rect key="frame" x="0.0" y="4" width="335" height="23"/>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="AjZ-W7-GDw" secondAttribute="trailing" constant="20" symbolic="YES" id="E2A-AH-mnm"/>
+                                        <constraint firstAttribute="bottom" secondItem="AjZ-W7-GDw" secondAttribute="bottom" constant="8" id="E5r-Z1-DYG"/>
+                                        <constraint firstItem="AjZ-W7-GDw" firstAttribute="leading" secondItem="nZ7-MN-Ngc" secondAttribute="leading" constant="20" symbolic="YES" id="WXL-Lc-W9J"/>
+                                        <constraint firstItem="AjZ-W7-GDw" firstAttribute="top" secondItem="nZ7-MN-Ngc" secondAttribute="top" constant="8" id="i4D-My-JKN"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="stackView" destination="fS4-9o-75h" id="HH4-BG-lLs"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellClosedID" id="xPU-av-lCy" customClass="CellClosed" customModule="AudioWeather" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xPU-av-lCy" id="kfg-36-YEP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -463,7 +496,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellCurrentID" id="HJJ-gB-RW9" customClass="CellCurrent" customModule="AudioWeather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJJ-gB-RW9" id="RCw-WE-w0y">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -509,7 +542,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellDustID" id="4n4-uc-ABY" customClass="CellDust" customModule="AudioWeather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="160" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4n4-uc-ABY" id="VrN-Sy-L99">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -561,7 +594,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellLocationID" id="BM2-1R-9K7" customClass="CellWeatherLocation" customModule="AudioWeather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="204" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BM2-1R-9K7" id="zV4-33-R5l">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>

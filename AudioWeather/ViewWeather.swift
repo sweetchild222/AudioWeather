@@ -65,7 +65,7 @@ class ViewWeather: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return 5
     }
 
     
@@ -88,7 +88,8 @@ class ViewWeather: UITableViewController {
             return "CellCurrentID"
         case 3:
             return "CellClosedID"
-
+        case 4:
+            return "CellSpaceID"
         default:
             return "CellDefaultID"
             
@@ -175,6 +176,21 @@ class ViewWeather: UITableViewController {
     }
     
     
+    
+    func updateSpaceCell(cell:UITableViewCell) {
+        
+        guard let cellSpace = (cell as? CellSpace) else{
+            return
+        }
+        
+        guard let dataSpace = self.dataManager?.dataSpace else{
+            return
+        }
+        
+        cellSpace.update(dataSpace:dataSpace)
+    }
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
@@ -187,12 +203,6 @@ class ViewWeather: UITableViewController {
             //let identifier = cellIdentifier(row: 3)
             
             //var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-            
-            
-        
-
-
-            
         }
     }
     
@@ -227,6 +237,11 @@ class ViewWeather: UITableViewController {
             
             updateClosedCell(cell:cell!)
         }
+        else if indexPath.row == 4{
+            
+            updateSpaceCell(cell:cell!)
+        }
+
         
         return cell!
     }
@@ -255,7 +270,7 @@ class ViewWeather: UITableViewController {
             
             DispatchQueue.main.async {
                 
-                self.tableView.reloadRows(at: [IndexPath(item: 2, section: 0), IndexPath(item: 3, section: 0)], with: .fade)
+                self.tableView.reloadRows(at: [IndexPath(item: 2, section: 0), IndexPath(item: 3, section: 0), IndexPath(item: 4, section: 0)], with: .fade)
             }
         }
     }
