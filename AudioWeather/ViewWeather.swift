@@ -19,7 +19,23 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     var locationFixAchieved:Bool = false
+    
+    
+    
 
+    @IBAction func refresh(_ sender: Any) {
+        
+        let address = selectedLocation()
+        
+        requestAll(address:address)
+        
+    }
+    
+    
+    @IBAction func play(_ sender: Any) {
+        
+    }
+    
 
     override func viewDidLoad() {
         
@@ -42,10 +58,12 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         self.loadingView = LoadingView(parentWidth:width, parentHeight:height)
         self.tableView.addSubview(self.loadingView!)
         self.loadingView?.start()
+        
     }
     
     
     func stopLoading(){
+        
         
         self.loadingView?.isHidden = true
         self.loadingView?.stop()
