@@ -25,29 +25,15 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         
         super.viewDidLoad()
         
-        startLoading()
-        
         initLocation()
         
         let address = selectedLocation()
         
-        //AddressMap.instance.getMapInfo(addr: <#T##Address#>)
-        
-        
         requestAll(address:address)
-        
-        //requestWeather(address: Address(upper:"서울특별시", lower:"동작구"))
-        //requestDust()
+
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        tableView.reloadData()
-    }
-    
-    
-    
+
     func startLoading(){
         
         let width = self.tableView.frame.width
@@ -61,6 +47,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     func stopLoading(){
         
+        self.loadingView?.isHidden = true
         self.loadingView?.stop()
         self.loadingView?.removeFromSuperview()
     
@@ -107,7 +94,6 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     }
     
     
-    
     func selectedLocation() -> Address{
         
         let isCurrent = SelectedLocationManager.instance.isCurrent()
@@ -130,7 +116,6 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     }
     
     
-    
     func requestAll(address:Address){
         
         if address.getUpper() == AddressMap.instance.current{
@@ -139,8 +124,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         }
         else{
             
-            requestWeather(address:address)
-            requestDust()
+            requestWeatherDust(address: address)
         }
     }
     
@@ -149,11 +133,11 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         
         if CLLocationManager.locationServicesEnabled() {
             
-            
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         }
     }
+    
     
     func requestLocation(){
         
@@ -164,6 +148,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
     }
     
     
@@ -182,25 +167,46 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
-        print("error")
-        
+        self.showError(error:"현재 위치 정보를 가져 올 수 없습니다. GPS 상태를 확인 해주세요")
     }
 
     
+    func requestWeatherDust(address:Address){
+        
+        self.dustList = nil
+        self.dataManager = nil
+
+        startLoading()
+        
+        
+        //print("reqeust \(address.getLower())")
+        requestWeather(address:address)
+        requestDust()
+    }
+    
+    
+
     func requestAddr(lat:Double, lgt:Double){
         
         AddrRequester.instance.request(lat:lat, lgt:lgt){ response in
             
             guard let address = response else {
-
+                
+                self.showError(error:"현재 지역 정보를 가져 올 수 없습니다. 네트워크 상태를 확인 해주세요")
                 return
             }
             
-            
-            print(address.getLower())
+            self.requestWeatherDust(address:address)
         }
     }
     
+    
+    func showError(error:String){
+        
+        let alert = UIAlertController(title: error, message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     
     
@@ -212,12 +218,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         
         let address = selectedLocation()
         
-        
-        requestAll(address:address)
-        
         cellWeatherLocation.updateLocation(address:address)
-        
-        
         
     }
     
@@ -423,13 +424,26 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         
         if adjustSelectedUpper(segue: segue) == true{
             
+            self.tableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .fade)
+            
+            let address = selectedLocation()
+            
+            requestAll(address:address)
+
             return
         }
         
         if adjustSelectedLower(segue: segue) == true{
             
+            self.tableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .fade)
+            
+            let address = selectedLocation()
+            
+            requestAll(address:address)
+
             return
         }
+        
     }
     
     
