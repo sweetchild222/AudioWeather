@@ -19,8 +19,9 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     var locationFixAchieved:Bool = false
-    
-    
+    var playWeather:PlayWeather? = nil
+    var alert:UIAlertController? = nil
+    var isPlayMode:Bool = false
     
 
     @IBAction func refresh(_ sender: Any) {
@@ -28,12 +29,101 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         let address = selectedLocation()
         
         requestAll(address:address)
+    }
+    
+
+    func playCore(address:Address, async:Bool){
         
+        if async == false{
+            
+            self.showAlert(address:address)
+        }
+        else{
+            
+            self.showAlertAsync(address:address)
+        }
+        
+        
+        self.playWeather = PlayWeather(address:address, completionHandler:{ error in
+            
+            if async == true{
+                self.closeAlertAsync()
+            }
+            else{
+                self.closeAlert()
+            }
+        })
+        
+        self.playWeather?.play()
     }
     
     
     @IBAction func play(_ sender: Any) {
         
+        let address = selectedLocation()
+        
+        if address.getUpper() == AddressMap.instance.current{
+            
+            self.isPlayMode = true
+            requestLocation()
+        }
+        else{
+            
+            playCore(address:address, async:false)
+        }
+    }
+    
+    
+    func closeAlertAsync(completion: (() -> Swift.Void)? = nil){
+        
+        DispatchQueue.main.async{
+            self.closeAlert(completion: completion)
+        }
+        
+    }
+
+    func closeAlert(completion: (() -> Swift.Void)? = nil){
+        
+        guard let gAlert = self.alert else{
+            return
+        }
+
+        gAlert.dismiss(animated: true, completion:completion)
+    }
+    
+
+    
+    func showAlertAsync(address:Address){
+        
+        DispatchQueue.main.async{
+            
+            self.showAlert(address:address)
+        }
+    }
+    
+    func showAlert(address:Address){
+        
+        self.alert = UIAlertController(title: "\(address.getText()) 날씨", message: nil, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "중단", style: .default) { (action:UIAlertAction)->Void in
+            
+            if self.playWeather == nil {
+                return
+            }
+            
+            self.playWeather?.stop()
+            self.playWeather = nil
+
+        }
+        
+        self.alert?.addAction(action)
+        
+        self.present(alert!, animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 40) {
+            
+            self.alert?.dismiss(animated: true, completion: nil)
+        }
     }
     
 
@@ -48,8 +138,16 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         requestAll(address:address)
 
     }
-    
 
+    
+    func startLoadingAsync(){
+        
+        DispatchQueue.main.async{
+            self.startLoading()
+        }
+    }
+
+    
     func startLoading(){
         
         let width = self.tableView.frame.width
@@ -61,14 +159,21 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         
     }
     
+    func stopLoadingAsync(){
+        
+        DispatchQueue.main.async{
+        
+            self.stopLoading()
+        }
+        
+    }
+    
     
     func stopLoading(){
-        
         
         self.loadingView?.isHidden = true
         self.loadingView?.stop()
         self.loadingView?.removeFromSuperview()
-    
     }
     
 
@@ -142,7 +247,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         }
         else{
             
-            requestWeatherDust(address: address)
+            requestWeatherDust(address: address, async:false)
         }
     }
     
@@ -186,18 +291,24 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
         self.showError(error:"현재 위치 정보를 가져 올 수 없습니다. GPS 상태를 확인 해주세요")
+        self.isPlayMode = false
     }
 
     
-    func requestWeatherDust(address:Address){
+    func requestWeatherDust(address:Address, async:Bool){
+        
+        //print("reqeust \(address.getLower())")
         
         self.dustList = nil
         self.dataManager = nil
-
-        startLoading()
         
+        if(async == true) {
+            self.startLoadingAsync()
+        }
+        else {
+            self.startLoading()
+        }
         
-        //print("reqeust \(address.getLower())")
         requestWeather(address:address)
         requestDust()
     }
@@ -210,14 +321,31 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
             
             guard let address = response else {
                 
-                self.showError(error:"현재 지역 정보를 가져 올 수 없습니다. 네트워크 상태를 확인 해주세요")
+                self.showErrorAsync(error:"현재 지역 정보를 가져 올 수 없습니다. 네트워크 상태를 확인 해주세요")
+                self.isPlayMode = false
                 return
             }
             
-            self.requestWeatherDust(address:address)
+
+            if self.isPlayMode == true{
+
+                self.isPlayMode = false
+                self.playCore(address:address, async:true)
+            }
+            else{
+                self.requestWeatherDust(address:address, async:true)
+            }
         }
     }
     
+    
+    func showErrorAsync(error:String){
+        
+        DispatchQueue.main.async{
+            
+            self.showError(error: error)
+        }
+    }
     
     func showError(error:String){
         
@@ -370,7 +498,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         
         WeatherRequester.instance.request(lat:lat, lgt:lgt){ response in
             
-            self.stopLoading()
+            self.stopLoadingAsync()
             
             guard let value = response else {
 
@@ -387,12 +515,12 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     }
     
     
-    
+
     func requestDust(){
         
         DustRequester.instance.request(){ response in
             
-            self.stopLoading()
+            self.stopLoadingAsync()
             
             guard let value = response, value.isEmpty == false else {
                 
