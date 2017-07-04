@@ -66,8 +66,6 @@ class WeatherRequester{
     
     func createRequestDataCurrent(nx:Double, ny:Double) -> URLRequest{
         
-        //let nx = 55
-        //let ny = 127
         let pageNo = 1
         let numOfRows = 10
         
@@ -75,7 +73,7 @@ class WeatherRequester{
         
         let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastGrib").appending("?base_date=").appending(getDate(date: date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: false)).appending("&nx=").appending(String(Int(nx))).appending("&ny=").appending(String(Int(ny))).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
     
-        print(url)
+        //print(url)
         
         var request = URLRequest(url:URL(string: url)!)
         request.httpMethod = "GET"
@@ -101,8 +99,6 @@ class WeatherRequester{
 
     func createRequestDataClosed(nx:Double, ny:Double) -> URLRequest{
         
-        //let nx = 55
-        //let ny = 127
         let pageNo = 1
         let numOfRows = 40
         
@@ -110,7 +106,7 @@ class WeatherRequester{
     
         let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastTimeData").appending("?base_date=").appending(getDate(date: date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: true)).appending("&nx=").appending(String(Int(nx))).appending("&ny=").appending(String(Int(ny))).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
         
-        print(url)
+        //print(url)
         
         var request = URLRequest(url:URL(string: url)!)
         request.httpMethod = "GET"
@@ -151,7 +147,7 @@ class WeatherRequester{
         let url:String = String("http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastSpaceData").appending("?base_date=").appending(getDate(date:date)).appending("&base_time=").appending(getTime(date: date, addHalfMin: false)).appending("&nx=").appending(String(Int(nx))).appending("&ny=").appending(String(Int(ny))).appending("&pageNo=").appending(String(pageNo)).appending("&numOfRows=").appending(String(numOfRows)).appending("&ServiceKey=").appending(GlobalConfig.instance.getWeatherServiceKey()).appending("&_type=").appending("json")
         
         
-        print(url)
+        //print(url)
         
         var request = URLRequest(url:URL(string: url)!)
         request.httpMethod = "GET"

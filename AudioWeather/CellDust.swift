@@ -23,9 +23,6 @@ class CellDust: UITableViewCell {
     
     func update(dustList:[String: [String: DustRequester.Grade]]) {
         
-        
-        print(dustList)
-        
         print("update dust")
         
     }
