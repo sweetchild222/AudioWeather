@@ -16,13 +16,33 @@ class CellWeatherLocation: UITableViewCell {
         super.awakeFromNib()
     }
 
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
+
     
-    public func updateLocation(address:Address){
+    public func updateLocation(address:Address, currentAddress:Address!){
         
-        self.location.text = address.getText()
+
+        if address.getUpper() == AddressMap.instance.current{
+            
+            if currentAddress != nil{
+                
+                self.location.text = address.getText() + "(\(currentAddress.getText()))"
+            }
+            else{
+                
+                self.location.text = address.getText()
+            }
+        }
+        else{
+            
+            self.location.text = address.getText()
+            
+        }
+        
+        
     }
 }

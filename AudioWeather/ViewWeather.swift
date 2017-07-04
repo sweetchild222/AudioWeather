@@ -22,8 +22,9 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     var playWeather:PlayWeather? = nil
     var alert:UIAlertController? = nil
     var isPlayMode:Bool = false
+    var currentAddress:Address? = nil
     
-
+    
     @IBAction func refresh(_ sender: Any) {
         
         let address = selectedLocation()
@@ -326,6 +327,14 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
                 return
             }
             
+            
+            self.currentAddress = address
+            
+            DispatchQueue.main.async {
+                
+                self.tableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .fade)
+            }
+
 
             if self.isPlayMode == true{
 
@@ -362,9 +371,10 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
             return
         }
         
+            
         let address = selectedLocation()
         
-        cellWeatherLocation.updateLocation(address:address)
+        cellWeatherLocation.updateLocation(address:address, currentAddress:self.currentAddress)
         
     }
     
@@ -557,6 +567,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
             return false
         }
         
+        
         SelectedLocationManager.instance.setIsCurrent(isCurrent: true)
         SelectedLocationManager.instance.setUpper(upper:0)
         SelectedLocationManager.instance.setLower(lower:0)
@@ -567,6 +578,8 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     
     @IBAction func unwindFromLocation(segue: UIStoryboardSegue){
+        
+        self.currentAddress = nil
         
         if adjustSelectedUpper(segue: segue) == true{
             
