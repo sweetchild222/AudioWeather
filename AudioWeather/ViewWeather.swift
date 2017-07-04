@@ -8,32 +8,42 @@
 
 import UIKit
 
-class ViewWeather: UITableViewController {
+import CoreLocation
+
+class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     var loadingView:LoadingView? = nil
     
     var dataManager:WeatherDataManager? = nil
     var dustList:[String: [String: DustRequester.Grade]]? = nil
     
-    var isCurrentLocation:Bool = true
-    var locationUpper:Int = 3
-    var locationLower:Int = 2
+    let locationManager = CLLocationManager()
+    var locationFixAchieved:Bool = false
 
-    
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         startLoading()
         
-        requestWeather(address: Address(upper:"서울특별시", lower:"동작구"))
-        requestDust()
+        initLocation()
+        
+        let address = selectedLocation()
+        
+        //AddressMap.instance.getMapInfo(addr: <#T##Address#>)
+        
+        
+        requestAll(address:address)
+        
+        //requestWeather(address: Address(upper:"서울특별시", lower:"동작구"))
+        //requestDust()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //tableView.reloadData()
+        tableView.reloadData()
     }
     
     
@@ -100,21 +110,97 @@ class ViewWeather: UITableViewController {
     
     func selectedLocation() -> Address{
         
-        if self.isCurrentLocation == true {
-            
+        let isCurrent = SelectedLocationManager.instance.isCurrent()
+        let upper = SelectedLocationManager.instance.getUpper()
+        let lower = SelectedLocationManager.instance.getLower()
+        
+        if isCurrent == true {
+
             return Address(upper:AddressMap.instance.current, lower:String())
-            
         }
         else{
             
             let mapList = AddressMap.instance.mapList
             
-            let locationUpper = mapList[self.locationUpper].getUpper()
-            let locationLower = mapList[self.locationUpper].getLowerList()[self.locationLower].getLower()
+            let locationUpper = mapList[upper].getUpper()
+            let locationLower = mapList[upper].getLowerList()[lower].getLower()
             
             return Address(upper:locationUpper, lower:locationLower)
         }
     }
+    
+    
+    
+    func requestAll(address:Address){
+        
+        if address.getUpper() == AddressMap.instance.current{
+            
+            requestLocation()
+        }
+        else{
+            
+            requestWeather(address:address)
+            requestDust()
+        }
+    }
+    
+    
+    func initLocation(){
+        
+        if CLLocationManager.locationServicesEnabled() {
+            
+            
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        }
+    }
+    
+    func requestLocation(){
+        
+        locationFixAchieved = false
+        self.locationManager.requestLocation()
+    }
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if locationFixAchieved == false {
+            
+            locationFixAchieved = true
+            
+            let location = locations.last! as CLLocation
+            
+            requestAddr(lat:location.coordinate.latitude, lgt:location.coordinate.longitude)
+        }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+        print("error")
+        
+    }
+
+    
+    func requestAddr(lat:Double, lgt:Double){
+        
+        AddrRequester.instance.request(lat:lat, lgt:lgt){ response in
+            
+            guard let address = response else {
+
+                return
+            }
+            
+            
+            print(address.getLower())
+        }
+    }
+    
     
     
     
@@ -126,7 +212,13 @@ class ViewWeather: UITableViewController {
         
         let address = selectedLocation()
         
+        
+        requestAll(address:address)
+        
         cellWeatherLocation.updateLocation(address:address)
+        
+        
+        
     }
     
     
@@ -304,9 +396,9 @@ class ViewWeather: UITableViewController {
             return false
         }
         
-        self.isCurrentLocation = false
-        self.locationUpper = view.selectedUpper
-        self.locationLower = view.selectedLower
+        SelectedLocationManager.instance.setIsCurrent(isCurrent: false)
+        SelectedLocationManager.instance.setUpper(upper:view.selectedUpper)
+        SelectedLocationManager.instance.setLower(lower:view.selectedLower)
         
         return true
     }
@@ -318,9 +410,9 @@ class ViewWeather: UITableViewController {
             return false
         }
         
-        self.isCurrentLocation = true
-        self.locationUpper = 0
-        self.locationLower = 0
+        SelectedLocationManager.instance.setIsCurrent(isCurrent: true)
+        SelectedLocationManager.instance.setUpper(upper:0)
+        SelectedLocationManager.instance.setLower(lower:0)
         
         return true
     }

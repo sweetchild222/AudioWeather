@@ -61,7 +61,7 @@ struct Alarm : ReflectableProperty{
     var enabled: Bool = false
     var date: Date = Date()
     var repeatWeek = [Bool](repeating:false, count:7)
-    var locationUpper:String = AddressMap.instance.current
+    var locationUpper:String = AddressMap.instance.alarmLocation
     var locationLower:String = String()
     
     var uuid:String = UUID().uuidString
