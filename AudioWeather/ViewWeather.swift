@@ -121,6 +121,11 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     func startLoading(){
         
+        if self.loadingView != nil{
+            
+            self.stopLoading()
+        }
+        
         let width = self.tableView.frame.width
         let height = self.tableView.frame.height
         
@@ -142,9 +147,14 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     func stopLoading(){
         
+        if self.loadingView == nil{
+            return
+        }
+        
         self.loadingView?.isHidden = true
         self.loadingView?.stop()
         self.loadingView?.removeFromSuperview()
+        self.loadingView = nil
     }
     
 
