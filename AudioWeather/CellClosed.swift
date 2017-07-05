@@ -23,9 +23,9 @@ class CellClosed: UITableViewCell {
     
     
     func updateData(data:WeatherData){
-        
-        let view = UIView()
-        view.backgroundColor = UIColor.blue
+    
+        let view: CellWeatherData = UINib(nibName: "CellWeatherData", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! CellWeatherData
+        view.updateData(data:data)
         view.translatesAutoresizingMaskIntoConstraints = false
         
         let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
