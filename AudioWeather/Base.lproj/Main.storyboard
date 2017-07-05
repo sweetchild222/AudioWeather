@@ -548,20 +548,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4F9-CM-797">
-                                            <rect key="frame" x="20" y="8" width="335" height="99"/>
+                                            <rect key="frame" x="20" y="8" width="335" height="109"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zli-VO-228">
-                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="41"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="51"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0UG-Km-5KH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="41"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="51"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="emM-nX-g1X"/>
-                                                                <constraint firstAttribute="width" constant="40" id="vh1-bb-l8l"/>
+                                                                <constraint firstAttribute="height" constant="50" id="emM-nX-g1X"/>
+                                                                <constraint firstAttribute="width" constant="50" id="vh1-bb-l8l"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미세먼지 나쁨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMv-88-tL9">
-                                                            <rect key="frame" x="48" y="0.0" width="287" height="41"/>
+                                                            <rect key="frame" x="58" y="0.0" width="277" height="51"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -569,17 +569,17 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K4I-Wn-YM7">
-                                                    <rect key="frame" x="0.0" y="49" width="335" height="50"/>
+                                                    <rect key="frame" x="0.0" y="59" width="335" height="50"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jSU-th-F80">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="rwF-Rp-FUz"/>
-                                                                <constraint firstAttribute="width" constant="40" id="rz2-qy-fBK"/>
+                                                                <constraint firstAttribute="height" constant="50" id="rwF-Rp-FUz"/>
+                                                                <constraint firstAttribute="width" constant="50" id="rz2-qy-fBK"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="초미세먼지 좋음" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDf-YM-nfa">
-                                                            <rect key="frame" x="48" y="0.0" width="287" height="50"/>
+                                                            <rect key="frame" x="58" y="0.0" width="277" height="50"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
