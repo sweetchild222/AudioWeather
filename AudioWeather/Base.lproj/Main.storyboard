@@ -505,7 +505,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cSd-Pa-Ftl">
                                             <rect key="frame" x="20" y="8" width="335" height="177"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 경기도 여주시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6y-UJ-JEv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6y-UJ-JEv">
                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -539,6 +539,10 @@
                                         <constraint firstAttribute="bottom" secondItem="cSd-Pa-Ftl" secondAttribute="bottom" constant="8" id="x11-fL-gyJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="currentImage" destination="erx-zf-51g" id="FHU-Wj-oFQ"/>
+                                    <outlet property="currentText" destination="gdz-lT-PrQ" id="7fJ-Fb-Eog"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellDustID" id="4n4-uc-ABY" customClass="CellDust" customModule="AudioWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="160" width="375" height="44"/>
