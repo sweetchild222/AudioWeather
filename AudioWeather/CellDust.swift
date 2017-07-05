@@ -21,9 +21,19 @@ class CellDust: UITableViewCell {
     }
 
     
-    func update(dustList:[String: [String: DustRequester.Grade]]) {
+    func update(address:Address?, dustList:[String: [String: DustRequester.Grade]]) {
         
-        print("update dust")
+        guard let xAddress = address else{
+            
+            return
+        }
+        
+        
+        
+        
+        
+        
+        print("update dust\(xAddress.getText())")
         
     }
     

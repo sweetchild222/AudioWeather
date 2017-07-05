@@ -350,7 +350,10 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
             return
         }
         
-        cellDust.update(dustList:dustList)
+
+        let address = selectedLocation()
+        
+        cellDust.update(address:address.getUpper() == AddressMap.instance.current ? self.currentAddress : address, dustList:dustList)
     }
 
     
@@ -402,16 +405,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
         if indexPath.row == 3{
-            
-            self.stopLoading()
-            //tableView.beginUpdates()
-            //tableView.endUpdates()
-            
-            //let identifier = cellIdentifier(row: 3)
-            
-            //var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         }
     }
     

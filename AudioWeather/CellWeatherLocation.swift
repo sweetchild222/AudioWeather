@@ -23,14 +23,16 @@ class CellWeatherLocation: UITableViewCell {
     }
 
     
-    public func updateLocation(address:Address, currentAddress:Address!){
+    public func updateLocation(address:Address, currentAddress:Address?){
         
 
         if address.getUpper() == AddressMap.instance.current{
             
             if currentAddress != nil{
                 
-                self.location.text = address.getText() + "(\(currentAddress.getText()))"
+                let value = currentAddress?.getText()
+                
+                self.location.text = String(address.getText())?.appending(" (").appending(value!).appending(")")
             }
             else{
                 
