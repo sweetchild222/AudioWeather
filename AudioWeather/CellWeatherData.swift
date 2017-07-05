@@ -21,16 +21,17 @@ class CellWeatherData: UIView {
     
     func updateData(data:WeatherData){
         
+        self.timeText.text = String(data.htm) + "시"
         
         if data.pty != .clean{
             
-            weatherImage.image = getUIImage(resource:getResource(pty: data.pty))
-            weatherText.text = getTextRainSnow(pty:data.pty) + "\n" + getTextRna(rna:data.rna) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
+            self.weatherImage.image = getUIImage(resource:getResource(pty: data.pty))
+            self.weatherText.text = getTextRainSnow(pty:data.pty) + "\n" + getTextRna(rna:data.rna) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
         }
         else{
             
-            weatherImage.image = getUIImage(resource:getResource(sky: data.sky))
-            weatherText.text = getTextSky(sky:data.sky) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
+            self.weatherImage.image = getUIImage(resource:getResource(sky: data.sky))
+            self.weatherText.text = getTextSky(sky:data.sky) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
         }
         
         
