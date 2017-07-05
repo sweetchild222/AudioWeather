@@ -316,8 +316,6 @@ class WeatherRequester{
             
             let key = item.key
             
-            print("key \(key)")
-            
             guard let reh = rehList[key] else {
                 return nil
             }

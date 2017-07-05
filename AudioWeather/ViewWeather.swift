@@ -483,7 +483,6 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     }
     
     
-
     func requestDust(){
         
         DustRequester.instance.request(){ response in
