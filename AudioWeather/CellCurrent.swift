@@ -12,6 +12,7 @@ class CellCurrent: UITableViewCell {
     
     @IBOutlet weak var currentImage: UIImageView!
     @IBOutlet weak var currentText: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

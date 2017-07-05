@@ -511,7 +511,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-S6-qF2">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-S6-qF2">
                                                     <rect key="frame" x="0.0" y="22" width="335" height="155"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="erx-zf-51g">
@@ -521,8 +521,8 @@
                                                                 <constraint firstAttribute="width" constant="150" id="fb9-p6-oh2"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test\ntest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdz-lT-PrQ">
-                                                            <rect key="frame" x="158" y="0.0" width="177" height="155"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcv-yD-dSS">
+                                                            <rect key="frame" x="162" y="0.0" width="173" height="155"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -541,7 +541,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="currentImage" destination="erx-zf-51g" id="FHU-Wj-oFQ"/>
-                                    <outlet property="currentText" destination="gdz-lT-PrQ" id="7fJ-Fb-Eog"/>
+                                    <outlet property="currentText" destination="Jcv-yD-dSS" id="RE1-MI-yOz"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellDustID" id="4n4-uc-ABY" customClass="CellDust" customModule="AudioWeather" customModuleProvider="target">
