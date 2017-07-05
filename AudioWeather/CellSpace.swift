@@ -61,12 +61,22 @@ class CellSpace: UITableViewCell {
         
         let dataList = dataSpace.dataList
         
-        for data in dataList{
+        if dataList.count == 0{
             
-            updateData(data:data)
+            self.isHidden = true
         }
+        else{
+            
         
-        self.title.text = "단기"
+            self.isHidden = false
+        
+            for data in dataList{
+                
+                updateData(data:data)
+            }
+            
+            self.title.text = "단기"
+        }
     }
 
 }

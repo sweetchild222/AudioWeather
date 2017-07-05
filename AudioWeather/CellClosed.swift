@@ -58,13 +58,22 @@ class CellClosed: UITableViewCell {
         
         cleanAll()
         
+        
         let dataList = dataClosed.dataList
         
-        for data in dataList{
-            
-            updateData(data:data)
+        if dataList.count == 0{
+            self.isHidden = true
         }
-        
-        self.title.text = "초단기"
+        else{
+            
+            self.isHidden = false
+            
+            for data in dataList{
+                
+                updateData(data:data)
+            }
+            
+            self.title.text = "초단기"
+        }
     }
 }
