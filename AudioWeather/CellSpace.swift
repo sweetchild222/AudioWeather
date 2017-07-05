@@ -26,15 +26,15 @@ class CellSpace: UITableViewCell {
     
     func updateData(data:WeatherData){
         
-        let view = UIView()
-        view.backgroundColor = UIColor.green
+        let view: CellWeatherData = UINib(nibName: "CellWeatherData", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! CellWeatherData
+        view.updateData(data:data)
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
+        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 70)
         
         constraint.isActive = true
         constraint.priority = 999
-
+        
         self.stackView.addArrangedSubview(view)
     }
     
@@ -46,13 +46,10 @@ class CellSpace: UITableViewCell {
         for view in views{
             self.stackView.removeArrangedSubview(view)
         }
-        
     }
     
     
     func update(dataSpace:WeatherDataSpace){
-        
-        print("cell space")
         
         cleanAll()
         
