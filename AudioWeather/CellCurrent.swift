@@ -33,6 +33,7 @@ class CellCurrent: UITableViewCell {
         else{
             
             currentImage.image = getUIImage(resource:getResource(sky: dataCurrent.data.sky))
+            currentText.text = getTextSky(sky:dataCurrent.data.sky) + "\n" + getTextTemp(tmp:dataCurrent.data.tmp)
         }
         
         print("update current")
@@ -40,6 +41,36 @@ class CellCurrent: UITableViewCell {
     }
     
     
+    
+    func getTextSky(sky:WeatherData.SkyCode) -> String {
+        
+        switch sky {
+            
+        case .clean:
+            return "맑음"
+        case .small:
+            return "구름 조금"
+        case .much:
+            return "구름 많음"
+        case .gray:
+            return "흐림"
+        }
+        
+    }
+    
+    
+    func getTextTemp(tmp:Float) -> String {
+        
+        return String(describing: tmp).appending(" ℃")
+    }
+    
+    
+    func getTextRainSnow(pty:WeatherData.PtyCode) -> String {
+        
+        
+        
+        return ""
+    }
     
     func getResource(pty:WeatherData.PtyCode) -> String {
         
