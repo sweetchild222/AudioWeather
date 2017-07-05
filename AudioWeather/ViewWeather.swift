@@ -412,13 +412,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         cellSpace.update(dataSpace:dataSpace)
     }
     
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.row == 3{
-        }
-    }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let identifier = cellIdentifier(row: indexPath.row)
