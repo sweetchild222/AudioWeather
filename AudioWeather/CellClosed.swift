@@ -11,6 +11,7 @@ import UIKit
 class CellClosed: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var title: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -63,5 +64,7 @@ class CellClosed: UITableViewCell {
             
             updateData(data:data)
         }
+        
+        self.title.text = "초단기"
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class CellSpace: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var title: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,6 +65,8 @@ class CellSpace: UITableViewCell {
             
             updateData(data:data)
         }
+        
+        self.title.text = "단기"
     }
 
 }
