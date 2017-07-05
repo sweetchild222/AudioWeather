@@ -548,50 +548,63 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K4I-Wn-YM7">
-                                            <rect key="frame" x="20" y="9" width="335" height="40"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4F9-CM-797">
+                                            <rect key="frame" x="20" y="8" width="335" height="99"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0UG-Km-5KH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                    <color key="backgroundColor" red="0.57272677951388884" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="emM-nX-g1X"/>
-                                                        <constraint firstAttribute="width" constant="40" id="vh1-bb-l8l"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미세먼지 나쁨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMv-88-tL9">
-                                                    <rect key="frame" x="48" y="0.0" width="100" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="6Gt-e0-dq4"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jSU-th-F80">
-                                                    <rect key="frame" x="156" y="0.0" width="40" height="40"/>
-                                                    <color key="backgroundColor" red="0.4431152344" green="0.31342230900000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="rwF-Rp-FUz"/>
-                                                        <constraint firstAttribute="width" constant="40" id="rz2-qy-fBK"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="초미세먼지 좋음" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDf-YM-nfa">
-                                                    <rect key="frame" x="204" y="0.0" width="131" height="40"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zli-VO-228">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="41"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0UG-Km-5KH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="41"/>
+                                                            <color key="backgroundColor" red="0.57272677951388884" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="emM-nX-g1X"/>
+                                                                <constraint firstAttribute="width" constant="40" id="vh1-bb-l8l"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미세먼지 나쁨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMv-88-tL9">
+                                                            <rect key="frame" x="48" y="0.0" width="287" height="41"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K4I-Wn-YM7">
+                                                    <rect key="frame" x="0.0" y="49" width="335" height="50"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jSU-th-F80">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
+                                                            <color key="backgroundColor" red="0.4431152344" green="0.31342230900000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="rwF-Rp-FUz"/>
+                                                                <constraint firstAttribute="width" constant="40" id="rz2-qy-fBK"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="초미세먼지 좋음" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDf-YM-nfa">
+                                                            <rect key="frame" x="48" y="0.0" width="287" height="50"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="K4I-Wn-YM7" secondAttribute="bottom" constant="8" id="8e9-CB-60u"/>
-                                        <constraint firstAttribute="trailing" secondItem="K4I-Wn-YM7" secondAttribute="trailing" constant="20" symbolic="YES" id="ond-1i-mbF"/>
-                                        <constraint firstItem="K4I-Wn-YM7" firstAttribute="leading" secondItem="VrN-Sy-L99" secondAttribute="leading" constant="20" symbolic="YES" id="pCe-nP-2Rk"/>
-                                        <constraint firstItem="K4I-Wn-YM7" firstAttribute="top" secondItem="VrN-Sy-L99" secondAttribute="top" constant="8" id="y92-gW-xdc"/>
+                                        <constraint firstAttribute="trailing" secondItem="4F9-CM-797" secondAttribute="trailing" constant="20" symbolic="YES" id="9ds-ql-w7X"/>
+                                        <constraint firstItem="4F9-CM-797" firstAttribute="top" secondItem="VrN-Sy-L99" secondAttribute="top" constant="8" id="DfU-Xy-68W"/>
+                                        <constraint firstItem="4F9-CM-797" firstAttribute="leading" secondItem="VrN-Sy-L99" secondAttribute="leading" constant="20" symbolic="YES" id="O0r-2v-aEc"/>
+                                        <constraint firstAttribute="bottom" secondItem="4F9-CM-797" secondAttribute="bottom" constant="8" id="uhh-qc-rUL"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="pm10Image" destination="jSU-th-F80" id="Qbx-xl-G88"/>
+                                    <outlet property="pm10Text" destination="uDf-YM-nfa" id="69O-uP-gNf"/>
+                                    <outlet property="pm25Image" destination="0UG-Km-5KH" id="WYE-Pi-WEg"/>
+                                    <outlet property="pm25Text" destination="yMv-88-tL9" id="zKd-gy-hXK"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellLocationID" id="BM2-1R-9K7" customClass="CellWeatherLocation" customModule="AudioWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="204" width="375" height="44"/>

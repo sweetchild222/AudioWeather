@@ -2878,6 +2878,7 @@
 		6C4E6D141ED70F08002F0B27 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6C65CEA81F0C703D009A9FDD /* Image */,
 				6C65CE841F0226F2009A9FDD /* View */,
 				6C4E67181ED70BA3002F0B27 /* Audio */,
 				6C8BDBB71EB6F8D2001EA059 /* Assets.xcassets */,
@@ -2952,6 +2953,21 @@
 				6C65CEA61F0BA67D009A9FDD /* SelectedLocationManager.swift */,
 			);
 			name = Weather;
+			sourceTree = "<group>";
+		};
+		6C65CEA81F0C703D009A9FDD /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				6C65CEA91F0C704A009A9FDD /* Dust */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		6C65CEA91F0C704A009A9FDD /* Dust */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Dust;
 			sourceTree = "<group>";
 		};
 		6C774E041EB75C1500709895 /* Util */ = {
