@@ -316,6 +316,8 @@ class WeatherRequester{
             
             let key = item.key
             
+            print("key \(key)")
+            
             guard let reh = rehList[key] else {
                 return nil
             }
@@ -344,9 +346,11 @@ class WeatherRequester{
             let weatherData = WeatherData(htm:key, hrs:hrs, pty:valueToPtyCode(value: pty), pop:pop, rna:rna, reh:reh, sky:valueToSkyCode(value: sky), tmp:tmp)
             
             weatherDataList.append(weatherData)
+            
+            
         }
         
-        return weatherDataList
+        return weatherDataList.sorted(by: { $0.htm < $1.htm })
     }
     
     
