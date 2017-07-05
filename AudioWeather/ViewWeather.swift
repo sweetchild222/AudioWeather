@@ -33,26 +33,13 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     }
     
 
-    func playCore(address:Address, async:Bool){
+    func playCore(address:Address){
         
-        if async == false{
-            
-            self.showAlert(address:address)
-        }
-        else{
-            
-            self.showAlertAsync(address:address)
-        }
-        
+        self.showAlert(address:address)
         
         self.playWeather = PlayWeather(address:address, completionHandler:{ error in
             
-            if async == true{
-                self.closeAlertAsync()
-            }
-            else{
-                self.closeAlert()
-            }
+            self.closeAlert()
         })
         
         self.playWeather?.play()
@@ -70,18 +57,10 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         }
         else{
             
-            playCore(address:address, async:false)
+            playCore(address:address)
         }
     }
     
-    
-    func closeAlertAsync(completion: (() -> Swift.Void)? = nil){
-        
-        DispatchQueue.main.async{
-            self.closeAlert(completion: completion)
-        }
-        
-    }
 
     func closeAlert(completion: (() -> Swift.Void)? = nil){
         
@@ -92,15 +71,6 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         gAlert.dismiss(animated: true, completion:completion)
     }
     
-
-    
-    func showAlertAsync(address:Address){
-        
-        DispatchQueue.main.async{
-            
-            self.showAlert(address:address)
-        }
-    }
     
     func showAlert(address:Address){
         
@@ -298,8 +268,6 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     
     func requestWeatherDust(address:Address, async:Bool){
         
-        //print("reqeust \(address.getLower())")
-        
         self.dustList = nil
         self.dataManager = nil
         
@@ -322,7 +290,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
             
             guard let address = response else {
                 
-                self.showErrorAsync(error:"현재 지역 정보를 가져 올 수 없습니다. 네트워크 상태를 확인 해주세요")
+                self.showError(error:"현재 지역 정보를 가져 올 수 없습니다. 네트워크 상태를 확인 해주세요")
                 self.isPlayMode = false
                 return
             }
@@ -339,7 +307,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
             if self.isPlayMode == true{
 
                 self.isPlayMode = false
-                self.playCore(address:address, async:true)
+                self.playCore(address:address)
             }
             else{
                 self.requestWeatherDust(address:address, async:true)
@@ -347,14 +315,6 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         }
     }
     
-    
-    func showErrorAsync(error:String){
-        
-        DispatchQueue.main.async{
-            
-            self.showError(error: error)
-        }
-    }
     
     func showError(error:String){
         
