@@ -30,17 +30,20 @@ class CellCurrent: UITableViewCell {
         if dataCurrent.data.pty != .clean{
             
             currentImage.image = getUIImage(resource:getResource(pty: dataCurrent.data.pty))
+            currentText.text = getTextRainSnow(pty:dataCurrent.data.pty) + "\n" + getTextRna(rna:dataCurrent.data.rna) + "\n" + getTextTemp(tmp:dataCurrent.data.tmp) + " / " + getTextHumidity(reh: dataCurrent.data.reh)
         }
         else{
             
             currentImage.image = getUIImage(resource:getResource(sky: dataCurrent.data.sky))
-            currentText.text = getTextSky(sky:dataCurrent.data.sky) + "\n" + getTextTemp(tmp:dataCurrent.data.tmp)
+            currentText.text = getTextSky(sky:dataCurrent.data.sky) + "\n" + getTextTemp(tmp:dataCurrent.data.tmp) + " / " + getTextHumidity(reh: dataCurrent.data.reh)
         }
-        
-        print("update current")
-        
     }
     
+    
+    func getTextHumidity(reh:Int) -> String{
+        
+        return String(describing: reh).appending("%")
+    }
     
     
     func getTextSky(sky:WeatherData.SkyCode) -> String {
@@ -66,11 +69,25 @@ class CellCurrent: UITableViewCell {
     }
     
     
+    func getTextRna(rna:Int) -> String {
+        
+        return String(describing: rna).appending(" (mm/hr)")
+    }
+
+    
     func getTextRainSnow(pty:WeatherData.PtyCode) -> String {
         
-        
-        
-        return ""
+        switch pty {
+            
+        case .clean:
+            return "맑음"
+        case .rain:
+            return "비"
+        case .rainsnow:
+            return "비/눈"
+        case .snow:
+            return "눈"
+        }
     }
     
     func getResource(pty:WeatherData.PtyCode) -> String {
