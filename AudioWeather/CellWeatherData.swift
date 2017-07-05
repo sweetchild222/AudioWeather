@@ -33,8 +33,6 @@ class CellWeatherData: UIView {
             self.weatherImage.image = getUIImage(resource:getResource(sky: data.sky))
             self.weatherText.text = getTextSky(sky:data.sky) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
         }
-        
-        
     }
     
     
@@ -44,6 +42,13 @@ class CellWeatherData: UIView {
         return String(describing: reh).appending("%")
     }
     
+    
+    func clean(){
+        
+        self.timeText.text = nil
+        self.weatherImage.image = nil
+        self.weatherText.text = nil
+    }
     
     func getTextSky(sky:WeatherData.SkyCode) -> String {
         
