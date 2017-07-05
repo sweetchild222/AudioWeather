@@ -18,7 +18,6 @@ class CellDust: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,43 +26,95 @@ class CellDust: UITableViewCell {
     }
 
     
+    func clear() {
+        
+        self.pm25Image.image = nil
+        self.pm10Image.image = nil
+        
+        self.pm25Text.text = nil
+        self.pm10Text.text = nil
+    }
+    
     func update(address:Address?, dustList:[String: [String: DustRequester.Grade]]) {
         
+    
         guard let xAddress = address else{
-            
+            clear()
             return
         }
         
         guard let value = AddressMap.instance.getMapInfo(addr:xAddress) else {
-            
+    
+            clear()
             return
         }
         
         let area:String = value.getArea()
         
         guard let pm25Grade = dustList["PM25"]?[area] else {
-            
+            clear()
             return
         }
         
         guard let pm10Grade = dustList["PM10"]?[area] else {
             
+            clear()
+            return
+        }
+        
+        guard let xGrade25Image = getUIImage(grade: pm25Grade) else{
+            clear()
             return
         }
 
+        guard let xGrade10Image = getUIImage(grade: pm10Grade) else{
+            clear()
+            return
+        }
 
-        print(pm25Grade)
-        print(pm10Grade)
         
+        self.pm25Image.image = xGrade25Image
+        self.pm10Image.image = xGrade10Image
         
         self.pm25Text.text = pm25GradeToText(grade:pm25Grade)
         self.pm10Text.text = pm10GradeToText(grade:pm10Grade)
-        
-        
-        print("update dust\(xAddress.getText())")
-        
     }
     
+    
+    
+    func getResource(grade:DustRequester.Grade) -> String {
+        
+        switch grade {
+            
+        case .unknown:
+            return "normal"
+        case .good:
+            return "good"
+        case .normal:
+            return "normal"
+        case .bad:
+            return "bad"
+        case .worst:
+            return "worst"
+        }
+    }
+    
+    
+    func getUIImage(grade:DustRequester.Grade) -> UIImage?{
+        
+        
+        let resource = getResource(grade: grade)
+    
+        let url = Bundle.main.url(forResource: resource, withExtension: "png")
+        
+        let data = try? Data(contentsOf: url!)
+        
+        guard let imageData = data else{
+            return nil
+        }
+        
+        return UIImage(data: imageData)
+    }
     
     
     func pm25GradeToText(grade:DustRequester.Grade) -> String{
@@ -100,5 +151,4 @@ class CellDust: UITableViewCell {
             return "초미세먼지 매우나쁨"
         }
     }
-    
 }

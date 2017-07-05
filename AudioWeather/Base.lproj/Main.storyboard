@@ -516,7 +516,6 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="erx-zf-51g">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="155"/>
-                                                            <color key="backgroundColor" red="0.81418185763888884" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="150" id="D3E-8u-n3o"/>
                                                                 <constraint firstAttribute="width" constant="150" id="fb9-p6-oh2"/>
@@ -556,7 +555,6 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0UG-Km-5KH">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="41"/>
-                                                            <color key="backgroundColor" red="0.57272677951388884" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="emM-nX-g1X"/>
                                                                 <constraint firstAttribute="width" constant="40" id="vh1-bb-l8l"/>
@@ -575,7 +573,6 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jSU-th-F80">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
-                                                            <color key="backgroundColor" red="0.4431152344" green="0.31342230900000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="rwF-Rp-FUz"/>
                                                                 <constraint firstAttribute="width" constant="40" id="rz2-qy-fBK"/>

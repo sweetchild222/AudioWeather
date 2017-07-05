@@ -849,6 +849,10 @@
 		6C65CEA31F05EA9B009A9FDD /* CellClosed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C65CEA21F05EA9B009A9FDD /* CellClosed.swift */; };
 		6C65CEA51F064C08009A9FDD /* CellSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C65CEA41F064C08009A9FDD /* CellSpace.swift */; };
 		6C65CEA71F0BA67D009A9FDD /* SelectedLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C65CEA61F0BA67D009A9FDD /* SelectedLocationManager.swift */; };
+		6C65CEAE1F0C706A009A9FDD /* bad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C65CEAA1F0C706A009A9FDD /* bad.png */; };
+		6C65CEAF1F0C706A009A9FDD /* good.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C65CEAB1F0C706A009A9FDD /* good.png */; };
+		6C65CEB01F0C706A009A9FDD /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C65CEAC1F0C706A009A9FDD /* normal.png */; };
+		6C65CEB11F0C706A009A9FDD /* worst.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C65CEAD1F0C706A009A9FDD /* worst.png */; };
 		6C774E061EB75E1500709895 /* DustRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C774E051EB75E1500709895 /* DustRequester.swift */; };
 		6C774E0E1EB9F76800709895 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C774E0D1EB9F76800709895 /* GlobalConfig.swift */; };
 		6C7A21461ECB2ED100B71F7A /* ItemSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7A21451ECB2ED100B71F7A /* ItemSet.swift */; };
@@ -1726,6 +1730,10 @@
 		6C65CEA21F05EA9B009A9FDD /* CellClosed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellClosed.swift; sourceTree = "<group>"; };
 		6C65CEA41F064C08009A9FDD /* CellSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSpace.swift; sourceTree = "<group>"; };
 		6C65CEA61F0BA67D009A9FDD /* SelectedLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLocationManager.swift; sourceTree = "<group>"; };
+		6C65CEAA1F0C706A009A9FDD /* bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bad.png; sourceTree = "<group>"; };
+		6C65CEAB1F0C706A009A9FDD /* good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good.png; sourceTree = "<group>"; };
+		6C65CEAC1F0C706A009A9FDD /* normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal.png; sourceTree = "<group>"; };
+		6C65CEAD1F0C706A009A9FDD /* worst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = worst.png; sourceTree = "<group>"; };
 		6C774E051EB75E1500709895 /* DustRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DustRequester.swift; sourceTree = "<group>"; };
 		6C774E0D1EB9F76800709895 /* GlobalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		6C7A21451ECB2ED100B71F7A /* ItemSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSet.swift; sourceTree = "<group>"; };
@@ -2966,6 +2974,10 @@
 		6C65CEA91F0C704A009A9FDD /* Dust */ = {
 			isa = PBXGroup;
 			children = (
+				6C65CEAA1F0C706A009A9FDD /* bad.png */,
+				6C65CEAB1F0C706A009A9FDD /* good.png */,
+				6C65CEAC1F0C706A009A9FDD /* normal.png */,
+				6C65CEAD1F0C706A009A9FDD /* worst.png */,
 			);
 			name = Dust;
 			sourceTree = "<group>";
@@ -3230,6 +3242,7 @@
 				6C4E6ABB1ED70BA4002F0B27 /* to_hour_7pm.mp3 in Resources */,
 				6C4E6B101ED70BA4002F0B27 /* current_temp_pls9.mp3 in Resources */,
 				6C4E6AFF1ED70BA4002F0B27 /* current_temp_pls39.mp3 in Resources */,
+				6C65CEB01F0C706A009A9FDD /* normal.png in Resources */,
 				6C4E6D0E1ED70BA5002F0B27 /* min59.mp3 in Resources */,
 				6C4E6A961ED70BA4002F0B27 /* rna25.mp3 in Resources */,
 				6C4E6B481ED70BA4002F0B27 /* max_temp_pls31.mp3 in Resources */,
@@ -3510,6 +3523,7 @@
 				6C4E6A6E1ED70BA4002F0B27 /* from_hour_4pm.mp3 in Resources */,
 				6C4E6B401ED70BA4002F0B27 /* max_temp_pls24.mp3 in Resources */,
 				6C4E6ADF1ED70BA4002F0B27 /* current_temp_pls1.mp3 in Resources */,
+				6C65CEB11F0C706A009A9FDD /* worst.png in Resources */,
 				6C4E6CBD1ED70BA5002F0B27 /* hour_am0.mp3 in Resources */,
 				6C4E6C0F1ED70BA5002F0B27 /* city_kw5.mp3 in Resources */,
 				6C4E6CB21ED70BA5002F0B27 /* 2018y.mp3 in Resources */,
@@ -3521,6 +3535,7 @@
 				6C4E6CFB1ED70BA5002F0B27 /* min41.mp3 in Resources */,
 				6C4E6C441ED70BA5002F0B27 /* city_pu1.mp3 in Resources */,
 				6C4E6B3A1ED70BA4002F0B27 /* max_temp_pls19.mp3 in Resources */,
+				6C65CEAE1F0C706A009A9FDD /* bad.png in Resources */,
 				6C4E6C881ED70BA5002F0B27 /* 22d.mp3 in Resources */,
 				6C4D83611EDABAD500227579 /* will_rna90.mp3 in Resources */,
 				6C4E6C491ED70BA5002F0B27 /* city_pu14.mp3 in Resources */,
@@ -3845,6 +3860,7 @@
 				6C4E6C8A1ED70BA5002F0B27 /* 24d.mp3 in Resources */,
 				6C4E6BD41ED70BA5002F0B27 /* city_kb16.mp3 in Resources */,
 				6C4E6C711ED70BA5002F0B27 /* city_tk4.mp3 in Resources */,
+				6C65CEAF1F0C706A009A9FDD /* good.png in Resources */,
 				6C4E6AD11ED70BA4002F0B27 /* current_temp_min25.mp3 in Resources */,
 				6C4E6CA81ED70BA5002F0B27 /* 8m.mp3 in Resources */,
 				6C4E6B331ED70BA4002F0B27 /* max_temp_pls12.mp3 in Resources */,
