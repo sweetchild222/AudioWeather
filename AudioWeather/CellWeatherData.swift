@@ -26,7 +26,7 @@ class CellWeatherData: UIView {
         if data.pty != .clean{
             
             self.weatherImage.image = getUIImage(resource:getResource(pty: data.pty))
-            self.weatherText.text = getTextRainSnow(pty:data.pty) + "\n" + getTextRna(rna:data.rna) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
+            self.weatherText.text = getTextRainSnow(pty:data.pty) + "\n" + getTextRna(rna:data.rna, hrs:data.hrs) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
         }
         else{
             
@@ -73,9 +73,17 @@ class CellWeatherData: UIView {
     }
     
     
-    func getTextRna(rna:Int) -> String {
+    func getTextRna(rna:Int, hrs:Int) -> String {
         
-        return String(describing: rna).appending(" (mm/hr)")
+        
+        if hrs == 1{
+        
+            return String(describing: rna).appending(" (mm/hr)")
+        }
+        else{
+            
+            return String(describing: rna).appending(" (mm/\(hrs)hr)")
+        }
     }
     
     
