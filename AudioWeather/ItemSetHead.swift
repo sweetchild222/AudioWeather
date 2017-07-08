@@ -17,7 +17,7 @@ class ItemSetHead : ItemSet{
         let date = Date()
         let calendar = Calendar.current
         
-        let year = calendar.component(.year, from: date)
+        //let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
         let week = calendar.component(.weekday, from: date)
@@ -27,7 +27,7 @@ class ItemSetHead : ItemSet{
         set.append(Item(text:"안녕하세요", audio:"hi"))
         set.append(getEmpty(empty: 2))
         set.append(Item(text:"오늘은", audio:"today"))
-        set.append(Item(text:String(year) + "년", audio:yearToAudio(year:year)))
+        //set.append(Item(text:String(year) + "년", audio:yearToAudio(year:year)))
         set.append(Item(text:String(month) + "월", audio:monthToAudio(month:month)))
         set.append(Item(text:String(day) + "일", audio:dayToAudio(day:day)))
         set.append(Item(text:weekToText(week:week) + "입니다", audio:weekToAudio(week:week)))
