@@ -139,13 +139,13 @@ class WeatherDataManager{
     
     func getPop() -> Int{
         
-        //let popDataClosed = self.dataClosed.getPop()
+        let popDataClosed = self.dataClosed.getPop()
         
         let popDataSpace = self.dataSpace.getPop()
         
-        //return (popDataClosed + popDataSpace) / 2
+        return (popDataClosed + popDataSpace) / 2
         
-        return popDataSpace
+        //return popDataSpace
     }
     
     
