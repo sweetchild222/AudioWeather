@@ -25,8 +25,10 @@ class CellWeatherData: UIView {
         
         if data.pty != .clean{
             
+            
+            
             self.weatherImage.image = getUIImage(resource:getResource(pty: data.pty))
-            self.weatherText.text = getTextRainSnow(pty:data.pty) + "\n" + getTextRna(rna:data.rna, hrs:data.hrs) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
+            self.weatherText.text = getTextRainSnow(pty:data.pty, pop:data.pop) + "\n" + getTextRna(rna:data.rna, hrs:data.hrs) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
         }
         else{
             
@@ -34,6 +36,7 @@ class CellWeatherData: UIView {
             self.weatherText.text = getTextSky(sky:data.sky) + "\n" + getTextTemp(tmp:data.tmp) + " / " + getTextHumidity(reh: data.reh)
         }
     }
+    
     
     
     
@@ -87,18 +90,18 @@ class CellWeatherData: UIView {
     }
     
     
-    func getTextRainSnow(pty:WeatherData.PtyCode) -> String {
+    func getTextRainSnow(pty:WeatherData.PtyCode, pop:Int) -> String {
         
         switch pty {
             
         case .clean:
             return "맑음"
         case .rain:
-            return "비"
+            return "비" + " (\(pop)%)"
         case .rainsnow:
-            return "비/눈"
+            return "비/눈" + " (\(pop)%)"
         case .snow:
-            return "눈"
+            return "눈" + " (\(pop)%)"
         }
     }
     
