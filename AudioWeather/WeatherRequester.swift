@@ -434,22 +434,36 @@ class WeatherRequester{
         
         for item in ptyList {
             
-            let key = item.key
             let value = item.value
+            let key = item.key
             
-            if rnaList[key] == nil {
+            if tempList[key] != nil{
+                continue
+            }
+            
+            if value == 1 || value == 2 {
                 
-                if value == 0 || value == 3 {
-                
-                    let rnaValue = rnaList[key + 3]
+                if rnaList[key] != nil {
                     
-                    tempList[key] = rnaValue ?? 0
-
+                    let rnaValue = rnaList[key]! / 2
+                    
+                    tempList[key] = rnaValue
+                    tempList[key + 3] = rnaValue
                 }
-                else {
+                else if rnaList[key + 3] != nil {
                     
+                    let rnaValue = rnaList[key + 3]! / 2
+                    
+                    tempList[key] = rnaValue
+                    tempList[key + 3] = rnaValue
+                }
+                else{
+                
                     tempList[key] = 0
                 }
+            }
+            else{
+                tempList[key] = 0
             }
         }
         
@@ -494,9 +508,8 @@ class WeatherRequester{
                     rehList[fcstTime] = value as? Int
                     
                 case "R06":
-                    rnaList[fcstTime] = (value as? Int)! / 2
-                    rnaList[fcstTime + 3] = (value as? Int)! / 2
-                    
+                    rnaList[fcstTime] = (value as? Int)!
+
                 case "PTY":
                     ptyList[fcstTime] = value as? Int
                     
