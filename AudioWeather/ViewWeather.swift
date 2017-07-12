@@ -23,6 +23,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
     var alert:UIAlertController? = nil
     var isPlayMode:Bool = false
     var currentAddress:Address? = nil
+    let dataSourceConfirmKey:String = "dataSourceConfirm"
     
     
     @IBAction func refresh(_ sender: Any) {
@@ -102,6 +103,8 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         
         super.viewDidLoad()
         
+        showDataSource()
+        
         initLocation()
         
         let address = selectedLocation()
@@ -109,7 +112,50 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
         requestAll(address:address)
 
     }
+    
+    
+    func setDataSourceConfirm(){
+        
+        let defaults = UserDefaults.standard
+        
+        defaults.set(true, forKey: self.dataSourceConfirmKey)
+    }
+    
+    
+    func getDataSourceConfirm() -> Bool{
+        
+        let defaults = UserDefaults.standard
+        
+        if defaults.object(forKey: self.dataSourceConfirmKey) == nil {
+            return false
+        }
+        
+        
+        return defaults.bool(forKey: self.dataSourceConfirmKey)
+    }
+    
 
+    func showDataSource(){
+        
+        if getDataSourceConfirm() == true{
+            return
+        }
+        
+        let alert = UIAlertController(title: "실시간 관측된 자료이며 현지 사정이나 수신 상태에 의해 차이가 발생할 수 있습니다.(제공:한국환경공단)", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "확인", style: .default) { (action:UIAlertAction)->Void in
+            
+            
+        })
+        
+        alert.addAction(UIAlertAction(title: "다시 보지 않음", style: .default) { (action:UIAlertAction)->Void in
+            
+            self.setDataSourceConfirm()
+        })
+        
+        self.navigationController?.present(alert, animated: true, completion: nil)
+    }
+    
     
     func startLoadingAsync(){
         

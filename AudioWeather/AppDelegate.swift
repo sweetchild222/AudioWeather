@@ -66,8 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         gAlert.dismiss(animated: true, completion:completion)
     }
-
     
+        
     func showError(error:String){
         
         let alert = UIAlertController(title: error, message: nil, preferredStyle: .alert)
