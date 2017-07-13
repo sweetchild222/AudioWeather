@@ -141,7 +141,7 @@ class ViewWeather: UITableViewController, CLLocationManagerDelegate {
             return
         }
         
-        let alert = UIAlertController(title: "실시간 관측된 자료이며 현지 사정이나 수신 상태에 의해 차이가 발생할 수 있습니다.(제공:한국환경공단)", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "대기질 정보는 실시간 관측된 자료이며 현지 사정이나 수신 상태에 의해 차이가 발생할 수 있습니다.(제공:한국환경공단)", message: nil, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "확인", style: .default) { (action:UIAlertAction)->Void in
             
