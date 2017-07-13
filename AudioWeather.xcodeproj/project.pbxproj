@@ -3125,7 +3125,8 @@
 				TargetAttributes = {
 					6C8BDBAC1EB6F8D2001EA059 = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 5HZCTKFZ48;
+						ProvisioningStyle = Manual;
 					};
 					6C8BDBC01EB6F8D3001EA059 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -4191,10 +4192,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 5HZCTKFZ48;
 				INFOPLIST_FILE = AudioWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ikchoi.AudioWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a93e168a-00a6-49c9-a437-363eb3ab3e48";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: ikchoi.AudioWeather";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -4203,10 +4208,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 5HZCTKFZ48;
 				INFOPLIST_FILE = AudioWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ikchoi.AudioWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a93e168a-00a6-49c9-a437-363eb3ab3e48";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: ikchoi.AudioWeather";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
