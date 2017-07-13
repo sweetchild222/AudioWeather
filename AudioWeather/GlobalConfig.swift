@@ -14,6 +14,12 @@ class GlobalConfig{
 
     
     public func getWeatherServiceKey() -> String {
+
+        return "TW7UjemO7vyDMu4mz6Rmj27Ix9NW0gh7EX2GT5UB%2Bh%2Bd%2BhAtQnSDlJRXMVm%2FoNG7vXMCn884ouC1oYZEDR9TIw%3D%3D"
+    }
+    
+    
+    public func getDustServiceKey() -> String{
         
         return "TW7UjemO7vyDMu4mz6Rmj27Ix9NW0gh7EX2GT5UB%2Bh%2Bd%2BhAtQnSDlJRXMVm%2FoNG7vXMCn884ouC1oYZEDR9TIw%3D%3D"
     }
