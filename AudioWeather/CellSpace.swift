@@ -57,11 +57,14 @@ class CellSpace: UITableViewCell {
         
         for view in views{
             
-            let dataView = view as! CellWeatherData
+            let dataView = view as? CellWeatherData
             
-            dataView.clean()
+            if dataView != nil{
+                
+                dataView?.clean()
+            }
             
-            self.stackView.removeArrangedSubview(dataView)
+            self.stackView.removeArrangedSubview(view)
         }
     }
     
