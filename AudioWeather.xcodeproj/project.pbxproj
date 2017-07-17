@@ -883,6 +883,12 @@
 		6CAFA9291EE04D7F00C836C8 /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9281EE04D7F00C836C8 /* AlarmManager.swift */; };
 		6CAFA92F1EE2AAAF00C836C8 /* CellWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA92E1EE2AAAF00C836C8 /* CellWeek.swift */; };
 		6CAFA9311EE2B18200C836C8 /* ButtonCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFA9301EE2B18200C836C8 /* ButtonCheck.swift */; };
+		6CB8EB881F1CDDA900E3DB58 /* bell_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8EB7C1F1CDDA900E3DB58 /* bell_gray.png */; };
+		6CB8EB891F1CDDA900E3DB58 /* bell_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8EB7D1F1CDDA900E3DB58 /* bell_gray@2x.png */; };
+		6CB8EB8A1F1CDDA900E3DB58 /* bell_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8EB7E1F1CDDA900E3DB58 /* bell_gray@3x.png */; };
+		6CB8EB8E1F1CDDA900E3DB58 /* weather_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8EB821F1CDDA900E3DB58 /* weather_gray.png */; };
+		6CB8EB8F1F1CDDA900E3DB58 /* weather_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8EB831F1CDDA900E3DB58 /* weather_gray@2x.png */; };
+		6CB8EB901F1CDDA900E3DB58 /* weather_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8EB841F1CDDA900E3DB58 /* weather_gray@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1776,6 +1782,12 @@
 		6CAFA9281EE04D7F00C836C8 /* AlarmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
 		6CAFA92E1EE2AAAF00C836C8 /* CellWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWeek.swift; sourceTree = "<group>"; };
 		6CAFA9301EE2B18200C836C8 /* ButtonCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCheck.swift; sourceTree = "<group>"; };
+		6CB8EB7C1F1CDDA900E3DB58 /* bell_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bell_gray.png; sourceTree = "<group>"; };
+		6CB8EB7D1F1CDDA900E3DB58 /* bell_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bell_gray@2x.png"; sourceTree = "<group>"; };
+		6CB8EB7E1F1CDDA900E3DB58 /* bell_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bell_gray@3x.png"; sourceTree = "<group>"; };
+		6CB8EB821F1CDDA900E3DB58 /* weather_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_gray.png; sourceTree = "<group>"; };
+		6CB8EB831F1CDDA900E3DB58 /* weather_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_gray@2x.png"; sourceTree = "<group>"; };
+		6CB8EB841F1CDDA900E3DB58 /* weather_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_gray@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2984,6 +2996,7 @@
 		6C65CEA81F0C703D009A9FDD /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				6CB8EB721F1CD8C600E3DB58 /* tab */,
 				6C65CEC51F0C7A94009A9FDD /* pty */,
 				6C65CEB21F0C7851009A9FDD /* sky */,
 				6C65CEA91F0C704A009A9FDD /* Dust */,
@@ -3073,6 +3086,19 @@
 				6CA20DE81ECDC3EA00D13528 /* UtilTest.swift */,
 			);
 			path = AudioWeatherTests;
+			sourceTree = "<group>";
+		};
+		6CB8EB721F1CD8C600E3DB58 /* tab */ = {
+			isa = PBXGroup;
+			children = (
+				6CB8EB7C1F1CDDA900E3DB58 /* bell_gray.png */,
+				6CB8EB7D1F1CDDA900E3DB58 /* bell_gray@2x.png */,
+				6CB8EB7E1F1CDDA900E3DB58 /* bell_gray@3x.png */,
+				6CB8EB821F1CDDA900E3DB58 /* weather_gray.png */,
+				6CB8EB831F1CDDA900E3DB58 /* weather_gray@2x.png */,
+				6CB8EB841F1CDDA900E3DB58 /* weather_gray@3x.png */,
+			);
+			name = tab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3177,6 +3203,7 @@
 				6C4E6B581ED70BA4002F0B27 /* max_temp_pls46.mp3 in Resources */,
 				6C4E6C8C1ED70BA5002F0B27 /* 26d.mp3 in Resources */,
 				6C4E6A881ED70BA4002F0B27 /* rna10.mp3 in Resources */,
+				6CB8EB8F1F1CDDA900E3DB58 /* weather_gray@2x.png in Resources */,
 				6C4E6CFF1ED70BA5002F0B27 /* min45.mp3 in Resources */,
 				6C4E6B9A1ED70BA5002F0B27 /* city_dj5.mp3 in Resources */,
 				6C4E6A901ED70BA4002F0B27 /* rna135.mp3 in Resources */,
@@ -3254,6 +3281,7 @@
 				6C4E6AA21ED70BA4002F0B27 /* rna80.mp3 in Resources */,
 				6C4E6CB31ED70BA5002F0B27 /* 2019y.mp3 in Resources */,
 				6C4E6A4B1ED70BA4002F0B27 /* current_hour_12am.mp3 in Resources */,
+				6CB8EB8A1F1CDDA900E3DB58 /* bell_gray@3x.png in Resources */,
 				6C4E6A821ED70BA4002F0B27 /* pop80.mp3 in Resources */,
 				6C4E6A991ED70BA4002F0B27 /* rna40.mp3 in Resources */,
 				6C4E6AF71ED70BA4002F0B27 /* current_temp_pls31.mp3 in Resources */,
@@ -3277,6 +3305,7 @@
 				6C4E6A361ED70BA4002F0B27 /* humidity85.mp3 in Resources */,
 				6C4E6A8E1ED70BA4002F0B27 /* rna125.mp3 in Resources */,
 				6C4E6C231ED70BA5002F0B27 /* city_ky23.mp3 in Resources */,
+				6CB8EB881F1CDDA900E3DB58 /* bell_gray.png in Resources */,
 				6C4E6C2D1ED70BA5002F0B27 /* city_ky32.mp3 in Resources */,
 				6C4E6B701ED70BA4002F0B27 /* empty15.mp3 in Resources */,
 				6C4D83681EDAC2D400227579 /* tiny_dust_unknown.mp3 in Resources */,
@@ -3620,6 +3649,7 @@
 				6C4E6BA01ED70BA5002F0B27 /* city_ic5.mp3 in Resources */,
 				6C4E6C5A1ED70BA5002F0B27 /* city_se15.mp3 in Resources */,
 				6C4E6A651ED70BA4002F0B27 /* from_hour_12am.mp3 in Resources */,
+				6CB8EB901F1CDDA900E3DB58 /* weather_gray@3x.png in Resources */,
 				6C4E6A741ED70BA4002F0B27 /* from_hour_7pm.mp3 in Resources */,
 				6C4E6A7B1ED70BA4002F0B27 /* pop100.mp3 in Resources */,
 				6C8BDBBB1EB6F8D2001EA059 /* LaunchScreen.storyboard in Resources */,
@@ -3636,6 +3666,7 @@
 				6C4E6BEB1ED70BA5002F0B27 /* city_kn1.mp3 in Resources */,
 				6C4E6CCE1ED70BA5002F0B27 /* hour_pm12.mp3 in Resources */,
 				6C4E6D001ED70BA5002F0B27 /* min46.mp3 in Resources */,
+				6CB8EB8E1F1CDDA900E3DB58 /* weather_gray.png in Resources */,
 				6C4E6C6D1ED70BA5002F0B27 /* city_sj1.mp3 in Resources */,
 				6C4E6BC71ED70BA5002F0B27 /* city_jn4.mp3 in Resources */,
 				6C4E6A7D1ED70BA4002F0B27 /* pop30.mp3 in Resources */,
@@ -3815,6 +3846,7 @@
 				6C4D83461EDABAD400227579 /* will_rna10.mp3 in Resources */,
 				6C4E6C021ED70BA5002F0B27 /* city_kw1.mp3 in Resources */,
 				6C4D83601EDABAD400227579 /* will_rna85.mp3 in Resources */,
+				6CB8EB891F1CDDA900E3DB58 /* bell_gray@2x.png in Resources */,
 				6C4E6C9A1ED70BA5002F0B27 /* current_allday.mp3 in Resources */,
 				6C4E6B3C1ED70BA4002F0B27 /* max_temp_pls20.mp3 in Resources */,
 				6C4E6AC11ED70BA4002F0B27 /* current_temp_min10.mp3 in Resources */,

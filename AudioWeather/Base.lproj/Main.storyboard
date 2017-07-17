@@ -405,7 +405,7 @@
         <scene sceneID="OWn-4y-rA7">
             <objects>
                 <navigationController title="Alarm Navigation" automaticallyAdjustsScrollViewInsets="NO" id="vke-JV-8l4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Alarm" id="k2W-G8-U4j"/>
+                    <tabBarItem key="tabBarItem" title="Alarm" image="bell_gray.png" selectedImage="bell_gray.png" id="k2W-G8-U4j"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="x0H-km-cLf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -662,7 +662,7 @@
         <scene sceneID="GGc-7V-s1j">
             <objects>
                 <navigationController title="Weather Navigation" id="1ib-Vc-sgZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weather" id="Qy9-he-BTW"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="weather_gray.png" selectedImage="weather_gray.png" id="Qy9-he-BTW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qkz-BZ-A5H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -695,6 +695,10 @@
             <point key="canvasLocation" x="-289" y="107"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bell_gray.png" width="25" height="25"/>
+        <image name="weather_gray.png" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PQf-4b-WEb"/>
     </inferredMetricsTieBreakers>
