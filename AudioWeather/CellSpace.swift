@@ -11,7 +11,6 @@ import UIKit
 class CellSpace: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var title: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +36,18 @@ class CellSpace: UITableViewCell {
         constraint.priority = 999
         
         self.stackView.addArrangedSubview(view)
+    }
+    
+    
+    
+    func updateLabel(){
+        
+        let label = UILabel()
+        label.textAlignment = NSTextAlignment.left
+        label.text = "단기"
+        label.textColor = UIColor.darkGray
+        label.font = label.font.withSize(15)
+        self.stackView.addArrangedSubview(label)
     }
     
     
@@ -69,13 +80,13 @@ class CellSpace: UITableViewCell {
             
         
             self.isHidden = false
+            
+            updateLabel()
         
             for data in dataList{
                 
                 updateData(data:data)
             }
-            
-            self.title.text = "단기"
         }
     }
 

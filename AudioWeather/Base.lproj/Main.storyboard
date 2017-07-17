@@ -438,17 +438,6 @@
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AjZ-W7-GDw">
                                             <rect key="frame" x="20" y="8" width="335" height="27"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z71-Nd-F4U">
-                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fS4-9o-75h">
-                                                    <rect key="frame" x="0.0" y="4" width="335" height="23"/>
-                                                </stackView>
-                                            </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -459,8 +448,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="stackView" destination="fS4-9o-75h" id="HH4-BG-lLs"/>
-                                    <outlet property="title" destination="z71-Nd-F4U" id="abs-Wp-AJT"/>
+                                    <outlet property="stackView" destination="AjZ-W7-GDw" id="2ha-bn-Cdc"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellClosedID" id="xPU-av-lCy" customClass="CellClosed" customModule="AudioWeather" customModuleProvider="target">
@@ -472,17 +460,6 @@
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aaE-DZ-lDq">
                                             <rect key="frame" x="20" y="8" width="335" height="27"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="초단기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K64-mv-hxH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S8Q-vc-GXj">
-                                                    <rect key="frame" x="0.0" y="4" width="335" height="23"/>
-                                                </stackView>
-                                            </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -493,8 +470,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="stackView" destination="S8Q-vc-GXj" id="yv1-0P-dTL"/>
-                                    <outlet property="title" destination="K64-mv-hxH" id="W3Z-ua-FIA"/>
+                                    <outlet property="stackView" destination="aaE-DZ-lDq" id="pd8-CC-stR"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellCurrentID" id="HJJ-gB-RW9" customClass="CellCurrent" customModule="AudioWeather" customModuleProvider="target">

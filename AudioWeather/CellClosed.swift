@@ -11,7 +11,6 @@ import UIKit
 class CellClosed: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var title: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,8 +34,19 @@ class CellClosed: UITableViewCell {
         constraint.priority = 999
         
         self.stackView.addArrangedSubview(view)
+
     }
     
+    
+    func updateLabel(){
+        
+        let label = UILabel()
+        label.textAlignment = NSTextAlignment.left
+        label.text = "초단기"
+        label.textColor = UIColor.darkGray
+        label.font = label.font.withSize(15)
+        self.stackView.addArrangedSubview(label)
+    }
     
     
     func cleanAll(){
@@ -68,12 +78,12 @@ class CellClosed: UITableViewCell {
             
             self.isHidden = false
             
+            updateLabel()
+            
             for data in dataList{
                 
                 updateData(data:data)
             }
-            
-            self.title.text = "초단기"
         }
     }
 }
